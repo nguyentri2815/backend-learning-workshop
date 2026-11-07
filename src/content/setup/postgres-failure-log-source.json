@@ -1,0 +1,719 @@
+{
+  "version": 1,
+  "name": "08/11 · dev · PostgreSQL từ chối kết nối",
+  "file": "log-2.txt",
+  "sourceDate": "2026-11-08",
+  "sourceLines": 4950,
+  "sourceSha256": "2ce3bad902def90a90319d003c45c3660c7f39714bbabf59ea17bee92bf3a961",
+  "redaction": "Che đường dẫn máy, tên người dùng, PID, email, URL ngoài phạm vi và IP. Giữ localhost:5432 để đối chiếu đích PostgreSQL đã thử. Số dòng là số dòng gốc; khoảng trống là phần không trích.",
+  "contextNote": "Bối cảnh do người chạy cung cấp: đã chủ động tắt Docker khi thử. Đây là thông tin riêng, không phải kết luận suy ra từ Connection refused.",
+  "rows": [
+    {
+      "line": 112,
+      "text": "[INFO ] 2026-11-08 00:04:02.673 [main] AgentCommandServiceApplication - Starting AgentCommandServiceApplication using Java [IP đã che].2 with PID [đã che] ([đường dẫn đã che] started by [đã che] in [đường dẫn đã che])",
+      "group": "jvm",
+      "level": "INFO",
+      "representative": true
+    },
+    {
+      "line": 113,
+      "text": "[DEBUG] 2026-11-08 00:04:02.673 [main] AgentCommandServiceApplication - Running with Spring Boot v3.5.16, Spring v6.2.19",
+      "group": "jvm",
+      "level": "DEBUG",
+      "representative": false
+    },
+    {
+      "line": 114,
+      "text": "[INFO ] 2026-11-08 00:04:02.675 [main] AgentCommandServiceApplication - The following 1 profile is active: \"dev\"",
+      "group": "jvm",
+      "level": "INFO",
+      "representative": true
+    },
+    {
+      "line": 115,
+      "text": "[DEBUG] 2026-11-08 00:04:02.676 [main] SpringApplication - Loading source class com.alpaca.agent.AgentCommandServiceApplication",
+      "group": "jvm",
+      "level": "DEBUG",
+      "representative": false
+    },
+    {
+      "line": 116,
+      "text": "[DEBUG] 2026-11-08 00:04:02.834 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@67d86804",
+      "group": "jvm",
+      "level": "DEBUG",
+      "representative": false
+    },
+    {
+      "line": 182,
+      "text": "[INFO ] 2026-11-08 00:04:10.042 [main] HikariDataSource - HikariPool-1 - Starting...",
+      "group": "data",
+      "level": "INFO",
+      "representative": true
+    },
+    {
+      "line": 183,
+      "text": "[WARN ] 2026-11-08 00:04:11.157 [main] SqlExceptionHelper - SQL Error: 0, SQLState: 08001",
+      "group": "data",
+      "level": "WARN",
+      "representative": false
+    },
+    {
+      "line": 377,
+      "text": "Caused by: org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.",
+      "group": "data",
+      "level": "CAUSE",
+      "representative": true
+    },
+    {
+      "line": 378,
+      "text": "\tat org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:425) ~[postgresql-42.7.11.jar:42.7.11]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3377,
+      "text": "[ERROR] 2026-11-08 00:04:17.394 [main] SpringApplication - Application run failed",
+      "group": "outcome",
+      "level": "ERROR",
+      "representative": true
+    },
+    {
+      "line": 3378,
+      "text": "org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventHandlerBeanPostProcessor' defined in com.eventsourcing.configuration.client.EventuateJavaClientDomainEventsConfiguration: Unsatisfied dependency expressed through method 'eventHandlerBeanPostProcessor' parameter 0: Error creating bean with name 'eventDispatcherInitializer' defined in com.eventsourcing.configuration.client.EventuateJavaClientDomainEventsConfiguration: Unsatisfied dependency expressed through method 'eventDispatcherInitializer' parameter 0: Error creating bean with name 'eventHandlerProcessorEventHandlerContextReturningVoid' defined in com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration: Unsatisfied dependency expressed through method 'eventHandlerProcessorEventHandlerContextReturningVoid' parameter 0: Error creating bean with name 'aggregateEventStore' defined in com.eventsourcing.configuration.EventuateCommonConfiguration: Unsatisfied dependency expressed through method 'aggregateEventStore' parameter 0: Error creating bean with name 'eventuateAggregateStoreCrud' defined in com.eventsourcing.configuration.jdbc.EventuateCommonCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateAggregateStoreCrud' parameter 0: Error creating bean with name 'asyncAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'asyncAggregateCrud' parameter 0: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": true
+    },
+    {
+      "line": 3379,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3380,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3399,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventDispatcherInitializer' defined in com.eventsourcing.configuration.client.EventuateJavaClientDomainEventsConfiguration: Unsatisfied dependency expressed through method 'eventDispatcherInitializer' parameter 0: Error creating bean with name 'eventHandlerProcessorEventHandlerContextReturningVoid' defined in com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration: Unsatisfied dependency expressed through method 'eventHandlerProcessorEventHandlerContextReturningVoid' parameter 0: Error creating bean with name 'aggregateEventStore' defined in com.eventsourcing.configuration.EventuateCommonConfiguration: Unsatisfied dependency expressed through method 'aggregateEventStore' parameter 0: Error creating bean with name 'eventuateAggregateStoreCrud' defined in com.eventsourcing.configuration.jdbc.EventuateCommonCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateAggregateStoreCrud' parameter 0: Error creating bean with name 'asyncAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'asyncAggregateCrud' parameter 0: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3400,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3401,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3410,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventDispatcherInitializer' defined in com.eventsourcing.configuration.client.EventuateJavaClientDomainEventsConfiguration: Unsatisfied dependency expressed through method 'eventDispatcherInitializer' parameter 0: Error creating bean with name 'eventHandlerProcessorEventHandlerContextReturningVoid' defined in com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration: Unsatisfied dependency expressed through method 'eventHandlerProcessorEventHandlerContextReturningVoid' parameter 0: Error creating bean with name 'aggregateEventStore' defined in com.eventsourcing.configuration.EventuateCommonConfiguration: Unsatisfied dependency expressed through method 'aggregateEventStore' parameter 0: Error creating bean with name 'eventuateAggregateStoreCrud' defined in com.eventsourcing.configuration.jdbc.EventuateCommonCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateAggregateStoreCrud' parameter 0: Error creating bean with name 'asyncAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'asyncAggregateCrud' parameter 0: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3411,
+      "text": "",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3412,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3417,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventHandlerProcessorEventHandlerContextReturningVoid' defined in com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration: Unsatisfied dependency expressed through method 'eventHandlerProcessorEventHandlerContextReturningVoid' parameter 0: Error creating bean with name 'aggregateEventStore' defined in com.eventsourcing.configuration.EventuateCommonConfiguration: Unsatisfied dependency expressed through method 'aggregateEventStore' parameter 0: Error creating bean with name 'eventuateAggregateStoreCrud' defined in com.eventsourcing.configuration.jdbc.EventuateCommonCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateAggregateStoreCrud' parameter 0: Error creating bean with name 'asyncAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'asyncAggregateCrud' parameter 0: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3418,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3419,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3432,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventHandlerProcessorEventHandlerContextReturningVoid' defined in com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration: Unsatisfied dependency expressed through method 'eventHandlerProcessorEventHandlerContextReturningVoid' parameter 0: Error creating bean with name 'aggregateEventStore' defined in com.eventsourcing.configuration.EventuateCommonConfiguration: Unsatisfied dependency expressed through method 'aggregateEventStore' parameter 0: Error creating bean with name 'eventuateAggregateStoreCrud' defined in com.eventsourcing.configuration.jdbc.EventuateCommonCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateAggregateStoreCrud' parameter 0: Error creating bean with name 'asyncAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'asyncAggregateCrud' parameter 0: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3433,
+      "text": "",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3434,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1726) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3452,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'aggregateEventStore' defined in com.eventsourcing.configuration.EventuateCommonConfiguration: Unsatisfied dependency expressed through method 'aggregateEventStore' parameter 0: Error creating bean with name 'eventuateAggregateStoreCrud' defined in com.eventsourcing.configuration.jdbc.EventuateCommonCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateAggregateStoreCrud' parameter 0: Error creating bean with name 'asyncAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'asyncAggregateCrud' parameter 0: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3453,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3454,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3486,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'aggregateEventStore' defined in com.eventsourcing.configuration.EventuateCommonConfiguration: Unsatisfied dependency expressed through method 'aggregateEventStore' parameter 0: Error creating bean with name 'eventuateAggregateStoreCrud' defined in com.eventsourcing.configuration.jdbc.EventuateCommonCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateAggregateStoreCrud' parameter 0: Error creating bean with name 'asyncAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'asyncAggregateCrud' parameter 0: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3487,
+      "text": "",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3488,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3501,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventuateAggregateStoreCrud' defined in com.eventsourcing.configuration.jdbc.EventuateCommonCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateAggregateStoreCrud' parameter 0: Error creating bean with name 'asyncAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'asyncAggregateCrud' parameter 0: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3502,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3503,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3562,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'asyncAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'asyncAggregateCrud' parameter 0: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3563,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3564,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3565,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventuateAggregateStoreCrud' defined in com.eventsourcing.configuration.jdbc.EventuateCommonCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateAggregateStoreCrud' parameter 0: Error creating bean with name 'asyncAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'asyncAggregateCrud' parameter 0: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3566,
+      "text": "",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3567,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3628,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'asyncAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'asyncAggregateCrud' parameter 0: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3629,
+      "text": "",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3630,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3641,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3642,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3643,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3705,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventuateLocalAggregateCrud' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'eventuateLocalAggregateCrud' parameter 0: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3706,
+      "text": "",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3707,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3732,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3733,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3734,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3795,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventuateTransactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateTransactionTemplateConfiguration: Unsatisfied dependency expressed through method 'eventuateTransactionTemplate' parameter 0: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3796,
+      "text": "",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3797,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3837,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3838,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3839,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3901,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionTemplate' defined in com.eventsourcing.configuration.jdbc.EventuateLocalCrudConfiguration: Unsatisfied dependency expressed through method 'transactionTemplate' parameter 0: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3902,
+      "text": "",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3903,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3955,
+      "text": "Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3956,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:613) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3957,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4020,
+      "text": "Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 4021,
+      "text": "",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4022,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4083,
+      "text": "Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "data",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 4084,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1824) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4085,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4147,
+      "text": "Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "data",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 4148,
+      "text": "",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4149,
+      "text": "\tat org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4227,
+      "text": "Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "data",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 4228,
+      "text": "\tat org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:431) ~[spring-orm-6.2.19.jar:6.2.19]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4229,
+      "text": "\tat org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.19.jar:6.2.19]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4291,
+      "text": "Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "data",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 4292,
+      "text": "",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4293,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4375,
+      "text": "Caused by: org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "data",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 4376,
+      "text": "\tat org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100) ~[hibernate-core-6.6.53.Final.jar:6.6.53.Final]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4377,
+      "text": "\tat org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.6.53.Final.jar:6.6.53.Final]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4439,
+      "text": "Caused by: org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]",
+      "group": "data",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 4440,
+      "text": "",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4441,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4547,
+      "text": "Caused by: org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.",
+      "group": "data",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 4548,
+      "text": "\tat org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:425) ~[postgresql-42.7.11.jar:42.7.11]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4549,
+      "text": "\tat org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:52) ~[postgresql-42.7.11.jar:42.7.11]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4611,
+      "text": "Caused by: org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.",
+      "group": "data",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 4612,
+      "text": "",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4613,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4729,
+      "text": "Caused by: java.net.ConnectException: Connection refused: getsockopt",
+      "group": "data",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 4730,
+      "text": "\tat java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4731,
+      "text": "\tat java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694) ~[?:?]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4793,
+      "text": "Caused by: java.net.ConnectException: Connection refused: getsockopt",
+      "group": "data",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 4794,
+      "text": "",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4795,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4936,
+      "text": "> Task :workspaces:agent-service:1-agent-command-service:com.alpaca.agent.AgentCommandServiceApplication.main() FAILED",
+      "group": "shutdown",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4938,
+      "text": "Execution failed for task ':workspaces:agent-service:1-agent-command-service:com.alpaca.agent.AgentCommandServiceApplication.main()'.",
+      "group": "shutdown",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 4939,
+      "text": "> Process 'command '[đường dẫn đã che]'' finished with non-zero exit value 1",
+      "group": "shutdown",
+      "level": "TRACE",
+      "representative": true
+    },
+    {
+      "line": 4949,
+      "text": "BUILD FAILED in 26s",
+      "group": "shutdown",
+      "level": "TRACE",
+      "representative": true
+    }
+  ]
+}

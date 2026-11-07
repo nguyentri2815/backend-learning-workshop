@@ -1,0 +1,339 @@
+{
+  "version": 1,
+  "checkedAt": "2026-11-07T11:04:37.257Z",
+  "scope": "Selected source excerpts, read-only comparison. Loopback Redis URLs are retained for address tracing; no credentials or personal paths are included. Runtime override provenance on 07/11 remains unconfirmed.",
+  "refs": {
+    "client": {
+      "path": "workspaces/1-shared/shared-cache/src/main/java/com/alpaca/config/SpringCacheConfig.java",
+      "from": 22,
+      "to": 61,
+      "sha256": "55f03ac12273d66c086a756c49eb58c0cf478867fbfd33c5bf47c8d2899eaca7",
+      "rows": [
+        {
+          "line": 22,
+          "text": "@Configuration"
+        },
+        {
+          "line": 23,
+          "text": "@EnableCaching"
+        },
+        {
+          "line": 24,
+          "text": "@Setter"
+        },
+        {
+          "line": 25,
+          "text": "public class SpringCacheConfig {"
+        },
+        {
+          "line": 26,
+          "text": "    @Value(\"${cache.redis:redis://localhost:6379}\")"
+        },
+        {
+          "line": 27,
+          "text": "    private String redisUrl;"
+        },
+        {
+          "line": 28,
+          "text": "    @Value(\"${cache.redis-session:redis://localhost:6379}\")"
+        },
+        {
+          "line": 29,
+          "text": "    private String redisSessionUrl;"
+        },
+        {
+          "line": 30,
+          "text": "    @Value(\"${cache.redis-persistent:redis://localhost:6379}\")"
+        },
+        {
+          "line": 31,
+          "text": "    private String redisPersistentUrl;"
+        },
+        {
+          "line": 32,
+          "text": ""
+        },
+        {
+          "line": 33,
+          "text": "    @Bean(name = \"redissonClient\", destroyMethod = \"shutdown\")"
+        },
+        {
+          "line": 34,
+          "text": "    @Primary"
+        },
+        {
+          "line": 35,
+          "text": "    RedissonClient redisson() {"
+        },
+        {
+          "line": 36,
+          "text": "        Config config = new Config();"
+        },
+        {
+          "line": 37,
+          "text": "        config.useSingleServer()"
+        },
+        {
+          "line": 38,
+          "text": "                .setAddress(redisUrl);"
+        },
+        {
+          "line": 39,
+          "text": "        return Redisson.create(config);"
+        },
+        {
+          "line": 40,
+          "text": "    }"
+        },
+        {
+          "line": 41,
+          "text": ""
+        },
+        {
+          "line": 42,
+          "text": "    @Bean(name = \"redissonPersistentClient\", destroyMethod = \"shutdown\")"
+        },
+        {
+          "line": 43,
+          "text": "    RedissonClient redissonPersistent() {"
+        },
+        {
+          "line": 44,
+          "text": "        Config config = new Config();"
+        },
+        {
+          "line": 45,
+          "text": "        config.useSingleServer()"
+        },
+        {
+          "line": 46,
+          "text": "                .setAddress(redisPersistentUrl);"
+        },
+        {
+          "line": 47,
+          "text": "        return Redisson.create(config);"
+        },
+        {
+          "line": 48,
+          "text": "    }"
+        },
+        {
+          "line": 49,
+          "text": "    @Bean(name = \"redissonSessionClient\", destroyMethod = \"shutdown\")"
+        },
+        {
+          "line": 50,
+          "text": "    RedissonClient redissonSession() {"
+        },
+        {
+          "line": 51,
+          "text": "        Config config = new Config();"
+        },
+        {
+          "line": 52,
+          "text": "        config.useSingleServer()"
+        },
+        {
+          "line": 53,
+          "text": "                .setAddress(redisSessionUrl);"
+        },
+        {
+          "line": 54,
+          "text": "        return Redisson.create(config);"
+        },
+        {
+          "line": 55,
+          "text": "    }"
+        },
+        {
+          "line": 56,
+          "text": ""
+        },
+        {
+          "line": 57,
+          "text": "    @Bean"
+        },
+        {
+          "line": 58,
+          "text": "    ALPSpringCacheManager cacheManager(@Qualifier(\"redissonClient\") RedissonClient redissonClient, ObjectMapper objectMapper) {"
+        },
+        {
+          "line": 59,
+          "text": "        Codec codec = new JsonJacksonCodec(objectMapper);"
+        },
+        {
+          "line": 60,
+          "text": "        Map<String, CacheConfig> config = new ConcurrentHashMap<>();"
+        },
+        {
+          "line": 61,
+          "text": "        return new ALPSpringCacheManager(redissonClient, config, codec);"
+        }
+      ]
+    },
+    "base": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application.yml",
+      "from": 118,
+      "to": 121,
+      "sha256": "76262f03d968756b9906d64ea8116cc5ff7d121305e945419f5ffd1e9e4c85fb",
+      "rows": [
+        {
+          "line": 118,
+          "text": "cache:"
+        },
+        {
+          "line": 119,
+          "text": "  redis: redis://localhost:6379"
+        },
+        {
+          "line": 120,
+          "text": "  redis-persistent: redis://localhost:6379"
+        },
+        {
+          "line": 121,
+          "text": "  redis-session: redis://localhost:6379"
+        }
+      ]
+    },
+    "dev": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+      "from": 118,
+      "to": 121,
+      "sha256": "55ef0453bcfbdc281397a8f682c1ba7cfc7d0e4fc4ace030adac94aad64c06a4",
+      "rows": [
+        {
+          "line": 118,
+          "text": "cache:"
+        },
+        {
+          "line": 119,
+          "text": "  redis: redis://localhost:6379"
+        },
+        {
+          "line": 120,
+          "text": "  redis-persistent: redis://localhost:6379"
+        },
+        {
+          "line": 121,
+          "text": "  redis-session: redis://localhost:6379"
+        }
+      ]
+    },
+    "queue": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/action/QueueHandler.java",
+      "from": 65,
+      "to": 73,
+      "sha256": "62566c8d00ac3a59d3cc3a541208df22e69eca134c74ded6452a9eb9303f26e5",
+      "rows": [
+        {
+          "line": 65,
+          "text": "@Setter"
+        },
+        {
+          "line": 66,
+          "text": "@Component"
+        },
+        {
+          "line": 67,
+          "text": "@AllArgsConstructor"
+        },
+        {
+          "line": 68,
+          "text": "public class QueueHandler extends BaseObjectLoggable {"
+        },
+        {
+          "line": 69,
+          "text": ""
+        },
+        {
+          "line": 70,
+          "text": "    @Autowired"
+        },
+        {
+          "line": 71,
+          "text": "    protected ApplicationContext applicationContext;"
+        },
+        {
+          "line": 72,
+          "text": "    private final SharedGlobalConfigService sharedGlobalConfigService;"
+        },
+        {
+          "line": 73,
+          "text": "    private final ObjectMapper objectMapper;"
+        }
+      ]
+    },
+    "shared": {
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/service/SharedGlobalConfigService.java",
+      "from": 51,
+      "to": 56,
+      "sha256": "5c117493ce57cdea2541f0ac81ce17ec1377e3933ac6c5c9571448e313e104cd",
+      "rows": [
+        {
+          "line": 51,
+          "text": "    public SharedGlobalConfigService(PlatformCacheConfig platformCacheConfig,"
+        },
+        {
+          "line": 52,
+          "text": "                                     PublicSsoApi publicSsoApi,"
+        },
+        {
+          "line": 53,
+          "text": "                                     InternalSPCommandApi internalSPCommandApi) {"
+        },
+        {
+          "line": 54,
+          "text": "        this.platformCacheConfig = platformCacheConfig;"
+        },
+        {
+          "line": 55,
+          "text": "        this.publicSsoApi = publicSsoApi;"
+        },
+        {
+          "line": 56,
+          "text": "        this.internalSPCommandApi = internalSPCommandApi;"
+        }
+      ]
+    },
+    "platform": {
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/config/PlatformCacheConfig.java",
+      "from": 32,
+      "to": 39,
+      "sha256": "8603558387e1522f3d4ed0a2bede6cbf1be5d366dea236e7e4ca658eb1038ff4",
+      "rows": [
+        {
+          "line": 32,
+          "text": "    public PlatformCacheConfig(ALPSpringCacheManager manager,"
+        },
+        {
+          "line": 33,
+          "text": "                               @Qualifier(\"redissonClient\") RedissonClient redissonClient,"
+        },
+        {
+          "line": 34,
+          "text": "                               @Qualifier(\"redissonPersistentClient\") RedissonClient redissonPersistentClient) {"
+        },
+        {
+          "line": 35,
+          "text": "        lstUserLogin = redissonClient.getSet(\"list-user-login\");"
+        },
+        {
+          "line": 36,
+          "text": "        globalConfig = redissonClient.getMap(\"global-config-cache\");"
+        },
+        {
+          "line": 37,
+          "text": "        product = redissonClient.getMap(\"core-system-product\");"
+        },
+        {
+          "line": 38,
+          "text": "        productHaveUsed = redissonClient.getMap(\"core-system-product-have-use\");"
+        },
+        {
+          "line": 39,
+          "text": "        refIdPayment = manager.createCache(\"refId-payment-order\", new CacheConfig(600 * 1000, 600 * 1000));"
+        }
+      ]
+    }
+  }
+}

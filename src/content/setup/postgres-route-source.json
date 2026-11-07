@@ -1,0 +1,375 @@
+{
+  "version": 1,
+  "checkedAt": "2026-11-07T12:36:49.476Z",
+  "scope": "Reviewed source excerpts only. Credentials and the non-loopback base host are redacted. Source snapshots do not establish the effective JDBC URL or execution of a business query in the 07/11 run.",
+  "refs": {
+    "controller": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/GlobalConfigController.java",
+      "from": 16,
+      "to": 24,
+      "sha256": "a624e7104b89b4e33c71381f31a4d6c7cabdd865f40c5c83654da628aa200cf8",
+      "rows": [
+        {
+          "line": 16,
+          "text": "@Setter"
+        },
+        {
+          "line": 17,
+          "text": "@RestController"
+        },
+        {
+          "line": 18,
+          "text": "@RequestMapping(\"global-config\")"
+        },
+        {
+          "line": 19,
+          "text": "public class GlobalConfigController extends BaseController {"
+        },
+        {
+          "line": 20,
+          "text": ""
+        },
+        {
+          "line": 21,
+          "text": "    @GetMapping(value = \"/load-all\")"
+        },
+        {
+          "line": 22,
+          "text": "    public CompletableFuture<WrapResponse<Object>> loadAllConfig() {"
+        },
+        {
+          "line": 23,
+          "text": "        return CompletableFuture.supplyAsync(() -> WrapResponse.ok(applicationContext.getBean(GlobalConfigFunc.class).getAllConfig()), executorService);"
+        },
+        {
+          "line": 24,
+          "text": "    }"
+        }
+      ]
+    },
+    "service": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/global_config/GlobalConfigFunc.java",
+      "from": 25,
+      "to": 60,
+      "sha256": "c15ee04b4299579bdaadcca1ac1b8af91ce08ad4fb4329fb67790a75c17a5a7b",
+      "rows": [
+        {
+          "line": 25,
+          "text": "@Component"
+        },
+        {
+          "line": 26,
+          "text": "@AllArgsConstructor"
+        },
+        {
+          "line": 27,
+          "text": "public class GlobalConfigFunc extends BaseFunc {"
+        },
+        {
+          "line": 28,
+          "text": "    private final PlatformCacheConfig platformCacheConfig;"
+        },
+        {
+          "line": 29,
+          "text": "    private final ConfigRepository configRepository;"
+        },
+        {
+          "line": 30,
+          "text": "    private final InitConfig initConfig;"
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "    public GlobalConfigModel getConfig(String key) {"
+        },
+        {
+          "line": 33,
+          "text": "//        initConfig.reloadGlobalConfig();"
+        },
+        {
+          "line": 34,
+          "text": "        return platformCacheConfig.getGlobalConfig().get(key);"
+        },
+        {
+          "line": 35,
+          "text": "    }"
+        },
+        {
+          "line": 36,
+          "text": ""
+        },
+        {
+          "line": 37,
+          "text": "    public Map<String, GlobalConfigModel> getMultiConfig(Set<String> keys) {"
+        },
+        {
+          "line": 38,
+          "text": "//        initConfig.reloadGlobalConfig();"
+        },
+        {
+          "line": 39,
+          "text": "        if (keys == null || keys.isEmpty()) {"
+        },
+        {
+          "line": 40,
+          "text": "            return new HashMap<>();"
+        },
+        {
+          "line": 41,
+          "text": "        }"
+        },
+        {
+          "line": 42,
+          "text": "        return platformCacheConfig.getGlobalConfig().getAll(keys);"
+        },
+        {
+          "line": 43,
+          "text": "    }"
+        },
+        {
+          "line": 44,
+          "text": ""
+        },
+        {
+          "line": 45,
+          "text": "    public Map<String, GlobalConfigModel> getAllConfig() {"
+        },
+        {
+          "line": 46,
+          "text": "        Map<String, GlobalConfigModel> map = new HashMap<>();"
+        },
+        {
+          "line": 47,
+          "text": "        Set<Map.Entry<String, GlobalConfigModel>> allConfig = platformCacheConfig.getGlobalConfig().entrySet();"
+        },
+        {
+          "line": 48,
+          "text": "        if (allConfig.isEmpty()) {"
+        },
+        {
+          "line": 49,
+          "text": "            List<ConfigAggregate> lst = configRepository.findAll();"
+        },
+        {
+          "line": 50,
+          "text": "            for (ConfigAggregate entity : lst) {"
+        },
+        {
+          "line": 51,
+          "text": "                GlobalConfigModel configModel = MappingUtils.mapObject(entity, GlobalConfigModel.class);"
+        },
+        {
+          "line": 52,
+          "text": "                map.put(entity.getKey(), convertDataToObject(configModel, entity.getValue()));"
+        },
+        {
+          "line": 53,
+          "text": "            }"
+        },
+        {
+          "line": 54,
+          "text": "        } else {"
+        },
+        {
+          "line": 55,
+          "text": "            for (Map.Entry<String, GlobalConfigModel> entity : allConfig) {"
+        },
+        {
+          "line": 56,
+          "text": "                map.put(entity.getKey(), entity.getValue());"
+        },
+        {
+          "line": 57,
+          "text": "            }"
+        },
+        {
+          "line": 58,
+          "text": "        }"
+        },
+        {
+          "line": 59,
+          "text": "        return map;"
+        },
+        {
+          "line": 60,
+          "text": "    }"
+        }
+      ]
+    },
+    "repository": {
+      "path": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/repository/ConfigRepository.java",
+      "from": 1,
+      "to": 11,
+      "sha256": "fac9f1645a0449a13605911f2b72e677571745a44a826a57b4ed3c393356ebb2",
+      "rows": [
+        {
+          "line": 1,
+          "text": "package com.alpaca.agent.repository;"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "import com.alpaca.agent.domain.ConfigAggregate;"
+        },
+        {
+          "line": 4,
+          "text": "import org.springframework.data.jpa.repository.JpaRepository;"
+        },
+        {
+          "line": 5,
+          "text": ""
+        },
+        {
+          "line": 6,
+          "text": "import java.util.Optional;"
+        },
+        {
+          "line": 7,
+          "text": ""
+        },
+        {
+          "line": 8,
+          "text": "public interface ConfigRepository extends JpaRepository<ConfigAggregate, String> {"
+        },
+        {
+          "line": 9,
+          "text": "    Optional<ConfigAggregate> findByKey(String key);"
+        },
+        {
+          "line": 10,
+          "text": "    long countByKey(String key);"
+        },
+        {
+          "line": 11,
+          "text": "}"
+        }
+      ]
+    },
+    "entity": {
+      "path": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/domain/ConfigAggregate.java",
+      "from": 20,
+      "to": 27,
+      "sha256": "edc37747f542dbadc273b7ce35ea1683f7e1d3daec3099adb5a984fce70ac860",
+      "rows": [
+        {
+          "line": 20,
+          "text": "@Entity"
+        },
+        {
+          "line": 21,
+          "text": "@Table(name = \"config_aggregate\")"
+        },
+        {
+          "line": 22,
+          "text": "public class ConfigAggregate {"
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "    @Id"
+        },
+        {
+          "line": 25,
+          "text": "    @Column(length = 100)"
+        },
+        {
+          "line": 26,
+          "text": "    private String key;"
+        },
+        {
+          "line": 27,
+          "text": "    private String name;"
+        }
+      ]
+    },
+    "base": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application.yml",
+      "from": 30,
+      "to": 34,
+      "sha256": "76262f03d968756b9906d64ea8116cc5ff7d121305e945419f5ffd1e9e4c85fb",
+      "rows": [
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "    # [đã che thông tin nhạy cảm]"
+        },
+        {
+          "line": 33,
+          "text": "    url: jdbc:postgresql://[host đã che]/rnd"
+        },
+        {
+          "line": 34,
+          "text": "    # [đã che thông tin nhạy cảm]"
+        }
+      ]
+    },
+    "dev": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+      "from": 30,
+      "to": 34,
+      "sha256": "55ef0453bcfbdc281397a8f682c1ba7cfc7d0e4fc4ace030adac94aad64c06a4",
+      "rows": [
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "    # [đã che thông tin nhạy cảm]"
+        },
+        {
+          "line": 33,
+          "text": "    url: jdbc:postgresql://${DOCKER_HOST_IP:localhost}/alpaca-event"
+        },
+        {
+          "line": 34,
+          "text": "    # [đã che thông tin nhạy cảm]"
+        }
+      ]
+    },
+    "compose": {
+      "path": "docker-compose-env.yml",
+      "from": 77,
+      "to": 80,
+      "sha256": "34205d1b10b8efa458df251e60578df00046fa54e50bb72fd824c0d1d73605f7",
+      "rows": [
+        {
+          "line": 77,
+          "text": "  postgres-write:"
+        },
+        {
+          "line": 78,
+          "text": "    build: docker/postgres"
+        },
+        {
+          "line": 79,
+          "text": "    ports:"
+        },
+        {
+          "line": 80,
+          "text": "      - 5432:5432"
+        }
+      ]
+    }
+  }
+}

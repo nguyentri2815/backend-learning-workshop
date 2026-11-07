@@ -1,0 +1,2063 @@
+{
+  "version": 1,
+  "name": "Phiên lỗi thật · 07/11/2026 16:09 · default",
+  "file": "log-start-command.txt",
+  "sourceDate": "2026-11-07",
+  "sourceLines": 3499,
+  "sourceSha256": "671639be3f5a570032af0479fd8822ad499f977f1adab6dca579b48a627bada6",
+  "redaction": "Che đường dẫn máy, tên người dùng, PID và thông tin nhạy cảm; giữ loopback 127.0.0.1:6379 để học đối chiếu địa chỉ. Trích đoạn giữ nguyên số dòng gốc; khoảng trống là đoạn không trích.",
+  "eventLine": 151,
+  "rows": [
+    {
+      "line": 112,
+      "text": "[INFO ] 2026-11-07 16:09:19.771 [main] AgentCommandServiceApplication - Starting AgentCommandServiceApplication using Java 21.0.13.0.2 with PID [đã che] ([đường dẫn đã che] started by [đã che] in [đường dẫn đã che])",
+      "group": "jvm",
+      "level": "INFO",
+      "representative": true
+    },
+    {
+      "line": 113,
+      "text": "[DEBUG] 2026-11-07 16:09:19.771 [main] AgentCommandServiceApplication - Running with Spring Boot v3.5.16, Spring v6.2.19",
+      "group": "jvm",
+      "level": "DEBUG",
+      "representative": false
+    },
+    {
+      "line": 114,
+      "text": "[INFO ] 2026-11-07 16:09:19.772 [main] AgentCommandServiceApplication - No active profile set, falling back to 1 default profile: \"default\"",
+      "group": "jvm",
+      "level": "INFO",
+      "representative": true
+    },
+    {
+      "line": 115,
+      "text": "[DEBUG] 2026-11-07 16:09:19.774 [main] SpringApplication - Loading source class com.alpaca.agent.AgentCommandServiceApplication",
+      "group": "jvm",
+      "level": "DEBUG",
+      "representative": false
+    },
+    {
+      "line": 116,
+      "text": "[DEBUG] 2026-11-07 16:09:19.986 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5aae8eb5",
+      "group": "jvm",
+      "level": "DEBUG",
+      "representative": false
+    },
+    {
+      "line": 151,
+      "text": "[WARN ] 2026-11-07 16:09:30.544 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration' of type [com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [eventHandlerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.",
+      "group": "events",
+      "level": "WARN",
+      "representative": true
+    },
+    {
+      "line": 183,
+      "text": "[INFO ] 2026-11-07 16:09:32.785 [main] HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4e111e08",
+      "group": "data",
+      "level": "INFO",
+      "representative": true
+    },
+    {
+      "line": 184,
+      "text": "[INFO ] 2026-11-07 16:09:32.790 [main] HikariDataSource - HikariPool-1 - Start completed.",
+      "group": "data",
+      "level": "INFO",
+      "representative": true
+    },
+    {
+      "line": 187,
+      "text": "\tDatabase JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']",
+      "group": "data",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 280,
+      "text": "[INFO ] 2026-11-07 16:09:40.740 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'",
+      "group": "data",
+      "level": "INFO",
+      "representative": true
+    },
+    {
+      "line": 331,
+      "text": "[INFO ] 2026-11-07 16:09:42.063 [main] TomcatWebServer - Tomcat initialized with port 9901 (http)",
+      "group": "web",
+      "level": "INFO",
+      "representative": true
+    },
+    {
+      "line": 336,
+      "text": "[DEBUG] 2026-11-07 16:09:42.268 [main] ServletWebServerApplicationContext - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]",
+      "group": "web",
+      "level": "DEBUG",
+      "representative": false
+    },
+    {
+      "line": 346,
+      "text": "[INFO ] 2026-11-07 16:09:43.666 [main] Version - Redisson 3.17.4",
+      "group": "clients",
+      "level": "INFO",
+      "representative": true
+    },
+    {
+      "line": 347,
+      "text": "[WARN ] 2026-11-07 16:09:44.552 [main] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'queueHandler' defined in file [[đường dẫn đã che]]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'sharedGlobalConfigService' defined in file [[đường dẫn đã che]]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'platformCacheConfig' defined in file [[đường dẫn đã che]]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'cacheManager' defined in class path resource [com/alpaca/config/SpringCacheConfig.class]: Unsatisfied dependency expressed through method 'cacheManager' parameter 0: Error creating bean with name 'redissonClient' defined in class path resource [com/alpaca/config/SpringCacheConfig.class]: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception with message: Unable to connect to Redis server: localhost/127.0.0.1:6379",
+      "group": "beans",
+      "level": "WARN",
+      "representative": false
+    },
+    {
+      "line": 348,
+      "text": "[INFO ] 2026-11-07 16:09:46.564 [main] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'",
+      "group": "shutdown",
+      "level": "INFO",
+      "representative": false
+    },
+    {
+      "line": 349,
+      "text": "[INFO ] 2026-11-07 16:09:46.569 [main] HikariDataSource - HikariPool-1 - Shutdown initiated...",
+      "group": "shutdown",
+      "level": "INFO",
+      "representative": false
+    },
+    {
+      "line": 350,
+      "text": "[INFO ] 2026-11-07 16:09:46.573 [main] HikariDataSource - HikariPool-1 - Shutdown completed.",
+      "group": "shutdown",
+      "level": "INFO",
+      "representative": true
+    },
+    {
+      "line": 3205,
+      "text": "[ERROR] 2026-11-07 16:09:46.676 [main] SpringApplication - Application run failed",
+      "group": "outcome",
+      "level": "ERROR",
+      "representative": true
+    },
+    {
+      "line": 3206,
+      "text": "org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'queueHandler' defined in file [[đường dẫn đã che]]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'sharedGlobalConfigService' defined in file [[đường dẫn đã che]]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'platformCacheConfig' defined in file [[đường dẫn đã che]]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'cacheManager' defined in class path resource [com/alpaca/config/SpringCacheConfig.class]: Unsatisfied dependency expressed through method 'cacheManager' parameter 0: Error creating bean with name 'redissonClient' defined in class path resource [com/alpaca/config/SpringCacheConfig.class]: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception with message: Unable to connect to Redis server: localhost/127.0.0.1:6379",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": true
+    },
+    {
+      "line": 3207,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3208,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3209,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3210,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3211,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3212,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3213,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3214,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3215,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3216,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3217,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1235) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3218,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1201) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3219,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3220,
+      "text": "\tat org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:991) ~[spring-context-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3221,
+      "text": "\tat org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:628) ~[spring-context-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3222,
+      "text": "\tat org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.16.jar:3.5.16]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3223,
+      "text": "\tat org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.16.jar:3.5.16]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3224,
+      "text": "\tat org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.16.jar:3.5.16]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3225,
+      "text": "\tat org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.16.jar:3.5.16]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3226,
+      "text": "\tat org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.16.jar:3.5.16]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3227,
+      "text": "\tat org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.16.jar:3.5.16]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3228,
+      "text": "\tat com.alpaca.agent.AgentCommandServiceApplication.main(AgentCommandServiceApplication.java:27) ~[main/:?]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3229,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sharedGlobalConfigService' defined in file [[đường dẫn đã che]]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'platformCacheConfig' defined in file [[đường dẫn đã che]]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'cacheManager' defined in class path resource [com/alpaca/config/SpringCacheConfig.class]: Unsatisfied dependency expressed through method 'cacheManager' parameter 0: Error creating bean with name 'redissonClient' defined in class path resource [com/alpaca/config/SpringCacheConfig.class]: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception with message: Unable to connect to Redis server: localhost/127.0.0.1:6379",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": true
+    },
+    {
+      "line": 3230,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3231,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3232,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3233,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3234,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3235,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3236,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3237,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3238,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3239,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3240,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3241,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3242,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3243,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3244,
+      "text": "\t... 21 more",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3245,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'platformCacheConfig' defined in file [[đường dẫn đã che]]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'cacheManager' defined in class path resource [com/alpaca/config/SpringCacheConfig.class]: Unsatisfied dependency expressed through method 'cacheManager' parameter 0: Error creating bean with name 'redissonClient' defined in class path resource [com/alpaca/config/SpringCacheConfig.class]: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception with message: Unable to connect to Redis server: localhost/127.0.0.1:6379",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": true
+    },
+    {
+      "line": 3246,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3247,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3248,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3249,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3250,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3251,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3252,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3253,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3254,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3255,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3256,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3257,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3258,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3259,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3260,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3261,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3262,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3263,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3264,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3265,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3266,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3267,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3268,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3269,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3270,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3271,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3272,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3273,
+      "text": "\t... 21 more",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3274,
+      "text": "Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cacheManager' defined in class path resource [com/alpaca/config/SpringCacheConfig.class]: Unsatisfied dependency expressed through method 'cacheManager' parameter 0: Error creating bean with name 'redissonClient' defined in class path resource [com/alpaca/config/SpringCacheConfig.class]: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception with message: Unable to connect to Redis server: localhost/127.0.0.1:6379",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": true
+    },
+    {
+      "line": 3275,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3276,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3277,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3278,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1203) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3279,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3280,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3281,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3282,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3283,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3284,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3285,
+      "text": "\tat org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3286,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1777) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3287,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3288,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3289,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3290,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3291,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3292,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3293,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3294,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3295,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3296,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3297,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3298,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3299,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3300,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3301,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3302,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3303,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3304,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3305,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3306,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3307,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3308,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3309,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3310,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3311,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3312,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3313,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3314,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3315,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3316,
+      "text": "\t... 21 more",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3317,
+      "text": "Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [com/alpaca/config/SpringCacheConfig.class]: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception with message: Unable to connect to Redis server: localhost/127.0.0.1:6379",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": true
+    },
+    {
+      "line": 3318,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3319,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3320,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3321,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1203) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3322,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3323,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3324,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3325,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3326,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3327,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3328,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3329,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3330,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3331,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3332,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3333,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3334,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1203) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3335,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3336,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3337,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3338,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3339,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3340,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3341,
+      "text": "\tat org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3342,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1777) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3343,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3344,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3345,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3346,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3347,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3348,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3349,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3350,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3351,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3352,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3353,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3354,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3355,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3356,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3357,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3358,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3359,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3360,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3361,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3362,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3363,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3364,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3365,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3366,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3367,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3368,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3369,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3370,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3371,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3372,
+      "text": "\t... 21 more",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3373,
+      "text": "Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception with message: Unable to connect to Redis server: localhost/127.0.0.1:6379",
+      "group": "beans",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3374,
+      "text": "\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3375,
+      "text": "\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3376,
+      "text": "\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3377,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3378,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3379,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3380,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1203) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3381,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3382,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3383,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3384,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3385,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3386,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3387,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3388,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3389,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3390,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3391,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3392,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3393,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1203) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3394,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3395,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3396,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3397,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3398,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3399,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3400,
+      "text": "\tat org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3401,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1777) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3402,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3403,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3404,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3405,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3406,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3407,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3408,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3409,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3410,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3411,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3412,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3413,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3414,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3415,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3416,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3417,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3418,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3419,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3420,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3421,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3422,
+      "text": "\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3423,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3424,
+      "text": "\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3425,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3426,
+      "text": "\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3427,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3428,
+      "text": "\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3429,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3430,
+      "text": "\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar:6.2.19]",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3431,
+      "text": "\t... 21 more",
+      "group": "beans",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3432,
+      "text": "Caused by: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: localhost/127.0.0.1:6379",
+      "group": "clients",
+      "level": "CAUSE",
+      "representative": true
+    },
+    {
+      "line": 3433,
+      "text": "\tat org.redisson.connection.pool.ConnectionPool.lambda$createConnection$1(ConnectionPool.java:150) ~[redisson-3.17.4.jar:3.17.4]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3434,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3435,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3436,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3437,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3438,
+      "text": "\tat org.redisson.connection.pool.ConnectionPool.promiseFailure(ConnectionPool.java:307) ~[redisson-3.17.4.jar:3.17.4]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3439,
+      "text": "\tat org.redisson.connection.pool.ConnectionPool.lambda$createConnection$6(ConnectionPool.java:273) ~[redisson-3.17.4.jar:3.17.4]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3440,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3441,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3442,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3443,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3444,
+      "text": "\tat org.redisson.client.RedisClient$1$2.run(RedisClient.java:235) ~[redisson-3.17.4.jar:3.17.4]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3445,
+      "text": "\tat io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3446,
+      "text": "\tat io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3447,
+      "text": "\tat io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3448,
+      "text": "\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3449,
+      "text": "\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3450,
+      "text": "\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3451,
+      "text": "\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3452,
+      "text": "\tat java.base/java.lang.Thread.run(Thread.java:1583) [?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3453,
+      "text": "Caused by: java.util.concurrent.CompletionException: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:6379",
+      "group": "clients",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3454,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture.encodeRelay(CompletableFuture.java:368) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3455,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture.completeRelay(CompletableFuture.java:377) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3456,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture$UniRelay.tryFire(CompletableFuture.java:1097) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3457,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3458,
+      "text": "\tat java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3459,
+      "text": "\tat org.redisson.client.RedisClient$1$2.run(RedisClient.java:235) ~[redisson-3.17.4.jar:3.17.4]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3460,
+      "text": "\tat io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3461,
+      "text": "\tat io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3462,
+      "text": "\tat io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3463,
+      "text": "\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3464,
+      "text": "\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3465,
+      "text": "\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3466,
+      "text": "\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3467,
+      "text": "\tat java.base/java.lang.Thread.run(Thread.java:1583) [?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3468,
+      "text": "Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:6379",
+      "group": "clients",
+      "level": "CAUSE",
+      "representative": false
+    },
+    {
+      "line": 3469,
+      "text": "Caused by: java.net.ConnectException: Connection refused: getsockopt",
+      "group": "clients",
+      "level": "CAUSE",
+      "representative": true
+    },
+    {
+      "line": 3470,
+      "text": "\tat java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3471,
+      "text": "\tat java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3472,
+      "text": "\tat java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973) ~[?:?]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3473,
+      "text": "\tat io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3474,
+      "text": "\tat io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3475,
+      "text": "\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3476,
+      "text": "\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3477,
+      "text": "\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3478,
+      "text": "\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3479,
+      "text": "\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.135.Final.jar:4.1.135.Final]",
+      "group": "clients",
+      "level": "TRACE",
+      "representative": false
+    },
+    {
+      "line": 3499,
+      "text": "Process finished with exit code 1",
+      "group": "shutdown",
+      "level": "TRACE",
+      "representative": true
+    }
+  ]
+}

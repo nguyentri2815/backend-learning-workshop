@@ -1,4 +1,5 @@
 import {useEffect,useRef} from "react";
+import {useSearchParams} from "react-router-dom";
 import {ArrowLeft,ArrowRight,LocateFixed,RotateCcw} from "lucide-react";
 import type {PracticeContext,PracticeTask} from "./project-practice-model";
 import {commandPath} from "./project-practice-model";
@@ -12,6 +13,7 @@ import type {Simulation} from "./practice-runtime-model";
 import {RunMethodChoice} from "./CommandRunControls";
 import {CommandLocalChecks} from "./CommandLocalChecks";
 import {StartupPreflight} from "./StartupPreflight";
+import {RealLogPractice} from "./RealLogPractice";
 import {CommandCaseLibrary,CommandCaseInvestigation} from "./CommandCases";
 import {emptyCommandCase,findCommandCase} from "./command-cases";
 import type {CommandCaseState} from "./command-cases";
@@ -19,6 +21,8 @@ import type {StartupPlayback,StartupReference} from "./startup-log-model";
 import "./command-run.css";
 type Props={context:PracticeContext;change:(patch:Partial<PracticeContext>,replace?:boolean)=>void;observe:(key:string,complete?:PracticeTask)=>void;open:(id:string,line?:number)=>void;onRestart:()=>void};
 export function RuntimeCommandLesson({context,change,observe,open,onRestart}:Props){
+ const [params,setParams]=useSearchParams(),reading=params.get("readlog")==="1";
+ function setReading(value:boolean){const next=new URLSearchParams(params);if(value)next.set("readlog","1");else next.delete("readlog");setParams(next,{replace:true});}
  const {sim:s,task}=context,session=s.commandSession,review=s.commandReview,p=session.playback,section=useRef<HTMLElement>(null),generation=useRef(0);
  const summary=task==="summary",results=context.runSection==="results",missing=missingCommandConditions(s,context.profile);
  const active=session.starting||p.playing||s.process==="running",item=findCommandCase(s.commandCase.id||p.caseId);
@@ -55,9 +59,10 @@ export function RuntimeCommandLesson({context,change,observe,open,onRestart}:Pro
  const mission=summary?"Dùng thẻ để mở đúng vị trí, hoặc thực hành lại một vòng ngắn.":p.playing?p.paused?"Chọn nhóm để đọc log/source, rồi Tiếp tục khi sẵn sàng.":"Quan sát nhóm hoạt động sáng lên; có thể tạm dừng để đọc.":s.process==="error"&&p.frame?"Đọc dấu hiệu trong log, rồi Tìm nguyên nhân để kiểm tra và thử lại.":s.process==="running"?"Đọc kết quả; kiểm tra đúng process/port trước khi thử HTTP.":s.process==="stopped"?"Process bài học đã dừng; source/JAR và dịch vụ Docker vẫn giữ nguyên.":"Chọn tình huống, rồi bấm Run cạnh main hoặc Enter lệnh Terminal.";
  return <section ref={section} className="runtime-activity command-lesson" aria-label={title}>
   <header className="command-lesson-heading"><span>BƯỚC {summary?"J2":"I2"}</span><h2>{title}</h2></header>
-  {!summary&&<><StartupPreflight/><RunMethodChoice mode={s.runMode} disabled={active} onChange={runMode=>update({runMode})}/></>}
-  <div className="ide-mission command-mission"><p>{mission}</p></div>
-  <div className="command-lesson-tools"><button className="text-button" onClick={locate}><LocateFixed size={15}/>Chỉ vị trí</button><button className="text-button" onClick={back}><ArrowLeft size={15}/>Quay lại</button><button className="text-button" onClick={()=>{generation.current++;onRestart();}}><RotateCcw size={15}/>Làm lại phần này</button></div>
+  {!summary&&<div className="real-log-entry"><p><b>Run ra nhiều log?</b><br/>Tập tìm kết quả và lần lỗi Redis bằng phiên thật ngày 07/11, rồi đối chiếu phiên thành công.</p><button type="button" className="button primary" onClick={()=>setReading(true)}>Tập đọc log thật</button></div>}
+  {!summary&&!reading&&<><StartupPreflight/><RunMethodChoice mode={s.runMode} disabled={active} onChange={runMode=>update({runMode})}/></>}
+  {(!reading||summary)&&<><div className="ide-mission command-mission"><p>{mission}</p></div>
+  <div className="command-lesson-tools"><button className="text-button" onClick={locate}><LocateFixed size={15}/>Chỉ vị trí</button><button className="text-button" onClick={back}><ArrowLeft size={15}/>Quay lại</button><button className="text-button" onClick={()=>{generation.current++;onRestart();}}><RotateCcw size={15}/>Làm lại phần này</button></div></>}
   {summary?<div className="task-start-card">
    <dl><dt>Module đang làm</dt><dd><b>Command</b><button className="text-button" onClick={()=>open("main",26)}>Mở main class</button></dd><dt>Cách chạy / profile</dt><dd>{s.runMode==="intellij"?"IntelliJ":"Terminal · bootRun"} / {session.id?(s.launchProfile==="dev"?"dev":"default của phiên tham chiếu"):context.profile}<button className="text-button" onClick={()=>go("run-config")}>Mở cấu hình</button></dd><dt>Nơi xem log</dt><dd>{s.launchMode==="intellij"?"Run · Command":"Terminal giữ bootRun"}<button className="text-button" onClick={()=>showResults()}>{session.id?`Xem log lần chạy #${session.id}`:"Mở cửa sổ Run"}</button></dd><dt>Dừng và chạy lại</dt><dd>Stop trong Run; Run tạo lần chạy mới.<button className="text-button" onClick={()=>go("startup")}>Mở Run / Stop</button></dd><dt>Cần xác nhận</dt><dd>Môi trường máy thật, nguồn override, DB/schema và từng dependency/API vẫn cần kiểm chứng.<button className="text-button" onClick={()=>showResults(true)}>Xem giới hạn kiểm tra API</button></dd></dl>
    {active&&<p className="command-context-note">Dừng lần chạy tại Run/Stop trước khi thực hành lại cấu hình.</p>}
@@ -65,7 +70,7 @@ export function RuntimeCommandLesson({context,change,observe,open,onRestart}:Pro
    {s.taskPractice.phase==="done"&&<p className="task-cycle-done">Đã hoàn tất vòng thực hành trong bài học.</p>}
    <button className="button secondary" disabled={!(s.taskPractice.phase==="done"||s.process==="stopped"&&session.shown===3)} onClick={()=>{update({taskPractice:{...s.taskPractice,practiced:true}});observe("summary:practiced","summary");}}>Đã thực hành</button>{s.taskPractice.practiced&&<p role="status">Đã lưu tiến độ thực hành.</p>}
   </div>:<>
-   <CommandRunWindow context={context} expected={expected} onRun={()=>start()} onStop={stop} onLog={read} onErrorRead={()=>update({commandReview:{...review,errorRead:true}})} onConfigure={()=>change({task:"run-config",view:"activity",sim:{...s,runSetup:{...s.runSetup,step:"configuration",draftProfile:context.profile,applied:false}}})} onTerminal={()=>update({runSetup:{...s.runSetup,terminalOpen:true}})} onRepair={()=>start(session.assumed)} onPlayback={playback} onReference={reference} onNextGroup={()=>{generation.current++;update(advanceCommandSession(s,true));}} caseLibrary={<CommandCaseLibrary selected={s.commandCase.id} disabled={active} onSelect={selectCase}/>}>
+   <CommandRunWindow context={context} logPractice={reading?<RealLogPractice onClose={()=>setReading(false)} onComplete={()=>observe("startup:real-log")}/>:undefined} expected={expected} onRun={()=>start()} onStop={stop} onLog={read} onErrorRead={()=>update({commandReview:{...review,errorRead:true}})} onConfigure={()=>change({task:"run-config",view:"activity",sim:{...s,runSetup:{...s.runSetup,step:"configuration",draftProfile:context.profile,applied:false}}})} onTerminal={()=>update({runSetup:{...s.runSetup,terminalOpen:true}})} onRepair={()=>start(session.assumed)} onPlayback={playback} onReference={reference} onNextGroup={()=>{generation.current++;update(advanceCommandSession(s,true));}} caseLibrary={<CommandCaseLibrary selected={s.commandCase.id} disabled={active} onSelect={selectCase}/>}>
     <section className="command-results" tabIndex={-1} aria-label="Kết quả của cùng phiên Run">
      <h3>Kết quả lần Run{session.id?` #${session.id}`:""}</h3>
      {s.process==="running"&&<p className="command-context-note">Command chạy trong JVM của lần Run này; không tự trở thành container Docker.</p>}
@@ -75,8 +80,8 @@ export function RuntimeCommandLesson({context,change,observe,open,onRestart}:Pro
      {session.shown===3||s.process==="stopped"?<CommandLocalChecks context={context} update={commandReview=>update({commandReview})}/>:<p>Kiểm tra HTTP chỉ xuất hiện sau khi startup tới Started. Bạn vẫn có thể hoàn thành bước học khi đã hiểu điểm lỗi.</p>}
     </section>
    </CommandRunWindow>
-   {missing.length>0&&!session.assumed&&!p.caseId&&p.reference==="configured"&&<div className="command-missing"><b>Điều kiện còn thiếu trong bài</b><ul>{missing.map(item=><li key={item.id} data-command-condition={item.id}>{item.text}<button className="text-button" disabled={active||item.id==="database"&&Boolean(s.containers["postgres-write"])&&!s.dockerPortConflict&&!s.daemon} onClick={()=>fixCondition(item)}>{item.action}</button></li>)}</ul><button className="button secondary" disabled={active} onClick={()=>start(true)}>Xem kịch bản: giả định điều kiện đã đáp ứng</button></div>}
-   <div className="command-result-tools"><button type="button" className="button secondary" onClick={()=>showResults()}>Đọc kết quả của lần Run này</button><button className="button primary command-next" disabled={p.playing} onClick={()=>{observe("startup:results",session.id&&p.frame?"startup":undefined);go("summary");}}>Tiếp theo: chuẩn bị bắt đầu task<ArrowRight size={16}/></button></div>
+   {!reading&&missing.length>0&&!session.assumed&&!p.caseId&&p.reference==="configured"&&<div className="command-missing"><b>Điều kiện còn thiếu trong bài</b><ul>{missing.map(item=><li key={item.id} data-command-condition={item.id}>{item.text}<button className="text-button" disabled={active||item.id==="database"&&Boolean(s.containers["postgres-write"])&&!s.dockerPortConflict&&!s.daemon} onClick={()=>fixCondition(item)}>{item.action}</button></li>)}</ul><button className="button secondary" disabled={active} onClick={()=>start(true)}>Xem kịch bản: giả định điều kiện đã đáp ứng</button></div>}
+   {!reading&&<div className="command-result-tools"><button type="button" className="button secondary" onClick={()=>showResults()}>Đọc kết quả của lần Run này</button><button className="button primary command-next" disabled={p.playing} onClick={()=>{observe("startup:results",session.id&&p.frame?"startup":undefined);go("summary");}}>Tiếp theo: chuẩn bị bắt đầu task<ArrowRight size={16}/></button></div>}
   </>}
   <details className="command-state-details"><summary>Xem trạng thái hiện tại</summary><ExecutionState context={context}/>{summary&&<><SurveySummary sim={s} profile={context.profile}/><ConflictSummary sim={s}/></>}<p>Trạng thái bài học; chưa kiểm chứng cấu hình, DB/schema, từng dependency hoặc API trên máy thật. Run khởi động JVM; Stop dừng Command, giữ source/JAR và trạng thái dịch vụ Docker.</p>{session.assumed&&<p>Kết quả thuộc kịch bản giả định; điều kiện thiếu giữ nguyên.</p>}</details>
   {summary&&<details className="command-module-path"><summary>Đường dẫn module</summary><code>{commandPath}</code><p>Health theo contract mặc định đã đối chiếu; chưa kiểm tra HTTP thật.</p></details>}

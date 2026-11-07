@@ -61,6 +61,10 @@ npm.cmd run verify:fixtures
 
 ## Tài liệu và source
 
+- [Mốc dừng Hiểu và chạy dự án, trước khi chuyển sang Khám phá Policy](docs/PROJECT-SETUP-CHECKPOINT.md).
+- [I2 — Tập đọc log thật và lần đường kết nối Redis](docs/PROJECT-REAL-LOG-PRACTICE.md).
+- [I2 — Lần đường kết nối PostgreSQL](docs/PROJECT-POSTGRES-CONNECTION-ROUTE.md).
+- [I2 — Phiên dev 08/11: PostgreSQL từ chối kết nối](docs/PROJECT-POSTGRES-FAILURE-SESSION.md).
 - [Bước Run gộp, danh sách 24 case, bằng chứng và đường review](docs/PROJECT-COMMAND-MERGED-CASES.md).
 - [Kiểm chứng nhóm startup và giới hạn phiên log thật](docs/PROJECT-COMMAND-STARTUP-VERIFICATION.md).
 - [Hướng dẫn thực hành Run Configuration](docs/PROJECT-RUN-CONFIGURATION-HANDOFF.md).

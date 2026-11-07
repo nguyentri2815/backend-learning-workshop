@@ -7,8 +7,8 @@ import {executionSource} from "./execution-model";
 import {RunTerminal} from "./CommandRunControls";
 import {StartupReplay,StartupReferenceChoice} from "./StartupReplay";
 import type {StartupPlayback,StartupReference} from "./startup-log-model";
-type Props={context:PracticeContext;expected?:LogId;onRun:()=>void;onStop:()=>void;onLog:(id:LogId)=>void;onErrorRead:()=>void;onConfigure:()=>void;onTerminal:()=>void;onRepair:()=>void;onPlayback:(patch:Partial<StartupPlayback>)=>void;onReference:(reference:StartupReference)=>void;onNextGroup:()=>void;caseLibrary?:ReactNode;children?:ReactNode};
-export function CommandRunWindow({context,expected,onRun,onStop,onLog,onErrorRead,onConfigure,onTerminal,onRepair,onPlayback,onReference,onNextGroup,caseLibrary,children}:Props){
+type Props={context:PracticeContext;logPractice?:ReactNode;expected?:LogId;onRun:()=>void;onStop:()=>void;onLog:(id:LogId)=>void;onErrorRead:()=>void;onConfigure:()=>void;onTerminal:()=>void;onRepair:()=>void;onPlayback:(patch:Partial<StartupPlayback>)=>void;onReference:(reference:StartupReference)=>void;onNextGroup:()=>void;caseLibrary?:ReactNode;children?:ReactNode};
+export function CommandRunWindow({context,logPractice,expected,onRun,onStop,onLog,onErrorRead,onConfigure,onTerminal,onRepair,onPlayback,onReference,onNextGroup,caseLibrary,children}:Props){
  const s=context.sim,session=s.commandSession;
  const hasRun=session.shown>0||s.process!=="idle"||session.starting||s.commandReview.errorOpen;
  const profile=hasRun?s.launchProfile:context.profile;
@@ -16,6 +16,7 @@ export function CommandRunWindow({context,expected,onRun,onStop,onLog,onErrorRea
  const lines:[LogId,string][]=[["profile",`Active profiles: ${profile==="dev"?"dev":"chưa đặt dev · nguồn khác chưa xác định"}`],["port",`Tomcat started on port ${session.port} (http)`],["started","Started AgentCommandServiceApplication"]];
  const caseItem=findCommandCase(session.playback.caseId);
  const error=false,portFailure=s.process==="error"&&session.scenario==="port-busy";
+ if(logPractice)return <div className="ide-shell command-run-ide" aria-label="IntelliJ Run Command"><div className="ide-title"><span className="ide-logo">IJ</span><b>Run · Command</b><span>Tập đọc log</span></div>{logPractice}</div>;
  return <div className="ide-shell command-run-ide" aria-label="IntelliJ Run Command">
   <div className="ide-title"><span className="ide-logo">IJ</span><b>agent-workspaces</b><span>IntelliJ IDEA</span></div>
   <div className="command-run-toolbar"><button type="button" className="command-config-name" title={executionSource.mainClass} disabled={active} onClick={onConfigure}>Command / {context.profile==="dev"?"dev":"chưa đặt dev"} · Edit Configurations…</button>{!terminal&&<button type="button" className={!hasRun||s.process==="stopped"?"ide-located":""} data-command-action="run" aria-label="Run Command" title="Run Command · Shift+F10" disabled={active} onClick={onRun}><Play size={18}/>Run</button>}</div>
