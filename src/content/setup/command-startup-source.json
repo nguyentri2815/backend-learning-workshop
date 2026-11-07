@@ -1,0 +1,1982 @@
+{
+  "sourceRoot": "D:/ALPACA/agent-system",
+  "log": {
+    "path": "logs/app.log",
+    "sha256": "6e2727b941c1d09104a08085daa6285be1c51d9facb76944dae58d4bc6e648c7",
+    "lines": 24261,
+    "bytes": 2490804
+  },
+  "groups": [
+    {
+      "id": "jvm",
+      "title": "JVM, Boot & cấu hình",
+      "kind": "Process Command/JVM · IDE/build tool chỉ là bên chuẩn bị",
+      "when": "Bắt đầu JVM và startup; Make là cấu hình trước Run, chưa có output xác nhận lần Make thật.",
+      "what": "JVM chạy main, Spring Boot bắt đầu logging và báo profile. Đây là một process Command, không phải từng app riêng cho mỗi thư viện.",
+      "why": "Command cần môi trường Java và cấu hình hiệu lực trước khi ghép các thành phần.",
+      "sources": [
+        "ide",
+        "jdk",
+        "main",
+        "log4j",
+        "base"
+      ],
+      "result": "Java/profile được xác nhận bằng log của phiên; cấu hình IDE hiện tại chỉ là bằng chứng source."
+    },
+    {
+      "id": "beans",
+      "title": "Thành phần Spring / Feign",
+      "kind": "Thành phần bên trong Command",
+      "when": "Context và client được đăng ký lúc startup; method Feign chỉ tạo HTTP call khi code gọi nó.",
+      "what": "Spring tìm, tạo và ghép bean; Feign đăng ký client proxy. Bean/client đã được khai báo không chứng minh endpoint ngoài đã phản hồi.",
+      "why": "Các Controller/service/repository cần được nối đúng phụ thuộc để Command nhận công việc.",
+      "sources": [
+        "main",
+        "gradle"
+      ],
+      "result": "Chỉ khẳng định những thao tác đăng ký/khởi tạo mà log nêu; WARN/DEBUG không tự là startup thất bại."
+    },
+    {
+      "id": "data",
+      "title": "Repository, JPA, DB",
+      "kind": "Thành phần bên trong Command → PostgreSQL bên ngoài",
+      "when": "Quét repository, mở pool và chuẩn bị persistence ở startup; query nghiệp vụ thường theo request/event.",
+      "what": "Spring tìm repository; Hibernate/JPA và Hikari chuẩn bị persistence và mở JDBC tới PostgreSQL.",
+      "why": "Command cần lưu aggregate và event. Hibernate là thư viện trong JVM; Java không tạo container PostgreSQL từ các dòng log này.",
+      "sources": [
+        "main",
+        "base"
+      ],
+      "result": "Repository được tìm thấy chưa là query. ddl-auto update/create_namespaces có thể ghi schema nếu startup đi tiếp."
+    },
+    {
+      "id": "init",
+      "title": "Bootstrap owner / config",
+      "kind": "Bean trong Command → dữ liệu DB/event và khóa Redis",
+      "when": "@PostConstruct lúc startup; không cần request nghiệp vụ từ người dùng.",
+      "what": "InitConfig gọi createOwner và initGlobalConfig. Theo điều kiện dữ liệu, code có thể save aggregate/event, lưu global config và lấy khóa Redis.",
+      "why": "Repo tự chuẩn bị dữ liệu khởi đầu. Vì có tác động ghi, lần kiểm chứng này dừng trước Run khi chưa có phạm vi dữ liệu cô lập.",
+      "sources": [
+        "initializer",
+        "bootstrapGuard",
+        "bootstrapLock",
+        "bootstrapWrite",
+        "ownerWrite",
+        "eventSave"
+      ],
+      "result": "Chưa quan sát từng thao tác bootstrap trong log phiên tham chiếu; không tạo log save thành công hoặc suy dữ liệu đã đúng từ Started."
+    },
+    {
+      "id": "clients",
+      "title": "Cache / Redis",
+      "kind": "Client/thread bên trong Command → Redis bên ngoài",
+      "when": "Client/pool có thể khởi tạo lúc startup; get/put/lock khi code gọi, kể cả hook bootstrap.",
+      "what": "SpringCacheConfig dựng các RedissonClient. redisson-netty là thread trong JVM; Redis là dịch vụ ngoài. Ba bean client không phải ba container Redis mới.",
+      "why": "Command dùng cache, khóa và dữ liệu tạm; có ba khóa URL cấu hình client, không tự suy đó là ba server hay ba database.",
+      "sources": [
+        "cache",
+        "gradle"
+      ],
+      "result": "Phiên thành công có log connection pool Redisson. Phiên lỗi DB chưa có bằng chứng kết nối Redis; cấu hình không thay thế bằng chứng kết nối."
+    },
+    {
+      "id": "events",
+      "title": "Eventuate / sự kiện",
+      "kind": "Bean/executor bên trong Command · Kafka là dịch vụ ngoài nếu được dùng",
+      "when": "Hạ tầng được import ở startup; subscriber cần đăng ký, handler chỉ chạy khi có event phù hợp.",
+      "what": "LibraEventuateLocalConfiguration import hạ tầng event store và các bean xử lý sự kiện. Tạo executor/client không chứng minh consumer đã chạy hoặc event đã được phát.",
+      "why": "AggregateRepository có đường tạo/lưu event. Cần tách lưu event, đăng ký subscriber, start consumer và xử lý event thành các mức bằng chứng.",
+      "sources": [
+        "main",
+        "eventConfig",
+        "eventBeans",
+        "eventSubscriber",
+        "eventConsumer",
+        "eventSave"
+      ],
+      "result": "Chỉ quan sát khởi tạo/phụ thuộc bean Eventuate. Chưa thấy Creating/Starting consumer/Subscribed hay event được xử lý trong các đoạn Command đã chọn."
+    },
+    {
+      "id": "web",
+      "title": "Web server & Security",
+      "kind": "Tomcat/filter/thread bên trong Command",
+      "when": "Server/filter được chuẩn bị lúc startup; Controller và kiểm tra auth hoạt động khi có HTTP request.",
+      "what": "Tomcat nhúng, servlet và filter Security nhận HTTP trong JVM Command. Mapping Security không chứng minh SSO/token endpoint đã kết nối thành công.",
+      "why": "Chúng là cửa vào của request và rule truy cập trước khi nghiệp vụ chạy.",
+      "sources": [
+        "main",
+        "security",
+        "gradle"
+      ],
+      "result": "Tomcat initialized khác started; Started/port không chứng minh response HTTP hoặc nghiệp vụ."
+    },
+    {
+      "id": "outcome",
+      "title": "Kết quả & nguyên nhân",
+      "kind": "Process Command/JVM",
+      "when": "Kết quả startup; không là kết quả nghiệp vụ.",
+      "what": "Started ghi nhận startup thành công. Khi Application run failed, đọc chuỗi Caused by để tìm thành phần thất bại và nguyên nhân sâu nhất có bằng chứng.",
+      "why": "Không lấy dòng main:27 trong stack trace làm lỗi gốc hoặc tô mọi WARN thành lỗi.",
+      "sources": [
+        "main",
+        "base"
+      ],
+      "result": "Phiên lỗi default có PostgreSQL connect timeout; chưa đủ chứng cứ chọn riêng mạng, firewall, DB tắt hay đích URL sai."
+    },
+    {
+      "id": "shutdown",
+      "title": "Hủy khởi tạo / dừng",
+      "kind": "Process và tài nguyên/thread bên trong Command; Docker nằm ngoài",
+      "when": "Khi startup bị hủy hoặc người dùng Stop; không phải một startup thành công.",
+      "what": "Context hủy khởi tạo hoặc đóng tài nguyên. Stop Command không dừng container PostgreSQL/Redis/Kafka/RabbitMQ bên Docker.",
+      "why": "Cần phân biệt vòng đời JVM và dịch vụ ngoài; chỉ dừng đúng process của lần chạy được tạo.",
+      "sources": [
+        "main",
+        "cache"
+      ],
+      "result": "Phiên lỗi chỉ có cancelling refresh, chưa xác nhận cleanup hoàn tất. Lần kiểm chứng này không tạo process Java nên không có process mới để dừng."
+    }
+  ],
+  "sources": {
+    "main": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/AgentCommandServiceApplication.java",
+      "from": 15,
+      "to": 28,
+      "sha256": "65d5eb4fe95be53ac4feedd9824131290043f0416f1f59f133b9dbce7942c6c9",
+      "rows": [
+        {
+          "line": 15,
+          "text": "@SpringBootApplication"
+        },
+        {
+          "line": 16,
+          "text": "@Import({LibraEventuateLocalConfiguration.class})"
+        },
+        {
+          "line": 17,
+          "text": "@EnableFeignClients(basePackages = \"com.alpaca\")"
+        },
+        {
+          "line": 18,
+          "text": "@ComponentScan(\"com.alpaca\")"
+        },
+        {
+          "line": 19,
+          "text": "@EntityScan(\"com.alpaca\")"
+        },
+        {
+          "line": 20,
+          "text": "@EnableJpaRepositories(\"com.alpaca\")"
+        },
+        {
+          "line": 21,
+          "text": "@OpenAPIDefinition(info ="
+        },
+        {
+          "line": 22,
+          "text": "@Info(title = \"Platform Command API\", version = \"1.0\", description = \"Platform Command API v1.0\"),"
+        },
+        {
+          "line": 23,
+          "text": "        servers = {@Server(url = \"/platform-command\")}"
+        },
+        {
+          "line": 24,
+          "text": ")"
+        },
+        {
+          "line": 25,
+          "text": "public class AgentCommandServiceApplication {"
+        },
+        {
+          "line": 26,
+          "text": "    public static void main(String[] args) {"
+        },
+        {
+          "line": 27,
+          "text": "        SpringApplication.run(AgentCommandServiceApplication.class, args);"
+        },
+        {
+          "line": 28,
+          "text": "    }"
+        }
+      ]
+    },
+    "initializer": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+      "from": 54,
+      "to": 66,
+      "sha256": "087f6b50c817d0bcc08f0e0f0c2f7bf77bdf9014839721d3cca3c708cfc5e9c0",
+      "rows": [
+        {
+          "line": 54,
+          "text": "    }"
+        },
+        {
+          "line": 55,
+          "text": ""
+        },
+        {
+          "line": 56,
+          "text": "    @PostConstruct"
+        },
+        {
+          "line": 57,
+          "text": "    @SneakyThrows"
+        },
+        {
+          "line": 58,
+          "text": "    public void postConstruct() {"
+        },
+        {
+          "line": 59,
+          "text": "        createOwner();"
+        },
+        {
+          "line": 60,
+          "text": "        initGlobalConfig();"
+        },
+        {
+          "line": 61,
+          "text": "//        reloadGlobalConfig();"
+        },
+        {
+          "line": 62,
+          "text": "//        loadProductList();"
+        },
+        {
+          "line": 63,
+          "text": "//        loadDistributionChannelList();"
+        },
+        {
+          "line": 64,
+          "text": "    }"
+        },
+        {
+          "line": 65,
+          "text": ""
+        },
+        {
+          "line": 66,
+          "text": "    private void createOwner() {"
+        }
+      ]
+    },
+    "dev": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+      "from": 30,
+      "to": 46,
+      "sha256": "55ef0453bcfbdc281397a8f682c1ba7cfc7d0e4fc4ace030adac94aad64c06a4",
+      "rows": [
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "[đã che dòng có credential hoặc dữ liệu nhạy cảm]"
+        },
+        {
+          "line": 33,
+          "text": "    url: [URL đã che]"
+        },
+        {
+          "line": 34,
+          "text": "[đã che dòng có credential hoặc dữ liệu nhạy cảm]"
+        },
+        {
+          "line": 35,
+          "text": "    hikari:"
+        },
+        {
+          "line": 36,
+          "text": "      connection-init-sql: CREATE SCHEMA IF NOT EXISTS platform_event"
+        },
+        {
+          "line": 37,
+          "text": "  jpa:"
+        },
+        {
+          "line": 38,
+          "text": "    database-platform: org.hibernate.dialect.PostgreSQLDialect"
+        },
+        {
+          "line": 39,
+          "text": "    generate-ddl: true"
+        },
+        {
+          "line": 40,
+          "text": "    hibernate:"
+        },
+        {
+          "line": 41,
+          "text": "      ddl-auto: update"
+        },
+        {
+          "line": 42,
+          "text": "    properties:"
+        },
+        {
+          "line": 43,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 44,
+          "text": "        hbm2ddl.create_namespaces: true"
+        },
+        {
+          "line": 45,
+          "text": "        default_schema: platform_event"
+        },
+        {
+          "line": 46,
+          "text": "        jdbc:"
+        }
+      ]
+    },
+    "bootstrapGuard": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+      "from": 66,
+      "to": 72,
+      "sha256": "087f6b50c817d0bcc08f0e0f0c2f7bf77bdf9014839721d3cca3c708cfc5e9c0",
+      "rows": [
+        {
+          "line": 66,
+          "text": "    private void createOwner() {"
+        },
+        {
+          "line": 67,
+          "text": "        try {"
+        },
+        {
+          "line": 68,
+          "text": "            String owner = \"owner\";"
+        },
+        {
+          "line": 69,
+          "text": "            if (saleUnitRepository.countByUserName(owner) == 0) {"
+        },
+        {
+          "line": 70,
+          "text": "                applicationContext.getBean(CreateSaleUnitOwnerFunc.class).exec(CreateOwnerRequest.builder()"
+        },
+        {
+          "line": 71,
+          "text": "                        .userName(owner)"
+        },
+        {
+          "line": 72,
+          "text": "                        .name(owner)"
+        }
+      ]
+    },
+    "bootstrapLock": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+      "from": 173,
+      "to": 184,
+      "sha256": "087f6b50c817d0bcc08f0e0f0c2f7bf77bdf9014839721d3cca3c708cfc5e9c0",
+      "rows": [
+        {
+          "line": 173,
+          "text": "    private void initGlobalConfig() {"
+        },
+        {
+          "line": 174,
+          "text": "        RLock rlock = lockService.getLock(\"init-global-config\");"
+        },
+        {
+          "line": 175,
+          "text": "        if (rlock.isLocked()) {"
+        },
+        {
+          "line": 176,
+          "text": "            return;"
+        },
+        {
+          "line": 177,
+          "text": "        }"
+        },
+        {
+          "line": 178,
+          "text": "        rlock.lock(10, TimeUnit.SECONDS);"
+        },
+        {
+          "line": 179,
+          "text": "        try {"
+        },
+        {
+          "line": 180,
+          "text": "            Map<String, ConfigAggregate> localMaps = new HashMap<>();"
+        },
+        {
+          "line": 181,
+          "text": "            localMaps.put(GlobalConfigCacheKey.DEBIT_INSURANCE_REQUEST_DOCUMENT, ConfigAggregate.builder()"
+        },
+        {
+          "line": 182,
+          "text": "                    .value(5)"
+        },
+        {
+          "line": 183,
+          "text": "                    .name(\"Thời Hạn Bảo Hiểm\")"
+        },
+        {
+          "line": 184,
+          "text": "                    .key(GlobalConfigCacheKey.DEBIT_INSURANCE_REQUEST_DOCUMENT)"
+        }
+      ]
+    },
+    "bootstrapWrite": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+      "from": 244,
+      "to": 252,
+      "sha256": "087f6b50c817d0bcc08f0e0f0c2f7bf77bdf9014839721d3cca3c708cfc5e9c0",
+      "rows": [
+        {
+          "line": 244,
+          "text": "                    .updatedBy(SYSTEM)"
+        },
+        {
+          "line": 245,
+          "text": "                    .build());"
+        },
+        {
+          "line": 246,
+          "text": "            localMaps.forEach((key, value) -> {"
+        },
+        {
+          "line": 247,
+          "text": "                if (configRepository.countByKey(key) == 0) {"
+        },
+        {
+          "line": 248,
+          "text": "                    configRepository.save(value);"
+        },
+        {
+          "line": 249,
+          "text": "                }"
+        },
+        {
+          "line": 250,
+          "text": "            });"
+        },
+        {
+          "line": 251,
+          "text": "        } finally {"
+        },
+        {
+          "line": 252,
+          "text": "            rlock.unlock();"
+        }
+      ]
+    },
+    "ownerWrite": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/sale_unit/CreateSaleUnitOwnerFunc.java",
+      "from": 46,
+      "to": 55,
+      "sha256": "ea65c537f16926e8e8c0b9ec3ab4cf5b22ca4bd98bd9ffffc7adc17a8a0b326b",
+      "rows": [
+        {
+          "line": 46,
+          "text": "        CreateOwnerUserCommand command = MappingUtils.mapObject(request, CreateOwnerUserCommand.class);"
+        },
+        {
+          "line": 47,
+          "text": ""
+        },
+        {
+          "line": 48,
+          "text": "        command.setRole(Role.OWNER);"
+        },
+        {
+          "line": 49,
+          "text": "        command.setAgentType(UserType.OWNER);"
+        },
+        {
+          "line": 50,
+          "text": "        command.setStatusSaleUnit(UserStatus.ACTIVE);"
+        },
+        {
+          "line": 51,
+          "text": "        command.setStatusAccount(UserStatus.ACTIVE);"
+        },
+        {
+          "line": 52,
+          "text": "[đã che dòng có credential hoặc dữ liệu nhạy cảm]"
+        },
+        {
+          "line": 53,
+          "text": ""
+        },
+        {
+          "line": 54,
+          "text": "        return saleUnitAggregateRepository.save(command).getEntityId();"
+        },
+        {
+          "line": 55,
+          "text": "    }"
+        }
+      ]
+    },
+    "eventSave": {
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/io/eventuate/sync/AggregateRepository.java",
+      "from": 66,
+      "to": 77,
+      "sha256": "a9d9d05f1e416135e8e149314f9f7c9e7d6189b099143b45d22b750e5cc087c7",
+      "rows": [
+        {
+          "line": 66,
+          "text": "    public EntityWithIdAndVersion<T> save(CT cmd, Optional<SaveOptions> saveOptions) {"
+        },
+        {
+          "line": 67,
+          "text": "        T aggregate;"
+        },
+        {
+          "line": 68,
+          "text": "        try {"
+        },
+        {
+          "line": 69,
+          "text": "            aggregate = clasz.newInstance();"
+        },
+        {
+          "line": 70,
+          "text": "        } catch (InstantiationException | IllegalAccessException e) {"
+        },
+        {
+          "line": 71,
+          "text": "            throw new RuntimeException(e);"
+        },
+        {
+          "line": 72,
+          "text": "        }"
+        },
+        {
+          "line": 73,
+          "text": "        List<Event> events = aggregate.processCommand(cmd);"
+        },
+        {
+          "line": 74,
+          "text": "        Aggregates.applyEventsToMutableAggregate(aggregate, events, missingApplyEventMethodStrategy);"
+        },
+        {
+          "line": 75,
+          "text": ""
+        },
+        {
+          "line": 76,
+          "text": "        return new EntityWithIdAndVersion<>(aggregateStore.save(clasz, events, transformSaveOptions(saveOptions, Optional.of(cmd), (BaseAggregate) aggregate)), aggregate);"
+        },
+        {
+          "line": 77,
+          "text": "    }"
+        }
+      ]
+    },
+    "eventConfig": {
+      "path": "workspaces/1-shared/shared-eventuate/src/main/java/com/eventuate/config/LibraEventuateLocalConfiguration.java",
+      "from": 1,
+      "to": 12,
+      "sha256": "0329a6d16a5424b7c407e1245271d25c5048ccb623ae52596f0e0eb20b2a658e",
+      "rows": [
+        {
+          "line": 1,
+          "text": "package com.eventuate.config;"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "import com.eventsourcing.configuration.EventuateLocalConfiguration;"
+        },
+        {
+          "line": 4,
+          "text": "import org.springframework.context.annotation.Configuration;"
+        },
+        {
+          "line": 5,
+          "text": "import org.springframework.context.annotation.Import;"
+        },
+        {
+          "line": 6,
+          "text": "import org.springframework.transaction.annotation.EnableTransactionManagement;"
+        },
+        {
+          "line": 7,
+          "text": ""
+        },
+        {
+          "line": 8,
+          "text": "@Configuration"
+        },
+        {
+          "line": 9,
+          "text": "@EnableTransactionManagement"
+        },
+        {
+          "line": 10,
+          "text": "@Import(EventuateLocalConfiguration.class)"
+        },
+        {
+          "line": 11,
+          "text": "public class LibraEventuateLocalConfiguration {"
+        },
+        {
+          "line": 12,
+          "text": "}"
+        }
+      ]
+    },
+    "eventBeans": {
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/configuration/client/EventuateJavaClientDomainEventsConfiguration.java",
+      "from": 16,
+      "to": 29,
+      "sha256": "6bc9a8b3e48dadff461d461d69f8c63fc30f7d1bf08eb616a8d02d8c42e56950",
+      "rows": [
+        {
+          "line": 16,
+          "text": "@Configuration"
+        },
+        {
+          "line": 17,
+          "text": "public class EventuateJavaClientDomainEventsConfiguration {"
+        },
+        {
+          "line": 18,
+          "text": "    @Bean"
+        },
+        {
+          "line": 19,
+          "text": "    @ConditionalOnMissingBean(EventHandlerBeanPostProcessor.class)"
+        },
+        {
+          "line": 20,
+          "text": "    public EventHandlerBeanPostProcessor eventHandlerBeanPostProcessor(EventDispatcherInitializer eventDispatcherInitializer) {"
+        },
+        {
+          "line": 21,
+          "text": "        return new EventHandlerBeanPostProcessor(eventDispatcherInitializer);"
+        },
+        {
+          "line": 22,
+          "text": "    }"
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "    @Bean"
+        },
+        {
+          "line": 25,
+          "text": "    @ConditionalOnMissingBean(EventDispatcherInitializer.class)"
+        },
+        {
+          "line": 26,
+          "text": "    public EventDispatcherInitializer eventDispatcherInitializer(EventHandlerProcessor[] processors, EventuateAggregateStoreEvents aggregateStore, SubscriptionsRegistry subscriptionsRegistry) {"
+        },
+        {
+          "line": 27,
+          "text": "        return new EventDispatcherInitializer(processors, aggregateStore, Executors.newCachedThreadPool(), subscriptionsRegistry);"
+        },
+        {
+          "line": 28,
+          "text": "    }"
+        },
+        {
+          "line": 29,
+          "text": ""
+        }
+      ]
+    },
+    "eventSubscriber": {
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/common/domain/EventHandlerBeanPostProcessor.java",
+      "from": 23,
+      "to": 35,
+      "sha256": "17b89aaec25728494a5299e9709ea31db73e8e47835e1a0eebba7cf6a0338b21",
+      "rows": [
+        {
+          "line": 23,
+          "text": "    @Override"
+        },
+        {
+          "line": 24,
+          "text": "    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {"
+        },
+        {
+          "line": 25,
+          "text": "        return bean;"
+        },
+        {
+          "line": 26,
+          "text": "    }"
+        },
+        {
+          "line": 27,
+          "text": ""
+        },
+        {
+          "line": 28,
+          "text": "    @Override"
+        },
+        {
+          "line": 29,
+          "text": "    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {"
+        },
+        {
+          "line": 30,
+          "text": "        Class<?> actualClass = AopUtils.getTargetClass(bean);"
+        },
+        {
+          "line": 31,
+          "text": "        EventSubscriber a = AnnotationUtils.findAnnotation(actualClass, EventSubscriber.class);"
+        },
+        {
+          "line": 32,
+          "text": "        if (a != null)"
+        },
+        {
+          "line": 33,
+          "text": "            eventDispatcherInitializer.registerEventHandler(bean, beanName, actualClass);"
+        },
+        {
+          "line": 34,
+          "text": "        return bean;"
+        },
+        {
+          "line": 35,
+          "text": "    }"
+        }
+      ]
+    },
+    "eventConsumer": {
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/common/event/impl/EventuateKafkaAggregateSubscriptions.java",
+      "from": 99,
+      "to": 106,
+      "sha256": "19c326b355eb75c3bc047238a271c2d9c563ce8a387a0c14fafdb09f079179bf",
+      "rows": [
+        {
+          "line": 99,
+          "text": "        addConsumer(consumer);"
+        },
+        {
+          "line": 100,
+          "text": ""
+        },
+        {
+          "line": 101,
+          "text": "        logger.info(\"Starting consumer: subscriberId = {}, aggregatesAndEvents = {}, options = {}\", subscriberId, aggregatesAndEvents, subscriberOptions);"
+        },
+        {
+          "line": 102,
+          "text": ""
+        },
+        {
+          "line": 103,
+          "text": "        consumer.start();"
+        },
+        {
+          "line": 104,
+          "text": ""
+        },
+        {
+          "line": 105,
+          "text": "        logger.info(\"Subscribed: subscriberId = {}, aggregatesAndEvents = {}, options = {}\", subscriberId, aggregatesAndEvents, subscriberOptions);"
+        },
+        {
+          "line": 106,
+          "text": ""
+        }
+      ]
+    },
+    "base": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application.yml",
+      "from": 30,
+      "to": 46,
+      "sha256": "76262f03d968756b9906d64ea8116cc5ff7d121305e945419f5ffd1e9e4c85fb",
+      "rows": [
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "[đã che dòng có credential hoặc dữ liệu nhạy cảm]"
+        },
+        {
+          "line": 33,
+          "text": "    url: [URL đã che]"
+        },
+        {
+          "line": 34,
+          "text": "[đã che dòng có credential hoặc dữ liệu nhạy cảm]"
+        },
+        {
+          "line": 35,
+          "text": "    hikari:"
+        },
+        {
+          "line": 36,
+          "text": "      connection-init-sql: CREATE SCHEMA IF NOT EXISTS platform_event"
+        },
+        {
+          "line": 37,
+          "text": "  jpa:"
+        },
+        {
+          "line": 38,
+          "text": "    database-platform: org.hibernate.dialect.PostgreSQLDialect"
+        },
+        {
+          "line": 39,
+          "text": "    generate-ddl: true"
+        },
+        {
+          "line": 40,
+          "text": "    hibernate:"
+        },
+        {
+          "line": 41,
+          "text": "      ddl-auto: update"
+        },
+        {
+          "line": 42,
+          "text": "    properties:"
+        },
+        {
+          "line": 43,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 44,
+          "text": "        hbm2ddl.create_namespaces: true"
+        },
+        {
+          "line": 45,
+          "text": "        default_schema: platform_event"
+        },
+        {
+          "line": 46,
+          "text": "        jdbc:"
+        }
+      ]
+    },
+    "log4j": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/log4j2.yml",
+      "from": 1,
+      "to": 21,
+      "sha256": "2aa7f3f107af6eff4558c0e73a75c98ad29761bc56d79ce09006eefab3b9ae87",
+      "rows": [
+        {
+          "line": 1,
+          "text": "Configuration:"
+        },
+        {
+          "line": 2,
+          "text": "  status: debug"
+        },
+        {
+          "line": 3,
+          "text": ""
+        },
+        {
+          "line": 4,
+          "text": "  appenders:"
+        },
+        {
+          "line": 5,
+          "text": "    Console:"
+        },
+        {
+          "line": 6,
+          "text": "      name: LogToConsole"
+        },
+        {
+          "line": 7,
+          "text": "      PatternLayout:"
+        },
+        {
+          "line": 8,
+          "text": "        Pattern: \"[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n\""
+        },
+        {
+          "line": 9,
+          "text": ""
+        },
+        {
+          "line": 10,
+          "text": "    RollingFile:"
+        },
+        {
+          "line": 11,
+          "text": "      - name: LogToRollingFile"
+        },
+        {
+          "line": 12,
+          "text": "        fileName: logs/app.log"
+        },
+        {
+          "line": 13,
+          "text": "        filePattern: \"logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz\""
+        },
+        {
+          "line": 14,
+          "text": "        PatternLayout:"
+        },
+        {
+          "line": 15,
+          "text": "          pattern: \"[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n\""
+        },
+        {
+          "line": 16,
+          "text": "        Policies:"
+        },
+        {
+          "line": 17,
+          "text": "          SizeBasedTriggeringPolicy:"
+        },
+        {
+          "line": 18,
+          "text": "            size: 10MB"
+        },
+        {
+          "line": 19,
+          "text": "        DefaultRollOverStrategy:"
+        },
+        {
+          "line": 20,
+          "text": "          max: 10"
+        },
+        {
+          "line": 21,
+          "text": ""
+        }
+      ]
+    },
+    "security": {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/ResourceServerConfiguration.java",
+      "from": 10,
+      "to": 31,
+      "sha256": "a4257e7b301ce0e3eabce1e276105ef8ca9f167ba26b163e47efc10751f27027",
+      "rows": [
+        {
+          "line": 10,
+          "text": "@Configuration"
+        },
+        {
+          "line": 11,
+          "text": "@EnableMethodSecurity"
+        },
+        {
+          "line": 12,
+          "text": "public class ResourceServerConfiguration {"
+        },
+        {
+          "line": 13,
+          "text": "    @Value(\"${alpaca.local:false}\")"
+        },
+        {
+          "line": 14,
+          "text": "    private boolean local;"
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "    @Bean"
+        },
+        {
+          "line": 17,
+          "text": "    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {"
+        },
+        {
+          "line": 18,
+          "text": "        http.authorizeHttpRequests(authorize -> {"
+        },
+        {
+          "line": 19,
+          "text": "[đã che dòng có credential hoặc dữ liệu nhạy cảm]"
+        },
+        {
+          "line": 20,
+          "text": "[đã che dòng có credential hoặc dữ liệu nhạy cảm]"
+        },
+        {
+          "line": 21,
+          "text": "                    if (local) {"
+        },
+        {
+          "line": 22,
+          "text": "                        authorize.anyRequest().permitAll();"
+        },
+        {
+          "line": 23,
+          "text": "                    } else {"
+        },
+        {
+          "line": 24,
+          "text": "                        authorize.anyRequest().authenticated();"
+        },
+        {
+          "line": 25,
+          "text": "                    }"
+        },
+        {
+          "line": 26,
+          "text": "                })"
+        },
+        {
+          "line": 27,
+          "text": "                .csrf(csrf -> csrf.disable())"
+        },
+        {
+          "line": 28,
+          "text": "                .cors(cors -> cors.disable())"
+        },
+        {
+          "line": 29,
+          "text": "                .httpBasic(basic -> basic.disable())"
+        },
+        {
+          "line": 30,
+          "text": "                .oauth2ResourceServer(resourceServer -> resourceServer.opaqueToken(opaqueToken -> {}));"
+        },
+        {
+          "line": 31,
+          "text": "        return http.build();"
+        }
+      ]
+    },
+    "cache": {
+      "path": "workspaces/1-shared/shared-cache/src/main/java/com/alpaca/config/SpringCacheConfig.java",
+      "from": 17,
+      "to": 58,
+      "sha256": "55f03ac12273d66c086a756c49eb58c0cf478867fbfd33c5bf47c8d2899eaca7",
+      "rows": [
+        {
+          "line": 17,
+          "text": "import org.springframework.context.annotation.Primary;"
+        },
+        {
+          "line": 18,
+          "text": ""
+        },
+        {
+          "line": 19,
+          "text": "import java.util.Map;"
+        },
+        {
+          "line": 20,
+          "text": "import java.util.concurrent.ConcurrentHashMap;"
+        },
+        {
+          "line": 21,
+          "text": ""
+        },
+        {
+          "line": 22,
+          "text": "@Configuration"
+        },
+        {
+          "line": 23,
+          "text": "@EnableCaching"
+        },
+        {
+          "line": 24,
+          "text": "@Setter"
+        },
+        {
+          "line": 25,
+          "text": "public class SpringCacheConfig {"
+        },
+        {
+          "line": 26,
+          "text": "    @Value(\"${cache.redis:[URL đã che]\")"
+        },
+        {
+          "line": 27,
+          "text": "    private String redisUrl;"
+        },
+        {
+          "line": 28,
+          "text": "    @Value(\"${cache.redis-session:[URL đã che]\")"
+        },
+        {
+          "line": 29,
+          "text": "    private String redisSessionUrl;"
+        },
+        {
+          "line": 30,
+          "text": "    @Value(\"${cache.redis-persistent:[URL đã che]\")"
+        },
+        {
+          "line": 31,
+          "text": "    private String redisPersistentUrl;"
+        },
+        {
+          "line": 32,
+          "text": ""
+        },
+        {
+          "line": 33,
+          "text": "    @Bean(name = \"redissonClient\", destroyMethod = \"shutdown\")"
+        },
+        {
+          "line": 34,
+          "text": "    @Primary"
+        },
+        {
+          "line": 35,
+          "text": "    RedissonClient redisson() {"
+        },
+        {
+          "line": 36,
+          "text": "        Config config = new Config();"
+        },
+        {
+          "line": 37,
+          "text": "        config.useSingleServer()"
+        },
+        {
+          "line": 38,
+          "text": "                .setAddress(redisUrl);"
+        },
+        {
+          "line": 39,
+          "text": "        return Redisson.create(config);"
+        },
+        {
+          "line": 40,
+          "text": "    }"
+        },
+        {
+          "line": 41,
+          "text": ""
+        },
+        {
+          "line": 42,
+          "text": "    @Bean(name = \"redissonPersistentClient\", destroyMethod = \"shutdown\")"
+        },
+        {
+          "line": 43,
+          "text": "    RedissonClient redissonPersistent() {"
+        },
+        {
+          "line": 44,
+          "text": "        Config config = new Config();"
+        },
+        {
+          "line": 45,
+          "text": "        config.useSingleServer()"
+        },
+        {
+          "line": 46,
+          "text": "                .setAddress(redisPersistentUrl);"
+        },
+        {
+          "line": 47,
+          "text": "        return Redisson.create(config);"
+        },
+        {
+          "line": 48,
+          "text": "    }"
+        },
+        {
+          "line": 49,
+          "text": "    @Bean(name = \"redissonSessionClient\", destroyMethod = \"shutdown\")"
+        },
+        {
+          "line": 50,
+          "text": "    RedissonClient redissonSession() {"
+        },
+        {
+          "line": 51,
+          "text": "        Config config = new Config();"
+        },
+        {
+          "line": 52,
+          "text": "        config.useSingleServer()"
+        },
+        {
+          "line": 53,
+          "text": "                .setAddress(redisSessionUrl);"
+        },
+        {
+          "line": 54,
+          "text": "        return Redisson.create(config);"
+        },
+        {
+          "line": 55,
+          "text": "    }"
+        },
+        {
+          "line": 56,
+          "text": ""
+        },
+        {
+          "line": 57,
+          "text": "    @Bean"
+        },
+        {
+          "line": 58,
+          "text": "    ALPSpringCacheManager cacheManager(@Qualifier(\"redissonClient\") RedissonClient redissonClient, ObjectMapper objectMapper) {"
+        }
+      ]
+    },
+    "gradle": {
+      "path": "workspaces/agent-service/1-agent-command-service/build.gradle",
+      "from": 11,
+      "to": 23,
+      "sha256": "9f4c5533c785adb589760ff4ab8e9e071a5b419dc0fcea61a93b0992db0d43c8",
+      "rows": [
+        {
+          "line": 11,
+          "text": "dependencies {"
+        },
+        {
+          "line": 12,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-event-sourcing', configuration: 'default')"
+        },
+        {
+          "line": 13,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-notification', configuration: 'default')"
+        },
+        {
+          "line": 14,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-assets', configuration: 'default')"
+        },
+        {
+          "line": 15,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-cache', configuration: 'default')"
+        },
+        {
+          "line": 16,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-webmvc', configuration: 'default')"
+        },
+        {
+          "line": 17,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-amqp', configuration: 'default')"
+        },
+        {
+          "line": 18,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-auth', configuration: 'default')"
+        },
+        {
+          "line": 19,
+          "text": "    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'"
+        },
+        {
+          "line": 20,
+          "text": "    implementation 'org.springframework.security:spring-security-oauth2-resource-server'"
+        },
+        {
+          "line": 21,
+          "text": ""
+        },
+        {
+          "line": 22,
+          "text": "    implementation project(path: ':workspaces:agent-service:4-agent-shared-domain', configuration: 'default')"
+        },
+        {
+          "line": 23,
+          "text": "    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.13'"
+        }
+      ]
+    },
+    "ide": {
+      "path": ".idea/workspace.xml",
+      "from": 93,
+      "to": 109,
+      "sha256": "1f3f4d807c091306f5bcbbe498bc8af23d6e6d68c3711e50e5358ff98bb1478f",
+      "rows": [
+        {
+          "line": 93,
+          "text": "  <component name=\"RunManager\">"
+        },
+        {
+          "line": 94,
+          "text": "    <configuration name=\"AgentCommandServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">"
+        },
+        {
+          "line": 95,
+          "text": "      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UnknownPolicyInFreeMode\" />"
+        },
+        {
+          "line": 96,
+          "text": "      <module name=\"agent-workspaces.workspaces.agent-service.1-agent-command-service.main\" />"
+        },
+        {
+          "line": 97,
+          "text": "      <option name=\"SHORTEN_COMMAND_LINE\" value=\"ARGS_FILE\" />"
+        },
+        {
+          "line": 98,
+          "text": "      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.alpaca.agent.AgentCommandServiceApplication\" />"
+        },
+        {
+          "line": 99,
+          "text": "      <extension name=\"coverage\">"
+        },
+        {
+          "line": 100,
+          "text": "        <pattern>"
+        },
+        {
+          "line": 101,
+          "text": "          <option name=\"PATTERN\" value=\"com.alpaca.agent.*\" />"
+        },
+        {
+          "line": 102,
+          "text": "          <option name=\"ENABLED\" value=\"true\" />"
+        },
+        {
+          "line": 103,
+          "text": "        </pattern>"
+        },
+        {
+          "line": 104,
+          "text": "      </extension>"
+        },
+        {
+          "line": 105,
+          "text": "      <method v=\"2\">"
+        },
+        {
+          "line": 106,
+          "text": "        <option name=\"Make\" enabled=\"true\" />"
+        },
+        {
+          "line": 107,
+          "text": "      </method>"
+        },
+        {
+          "line": 108,
+          "text": "    </configuration>"
+        },
+        {
+          "line": 109,
+          "text": "    <configuration default=\"true\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">"
+        }
+      ]
+    },
+    "jdk": {
+      "path": ".idea/misc.xml",
+      "from": 4,
+      "to": 4,
+      "sha256": "44a2f75954ed5bfb29cd2cd14156ef63168a782458adcfe97c5494f9e9d4284e",
+      "rows": [
+        {
+          "line": 4,
+          "text": "  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"21\" project-jdk-type=\"JavaSDK\" />"
+        }
+      ]
+    }
+  },
+  "datasets": [
+    {
+      "id": "dev-success",
+      "name": "Thành công · dev · 04/11 11:54",
+      "from": 2953,
+      "to": 6064,
+      "profile": "dev",
+      "outcome": "success",
+      "launch": "JAR",
+      "tail": [],
+      "logFile": "logs/app.log",
+      "logSha256": "6e2727b941c1d09104a08085daa6285be1c51d9facb76944dae58d4bc6e648c7",
+      "rows": [
+        {
+          "id": "L2953",
+          "line": 2953,
+          "text": "[INFO ] 2026-11-04 11:54:30.245 [main] AgentCommandServiceApplication - Starting AgentCommandServiceApplication v0.0.1-SNAPSHOT using Java 21.0.13 with PID 33292 (D:\\ALPACA\\agent-system\\workspaces\\agent-service\\1-agent-command-service\\build\\libs\\1-agent-command-service-0.0.1-SNAPSHOT.jar started by  … [xem log đầy đủ]",
+          "group": "jvm",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L2954",
+          "line": 2954,
+          "text": "[DEBUG] 2026-11-04 11:54:30.246 [main] AgentCommandServiceApplication - Running with Spring Boot v3.5.16, Spring v6.2.19",
+          "group": "jvm",
+          "milestone": "",
+          "fatal": false,
+          "level": "DEBUG"
+        },
+        {
+          "id": "L2955",
+          "line": 2955,
+          "text": "[INFO ] 2026-11-04 11:54:30.247 [main] AgentCommandServiceApplication - The following 1 profile is active: \"dev\"",
+          "group": "jvm",
+          "milestone": "profile",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L2957",
+          "line": 2957,
+          "text": "[DEBUG] 2026-11-04 11:54:30.562 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6be25526",
+          "group": "beans",
+          "milestone": "",
+          "fatal": false,
+          "level": "DEBUG"
+        },
+        {
+          "id": "L2958",
+          "line": 2958,
+          "text": "[INFO ] 2026-11-04 11:54:33.751 [main] DefaultListableBeanFactory - Overriding bean definition for bean 'core-proxy.FeignClientSpecification' with a different definition: replacing [Generic bean: class=org.springframework.cloud.openfeign.FeignClientSpecification; scope=; abstract=false; lazyInit=nul … [xem log đầy đủ]",
+          "group": "beans",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L2970",
+          "line": 2970,
+          "text": "[INFO ] 2026-11-04 11:54:34.747 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 922 ms. Found 15 JPA repository interfaces.",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L2987",
+          "line": 2987,
+          "text": "[INFO ] 2026-11-04 11:54:36.039 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 0 Redis repository interfaces.",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L2992",
+          "line": 2992,
+          "text": "[WARN ] 2026-11-04 11:54:38.089 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration' of type [com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration$$SpringCGLIB$$0] is  … [xem log đầy đủ]",
+          "group": "events",
+          "milestone": "",
+          "fatal": false,
+          "level": "WARN"
+        },
+        {
+          "id": "L3021",
+          "line": 3021,
+          "text": "[INFO ] 2026-11-04 11:54:39.035 [main] Version - HHH000412: Hibernate ORM core version 6.6.53.Final",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L3023",
+          "line": 3023,
+          "text": "[INFO ] 2026-11-04 11:54:39.504 [main] HikariDataSource - HikariPool-1 - Starting...",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L3024",
+          "line": 3024,
+          "text": "[INFO ] 2026-11-04 11:54:40.040 [main] HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@70ed03e4",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L3121",
+          "line": 3121,
+          "text": "[INFO ] 2026-11-04 11:54:45.997 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L3172",
+          "line": 3172,
+          "text": "[INFO ] 2026-11-04 11:54:47.162 [main] TomcatWebServer - Tomcat initialized with port 9901 (http)",
+          "group": "web",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L3179",
+          "line": 3179,
+          "text": "[DEBUG] 2026-11-04 11:54:47.551 [main] ServletContextInitializerBeans - Mapping filters: webMvcObservationFilter urls=[/*] order=-[số đã che], springSecurityFilterChain urls=[/*] order=-100, characterEncodingFilter urls=[/*] order=-[số đã che], formContentFilter urls=[/*] order=-9900, logApiIntercep … [xem log đầy đủ]",
+          "group": "web",
+          "milestone": "",
+          "fatal": false,
+          "level": "DEBUG"
+        },
+        {
+          "id": "L3186",
+          "line": 3186,
+          "text": "[INFO ] 2026-11-04 11:54:47.975 [main] Version - Redisson 3.17.4",
+          "group": "clients",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L3187",
+          "line": 3187,
+          "text": "[INFO ] 2026-11-04 11:54:48.468 [redisson-netty-2-6] MasterPubSubConnectionPool - 1 connections initialized for localhost/[IP đã che]:6379",
+          "group": "clients",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L3209",
+          "line": 3209,
+          "text": "[INFO ] 2026-11-04 11:55:01.126 [main] TomcatWebServer - Tomcat started on port 9901 (http) with context path '/'",
+          "group": "web",
+          "milestone": "port",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L6064",
+          "line": 6064,
+          "text": "[INFO ] 2026-11-04 11:55:02.785 [main] AgentCommandServiceApplication - Started AgentCommandServiceApplication in 34.056 seconds (process running for 38.895)",
+          "group": "outcome",
+          "milestone": "started",
+          "fatal": false,
+          "level": "INFO"
+        }
+      ],
+      "stopRows": [],
+      "missing": "Không có toàn bộ JVM arguments/environment của phiên cũ. Không suy kết quả nghiệp vụ từ Started."
+    },
+    {
+      "id": "default-success",
+      "name": "Thành công · default · 04/11 12:43",
+      "from": 15881,
+      "to": 18989,
+      "profile": "default",
+      "outcome": "success",
+      "launch": "classes",
+      "tail": [
+        18992,
+        18993,
+        19070,
+        19071,
+        19072,
+        19073,
+        19074
+      ],
+      "logFile": "logs/app.log",
+      "logSha256": "6e2727b941c1d09104a08085daa6285be1c51d9facb76944dae58d4bc6e648c7",
+      "rows": [
+        {
+          "id": "L15882",
+          "line": 15882,
+          "text": "[INFO ] 2026-11-04 12:43:42.450 [main] AgentCommandServiceApplication - Starting AgentCommandServiceApplication using Java 21.0.13 with PID 36604 (D:\\ALPACA\\agent-system\\workspaces\\agent-service\\1-agent-command-service\\build\\classes\\java\\main started by [đã che] in D:\\ALPACA\\agent-system)",
+          "group": "jvm",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L15883",
+          "line": 15883,
+          "text": "[DEBUG] 2026-11-04 12:43:42.450 [main] AgentCommandServiceApplication - Running with Spring Boot v3.5.16, Spring v6.2.19",
+          "group": "jvm",
+          "milestone": "",
+          "fatal": false,
+          "level": "DEBUG"
+        },
+        {
+          "id": "L15884",
+          "line": 15884,
+          "text": "[INFO ] 2026-11-04 12:43:42.451 [main] AgentCommandServiceApplication - No active profile set, falling back to 1 default profile: \"default\"",
+          "group": "jvm",
+          "milestone": "profile",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L15886",
+          "line": 15886,
+          "text": "[DEBUG] 2026-11-04 12:43:42.571 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@573284a5",
+          "group": "beans",
+          "milestone": "",
+          "fatal": false,
+          "level": "DEBUG"
+        },
+        {
+          "id": "L15887",
+          "line": 15887,
+          "text": "[INFO ] 2026-11-04 12:43:45.343 [main] DefaultListableBeanFactory - Overriding bean definition for bean 'core-proxy.FeignClientSpecification' with a different definition: replacing [Generic bean: class=org.springframework.cloud.openfeign.FeignClientSpecification; scope=; abstract=false; lazyInit=nul … [xem log đầy đủ]",
+          "group": "beans",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L15899",
+          "line": 15899,
+          "text": "[INFO ] 2026-11-04 12:43:46.193 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 813 ms. Found 15 JPA repository interfaces.",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L15916",
+          "line": 15916,
+          "text": "[INFO ] 2026-11-04 12:43:47.076 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 0 Redis repository interfaces.",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L15921",
+          "line": 15921,
+          "text": "[WARN ] 2026-11-04 12:43:48.228 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration' of type [com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration$$SpringCGLIB$$0] is  … [xem log đầy đủ]",
+          "group": "events",
+          "milestone": "",
+          "fatal": false,
+          "level": "WARN"
+        },
+        {
+          "id": "L15950",
+          "line": 15950,
+          "text": "[INFO ] 2026-11-04 12:43:48.788 [main] Version - HHH000412: Hibernate ORM core version 6.6.53.Final",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L15952",
+          "line": 15952,
+          "text": "[INFO ] 2026-11-04 12:43:49.231 [main] HikariDataSource - HikariPool-1 - Starting...",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L15953",
+          "line": 15953,
+          "text": "[INFO ] 2026-11-04 12:43:49.604 [main] HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@80b70fd",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L16050",
+          "line": 16050,
+          "text": "[INFO ] 2026-11-04 12:43:55.200 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L16101",
+          "line": 16101,
+          "text": "[INFO ] 2026-11-04 12:43:56.440 [main] TomcatWebServer - Tomcat initialized with port 9901 (http)",
+          "group": "web",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L16108",
+          "line": 16108,
+          "text": "[DEBUG] 2026-11-04 12:43:57.073 [main] ServletContextInitializerBeans - Mapping filters: webMvcObservationFilter urls=[/*] order=-[số đã che], springSecurityFilterChain urls=[/*] order=-100, characterEncodingFilter urls=[/*] order=-[số đã che], formContentFilter urls=[/*] order=-9900, logApiIntercep … [xem log đầy đủ]",
+          "group": "web",
+          "milestone": "",
+          "fatal": false,
+          "level": "DEBUG"
+        },
+        {
+          "id": "L16115",
+          "line": 16115,
+          "text": "[INFO ] 2026-11-04 12:43:57.631 [main] Version - Redisson 3.17.4",
+          "group": "clients",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L16116",
+          "line": 16116,
+          "text": "[INFO ] 2026-11-04 12:43:58.168 [redisson-netty-2-8] MasterPubSubConnectionPool - 1 connections initialized for localhost/[IP đã che]:6379",
+          "group": "clients",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L16134",
+          "line": 16134,
+          "text": "[INFO ] 2026-11-04 12:44:07.707 [main] TomcatWebServer - Tomcat started on port 9901 (http) with context path '/'",
+          "group": "web",
+          "milestone": "port",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L18989",
+          "line": 18989,
+          "text": "[INFO ] 2026-11-04 12:44:08.412 [main] AgentCommandServiceApplication - Started AgentCommandServiceApplication in 26.817 seconds (process running for 29.316)",
+          "group": "outcome",
+          "milestone": "started",
+          "fatal": false,
+          "level": "INFO"
+        }
+      ],
+      "stopRows": [
+        {
+          "line": 18992,
+          "text": "[DEBUG] 2026-11-04 12:44:36.005 [SpringApplicationShutdownHook] ApplicationAvailabilityBean - Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC"
+        },
+        {
+          "line": 18993,
+          "text": "[DEBUG] 2026-11-04 12:44:36.006 [SpringApplicationShutdownHook] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@573284a5, started on Wed Nov 04 12:43:42 ICT 2026"
+        },
+        {
+          "line": 19070,
+          "text": "[INFO ] 2026-11-04 12:44:36.601 [SpringApplicationShutdownHook] GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete"
+        },
+        {
+          "line": 19071,
+          "text": "[INFO ] 2026-11-04 12:44:36.610 [tomcat-shutdown] GracefulShutdown - Graceful shutdown complete"
+        },
+        {
+          "line": 19072,
+          "text": "[INFO ] 2026-11-04 12:44:38.697 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'"
+        },
+        {
+          "line": 19073,
+          "text": "[INFO ] 2026-11-04 12:44:38.701 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated..."
+        },
+        {
+          "line": 19074,
+          "text": "[INFO ] 2026-11-04 12:44:38.704 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed."
+        }
+      ],
+      "missing": "Không có toàn bộ JVM arguments/environment của phiên cũ. Không suy kết quả nghiệp vụ từ Started."
+    },
+    {
+      "id": "default-failure",
+      "name": "Lỗi thật · default · 06/11 23:24",
+      "from": 19075,
+      "to": 24260,
+      "profile": "default",
+      "outcome": "failure",
+      "launch": "classes",
+      "tail": [],
+      "logFile": "logs/app.log",
+      "logSha256": "6e2727b941c1d09104a08085daa6285be1c51d9facb76944dae58d4bc6e648c7",
+      "rows": [
+        {
+          "id": "L19076",
+          "line": 19076,
+          "text": "[INFO ] 2026-11-06 23:24:03.650 [main] AgentCommandServiceApplication - Starting AgentCommandServiceApplication using Java 21.0.13 with PID 12920 (D:\\ALPACA\\agent-system\\workspaces\\agent-service\\1-agent-command-service\\build\\classes\\java\\main started by [đã che] in D:\\ALPACA\\agent-system)",
+          "group": "jvm",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L19077",
+          "line": 19077,
+          "text": "[DEBUG] 2026-11-06 23:24:03.650 [main] AgentCommandServiceApplication - Running with Spring Boot v3.5.16, Spring v6.2.19",
+          "group": "jvm",
+          "milestone": "",
+          "fatal": false,
+          "level": "DEBUG"
+        },
+        {
+          "id": "L19078",
+          "line": 19078,
+          "text": "[INFO ] 2026-11-06 23:24:03.651 [main] AgentCommandServiceApplication - No active profile set, falling back to 1 default profile: \"default\"",
+          "group": "jvm",
+          "milestone": "profile",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L19080",
+          "line": 19080,
+          "text": "[DEBUG] 2026-11-06 23:24:03.783 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@24a298a6",
+          "group": "beans",
+          "milestone": "",
+          "fatal": false,
+          "level": "DEBUG"
+        },
+        {
+          "id": "L19081",
+          "line": 19081,
+          "text": "[INFO ] 2026-11-06 23:24:07.428 [main] DefaultListableBeanFactory - Overriding bean definition for bean 'core-proxy.FeignClientSpecification' with a different definition: replacing [Generic bean: class=org.springframework.cloud.openfeign.FeignClientSpecification; scope=; abstract=false; lazyInit=nul … [xem log đầy đủ]",
+          "group": "beans",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L19093",
+          "line": 19093,
+          "text": "[INFO ] 2026-11-06 23:24:08.338 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 861 ms. Found 15 JPA repository interfaces.",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L19110",
+          "line": 19110,
+          "text": "[INFO ] 2026-11-06 23:24:09.551 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75 ms. Found 0 Redis repository interfaces.",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L19115",
+          "line": 19115,
+          "text": "[WARN ] 2026-11-06 23:24:10.728 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration' of type [com.eventsourcing.configuration.client.EventuateJavaClientDomainCrudConfiguration$$SpringCGLIB$$0] is  … [xem log đầy đủ]",
+          "group": "events",
+          "milestone": "",
+          "fatal": false,
+          "level": "WARN"
+        },
+        {
+          "id": "L19144",
+          "line": 19144,
+          "text": "[INFO ] 2026-11-06 23:24:11.269 [main] Version - HHH000412: Hibernate ORM core version 6.6.53.Final",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L19146",
+          "line": 19146,
+          "text": "[INFO ] 2026-11-06 23:24:11.688 [main] HikariDataSource - HikariPool-1 - Starting...",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "INFO"
+        },
+        {
+          "id": "L19148",
+          "line": 19148,
+          "text": "[ERROR] 2026-11-06 23:24:22.778 [main] SqlExceptionHelper - The connection attempt failed.",
+          "group": "data",
+          "milestone": "",
+          "fatal": false,
+          "level": "ERROR"
+        },
+        {
+          "id": "L19340",
+          "line": 19340,
+          "text": "\tat com.alpaca.agent.AgentCommandServiceApplication.main(AgentCommandServiceApplication.java:27) ~[main/:?]",
+          "group": "outcome",
+          "milestone": "",
+          "fatal": false,
+          "level": "TRACE"
+        },
+        {
+          "id": "L19688",
+          "line": 19688,
+          "text": "[ERROR] 2026-11-06 23:24:39.797 [main] LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for  … [xem log đầy đủ]",
+          "group": "outcome",
+          "milestone": "",
+          "fatal": true,
+          "level": "ERROR"
+        },
+        {
+          "id": "L19689",
+          "line": 19689,
+          "text": "[WARN ] 2026-11-06 23:24:39.798 [main] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventHandlerBeanPostProcessor … [xem log đầy đủ]",
+          "group": "shutdown",
+          "milestone": "",
+          "fatal": false,
+          "level": "WARN"
+        },
+        {
+          "id": "L22542",
+          "line": 22542,
+          "text": "[ERROR] 2026-11-06 23:24:39.853 [main] SpringApplication - Application run failed",
+          "group": "outcome",
+          "milestone": "",
+          "fatal": false,
+          "level": "ERROR"
+        },
+        {
+          "id": "L22543",
+          "line": 22543,
+          "text": "org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventHandlerBeanPostProcessor' defined in com.eventsourcing.configuration.client.EventuateJavaClientDomainEventsConfiguration: Unsatisfied dependency expressed through method 'eventHandlerBeanPostProcess … [xem log đầy đủ]",
+          "group": "outcome",
+          "milestone": "",
+          "fatal": false,
+          "level": "TRACE"
+        },
+        {
+          "id": "L23104",
+          "line": 23104,
+          "text": "Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Error creating bean with name 'entityManagerFactory' defined in clas … [xem log đầy đủ]",
+          "group": "outcome",
+          "milestone": "",
+          "fatal": false,
+          "level": "CAUSE"
+        },
+        {
+          "id": "L23518",
+          "line": 23518,
+          "text": "Caused by: org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [The connection attempt failed.] [n/a]",
+          "group": "outcome",
+          "milestone": "",
+          "fatal": false,
+          "level": "CAUSE"
+        },
+        {
+          "id": "L23688",
+          "line": 23688,
+          "text": "Caused by: org.postgresql.util.PSQLException: The connection attempt failed.",
+          "group": "outcome",
+          "milestone": "",
+          "fatal": false,
+          "level": "CAUSE"
+        },
+        {
+          "id": "L23868",
+          "line": 23868,
+          "text": "Caused by: java.net.SocketTimeoutException: Connect timed out",
+          "group": "outcome",
+          "milestone": "",
+          "fatal": false,
+          "level": "CAUSE"
+        }
+      ],
+      "stopRows": [],
+      "missing": "Cần console từ ERROR/exception đầu tiên đến hết Process finished/shutdown, gồm stdout/stderr Log4j2. app.log hiện chỉ xác nhận hủy refresh, không xác nhận dọn tài nguyên hoàn tất."
+    }
+  ],
+  "limits": "Phát lại đoạn Command đã tách theo mốc khởi động; không dùng Query/Flow/INSURTECH. Source/cấu hình IDE là bản hiện tại, chưa chứng minh nguyên văn cấu hình ở thời điểm phiên cũ. Log đã che dữ liệu nhạy cảm; không chạy repo thật. File log dùng chung, pattern không có PID từng dòng: cửa sổ được chọn theo mốc Starting/Started đúng Command; không gán mọi dòng chen kẽ cho một thread/process nếu thiếu bằng chứng."
+}

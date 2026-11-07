@@ -1,0 +1,131 @@
+.practice-workbench.runtime-focus {grid-template-columns:minmax(0,1fr) 285px;}
+.runtime-focus > .practice-project {display:none;}
+.ide-reference {color:#587082;font-size:13px!important;}
+.ide-mission {padding:12px 15px;background:#edf6fa;border:1px solid #c4dce7;border-radius:7px;margin:14px 0;}
+.ide-mission b {font-size:12px;letter-spacing:.6px;color:#18748a;text-transform:uppercase;}
+.guide-detail .ide-mission p {margin:5px 0;font-size:16px;}
+.ide-shell {color:#dce0e8;background:#202126;border:1px solid #40414a;border-radius:9px;overflow:hidden;box-shadow:0 8px 24px #17384b12;font:14px/1.5 system-ui,sans-serif;}
+.ide-title {background:#2b2d31;display:flex;align-items:center;gap:10px;padding:12px;}
+.ide-title>span:last-child {margin-left:auto;color:#a3a7b0;font-size:12px;}
+.ide-logo {background:linear-gradient(135deg,#bf3183,#435be4);padding:3px 6px;border-radius:3px;color:#fff;}
+.ide-menubar {display:flex;gap:17px;align-items:center;border-block:1px solid #393b40;padding:5px 12px;font-size:13px;overflow:auto;}
+.ide-shell button {color:#e0e4ed;background:#32353c;border:1px solid #575b66;border-radius:4px;cursor:pointer;font:inherit;text-align:left;padding:7px 9px;min-height:34px;}
+.ide-shell button:disabled {cursor:default;opacity:.65;}
+.ide-shell .ide-located,.ide-located {outline:3px solid #eab64e!important;outline-offset:2px;}
+.ide-menu {margin:4px 12px 12px;width:fit-content;padding:6px;border:1px solid #555963;background:#303238;}
+.ide-dialog {margin:16px;border:1px solid #555963;border-radius:6px;background:#2b2d31;}
+.ide-dialog-title {padding:10px 14px;border-bottom:1px solid #494c54;font-weight:650;}
+.ide-dialog-body {display:grid;grid-template-columns:205px minmax(0,1fr);min-height:275px;}
+.ide-dialog nav {display:flex;flex-direction:column;gap:8px;padding:13px;border-right:1px solid #484b52;font-size:13px;}
+.ide-dialog nav small {color:#a8acb7;font-size:12px;margin-top:7px;}
+.ide-dialog nav span {padding-left:10px;color:#acb1bd;}
+.ide-page {padding:16px;min-width:0;}
+.ide-page h4 {color:#f0f1f5;font-size:15px;margin:0 0 18px;}
+.ide-page label,.ide-config-row {display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:center;margin:15px 0;font-size:13px;}
+.ide-page output {color:#bfc5d0;padding:7px;border:1px solid #444750;border-radius:3px;overflow-wrap:anywhere;}
+.ide-config-row b {font-weight:500;}
+.ide-popup,.ide-picker {display:grid;gap:9px;border:1px solid #6d7380;background:#353840;padding:12px;margin:12px 0;box-shadow:0 4px 10px #0003;}
+.ide-popup small,.ide-picker small {color:#b7bfce;}
+.guide-detail .ide-picker p {font-size:13px;margin:5px 0;}
+.ide-picker code {overflow-wrap:anywhere;}
+.ide-dialog footer {padding:10px;display:flex;justify-content:flex-end;gap:10px;border-top:1px solid #484b52;}
+.ide-editor {display:flex;gap:14px;min-height:230px;}
+.ide-project-mini {padding:20px 14px;line-height:2;border-right:1px solid #393c43;font-size:12px;}
+.ide-editor pre {flex:1;background:transparent;border:0;color:#b4c6de;margin:0;padding:22px 0;font-size:13px;}
+.ide-editor aside {border-left:1px solid #393c43;padding:8px;}
+.ide-gradle-tool {display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:14px;border-top:1px solid #4d515b;}
+.ide-gradle-tool span {font-size:12px;color:#b8c7d5;width:100%;}
+.ide-feedback {border-left:3px solid #e5ae3d;background:#fffbef;padding:12px;border-radius:4px;}
+.ide-explanation {color:#44667a;}
+.connection-pair {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start;}
+.connection-pair article {border:1px solid #c9dce6;border-radius:7px;min-width:0;overflow:hidden;}
+.connection-pair header {background:#f0f7fa;padding:12px;display:grid;gap:6px;}
+.connection-pair header span,.connection-status article>span {font-size:11px;letter-spacing:.65px;font-weight:700;color:#51768a;}
+.connection-pair header b {font-size:14px;overflow-wrap:anywhere;color:#1d5971;}
+.connection-code {height:255px;border-block:1px solid #d3e2ea;min-width:0;}
+.connection-code [data-testid=highlighted-code] {font-size:13px;line-height:1.8;}
+.connection-code [data-line]:hover {background:#e7f2f8;cursor:pointer;}
+.project-practice .practice-line-button {white-space:nowrap;overflow-wrap:normal;min-width:38px;flex-basis:38px;}
+.connection-pair article>p,.connection-pair article>details {padding:0 12px;font-size:14px!important;}
+.connection-pair article>details {padding-bottom:12px;}
+.connection-pair article>details .connection-code {margin-top:12px;}
+.connection-full .connection-code {height:380px;}
+.connection-full .connection-code [data-testid=source-line] {white-space:pre-wrap;overflow-wrap:anywhere;}
+.connection-status {display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0;}
+.connection-status article {display:flex;flex-direction:column;padding:14px;border:1px solid #c8dce5;border-radius:7px;background:#f7fafc;}
+.connection-status article:last-child {background:#fff9ee;border-color:#e8d5ae;}
+.connection-status b {margin-top:9px;font-size:15px;color:#345b70;overflow-wrap:anywhere;}
+.connection-status small {font-size:12px;color:#627c8a;}
+.connection-status p {font-size:14px!important;}
+.docker-version {border:1px solid #cddde5;background:#f7fafc;padding:14px;border-radius:6px;margin-bottom:15px;}
+.docker-version>b {font-size:13px;color:#46677c;}
+.docker-desktop {border:1px solid #bccfdc;border-radius:8px;overflow:hidden;}
+.docker-desktop>header {background:#e8f2fd;display:flex;gap:12px;justify-content:space-between;padding:14px;color:#24587c;}
+.docker-desktop>header span {font-size:12px;align-self:center;border:1px solid #d0b57f;background:#fff8eb;border-radius:12px;padding:3px 9px;color:#846222;}
+.docker-desktop>header .engine-ready {color:#216746;background:#eef8f1;border-color:#aacaaf;}
+.docker-wait {padding:20px;}
+.docker-columns {display:grid;grid-template-columns:115px minmax(0,1fr);}
+.docker-columns nav {padding:15px 10px;background:#f3f7fb;border-right:1px solid #cfdee8;display:flex;flex-direction:column;gap:18px;font-size:13px;}
+.docker-columns nav b {color:#086f9a;}
+.docker-container-list {min-width:0;padding:0 10px 10px;}
+.docker-container-list>p {font-size:13px!important;}
+.docker-table {overflow-x:auto;}
+.docker-row {display:grid;grid-template-columns:minmax(160px,1fr) minmax(140px,.9fr) 85px;gap:8px;width:100%;min-width:420px;border:0;border-bottom:1px solid #dce6ec;background:#fff;padding:11px 8px;color:#45697e;text-align:left;font:12px/1.5 system-ui;align-items:center;}
+.docker-row b {color:#2b5269;font-weight:600;overflow-wrap:anywhere;}
+.docker-row small {display:block;color:#6a8190;font-size:11px;}
+.docker-row[aria-selected=true] {background:#edf6fc;box-shadow:inset 3px 0 #1985bc;}
+.docker-table-head {font-weight:700;background:#f8fafc;}
+.container-running {color:#0d6b8c;background:#e7f4fa;border-radius:4px;padding:3px;}
+.docker-inspector {padding:16px;background:#f7fafc;border-top:1px solid #cbdce6;}
+.docker-inspector h4 {margin:0;color:#244f69;}
+.docker-inspector>.button {margin:0 7px 10px 0;}
+.docker-logs {border:1px solid #cadce5;border-radius:5px;padding:12px;background:#fff;}
+.docker-logs>b {font-size:12px;}
+.docker-logs button {font:13px/1.65 Consolas,monospace;color:#2e5d77;border:1px solid #c1d7e2;border-radius:4px;background:#eff7fb;padding:12px;max-width:100%;overflow-wrap:anywhere;text-align:left;}
+.docker-logs button[aria-pressed=true] {border-color:#589c83;background:#eef8f0;}
+.docker-evidence {border-left:3px solid #b79957;padding:8px 12px;background:#fff9ed;}
+.conflict-plan {background:#f0f6fa;border:1px solid #cbdde6;border-radius:6px;padding:13px;}
+.conflict-plan small {color:#4f7386;}
+.conflict-selected {background:#fff7e5;}
+.conflict-practice .runtime-table th {width:auto;}
+.conflict-resolution {padding:15px;background:#f4f9fb;border:1px solid #cedeE7;border-radius:6px;}
+.infrastructure-panel {border-bottom:1px solid #cbdde7;background:#fff;font-size:14px;}
+.infrastructure-panel>summary {padding:13px 18px;cursor:pointer;color:#216479;font-weight:600;}
+.infrastructure-panel>summary>span {font-size:12px;color:#6a8190;margin-left:12px;font-weight:400;}
+.infrastructure-content {padding:0 18px 18px;min-width:0;}
+.infrastructure-content p,.infrastructure-content li {font-size:14px!important;line-height:1.65;}
+.infrastructure-graph {height:460px;border:1px solid #cadce6;border-radius:6px;background:#fafcfd;}
+.infrastructure-graph .react-flow__node b {display:block;white-space:pre-wrap;}
+.infrastructure-graph .react-flow__node small {display:block;font-size:11px;margin-top:4px;}
+.infrastructure-legend {color:#537587;}
+.infrastructure-relations {display:flex;flex-wrap:wrap;gap:7px;}
+.infrastructure-relations button {background:#f3f8fb;color:#35647a;border:1px solid #d1e2ea;border-radius:5px;padding:8px 10px;font-size:12px;}
+.infrastructure-relations small {display:block;margin-top:3px;}
+.infrastructure-relations .infra-dim {opacity:.55;}
+.infrastructure-relations button[aria-pressed=true] {border-color:#be9347;background:#fff8e7;}
+.infrastructure-proof {background:#fffaf0;border:1px solid #e1d1ad;border-radius:6px;padding:15px;margin-top:14px;overflow-wrap:anywhere;}
+.infrastructure-proof pre {white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 Consolas,monospace;}
+@media(max-width:1100px) and (min-width:901px){.practice-workbench.runtime-focus{grid-template-columns:minmax(0,1fr);} .runtime-focus>.practice-task-panel{grid-column:auto;}}
+@media(max-width:900px){
+  .connection-pair,.connection-status {grid-template-columns:minmax(0,1fr);}
+  .ide-dialog {margin:10px;}
+  .ide-dialog-body {grid-template-columns:110px minmax(0,1fr);}
+  .ide-dialog nav {font-size:11px;padding:10px 7px;overflow-wrap:anywhere;}
+  .ide-dialog nav button {padding:7px 4px;font-size:11px;}
+  .ide-page {padding:10px;}
+  .ide-page label,.ide-config-row {grid-template-columns:minmax(0,1fr);gap:6px;}
+  .ide-title>span:last-child {display:none;}
+  .ide-editor {gap:8px;flex-wrap:wrap;}
+  .ide-project-mini {display:none;}
+  .ide-editor pre {padding:15px;font-size:11px;}
+  .ide-editor aside {padding:5px;}
+  .ide-shell button {font-size:12px;white-space:normal;overflow-wrap:anywhere;}
+  .ide-popup,.ide-picker {padding:8px;}
+  .docker-columns {grid-template-columns:minmax(0,1fr);}
+  .docker-columns nav {display:none;}
+  .docker-container-list {padding:0 6px 10px;}
+  .conflict-practice .runtime-table {min-width:510px;}
+  .infrastructure-graph {height:330px;}
+  .infrastructure-relations {display:grid;grid-template-columns:1fr 1fr;}
+  .infrastructure-relations button {min-width:0;overflow-wrap:anywhere;}
+}

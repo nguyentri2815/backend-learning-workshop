@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "normalization": "UTF-8 text; CRLF normalized to LF",
+  "purpose": "Integrity of the bundled, reviewed lesson snapshots; not verification of upstream repositories or a live backend.",
+  "files": [
+    {
+      "path": "src/content/journeys.ts",
+      "bytes": 14520,
+      "sha256": "2851b21fd6b13951da47727f0f51639920c67d0f87fab4d70699fe0f8109e5a1"
+    },
+    {
+      "path": "src/content/model.ts",
+      "bytes": 970,
+      "sha256": "767d991fe25a86b38a0b8a5ed76ba0c634593d1fadf629865a266c0527b64c8b"
+    },
+    {
+      "path": "src/content/setup/action-guide.ts",
+      "bytes": 9068,
+      "sha256": "06713a370c311a8976a2af867bc5dc5f4136c3db0b97c56982b4bc963b219e35"
+    },
+    {
+      "path": "src/content/setup/beginner-actions.ts",
+      "bytes": 42691,
+      "sha256": "7d1c98d10c633650d0214ab6383d565e14b748720fc6a51c84d3f9b7d0ed69a6"
+    },
+    {
+      "path": "src/content/setup/command-case-source.json",
+      "bytes": 29873,
+      "sha256": "bd96d8bcdb6c2a5fb9527ddaaf9d7fe2b08d0e40e06f929b80543bbc453fc9e5"
+    },
+    {
+      "path": "src/content/setup/command-preflight-source.json",
+      "bytes": 15911,
+      "sha256": "176a9343b9ca1ba90ddb399fa0219bf6bac1d9226cdfcc060822c7d65da5b4f7"
+    },
+    {
+      "path": "src/content/setup/command-run-source.json",
+      "bytes": 4691,
+      "sha256": "466ea17ed7dcf714f0c9f40f02166fe9ff24457288ed3249d25bdef0a51034f2"
+    },
+    {
+      "path": "src/content/setup/command-startup-default-failure.txt",
+      "bytes": 684021,
+      "sha256": "237e22fb960691608d814fef5f8a7f2db09cb52bcaf4b60e3b800063173bf455"
+    },
+    {
+      "path": "src/content/setup/command-startup-default-success.txt",
+      "bytes": 346116,
+      "sha256": "b7f853bcdcd977da1faf364bd6ab779959a0b5bd927b49a0ebe04e4efe01463d"
+    },
+    {
+      "path": "src/content/setup/command-startup-dev-success.txt",
+      "bytes": 343457,
+      "sha256": "a77f0dff8ca7539769f6bf533dfeb41a366f4b08a744bf78428ff1683d50d833"
+    },
+    {
+      "path": "src/content/setup/command-startup-source.json",
+      "bytes": 67158,
+      "sha256": "b5d42e3b654303c81c58f265ae2bbe6a5ba3e9048ba73b9df4c677468a6609e7"
+    },
+    {
+      "path": "src/content/setup/dependency-survey.json",
+      "bytes": 174405,
+      "sha256": "d5b1b6e38a75b0ba4350d89d03dcb6e13c35754508fa5bd5c100cce3c4d1fc24"
+    },
+    {
+      "path": "src/content/setup/evidence.ts",
+      "bytes": 13216,
+      "sha256": "fbebffadb78f314a23ba1207266564381637e250aecb7fb4ed4d84a93e36aeb4"
+    },
+    {
+      "path": "src/content/setup/execution-source.json",
+      "bytes": 18897,
+      "sha256": "48c8c1783f58650dc8b03d1720cbcceff77936e842e44e519ed5c53fd7e58263"
+    },
+    {
+      "path": "src/content/setup/files.ts",
+      "bytes": 6956,
+      "sha256": "7c5f010e4f2240d9a276ab95c77b5c9caf6ed4e32b5d839c6cadfa2f12d2ea38"
+    },
+    {
+      "path": "src/content/setup/history.ts",
+      "bytes": 29327,
+      "sha256": "2e5a5a75108ca8e6c0ec96c1eb6905cb89939dc5f4726241f5aa93aa2c352b51"
+    },
+    {
+      "path": "src/content/setup/index.ts",
+      "bytes": 4908,
+      "sha256": "83f193cec5a4e3562f239a7aec501792b40ddbf65e03b5c82660157abbc51ed1"
+    },
+    {
+      "path": "src/content/setup/model.ts",
+      "bytes": 2977,
+      "sha256": "9bbd5d3f01585289bf1dd8377403de7d37901dc991437a907255099eed671c2b"
+    },
+    {
+      "path": "src/content/setup/practice-infrastructure-source.json",
+      "bytes": 37715,
+      "sha256": "d069be19ef1a0fd3122052e53f681c63832b827cbb5e5c492b5155402e675d7d"
+    },
+    {
+      "path": "src/content/setup/practice-runtime-source.json",
+      "bytes": 21787,
+      "sha256": "2bd48a93fb8dfe33add9e4fbf8d67d7d8ee03c0cf15e92b5eabc71282ba0a1c7"
+    },
+    {
+      "path": "src/content/setup/practice-source.json",
+      "bytes": 30681,
+      "sha256": "6b5d72c1fb2753a4fe400f0b81a7d6168af19fb369fbea501aec26b8f7705626"
+    },
+    {
+      "path": "src/content/setup/runbooks.ts",
+      "bytes": 21886,
+      "sha256": "fe416b1d5fe179e55d95ef7524de737f734f4169dea4627e264e8d2dba9e116c"
+    }
+  ]
+}

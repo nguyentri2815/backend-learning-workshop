@@ -1,0 +1,14 @@
+import {DependencySurvey} from "./DependencySurvey";
+import type {PracticeContext,PracticeTask} from "./project-practice-model";
+import type {Simulation} from "./practice-runtime-model";
+export function ConnectionPractice({context,change,observe,open}:{context:PracticeContext;change:(patch:Partial<PracticeContext>)=>void;observe:(key:string,complete?:PracticeTask)=>void;open:(id:string,line?:number)=>void}){
+ const s=context.sim,profile=s.connectionProfile==="inherit"?context.profile:s.connectionProfile;
+ const moduleLabel={command:"Command",flow:"Flow",query:"Query",cdc:"Kafka CDC Java"}[s.connectionModule];
+ const verified=s.connectionModule==="command"&&profile!=="test";
+ return <section className="runtime-activity connection-practice" aria-label="Đối chiếu dependency">
+  <div className="connection-method"><b>Bạn đang học cách tìm dịch vụ mà một module cần dùng.</b><p>{verified?`Ví dụ: Command • profile ${profile==="dev"?"dev":"không chỉ định"}.`:`Phạm vi đang chọn: ${moduleLabel} • profile ${profile==="base"?"không chỉ định":profile}.`}</p><ol aria-label="Phương pháp tìm dịch vụ"><li>Chọn module</li><li>Xác định profile</li><li>Đọc cấu hình hiệu lực</li><li>Đối chiếu dịch vụ</li></ol></div>
+  <div className="connection-scope-fields"><label>Module<select aria-label="Module khảo sát" value={s.connectionModule} onChange={e=>change({view:"activity",sim:{...s,connectionModule:e.target.value as Simulation["connectionModule"],notice:""}})}><option value="command">Command · có bài thực hành</option><option value="flow">Flow · chưa khảo sát bài G1</option><option value="query">Query · chưa khảo sát bài G1</option><option value="cdc">Kafka CDC Java · chưa khảo sát bài G1</option></select></label><label>Profile<select aria-label="Profile khảo sát" value={profile} onChange={e=>change({view:"activity",sim:{...s,connectionProfile:e.target.value as Simulation["connectionProfile"],notice:""}})}><option value="dev">dev</option><option value="base">Không chỉ định · file gốc</option><option value="test">test · chưa có bài G1</option></select></label></div>
+  <p className="connection-scope-note">Bộ chọn xác định phạm vi đang đọc, không kích hoạt profile hoặc chạy Java. Run Configuration được chọn riêng ở I1.</p>
+  {verified?<DependencySurvey context={context} profile={profile as "base"|"dev"} change={change} observe={observe} open={open}/>:<div className="connection-unverified" role="note"><b>Chưa có bài thực hành cho {moduleLabel} • profile {profile==="base"?"không chỉ định":profile}.</b><p>Chưa mở nội dung cấu hình hoặc đối chiếu container cho phạm vi này. Cấu hình Command không được dùng thay cho module/profile đang chọn.</p><button className="button secondary" onClick={()=>change({view:"activity",sim:{...s,connectionModule:"command",connectionProfile:"dev",notice:""}})}>Quay lại ví dụ Command • dev</button></div>}
+ </section>;
+}

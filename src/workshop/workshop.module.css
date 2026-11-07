@@ -1,0 +1,71 @@
+.codeScroll {
+  height: 100%;
+  min-height: 240px;
+  overflow: auto;
+  background: #fcfdff;
+  outline-offset: -3px;
+}
+.codeLines {
+  padding: 18px 0 26px;
+  min-width: fit-content;
+  font:
+    13px/1.85 Consolas,
+    "Cascadia Code",
+    monospace;
+  tab-size: 2;
+}
+.codeLine {
+  display: flex;
+  min-height: 25px;
+  padding: 0 18px 0 8px;
+  border-left: 3px solid transparent;
+}
+.lineNumber {
+  user-select: none;
+  flex: 0 0 34px;
+  text-align: right;
+  padding-right: 12px;
+  color: #8794a6;
+  font-size: 11px;
+}
+.codeLine code {
+  white-space: pre;
+}
+.codeWrap .codeLines {
+  min-width: 0;
+}
+.codeWrap .codeLine code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding-left: var(--source-indent);
+  text-indent: calc(-1 * var(--source-indent));
+  min-width: 0;
+}
+.explained {
+  background: #eaf5fd;
+  border-left-color: #1597cd;
+}
+.add {
+  background: #e7f6ed;
+}
+.remove {
+  background: #fff0ed;
+}
+.hunk {
+  color: #697c91;
+  background: #f0f4f8;
+}
+.diffSign {
+  width: 22px;
+  flex-shrink: 0;
+  color: #607287;
+}
+.codeWarning {
+  padding: 12px;
+  color: #986617;
+  font-size: 12px;
+}
+.diffLine .lineNumber {
+  flex-basis: 25px;
+  padding-right: 7px;
+}

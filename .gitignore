@@ -1,0 +1,14 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.verification/
+*.log
+.env*
+.npmrc
+*.pem
+*.key
+*.tsbuildinfo
+.cache/
+.DS_Store
+Thumbs.db

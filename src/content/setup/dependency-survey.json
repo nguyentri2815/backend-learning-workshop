@@ -1,0 +1,5849 @@
+{
+  "extractedAt": "2026-11-06T10:03:05.982Z",
+  "sourceRoot": "D:/ALPACA/agent-system",
+  "revisions": {
+    "workspace": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+    "command": "f0971ae41170c84bb883be92cd1ebd6632010302",
+    "shared": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+    "assets": "9ac4d7f48450f0d71abba7aaf94e290040a8f023",
+    "sso": "6cb94b95b23d57b7e3b94b22623868edcf2dcfcb"
+  },
+  "scope": {
+    "module": "Command",
+    "profiles": [
+      "base",
+      "dev"
+    ],
+    "javaFiles": 1333,
+    "resourceFiles": 33,
+    "knownImports": [],
+    "overrideLimit": "Đã đọc base/dev và kiểm tra chỉ dấu import trong resources đã khảo sát. Run Configuration, args, VM properties, environment và file ngoài chưa được đọc; không kết luận cấu hình runtime thật.",
+    "negativeSearchLimit": "Không tìm thấy nghĩa là chưa tìm thấy trong Command, agent-shared và shared libraries đã đọc; không chứng minh cấu hình/client không dùng.",
+    "historyLimit": "S07/S11/S17 là lịch sử setup/process, không chứng minh từng client đã gọi thành công."
+  },
+  "configs": [
+    {
+      "id": "default",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application.yml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "sourceSha256": "76262f03d968756b9906d64ea8116cc5ff7d121305e945419f5ffd1e9e4c85fb",
+      "lastModified": "2026-11-04T04:25:19.497Z",
+      "rows": [
+        {
+          "line": 7,
+          "text": "eventuatelocal:"
+        },
+        {
+          "line": 8,
+          "text": "  kafka:"
+        },
+        {
+          "line": 9,
+          "text": "    bootstrap:"
+        },
+        {
+          "line": 10,
+          "text": "      servers: 127.0.0.1:9092"
+        },
+        {
+          "line": 11,
+          "text": "  zookeeper:"
+        },
+        {
+          "line": 12,
+          "text": "    connection:"
+        },
+        {
+          "line": 13,
+          "text": "      string: 127.0.0.1:2181"
+        },
+        {
+          "line": 15,
+          "text": "  security:"
+        },
+        {
+          "line": 16,
+          "text": "    oauth2:"
+        },
+        {
+          "line": 17,
+          "text": "      resourceserver:"
+        },
+        {
+          "line": 18,
+          "text": "        opaquetoken:"
+        },
+        {
+          "line": 19,
+          "text": "          introspection-uri: ${system.sso-service.api}/oauth/check_token"
+        },
+        {
+          "line": 20,
+          "text": "          client-id: [đã che]"
+        },
+        {
+          "line": 21,
+          "text": "          client-secret: [đã che]"
+        },
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 33,
+          "text": "    url: [đã che; PostgreSQL remote; đích không phải Compose local]"
+        },
+        {
+          "line": 34,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 35,
+          "text": "    hikari:"
+        },
+        {
+          "line": 36,
+          "text": "      connection-init-sql: CREATE SCHEMA IF NOT EXISTS platform_event"
+        },
+        {
+          "line": 42,
+          "text": "    properties:"
+        },
+        {
+          "line": 43,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 44,
+          "text": "        hbm2ddl.create_namespaces: [đã che]"
+        },
+        {
+          "line": 45,
+          "text": "        default_schema: platform_event"
+        },
+        {
+          "line": 51,
+          "text": "  rabbitmq:"
+        },
+        {
+          "line": 52,
+          "text": "    host: 127.0.0.1"
+        },
+        {
+          "line": 53,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 54,
+          "text": "    port: 5672"
+        },
+        {
+          "line": 55,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 72,
+          "text": "system:"
+        },
+        {
+          "line": 73,
+          "text": "  sso-service:"
+        },
+        {
+          "line": 74,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 75,
+          "text": "  platform-query:"
+        },
+        {
+          "line": 76,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 77,
+          "text": "  platform-command:"
+        },
+        {
+          "line": 78,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 79,
+          "text": "  assets:"
+        },
+        {
+          "line": 80,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 81,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 82,
+          "text": "  core-proxy:"
+        },
+        {
+          "line": 83,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 84,
+          "text": "  micro-site-service:"
+        },
+        {
+          "line": 85,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 86,
+          "text": "  quote-url:"
+        },
+        {
+          "line": 87,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 88,
+          "text": "  policy-url:"
+        },
+        {
+          "line": 89,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 90,
+          "text": "  payment-process-url:"
+        },
+        {
+          "line": 91,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 92,
+          "text": "  assessment:"
+        },
+        {
+          "line": 93,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 94,
+          "text": "alpaca:"
+        },
+        {
+          "line": 95,
+          "text": "  local: true"
+        },
+        {
+          "line": 96,
+          "text": "  config:"
+        },
+        {
+          "line": 98,
+          "text": "    home-url: [đã che]"
+        },
+        {
+          "line": 99,
+          "text": "    reset-password-url: [đã che]"
+        },
+        {
+          "line": 100,
+          "text": "    reset-password-subject: [đã che]"
+        },
+        {
+          "line": 101,
+          "text": "    active-account-subject: [đã che]"
+        },
+        {
+          "line": 102,
+          "text": "    reset-password-from: [đã che]"
+        },
+        {
+          "line": 103,
+          "text": "    active-account-from: [đã che]"
+        },
+        {
+          "line": 104,
+          "text": "    reset-password-template: [đã che]"
+        },
+        {
+          "line": 105,
+          "text": "    active-account-template: [đã che]"
+        },
+        {
+          "line": 106,
+          "text": "    email-send-error: [đã che]"
+        },
+        {
+          "line": 118,
+          "text": "cache:"
+        },
+        {
+          "line": 119,
+          "text": "  redis: [đã che; Redis localhost:6379; DB 0]"
+        },
+        {
+          "line": 120,
+          "text": "  redis-persistent: [đã che; Redis localhost:6379; DB 0]"
+        },
+        {
+          "line": 121,
+          "text": "  redis-session: [đã che; Redis localhost:6379; DB 0]"
+        }
+      ]
+    },
+    {
+      "id": "dev",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "sourceSha256": "55ef0453bcfbdc281397a8f682c1ba7cfc7d0e4fc4ace030adac94aad64c06a4",
+      "lastModified": "2026-11-04T04:25:19.496Z",
+      "rows": [
+        {
+          "line": 7,
+          "text": "eventuatelocal:"
+        },
+        {
+          "line": 8,
+          "text": "  kafka:"
+        },
+        {
+          "line": 9,
+          "text": "    bootstrap:"
+        },
+        {
+          "line": 10,
+          "text": "      servers: 127.0.0.1:9092"
+        },
+        {
+          "line": 11,
+          "text": "  zookeeper:"
+        },
+        {
+          "line": 12,
+          "text": "    connection:"
+        },
+        {
+          "line": 13,
+          "text": "      string: 127.0.0.1:2181"
+        },
+        {
+          "line": 15,
+          "text": "  security:"
+        },
+        {
+          "line": 16,
+          "text": "    oauth2:"
+        },
+        {
+          "line": 17,
+          "text": "      resourceserver:"
+        },
+        {
+          "line": 18,
+          "text": "        opaquetoken:"
+        },
+        {
+          "line": 19,
+          "text": "          introspection-uri: ${system.sso-service.api}/oauth/check_token"
+        },
+        {
+          "line": 20,
+          "text": "          client-id: [đã che]"
+        },
+        {
+          "line": 21,
+          "text": "          client-secret: [đã che]"
+        },
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 33,
+          "text": "    url: [đã che; PostgreSQL ${DOCKER_HOST_IP:localhost}:5432; DB alpaca-event]"
+        },
+        {
+          "line": 34,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 35,
+          "text": "    hikari:"
+        },
+        {
+          "line": 36,
+          "text": "      connection-init-sql: CREATE SCHEMA IF NOT EXISTS platform_event"
+        },
+        {
+          "line": 42,
+          "text": "    properties:"
+        },
+        {
+          "line": 43,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 44,
+          "text": "        hbm2ddl.create_namespaces: [đã che]"
+        },
+        {
+          "line": 45,
+          "text": "        default_schema: platform_event"
+        },
+        {
+          "line": 51,
+          "text": "  rabbitmq:"
+        },
+        {
+          "line": 52,
+          "text": "    host: 127.0.0.1"
+        },
+        {
+          "line": 53,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 54,
+          "text": "    port: 5672"
+        },
+        {
+          "line": 55,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 72,
+          "text": "system:"
+        },
+        {
+          "line": 73,
+          "text": "  sso-service:"
+        },
+        {
+          "line": 74,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 75,
+          "text": "  platform-query:"
+        },
+        {
+          "line": 76,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 77,
+          "text": "  platform-command:"
+        },
+        {
+          "line": 78,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 79,
+          "text": "  assets:"
+        },
+        {
+          "line": 80,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 81,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 82,
+          "text": "  core-proxy:"
+        },
+        {
+          "line": 83,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 84,
+          "text": "  micro-site-service:"
+        },
+        {
+          "line": 85,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 86,
+          "text": "  quote-url:"
+        },
+        {
+          "line": 87,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 88,
+          "text": "  policy-url:"
+        },
+        {
+          "line": 89,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 90,
+          "text": "  payment-process-url:"
+        },
+        {
+          "line": 91,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 92,
+          "text": "  assessment:"
+        },
+        {
+          "line": 93,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 94,
+          "text": "alpaca:"
+        },
+        {
+          "line": 95,
+          "text": "  local: false"
+        },
+        {
+          "line": 96,
+          "text": "  config:"
+        },
+        {
+          "line": 98,
+          "text": "    home-url: [đã che]"
+        },
+        {
+          "line": 99,
+          "text": "    reset-password-url: [đã che]"
+        },
+        {
+          "line": 100,
+          "text": "    reset-password-subject: [đã che]"
+        },
+        {
+          "line": 101,
+          "text": "    active-account-subject: [đã che]"
+        },
+        {
+          "line": 102,
+          "text": "    reset-password-from: [đã che]"
+        },
+        {
+          "line": 103,
+          "text": "    active-account-from: [đã che]"
+        },
+        {
+          "line": 104,
+          "text": "    reset-password-template: [đã che]"
+        },
+        {
+          "line": 105,
+          "text": "    active-account-template: [đã che]"
+        },
+        {
+          "line": 106,
+          "text": "    email-send-error: [đã che]"
+        },
+        {
+          "line": 118,
+          "text": "cache:"
+        },
+        {
+          "line": 119,
+          "text": "  redis: [đã che; Redis localhost:6379; DB 0]"
+        },
+        {
+          "line": 120,
+          "text": "  redis-persistent: [đã che; Redis localhost:6379; DB 0]"
+        },
+        {
+          "line": 121,
+          "text": "  redis-session: [đã che; Redis localhost:6379; DB 0]"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "main",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/AgentCommandServiceApplication.java",
+      "symbol": "AgentCommandServiceApplication · import / scan / main",
+      "start": 14,
+      "end": 27,
+      "sourceSha256": "65d5eb4fe95be53ac4feedd9824131290043f0416f1f59f133b9dbce7942c6c9",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.410Z",
+      "rows": [
+        {
+          "line": 14,
+          "text": ""
+        },
+        {
+          "line": 15,
+          "text": "@SpringBootApplication"
+        },
+        {
+          "line": 16,
+          "text": "@Import({LibraEventuateLocalConfiguration.class})"
+        },
+        {
+          "line": 17,
+          "text": "@EnableFeignClients(basePackages = \"com.alpaca\")"
+        },
+        {
+          "line": 18,
+          "text": "@ComponentScan(\"com.alpaca\")"
+        },
+        {
+          "line": 19,
+          "text": "@EntityScan(\"com.alpaca\")"
+        },
+        {
+          "line": 20,
+          "text": "@EnableJpaRepositories(\"com.alpaca\")"
+        },
+        {
+          "line": 21,
+          "text": "@OpenAPIDefinition(info ="
+        },
+        {
+          "line": 22,
+          "text": "@Info(title = \"[đã che]\", version = \"[đã che]\", description = \"[đã che]\"),"
+        },
+        {
+          "line": 23,
+          "text": "        servers = {@Server(url = \"/platform-command\")}"
+        },
+        {
+          "line": 24,
+          "text": ")"
+        },
+        {
+          "line": 25,
+          "text": "public class AgentCommandServiceApplication {"
+        },
+        {
+          "line": 26,
+          "text": "    public static void main(String[] args) {"
+        },
+        {
+          "line": 27,
+          "text": "        SpringApplication.run(AgentCommandServiceApplication.class, args);"
+        }
+      ]
+    },
+    {
+      "id": "build",
+      "path": "workspaces/agent-service/1-agent-command-service/build.gradle",
+      "symbol": "Command dependencies / exclusions",
+      "start": 4,
+      "end": 22,
+      "sourceSha256": "9f4c5533c785adb589760ff4ab8e9e071a5b419dc0fcea61a93b0992db0d43c8",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.408Z",
+      "rows": [
+        {
+          "line": 4,
+          "text": "configurations {"
+        },
+        {
+          "line": 5,
+          "text": "    all {"
+        },
+        {
+          "line": 6,
+          "text": "        exclude group: 'io.eventuate.local.java'"
+        },
+        {
+          "line": 7,
+          "text": "        exclude group: 'io.eventuate.common'"
+        },
+        {
+          "line": 8,
+          "text": "    }"
+        },
+        {
+          "line": 9,
+          "text": "}"
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "dependencies {"
+        },
+        {
+          "line": 12,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-event-sourcing', configuration: 'default')"
+        },
+        {
+          "line": 13,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-notification', configuration: 'default')"
+        },
+        {
+          "line": 14,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-assets', configuration: 'default')"
+        },
+        {
+          "line": 15,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-cache', configuration: 'default')"
+        },
+        {
+          "line": 16,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-webmvc', configuration: 'default')"
+        },
+        {
+          "line": 17,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-amqp', configuration: 'default')"
+        },
+        {
+          "line": 18,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-auth', configuration: 'default')"
+        },
+        {
+          "line": 19,
+          "text": "    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'"
+        },
+        {
+          "line": 20,
+          "text": "    implementation 'org.springframework.security:spring-security-oauth2-resource-server'"
+        },
+        {
+          "line": 21,
+          "text": ""
+        },
+        {
+          "line": 22,
+          "text": "    implementation project(path: ':workspaces:agent-service:4-agent-shared-domain', configuration: 'default')"
+        }
+      ]
+    },
+    {
+      "id": "classpath",
+      "path": "workspaces/agent-service/4-agent-shared-domain/build.gradle",
+      "symbol": "shared-domain → agent-shared / shared-eventuate",
+      "start": 3,
+      "end": 8,
+      "sourceSha256": "40c9d4ac804b07b1c3bbcffea78c0165ad826c25a1e4949d4abb936ac1ce8e50",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.579Z",
+      "rows": [
+        {
+          "line": 3,
+          "text": "dependencies {"
+        },
+        {
+          "line": 4,
+          "text": "    implementation project(path: ':workspaces:agent-service:agent-shared', configuration: 'default')"
+        },
+        {
+          "line": 5,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-database', configuration: 'default')"
+        },
+        {
+          "line": 6,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-eventuate', configuration: 'default')"
+        },
+        {
+          "line": 7,
+          "text": "}"
+        },
+        {
+          "line": 8,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "agent-build",
+      "path": "workspaces/agent-service/agent-shared/build.gradle",
+      "symbol": "agent-shared → shared-proxy / cache",
+      "start": 3,
+      "end": 13,
+      "sourceSha256": "7c3437fdca89ef903bdb9dca4b852ab0562c391b03b497a6ca515a7880e10900",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.646Z",
+      "rows": [
+        {
+          "line": 3,
+          "text": "dependencies {"
+        },
+        {
+          "line": 4,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-base', configuration: 'default')"
+        },
+        {
+          "line": 5,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-auth-base', configuration: 'default')"
+        },
+        {
+          "line": 6,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-cache', configuration: 'default')"
+        },
+        {
+          "line": 7,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-proxy', configuration: 'default')"
+        },
+        {
+          "line": 8,
+          "text": "    implementation 'org.springframework.data:spring-data-commons:2.7.17'"
+        },
+        {
+          "line": 9,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-event-sourcing-base', configuration: 'default')"
+        },
+        {
+          "line": 10,
+          "text": "    implementation('org.springframework.cloud:spring-cloud-loadbalancer')"
+        },
+        {
+          "line": 11,
+          "text": "    implementation 'org.apache.commons:commons-collections4:4.4'"
+        },
+        {
+          "line": 12,
+          "text": "    implementation 'org.springframework:spring-test'"
+        },
+        {
+          "line": 13,
+          "text": "    implementation 'org.apache.tika:tika-core:2.5.0'"
+        }
+      ]
+    },
+    {
+      "id": "init",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+      "symbol": "InitConfig.postConstruct / createOwner",
+      "start": 56,
+      "end": 80,
+      "sourceSha256": "087f6b50c817d0bcc08f0e0f0c2f7bf77bdf9014839721d3cca3c708cfc5e9c0",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.413Z",
+      "rows": [
+        {
+          "line": 56,
+          "text": "    @PostConstruct"
+        },
+        {
+          "line": 57,
+          "text": "    @SneakyThrows"
+        },
+        {
+          "line": 58,
+          "text": "    public void postConstruct() {"
+        },
+        {
+          "line": 59,
+          "text": "        createOwner();"
+        },
+        {
+          "line": 60,
+          "text": "        initGlobalConfig();"
+        },
+        {
+          "line": 61,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 62,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 63,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 64,
+          "text": "    }"
+        },
+        {
+          "line": 65,
+          "text": ""
+        },
+        {
+          "line": 66,
+          "text": "    private void createOwner() {"
+        },
+        {
+          "line": 67,
+          "text": "        try {"
+        },
+        {
+          "line": 68,
+          "text": "            String owner = \"[đã che]\";"
+        },
+        {
+          "line": 69,
+          "text": "            if (saleUnitRepository.countByUserName(owner) == 0) {"
+        },
+        {
+          "line": 70,
+          "text": "                applicationContext.getBean(CreateSaleUnitOwnerFunc.class).exec(CreateOwnerRequest.builder()"
+        },
+        {
+          "line": 71,
+          "text": "                        .userName(owner)"
+        },
+        {
+          "line": 72,
+          "text": "                        .name(owner)"
+        },
+        {
+          "line": 73,
+          "text": "                        .phoneNumber(\"[đã che]\")"
+        },
+        {
+          "line": 74,
+          "text": "                        .email(\"[đã che]\")"
+        },
+        {
+          "line": 75,
+          "text": "                        .password(\"[đã che]\")"
+        },
+        {
+          "line": 76,
+          "text": "                        .build());"
+        },
+        {
+          "line": 77,
+          "text": "            }"
+        },
+        {
+          "line": 78,
+          "text": "        } catch (Exception e) {"
+        },
+        {
+          "line": 79,
+          "text": "            logger.error(e);"
+        },
+        {
+          "line": 80,
+          "text": "        }"
+        }
+      ]
+    },
+    {
+      "id": "init-lock",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+      "symbol": "InitConfig.initGlobalConfig · Redis lock",
+      "start": 173,
+      "end": 179,
+      "sourceSha256": "087f6b50c817d0bcc08f0e0f0c2f7bf77bdf9014839721d3cca3c708cfc5e9c0",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.413Z",
+      "rows": [
+        {
+          "line": 173,
+          "text": "    private void initGlobalConfig() {"
+        },
+        {
+          "line": 174,
+          "text": "        RLock rlock = lockService.getLock(\"[đã che]\");"
+        },
+        {
+          "line": 175,
+          "text": "        if (rlock.isLocked()) {"
+        },
+        {
+          "line": 176,
+          "text": "            return;"
+        },
+        {
+          "line": 177,
+          "text": "        }"
+        },
+        {
+          "line": 178,
+          "text": "        rlock.lock(10, TimeUnit.SECONDS);"
+        },
+        {
+          "line": 179,
+          "text": "        try {"
+        }
+      ]
+    },
+    {
+      "id": "init-db",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+      "symbol": "InitConfig.initGlobalConfig · repository writes",
+      "start": 244,
+      "end": 254,
+      "sourceSha256": "087f6b50c817d0bcc08f0e0f0c2f7bf77bdf9014839721d3cca3c708cfc5e9c0",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.413Z",
+      "rows": [
+        {
+          "line": 244,
+          "text": "                    .updatedBy(SYSTEM)"
+        },
+        {
+          "line": 245,
+          "text": "                    .build());"
+        },
+        {
+          "line": 246,
+          "text": "            localMaps.forEach((key, value) -> {"
+        },
+        {
+          "line": 247,
+          "text": "                if (configRepository.countByKey(key) == 0) {"
+        },
+        {
+          "line": 248,
+          "text": "                    configRepository.save(value);"
+        },
+        {
+          "line": 249,
+          "text": "                }"
+        },
+        {
+          "line": 250,
+          "text": "            });"
+        },
+        {
+          "line": 251,
+          "text": "        } finally {"
+        },
+        {
+          "line": 252,
+          "text": "            rlock.unlock();"
+        },
+        {
+          "line": 253,
+          "text": "        }"
+        },
+        {
+          "line": 254,
+          "text": "    }"
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/ResourceServerConfiguration.java",
+      "symbol": "ResourceServerConfiguration.securityFilterChain",
+      "start": 11,
+      "end": 33,
+      "sourceSha256": "a4257e7b301ce0e3eabce1e276105ef8ca9f167ba26b163e47efc10751f27027",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.414Z",
+      "rows": [
+        {
+          "line": 11,
+          "text": "@EnableMethodSecurity"
+        },
+        {
+          "line": 12,
+          "text": "public class ResourceServerConfiguration {"
+        },
+        {
+          "line": 13,
+          "text": "    @Value(\"${alpaca.local:[đã che]}\")"
+        },
+        {
+          "line": 14,
+          "text": "    private boolean local;"
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "    @Bean"
+        },
+        {
+          "line": 17,
+          "text": "    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {"
+        },
+        {
+          "line": 18,
+          "text": "        http.authorizeHttpRequests(authorize -> {"
+        },
+        {
+          "line": 19,
+          "text": "                    authorize.requestMatchers(\"/internal/**\", \"/actuator/**\", \"/client/**\", \"/user/reset-password/**\", \"/pub/**\","
+        },
+        {
+          "line": 20,
+          "text": "                            \"/user/validate-reset-password-code/**\", \"/user/forgot-password\", \"/gdtx/**\", \"/adapter/**\").permitAll();"
+        },
+        {
+          "line": 21,
+          "text": "                    if (local) {"
+        },
+        {
+          "line": 22,
+          "text": "                        authorize.anyRequest().permitAll();"
+        },
+        {
+          "line": 23,
+          "text": "                    } else {"
+        },
+        {
+          "line": 24,
+          "text": "                        authorize.anyRequest().authenticated();"
+        },
+        {
+          "line": 25,
+          "text": "                    }"
+        },
+        {
+          "line": 26,
+          "text": "                })"
+        },
+        {
+          "line": 27,
+          "text": "                .csrf(csrf -> csrf.disable())"
+        },
+        {
+          "line": 28,
+          "text": "                .cors(cors -> cors.disable())"
+        },
+        {
+          "line": 29,
+          "text": "                .httpBasic(basic -> basic.disable())"
+        },
+        {
+          "line": 30,
+          "text": "                .oauth2ResourceServer(resourceServer -> resourceServer.opaqueToken(opaqueToken -> {}));"
+        },
+        {
+          "line": 31,
+          "text": "        return http.build();"
+        },
+        {
+          "line": 32,
+          "text": "    }"
+        },
+        {
+          "line": 33,
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "cache",
+      "path": "workspaces/1-shared/shared-cache/src/main/java/com/alpaca/config/SpringCacheConfig.java",
+      "symbol": "SpringCacheConfig · three Redisson beans",
+      "start": 22,
+      "end": 57,
+      "sourceSha256": "55f03ac12273d66c086a756c49eb58c0cf478867fbfd33c5bf47c8d2899eaca7",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.485Z",
+      "rows": [
+        {
+          "line": 22,
+          "text": "@Configuration"
+        },
+        {
+          "line": 23,
+          "text": "@EnableCaching"
+        },
+        {
+          "line": 24,
+          "text": "@Setter"
+        },
+        {
+          "line": 25,
+          "text": "public class SpringCacheConfig {"
+        },
+        {
+          "line": 26,
+          "text": "    @Value(\"${cache.redis:[đã che]}\")"
+        },
+        {
+          "line": 27,
+          "text": "    private String redisUrl;"
+        },
+        {
+          "line": 28,
+          "text": "    @Value(\"${cache.redis-session:[đã che]}\")"
+        },
+        {
+          "line": 29,
+          "text": "    private String redisSessionUrl;"
+        },
+        {
+          "line": 30,
+          "text": "    @Value(\"${cache.redis-persistent:[đã che]}\")"
+        },
+        {
+          "line": 31,
+          "text": "    private String redisPersistentUrl;"
+        },
+        {
+          "line": 32,
+          "text": ""
+        },
+        {
+          "line": 33,
+          "text": "    @Bean(name = \"redissonClient\", destroyMethod = \"[đã che]\")"
+        },
+        {
+          "line": 34,
+          "text": "    @Primary"
+        },
+        {
+          "line": 35,
+          "text": "    RedissonClient redisson() {"
+        },
+        {
+          "line": 36,
+          "text": "        Config config = new Config();"
+        },
+        {
+          "line": 37,
+          "text": "        config.useSingleServer()"
+        },
+        {
+          "line": 38,
+          "text": "                .setAddress(redisUrl);"
+        },
+        {
+          "line": 39,
+          "text": "        return Redisson.create(config);"
+        },
+        {
+          "line": 40,
+          "text": "    }"
+        },
+        {
+          "line": 41,
+          "text": ""
+        },
+        {
+          "line": 42,
+          "text": "    @Bean(name = \"redissonPersistentClient\", destroyMethod = \"[đã che]\")"
+        },
+        {
+          "line": 43,
+          "text": "    RedissonClient redissonPersistent() {"
+        },
+        {
+          "line": 44,
+          "text": "        Config config = new Config();"
+        },
+        {
+          "line": 45,
+          "text": "        config.useSingleServer()"
+        },
+        {
+          "line": 46,
+          "text": "                .setAddress(redisPersistentUrl);"
+        },
+        {
+          "line": 47,
+          "text": "        return Redisson.create(config);"
+        },
+        {
+          "line": 48,
+          "text": "    }"
+        },
+        {
+          "line": 49,
+          "text": "    @Bean(name = \"redissonSessionClient\", destroyMethod = \"[đã che]\")"
+        },
+        {
+          "line": 50,
+          "text": "    RedissonClient redissonSession() {"
+        },
+        {
+          "line": 51,
+          "text": "        Config config = new Config();"
+        },
+        {
+          "line": 52,
+          "text": "        config.useSingleServer()"
+        },
+        {
+          "line": 53,
+          "text": "                .setAddress(redisSessionUrl);"
+        },
+        {
+          "line": 54,
+          "text": "        return Redisson.create(config);"
+        },
+        {
+          "line": 55,
+          "text": "    }"
+        },
+        {
+          "line": 56,
+          "text": ""
+        },
+        {
+          "line": 57,
+          "text": "    @Bean"
+        }
+      ]
+    },
+    {
+      "id": "lock",
+      "path": "workspaces/1-shared/shared-cache/src/main/java/com/alpaca/lock/LockService.java",
+      "symbol": "LockService.getLock / lock",
+      "start": 15,
+      "end": 35,
+      "sourceSha256": "506aeabdc41358b43f9eb70933906fd42da54048a1e2a8c7b8d8a29fe7d656a3",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.486Z",
+      "rows": [
+        {
+          "line": 15,
+          "text": "@Service"
+        },
+        {
+          "line": 16,
+          "text": "public class LockService {"
+        },
+        {
+          "line": 17,
+          "text": "    protected final transient Logger logger = LogManager.getLogger(this.getClass());"
+        },
+        {
+          "line": 18,
+          "text": "    private final RedissonClient redissonClient;"
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "    public LockService(@Qualifier(\"redissonPersistentClient\") RedissonClient redissonClient) {"
+        },
+        {
+          "line": 21,
+          "text": "        this.redissonClient = redissonClient;"
+        },
+        {
+          "line": 22,
+          "text": "    }"
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "    public RLock getLock(String key) {"
+        },
+        {
+          "line": 25,
+          "text": "        return redissonClient.getLock(key);"
+        },
+        {
+          "line": 26,
+          "text": "    }"
+        },
+        {
+          "line": 27,
+          "text": ""
+        },
+        {
+          "line": 28,
+          "text": "    /**"
+        },
+        {
+          "line": 29,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 30,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 31,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 32,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 33,
+          "text": "    public <T> T lock(String key, long leaseTime, Supplier<T> action) {"
+        },
+        {
+          "line": 34,
+          "text": "        RLock lock = redissonClient.getLock(key);"
+        },
+        {
+          "line": 35,
+          "text": "        lock.lock(leaseTime, TimeUnit.SECONDS);"
+        }
+      ]
+    },
+    {
+      "id": "cache-use",
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/config/PlatformCacheConfig.java",
+      "symbol": "PlatformCacheConfig · shared Redis maps",
+      "start": 32,
+      "end": 49,
+      "sourceSha256": "8603558387e1522f3d4ed0a2bede6cbf1be5d366dea236e7e4ca658eb1038ff4",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.657Z",
+      "rows": [
+        {
+          "line": 32,
+          "text": "    public PlatformCacheConfig(ALPSpringCacheManager manager,"
+        },
+        {
+          "line": 33,
+          "text": "                               @Qualifier(\"redissonClient\") RedissonClient redissonClient,"
+        },
+        {
+          "line": 34,
+          "text": "                               @Qualifier(\"redissonPersistentClient\") RedissonClient redissonPersistentClient) {"
+        },
+        {
+          "line": 35,
+          "text": "        lstUserLogin = redissonClient.getSet(\"[đã che]\");"
+        },
+        {
+          "line": 36,
+          "text": "        globalConfig = redissonClient.getMap(\"[đã che]\");"
+        },
+        {
+          "line": 37,
+          "text": "        product = redissonClient.getMap(\"[đã che]\");"
+        },
+        {
+          "line": 38,
+          "text": "        productHaveUsed = redissonClient.getMap(\"[đã che]\");"
+        },
+        {
+          "line": 39,
+          "text": "        refIdPayment = manager.createCache(\"[đã che]\", new CacheConfig(600 * 1000, 600 * 1000));"
+        },
+        {
+          "line": 40,
+          "text": "        businessLineHaveUsed = redissonClient.getMap(\"[đã che]\");"
+        },
+        {
+          "line": 41,
+          "text": "        distributionChannelHaveUsed = redissonClient.getMap(\"[đã che]\");"
+        },
+        {
+          "line": 42,
+          "text": "        resetPasswordToken = manager.createCache(\"[đã che]\", new CacheConfig(3600000, 3600000));"
+        },
+        {
+          "line": 43,
+          "text": "        coreSystemToken = manager.createCache(\"[đã che]\", new CacheConfig(2629746000L, 2629746000L));"
+        },
+        {
+          "line": 44,
+          "text": "        refIdPayment = manager.createCache(\"[đã che]\", new CacheConfig(600 * 1000, 600 * 1000));"
+        },
+        {
+          "line": 45,
+          "text": "        paymentResult = manager.createCache(\"[đã che]\", new CacheConfig(1800000, 1800000));"
+        },
+        {
+          "line": 46,
+          "text": "        confirmOtpQuote = manager.createCache(\"[đã che]\", new CacheConfig(5 * 60 * 1000, 5 * 60 * 1000));"
+        },
+        {
+          "line": 47,
+          "text": "        saleUnitUserName = manager.createCache(\"[đã che]\", new CacheConfig());"
+        },
+        {
+          "line": 48,
+          "text": "        counterMaxLevelAgent = redissonPersistentClient.getMap(\"[đã che]\");"
+        },
+        {
+          "line": 49,
+          "text": "        updateProcessRelationShip = manager.createCache(\"[đã che]\", new CacheConfig(600 * 1000, 600 * 1000));"
+        }
+      ]
+    },
+    {
+      "id": "jdbc",
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/configuration/jdbc/EventuateCommonJdbcOperationsConfiguration.java",
+      "symbol": "EventuateCommonJdbcOperationsConfiguration · JdbcTemplate / driver",
+      "start": 17,
+      "end": 40,
+      "sourceSha256": "5340e7497da58850e6c7c04dfa6a928a081830702926a93f6b1e9b1e828a22db",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.544Z",
+      "rows": [
+        {
+          "line": 17,
+          "text": "@Configuration"
+        },
+        {
+          "line": 18,
+          "text": "@Import({EventuateSchemaConfiguration.class,"
+        },
+        {
+          "line": 19,
+          "text": "        SqlDialectConfiguration.class,"
+        },
+        {
+          "line": 20,
+          "text": "        EventuateTransactionTemplateConfiguration.class})"
+        },
+        {
+          "line": 21,
+          "text": "public class EventuateCommonJdbcOperationsConfiguration {"
+        },
+        {
+          "line": 22,
+          "text": ""
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "    @Autowired(required = false)"
+        },
+        {
+          "line": 25,
+          "text": "    private OutboxPartitioningSpec outboxPartitioningSpec = OutboxPartitioningSpec.DEFAULT;"
+        },
+        {
+          "line": 26,
+          "text": ""
+        },
+        {
+          "line": 27,
+          "text": "    @Bean"
+        },
+        {
+          "line": 28,
+          "text": "    public EventuateJdbcStatementExecutor eventuateJdbcStatementExecutor(JdbcTemplate jdbcTemplate) {"
+        },
+        {
+          "line": 29,
+          "text": "        return new EventuateSpringJdbcStatementExecutor(jdbcTemplate);"
+        },
+        {
+          "line": 30,
+          "text": "    }"
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "    @Bean"
+        },
+        {
+          "line": 33,
+          "text": "    public EventuateCommonJdbcOperations eventuateCommonJdbcOperations(EventuateJdbcStatementExecutor eventuateJdbcStatementExecutor,"
+        },
+        {
+          "line": 34,
+          "text": "                                                                       SqlDialectSelector sqlDialectSelector,"
+        },
+        {
+          "line": 35,
+          "text": "                                                                       @Value(\"${spring.datasource.driver-class-name}\") String driver) {"
+        },
+        {
+          "line": 36,
+          "text": "        EventuateSqlDialect eventuateSqlDialect = sqlDialectSelector.getDialect(driver);"
+        },
+        {
+          "line": 37,
+          "text": ""
+        },
+        {
+          "line": 38,
+          "text": "        return new EventuateCommonJdbcOperations(new EventuateJdbcOperationsUtils(eventuateSqlDialect),"
+        },
+        {
+          "line": 39,
+          "text": "                eventuateJdbcStatementExecutor, eventuateSqlDialect, outboxPartitioningSpec);"
+        },
+        {
+          "line": 40,
+          "text": "    }"
+        }
+      ]
+    },
+    {
+      "id": "repository",
+      "path": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/repository/SaleUnitRepository.java",
+      "symbol": "SaleUnitRepository · Spring Data repository",
+      "start": 1,
+      "end": 28,
+      "sourceSha256": "90ec0e0e2d150a8404252534289eeef506f2ec7a8e9520e44606817cefd84755",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.626Z",
+      "rows": [
+        {
+          "line": 1,
+          "text": "package com.alpaca.agent.repository;"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "import com.alpaca.agent.domain.SaleUnitAggregate;"
+        },
+        {
+          "line": 4,
+          "text": "import com.alpaca.agent.model.dto.SaleUnitStatusDTOModel;"
+        },
+        {
+          "line": 5,
+          "text": "import org.springframework.data.domain.Page;"
+        },
+        {
+          "line": 6,
+          "text": "import org.springframework.data.domain.Pageable;"
+        },
+        {
+          "line": 7,
+          "text": "import org.springframework.data.jpa.repository.JpaRepository;"
+        },
+        {
+          "line": 8,
+          "text": "import org.springframework.data.jpa.repository.Query;"
+        },
+        {
+          "line": 9,
+          "text": "import org.springframework.data.repository.query.Param;"
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "import java.util.List;"
+        },
+        {
+          "line": 12,
+          "text": "import java.util.Optional;"
+        },
+        {
+          "line": 13,
+          "text": ""
+        },
+        {
+          "line": 14,
+          "text": "public interface SaleUnitRepository extends JpaRepository<SaleUnitAggregate, String> {"
+        },
+        {
+          "line": 15,
+          "text": "    @Query(\"[đã che]\")"
+        },
+        {
+          "line": 16,
+          "text": "    boolean existsByUserNameIgnoreCase(@Param(\"[đã che]\") String userName);"
+        },
+        {
+          "line": 17,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": "    boolean existsByCodeAndClassification(String code, String classification);"
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "    boolean existsByCertificateNumberAndClassification(String certificateNumber, String classification);"
+        },
+        {
+          "line": 21,
+          "text": ""
+        },
+        {
+          "line": 22,
+          "text": "    boolean existsByEmail(String email);"
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "    boolean existsById(String saleUnitId);"
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "    long countByUserNameAndStatusAccountNot(String userName, int status);"
+        },
+        {
+          "line": 27,
+          "text": ""
+        },
+        {
+          "line": 28,
+          "text": "    long countByUserName(String userName);"
+        }
+      ]
+    },
+    {
+      "id": "rabbit-binding",
+      "path": "workspaces/1-shared/shared-amqp/src/main/java/com/alpaca/amqp/config/RabbitMQConfig.java",
+      "symbol": "RabbitMQConfig.rabbitTemplate(ConnectionFactory)",
+      "start": 57,
+      "end": 64,
+      "sourceSha256": "5982daf126658e260f16d89daa62d492896a741a74180273804dc7b5765de9c6",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.414Z",
+      "rows": [
+        {
+          "line": 57,
+          "text": ""
+        },
+        {
+          "line": 58,
+          "text": "    @Bean"
+        },
+        {
+          "line": 59,
+          "text": "    public RabbitTemplate rabbitTemplate(final ConnectionFactory connectionFactory) {"
+        },
+        {
+          "line": 60,
+          "text": "        final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);"
+        },
+        {
+          "line": 61,
+          "text": "        rabbitTemplate.setMessageConverter(producerJackson2MessageConverter());"
+        },
+        {
+          "line": 62,
+          "text": "        return rabbitTemplate;"
+        },
+        {
+          "line": 63,
+          "text": "    }"
+        },
+        {
+          "line": 64,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "rabbit-call",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/action/QueueHandler.java",
+      "symbol": "QueueHandler · @RabbitListener dispatch",
+      "start": 70,
+      "end": 92,
+      "sourceSha256": "62566c8d00ac3a59d3cc3a541208df22e69eca134c74ded6452a9eb9303f26e5",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.411Z",
+      "rows": [
+        {
+          "line": 70,
+          "text": "    @Autowired"
+        },
+        {
+          "line": 71,
+          "text": "    protected ApplicationContext applicationContext;"
+        },
+        {
+          "line": 72,
+          "text": "    private final SharedGlobalConfigService sharedGlobalConfigService;"
+        },
+        {
+          "line": 73,
+          "text": "    private final ObjectMapper objectMapper;"
+        },
+        {
+          "line": 74,
+          "text": "    private final ExecutorService executorService;"
+        },
+        {
+          "line": 75,
+          "text": ""
+        },
+        {
+          "line": 76,
+          "text": "    @RabbitListener(queues = RabbitMQQueueSP.QUEUE_DELETE_CHANNEL_WITH_SALE_UNIT_ID)"
+        },
+        {
+          "line": 77,
+          "text": "    public void deleteChannelWithSaleUnitId(DeleteChannel model) {"
+        },
+        {
+          "line": 78,
+          "text": "        try {"
+        },
+        {
+          "line": 79,
+          "text": "            applicationContext.getBean(DeleteSaleUnitChannelChildFunc.class).exec(model);"
+        },
+        {
+          "line": 80,
+          "text": "        } catch (Exception ex) {"
+        },
+        {
+          "line": 81,
+          "text": "            logger.error(ex.getMessage(), ex);"
+        },
+        {
+          "line": 82,
+          "text": "        }"
+        },
+        {
+          "line": 83,
+          "text": "    }"
+        },
+        {
+          "line": 84,
+          "text": ""
+        },
+        {
+          "line": 85,
+          "text": "    @RabbitListener(queues = RabbitMQQueueSP.QUEUE_DELETE_PRODUCT_ON_CHANNEL_WITH_SALE_UNIT_ID)"
+        },
+        {
+          "line": 86,
+          "text": "    public void deleteProductOnChannelWithSaleUnitId(DeleteProductOnChannel model) {"
+        },
+        {
+          "line": 87,
+          "text": "        try {"
+        },
+        {
+          "line": 88,
+          "text": "            applicationContext.getBean(DeleteSaleUnitChannelProductFunc.class).exec(model);"
+        },
+        {
+          "line": 89,
+          "text": "        } catch (Exception ex) {"
+        },
+        {
+          "line": 90,
+          "text": "            logger.error(ex.getMessage(), ex);"
+        },
+        {
+          "line": 91,
+          "text": "        }"
+        },
+        {
+          "line": 92,
+          "text": "    }"
+        }
+      ]
+    },
+    {
+      "id": "rabbit-queues",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/RabbitTemplateConfig.java",
+      "symbol": "RabbitTemplateConfig · Queue beans",
+      "start": 11,
+      "end": 23,
+      "sourceSha256": "907b43e05698be4394ed641b9ba7b97af57bf9b452e6e6428068d93fbb6a83a7",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.413Z",
+      "rows": [
+        {
+          "line": 11,
+          "text": "@Configuration"
+        },
+        {
+          "line": 12,
+          "text": "public class RabbitTemplateConfig {"
+        },
+        {
+          "line": 13,
+          "text": ""
+        },
+        {
+          "line": 14,
+          "text": "    @Bean"
+        },
+        {
+          "line": 15,
+          "text": "    Queue deleteChannelWithSaleUnitId() {"
+        },
+        {
+          "line": 16,
+          "text": "        return QueueBuilder.durable(RabbitMQQueueSP.QUEUE_DELETE_CHANNEL_WITH_SALE_UNIT_ID).build();"
+        },
+        {
+          "line": 17,
+          "text": "    }"
+        },
+        {
+          "line": 18,
+          "text": ""
+        },
+        {
+          "line": 19,
+          "text": "    @Bean"
+        },
+        {
+          "line": 20,
+          "text": "    Queue deleteProductOnChannelWithSaleUnitId() {"
+        },
+        {
+          "line": 21,
+          "text": "        return QueueBuilder.durable(RabbitMQQueueSP.QUEUE_DELETE_PRODUCT_ON_CHANNEL_WITH_SALE_UNIT_ID).build();"
+        },
+        {
+          "line": 22,
+          "text": "    }"
+        },
+        {
+          "line": 23,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "kafka-binding",
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/configuration/event/EventuateKafkaPropertiesConfiguration.java",
+      "symbol": "EventuateKafkaPropertiesConfiguration.eventuateKafkaConfigurationProperties",
+      "start": 8,
+      "end": 20,
+      "sourceSha256": "e29c8ce22cc1c5499ee9d019c2058fe23d06ec9ba7f6d3ff1e771fcb7d6b2625",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.542Z",
+      "rows": [
+        {
+          "line": 8,
+          "text": "@Configuration"
+        },
+        {
+          "line": 9,
+          "text": "public class EventuateKafkaPropertiesConfiguration {"
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": ""
+        },
+        {
+          "line": 12,
+          "text": "    @Bean"
+        },
+        {
+          "line": 13,
+          "text": "    public EventuateKafkaConfigurationProperties eventuateKafkaConfigurationProperties(@Value(\"${eventuatelocal.kafka.bootstrap.servers}\")"
+        },
+        {
+          "line": 14,
+          "text": "                                                                                       String bootstrapServers,"
+        },
+        {
+          "line": 15,
+          "text": "                                                                                       @Value(\"${eventuatelocal.kafka.connection.validation.timeout:[đã che]}\")"
+        },
+        {
+          "line": 16,
+          "text": "                                                                                       long connectionValidationTimeout) {"
+        },
+        {
+          "line": 17,
+          "text": "        return new EventuateKafkaConfigurationProperties(bootstrapServers, connectionValidationTimeout);"
+        },
+        {
+          "line": 18,
+          "text": "    }"
+        },
+        {
+          "line": 19,
+          "text": "}"
+        },
+        {
+          "line": 20,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "event-import",
+      "path": "workspaces/1-shared/shared-eventuate/src/main/java/com/eventuate/config/LibraEventuateLocalConfiguration.java",
+      "symbol": "LibraEventuateLocalConfiguration · import",
+      "start": 6,
+      "end": 13,
+      "sourceSha256": "0329a6d16a5424b7c407e1245271d25c5048ccb623ae52596f0e0eb20b2a658e",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.573Z",
+      "rows": [
+        {
+          "line": 6,
+          "text": "import org.springframework.transaction.annotation.EnableTransactionManagement;"
+        },
+        {
+          "line": 7,
+          "text": ""
+        },
+        {
+          "line": 8,
+          "text": "@Configuration"
+        },
+        {
+          "line": 9,
+          "text": "@EnableTransactionManagement"
+        },
+        {
+          "line": 10,
+          "text": "@Import(EventuateLocalConfiguration.class)"
+        },
+        {
+          "line": 11,
+          "text": "public class LibraEventuateLocalConfiguration {"
+        },
+        {
+          "line": 12,
+          "text": "}"
+        },
+        {
+          "line": 13,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "event-config",
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/configuration/EventuateLocalConfiguration.java",
+      "symbol": "EventuateLocalConfiguration · imports",
+      "start": 9,
+      "end": 17,
+      "sourceSha256": "02a1fa05e26b4eca8b5066cb1f75bc7477e454e1e79e231b93800acee4758c84",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.540Z",
+      "rows": [
+        {
+          "line": 9,
+          "text": ""
+        },
+        {
+          "line": 10,
+          "text": "@Configuration"
+        },
+        {
+          "line": 11,
+          "text": "@Import({EventuateLocalCrudConfiguration.class,"
+        },
+        {
+          "line": 12,
+          "text": "        EventuateLocalEventsConfiguration.class,"
+        },
+        {
+          "line": 13,
+          "text": "        EventuateCommonConfiguration.class,"
+        },
+        {
+          "line": 14,
+          "text": "        EventuateJavaClientDomainConfiguration.class})"
+        },
+        {
+          "line": 15,
+          "text": "public class EventuateLocalConfiguration {"
+        },
+        {
+          "line": 16,
+          "text": "}"
+        },
+        {
+          "line": 17,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "kafka-sub",
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/common/event/impl/EventuateKafkaAggregateSubscriptions.java",
+      "symbol": "EventuateKafkaAggregateSubscriptions.subscribe → consumer.start",
+      "start": 70,
+      "end": 105,
+      "sourceSha256": "19c326b355eb75c3bc047238a271c2d9c563ce8a387a0c14fafdb09f079179bf",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.528Z",
+      "rows": [
+        {
+          "line": 70,
+          "text": "    public CompletableFuture<?> subscribe(String subscriberId, Map<String, Set<String>> aggregatesAndEvents,"
+        },
+        {
+          "line": 71,
+          "text": "                                          SubscriberOptions subscriberOptions,"
+        },
+        {
+          "line": 72,
+          "text": "                                          Function<SerializedEvent, CompletableFuture<?>> handler) {"
+        },
+        {
+          "line": 73,
+          "text": ""
+        },
+        {
+          "line": 74,
+          "text": "        logger.info(\"[đã che]\", subscriberId, aggregatesAndEvents, subscriberOptions);"
+        },
+        {
+          "line": 75,
+          "text": ""
+        },
+        {
+          "line": 76,
+          "text": "        List<String> topics = aggregatesAndEvents.keySet()"
+        },
+        {
+          "line": 77,
+          "text": "                .stream()"
+        },
+        {
+          "line": 78,
+          "text": "                .map(AggregateTopicMapping::aggregateTypeToTopic)"
+        },
+        {
+          "line": 79,
+          "text": "                .collect(toList());"
+        },
+        {
+          "line": 80,
+          "text": ""
+        },
+        {
+          "line": 81,
+          "text": "        logger.info(\"[đã che]\", subscriberId, aggregatesAndEvents, subscriberOptions);"
+        },
+        {
+          "line": 82,
+          "text": ""
+        },
+        {
+          "line": 83,
+          "text": "        EventuateKafkaConsumer consumer = new EventuateKafkaConsumer(subscriberId, (record, callback) -> {"
+        },
+        {
+          "line": 84,
+          "text": "            List<SerializedEvent> serializedEvents = toSerializedEvents(record);"
+        },
+        {
+          "line": 85,
+          "text": ""
+        },
+        {
+          "line": 86,
+          "text": "            for (SerializedEvent se : serializedEvents) {"
+        },
+        {
+          "line": 87,
+          "text": "                if (aggregatesAndEvents.get(se.getEntityType()).contains(se.getEventType())) {"
+        },
+        {
+          "line": 88,
+          "text": "                    handler.apply(se).whenComplete((result, t) -> {"
+        },
+        {
+          "line": 89,
+          "text": "                        callback.accept(null, t);"
+        },
+        {
+          "line": 90,
+          "text": "                    });"
+        },
+        {
+          "line": 91,
+          "text": "                } else {"
+        },
+        {
+          "line": 92,
+          "text": "                    callback.accept(null, null);"
+        },
+        {
+          "line": 93,
+          "text": "                }"
+        },
+        {
+          "line": 94,
+          "text": "            }"
+        },
+        {
+          "line": 95,
+          "text": ""
+        },
+        {
+          "line": 96,
+          "text": "            return null;"
+        },
+        {
+          "line": 97,
+          "text": "        }, topics, eventuateLocalAggregateStoreConfiguration.getBootstrapServers(), eventuateKafkaConsumerConfigurationProperties, kafkaConsumerFactory);"
+        },
+        {
+          "line": 98,
+          "text": ""
+        },
+        {
+          "line": 99,
+          "text": "        addConsumer(consumer);"
+        },
+        {
+          "line": 100,
+          "text": ""
+        },
+        {
+          "line": 101,
+          "text": "        logger.info(\"[đã che]\", subscriberId, aggregatesAndEvents, subscriberOptions);"
+        },
+        {
+          "line": 102,
+          "text": ""
+        },
+        {
+          "line": 103,
+          "text": "        consumer.start();"
+        },
+        {
+          "line": 104,
+          "text": ""
+        },
+        {
+          "line": 105,
+          "text": "        logger.info(\"[đã che]\", subscriberId, aggregatesAndEvents, subscriberOptions);"
+        }
+      ]
+    },
+    {
+      "id": "kafka-consumer",
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/common/event/impl/DefaultKafkaMessageConsumer.java",
+      "symbol": "DefaultKafkaMessageConsumer.create → KafkaConsumer",
+      "start": 14,
+      "end": 26,
+      "sourceSha256": "1893f5e0dbdf2839ea3d344e6b6ddd3b42eb01c1ca6f40a2b15d68a5ffced86a",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.527Z",
+      "rows": [
+        {
+          "line": 14,
+          "text": "public class DefaultKafkaMessageConsumer implements KafkaMessageConsumer {"
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "    private final KafkaConsumer<String, byte[]> delegate;"
+        },
+        {
+          "line": 17,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": "    public static KafkaMessageConsumer create(Properties properties) {"
+        },
+        {
+          "line": 19,
+          "text": "        return new DefaultKafkaMessageConsumer(new KafkaConsumer<>(properties));"
+        },
+        {
+          "line": 20,
+          "text": "    }"
+        },
+        {
+          "line": 21,
+          "text": ""
+        },
+        {
+          "line": 22,
+          "text": "    private DefaultKafkaMessageConsumer(KafkaConsumer<String, byte[]> delegate) {"
+        },
+        {
+          "line": 23,
+          "text": "        this.delegate = delegate;"
+        },
+        {
+          "line": 24,
+          "text": "    }"
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "    @Override"
+        }
+      ]
+    },
+    {
+      "id": "zk-compose",
+      "path": "docker-compose-env.yml",
+      "symbol": "Kafka Compose · depends_on / ZOOKEEPER_SERVERS",
+      "start": 23,
+      "end": 33,
+      "sourceSha256": "34205d1b10b8efa458df251e60578df00046fa54e50bb72fd824c0d1d73605f7",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "lastModified": "2026-11-04T03:48:48.154Z",
+      "rows": [
+        {
+          "line": 23,
+          "text": "  kafka:"
+        },
+        {
+          "line": 24,
+          "text": "    image: eventuateio/eventuate-kafka:0.9.0.RELEASE"
+        },
+        {
+          "line": 25,
+          "text": "    container_name: alpaca.kafka.event"
+        },
+        {
+          "line": 26,
+          "text": "    ports:"
+        },
+        {
+          "line": 27,
+          "text": "      - 9092:9092"
+        },
+        {
+          "line": 28,
+          "text": "    depends_on:"
+        },
+        {
+          "line": 29,
+          "text": "      - zookeeper"
+        },
+        {
+          "line": 30,
+          "text": "    environment:"
+        },
+        {
+          "line": 31,
+          "text": "[đã che]"
+        },
+        {
+          "line": 32,
+          "text": "[đã che]"
+        },
+        {
+          "line": 33,
+          "text": "[đã che]"
+        }
+      ]
+    },
+    {
+      "id": "cdc-compose",
+      "path": "docker-compose-env.yml",
+      "symbol": "Debezium Compose · dependencies / broker",
+      "start": 45,
+      "end": 64,
+      "sourceSha256": "34205d1b10b8efa458df251e60578df00046fa54e50bb72fd824c0d1d73605f7",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "lastModified": "2026-11-04T03:48:48.154Z",
+      "rows": [
+        {
+          "line": 45,
+          "text": "  debezium:"
+        },
+        {
+          "line": 46,
+          "text": "    image: debezium/connect:2.7.3.Final"
+        },
+        {
+          "line": 47,
+          "text": "    restart: always"
+        },
+        {
+          "line": 48,
+          "text": "    container_name: debezium"
+        },
+        {
+          "line": 49,
+          "text": "    hostname: debezium"
+        },
+        {
+          "line": 50,
+          "text": "    depends_on:"
+        },
+        {
+          "line": 51,
+          "text": "      - postgres-write"
+        },
+        {
+          "line": 52,
+          "text": "      - kafka"
+        },
+        {
+          "line": 53,
+          "text": "      - zookeeper"
+        },
+        {
+          "line": 54,
+          "text": "    ports:"
+        },
+        {
+          "line": 55,
+          "text": "      - '8086:8083'"
+        },
+        {
+          "line": 56,
+          "text": "    environment:"
+        },
+        {
+          "line": 57,
+          "text": "      BOOTSTRAP_SERVERS: alpaca.kafka.event:9092"
+        },
+        {
+          "line": 58,
+          "text": "      GROUP_ID: [đã che]"
+        },
+        {
+          "line": 59,
+          "text": "      CONFIG_STORAGE_TOPIC: [đã che]"
+        },
+        {
+          "line": 60,
+          "text": "      STATUS_STORAGE_TOPIC: [đã che]"
+        },
+        {
+          "line": 61,
+          "text": "      OFFSET_STORAGE_TOPIC: [đã che]"
+        },
+        {
+          "line": 62,
+          "text": "      KEY_CONVERTER: [đã che]"
+        },
+        {
+          "line": 63,
+          "text": "      VALUE_CONVERTER: [đã che]"
+        },
+        {
+          "line": 64,
+          "text": "      ENABLE_DEBEZIUM_SCRIPTING: [đã che]"
+        }
+      ]
+    },
+    {
+      "id": "query-client",
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/api/InternalSPQueryApi.java",
+      "symbol": "InternalSPQueryApi · system.sp-query.api",
+      "start": 6,
+      "end": 16,
+      "sourceSha256": "fa8d3f3d35c5a268eaa35a0cf70d851a11c11e609805f545b8a44f50db18028a",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.648Z",
+      "rows": [
+        {
+          "line": 6,
+          "text": "import org.springframework.cloud.openfeign.FeignClient;"
+        },
+        {
+          "line": 7,
+          "text": "import org.springframework.web.bind.annotation.GetMapping;"
+        },
+        {
+          "line": 8,
+          "text": "import org.springframework.web.bind.annotation.PathVariable;"
+        },
+        {
+          "line": 9,
+          "text": ""
+        },
+        {
+          "line": 10,
+          "text": "@FeignClient(name = \"[đã che]\", path = \"internal\", url = \"${system.sp-query.api:[đã che]}\")"
+        },
+        {
+          "line": 11,
+          "text": "public interface InternalSPQueryApi {"
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "    @GetMapping(value = \"/sale-unit/find-by-id/{saleUnitId}\")"
+        },
+        {
+          "line": 14,
+          "text": "    WrapResponse<SaleUnitModel> findSaleUnitById(@PathVariable(\"[đã che]\") String saleUnitId);"
+        },
+        {
+          "line": 15,
+          "text": "}"
+        },
+        {
+          "line": 16,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "self-client",
+      "path": "workspaces/1-shared/shared-auth/src/main/java/com/alpaca/auth/api/InternalSPCommandApi.java",
+      "symbol": "shared-auth InternalSPCommandApi",
+      "start": 12,
+      "end": 32,
+      "sourceSha256": "8d8879eb1b623394cef12723992455d1e0d82b25820ccace93ef4f75a2a6ef48",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.430Z",
+      "rows": [
+        {
+          "line": 12,
+          "text": "import org.springframework.web.bind.annotation.RequestBody;"
+        },
+        {
+          "line": 13,
+          "text": ""
+        },
+        {
+          "line": 14,
+          "text": "import java.util.Map;"
+        },
+        {
+          "line": 15,
+          "text": "import java.util.Set;"
+        },
+        {
+          "line": 16,
+          "text": ""
+        },
+        {
+          "line": 17,
+          "text": "@FeignClient(name = \"[đã che]\", path = \"internal\", url = \"${system.platform-command.api:[đã che]}\")"
+        },
+        {
+          "line": 18,
+          "text": "public interface InternalSPCommandApi {"
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "    @GetMapping(value = \"/sale-unit/load-user-model/{userName}\")"
+        },
+        {
+          "line": 21,
+          "text": "    WrapResponse<UserModel> loadUserModel(@PathVariable(\"[đã che]\") String userName);"
+        },
+        {
+          "line": 22,
+          "text": ""
+        },
+        {
+          "line": 23,
+          "text": "    @GetMapping(value = \"/sale-unit/active-user-login/{userName}\")"
+        },
+        {
+          "line": 24,
+          "text": "    WrapResponse<UserModel> activeUserLogin(@PathVariable(\"[đã che]\") String userName);"
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "    @PostMapping(value = \"/policy/sync-endorsement\")"
+        },
+        {
+          "line": 27,
+          "text": "    WrapResponse<Object> syncEndorsementFromCore(@RequestBody SyncEndorsementRequest request);"
+        },
+        {
+          "line": 28,
+          "text": ""
+        },
+        {
+          "line": 29,
+          "text": "    @GetMapping(value = \"/global-config/find-by-key/{key}\", consumes = MediaType.APPLICATION_JSON_VALUE)"
+        },
+        {
+          "line": 30,
+          "text": "    WrapResponse<GlobalConfigModel> findGlobalConfigByKey(@PathVariable String key);"
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "    @GetMapping(value = \"/global-config/find-multi\", consumes = MediaType.APPLICATION_JSON_VALUE)"
+        }
+      ]
+    },
+    {
+      "id": "self-call",
+      "path": "workspaces/1-shared/shared-auth/src/main/java/com/alpaca/auth/service/AuthSharedService.java",
+      "symbol": "AuthSharedService.getUserModelWithCache · cache miss",
+      "start": 9,
+      "end": 26,
+      "sourceSha256": "1003c53d3aba1f1d36f134bf4a83fdfc9540a6b1a6689d9f55eb82fb497b069d",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.434Z",
+      "rows": [
+        {
+          "line": 9,
+          "text": "@Service"
+        },
+        {
+          "line": 10,
+          "text": "public class AuthSharedService {"
+        },
+        {
+          "line": 11,
+          "text": "    private final InternalSPCommandApi spCommandApi;"
+        },
+        {
+          "line": 12,
+          "text": "    private final SharedAuthCacheConfig authCacheConfig;"
+        },
+        {
+          "line": 13,
+          "text": ""
+        },
+        {
+          "line": 14,
+          "text": "    public AuthSharedService(InternalSPCommandApi spCommandApi,"
+        },
+        {
+          "line": 15,
+          "text": "                             SharedAuthCacheConfig authCacheConfig) {"
+        },
+        {
+          "line": 16,
+          "text": "        this.spCommandApi = spCommandApi;"
+        },
+        {
+          "line": 17,
+          "text": "        this.authCacheConfig = authCacheConfig;"
+        },
+        {
+          "line": 18,
+          "text": "    }"
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "    public UserModel getUserModelWithCache(String userName) {"
+        },
+        {
+          "line": 21,
+          "text": "        UserModel model = authCacheConfig.getUserCache().get(userName);"
+        },
+        {
+          "line": 22,
+          "text": "        if (model != null) {"
+        },
+        {
+          "line": 23,
+          "text": "            return model;"
+        },
+        {
+          "line": 24,
+          "text": "        }"
+        },
+        {
+          "line": 25,
+          "text": "        return ApiUtil.loadResponse(spCommandApi.loadUserModel(userName));"
+        },
+        {
+          "line": 26,
+          "text": "    }"
+        }
+      ]
+    },
+    {
+      "id": "session",
+      "path": "workspaces/1-shared/shared-auth/src/main/java/com/alpaca/auth/common/UserDataSessionDetail.java",
+      "symbol": "UserDataSessionDetail.getUserModel",
+      "start": 30,
+      "end": 39,
+      "sourceSha256": "fd18cf0b3170334c533cd61b3cfc9c147765afaa51e26cba0c2662d547b9819b",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.431Z",
+      "rows": [
+        {
+          "line": 30,
+          "text": "    public UserDataSessionDetail(AuthSharedService authSharedService, String username) {"
+        },
+        {
+          "line": 31,
+          "text": "        this.authSharedService = authSharedService;"
+        },
+        {
+          "line": 32,
+          "text": "        this.userName = username;"
+        },
+        {
+          "line": 33,
+          "text": "    }"
+        },
+        {
+          "line": 34,
+          "text": ""
+        },
+        {
+          "line": 35,
+          "text": "    public UserModel getUserModel() {"
+        },
+        {
+          "line": 36,
+          "text": "        if (_userModel == null && !isGuest()) {"
+        },
+        {
+          "line": 37,
+          "text": "            _userModel = authSharedService.getUserModelWithCache(userName);"
+        },
+        {
+          "line": 38,
+          "text": "        }"
+        },
+        {
+          "line": 39,
+          "text": "        return _userModel;"
+        }
+      ]
+    },
+    {
+      "id": "assets-client",
+      "path": "workspaces/1-shared/shared-assets/src/main/java/com/alpaca/assets/api/InternalAssetsApi.java",
+      "symbol": "InternalAssetsApi · system.assets.api",
+      "start": 18,
+      "end": 40,
+      "sourceSha256": "5dd63263da059c31a72b788338cf0725870d98c8ba5d02c7dfc5c835196d0d46",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.416Z",
+      "rows": [
+        {
+          "line": 18,
+          "text": "@FeignClient(name = \"[đã che]\", contextId = \"[đã che]\", path = \"internal\", url = \"${system.assets.api:[đã che]}\")"
+        },
+        {
+          "line": 19,
+          "text": "public interface InternalAssetsApi {"
+        },
+        {
+          "line": 20,
+          "text": ""
+        },
+        {
+          "line": 21,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 22,
+          "text": "    @PostMapping(value = \"/assets/generate-document\", consumes = MediaType.APPLICATION_JSON_VALUE)"
+        },
+        {
+          "line": 23,
+          "text": "    WrapResponse<byte[]> generateDocument(@RequestBody String htmlContents,"
+        },
+        {
+          "line": 24,
+          "text": "                                          @RequestParam(value = \"[đã che]\") String fileName,"
+        },
+        {
+          "line": 25,
+          "text": "                                          @RequestParam(value = \"[đã che]\") String type);"
+        },
+        {
+          "line": 26,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 27,
+          "text": "    @PostMapping(value = \"/assets/copy-file\", consumes = MediaType.APPLICATION_JSON_VALUE)"
+        },
+        {
+          "line": 28,
+          "text": "    WrapResponse<Map<String, String>> copyFile(@RequestBody CopyFileRequest request);"
+        },
+        {
+          "line": 29,
+          "text": ""
+        },
+        {
+          "line": 30,
+          "text": "    @PostMapping(value = \"/assets/upload-image\")"
+        },
+        {
+          "line": 31,
+          "text": "    WrapResponse<UploadFileResponse> upload(@RequestBody UploadFileRequest request);"
+        },
+        {
+          "line": 32,
+          "text": ""
+        },
+        {
+          "line": 33,
+          "text": "    @PostMapping(value = \"/document/generate-open-pdf-store\")"
+        },
+        {
+          "line": 34,
+          "text": "    WrapResponse<String> generateOpenStore(@RequestBody GeneratePdfRequest request);"
+        },
+        {
+          "line": 35,
+          "text": ""
+        },
+        {
+          "line": 36,
+          "text": "    @PostMapping(value = \"/document/generate-store-override\", consumes = MediaType.APPLICATION_JSON_VALUE)"
+        },
+        {
+          "line": 37,
+          "text": "    WrapResponse<String> generateStoreOverride(@RequestBody GeneratePdfRequest request);"
+        },
+        {
+          "line": 38,
+          "text": ""
+        },
+        {
+          "line": 39,
+          "text": "    @PostMapping(value = \"/document/generate-store-override-zip\", consumes = MediaType.APPLICATION_JSON_VALUE)"
+        },
+        {
+          "line": 40,
+          "text": "    WrapResponse<String> generateStoreOverrideZip(@RequestBody List<GeneratePdfRequest> requests);"
+        }
+      ]
+    },
+    {
+      "id": "assets-call",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/helper/Sender.java",
+      "symbol": "Sender · generateStoreOverride / generateStoreOverrideZip",
+      "start": 163,
+      "end": 181,
+      "sourceSha256": "0ca175a5308e91b13b04463aa805fb3ad402cd58238492d7c3ed178cdc2dd169",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.495Z",
+      "rows": [
+        {
+          "line": 163,
+          "text": "    private String generatePdfForEmail(GeneratePdfRequest pdfRequest, List<InsuranceObjectAggregate> insuranceViews, PolicyAggregate policy) {"
+        },
+        {
+          "line": 164,
+          "text": "        if (CollectionUtils.isEmpty(insuranceViews)) {"
+        },
+        {
+          "line": 165,
+          "text": "            throw new ServiceException(PlatformErrorCode.INSURANCE_OBJECT_NOT_EXISTS);"
+        },
+        {
+          "line": 166,
+          "text": "        }"
+        },
+        {
+          "line": 167,
+          "text": "        return internalAssetsApi.generateStoreOverride(pdfRequest).getData();"
+        },
+        {
+          "line": 168,
+          "text": "    }"
+        },
+        {
+          "line": 169,
+          "text": ""
+        },
+        {
+          "line": 170,
+          "text": "    private String generateZipForEmail(List<GeneratePdfRequest> pdfRequests, List<InsuranceObjectAggregate> insuranceViews, PolicyAggregate policy) {"
+        },
+        {
+          "line": 171,
+          "text": "        if (CollectionUtils.isEmpty(insuranceViews)) {"
+        },
+        {
+          "line": 172,
+          "text": "            throw new ServiceException(PlatformErrorCode.INSURANCE_OBJECT_NOT_EXISTS);"
+        },
+        {
+          "line": 173,
+          "text": "        }"
+        },
+        {
+          "line": 174,
+          "text": "        return internalAssetsApi.generateStoreOverrideZip(pdfRequests).getData();"
+        },
+        {
+          "line": 175,
+          "text": "    }"
+        },
+        {
+          "line": 176,
+          "text": ""
+        },
+        {
+          "line": 177,
+          "text": "    private String generateZipForEmailPerInsuranceObject(List<GeneratePdfRequest> pdfRequests, InsuranceObjectAggregate insuranceView) {"
+        },
+        {
+          "line": 178,
+          "text": "        if (Objects.isNull(insuranceView)) {"
+        },
+        {
+          "line": 179,
+          "text": "            throw new ServiceException(PlatformErrorCode.INSURANCE_OBJECT_NOT_EXISTS);"
+        },
+        {
+          "line": 180,
+          "text": "        }"
+        },
+        {
+          "line": 181,
+          "text": "        return internalAssetsApi.generateStoreOverrideZip(pdfRequests).getData();"
+        }
+      ]
+    },
+    {
+      "id": "notification",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/helper/Sender.java",
+      "symbol": "Sender.sendEmailPolicy · AMQP notification",
+      "start": 111,
+      "end": 125,
+      "sourceSha256": "0ca175a5308e91b13b04463aa805fb3ad402cd58238492d7c3ed178cdc2dd169",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.495Z",
+      "rows": [
+        {
+          "line": 111,
+          "text": "                    .name(FileNameMapping.getFullName(RuleInsuranceType.SUC_KHOE_TOAN_DIEN) + \"[đã che]\")"
+        },
+        {
+          "line": 112,
+          "text": "                    .resourceFilePath(RuleInsuranceType.SUC_KHOE_TOAN_DIEN + \"[đã che]\")"
+        },
+        {
+          "line": 113,
+          "text": "                    .id(null)"
+        },
+        {
+          "line": 114,
+          "text": "                    .build());"
+        },
+        {
+          "line": 115,
+          "text": "        }"
+        },
+        {
+          "line": 116,
+          "text": ""
+        },
+        {
+          "line": 117,
+          "text": ""
+        },
+        {
+          "line": 118,
+          "text": "        this.template.convertAndSend(RabbitMQQueue.QUEUE_SEND_NOTIFICATION, NotificationModel.builder()"
+        },
+        {
+          "line": 119,
+          "text": "                .scopes(map)"
+        },
+        {
+          "line": 120,
+          "text": "                .subject(\"[đã che]\" + policy.getPolicyCode())"
+        },
+        {
+          "line": 121,
+          "text": "                .template(ProductCode.BAO_TAM_AN.equals(policy.getProductCode()) ? \"[đã che]\" : \"[đã che]\")"
+        },
+        {
+          "line": 122,
+          "text": "                .attachments(allAttachments)"
+        },
+        {
+          "line": 123,
+          "text": "                .to(policy.getCustomerEmail())"
+        },
+        {
+          "line": 124,
+          "text": "                .build());"
+        },
+        {
+          "line": 125,
+          "text": "    }"
+        }
+      ]
+    },
+    {
+      "id": "proxy-client",
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/api/InternalProxyApi.java",
+      "symbol": "InternalProxyApi · system.core-proxy.api",
+      "start": 38,
+      "end": 45,
+      "sourceSha256": "9eacf1f2f1ab8fbab9bd2505f58879cf8d2b18cae3ea9eb72ae057312db6a90a",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.648Z",
+      "rows": [
+        {
+          "line": 38,
+          "text": "@FeignClient(name = \"[đã che]\", path = \"internal\", url = \"${system.core-proxy.api:[đã che]}\")"
+        },
+        {
+          "line": 39,
+          "text": "public interface InternalProxyApi {"
+        },
+        {
+          "line": 40,
+          "text": ""
+        },
+        {
+          "line": 41,
+          "text": "    @PostMapping(value = \"/distribution-channel/find-channel-id-by-code/{channelCode}\")"
+        },
+        {
+          "line": 42,
+          "text": "    WrapResponse<String> findChannelIdByCode(@PathVariable(\"[đã che]\") String channelCode);"
+        },
+        {
+          "line": 43,
+          "text": ""
+        },
+        {
+          "line": 44,
+          "text": "    @PostMapping(value = \"/policy/sync-policy\")"
+        },
+        {
+          "line": 45,
+          "text": "    WrapResponse<String> syncPolicyToCore(@Valid @RequestBody SyncCorePolicyRequest request);"
+        }
+      ]
+    },
+    {
+      "id": "proxy-call",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/product_builder/GetFullInfoQuotation.java",
+      "symbol": "GetFullInfoQuotation.exec · guarded proxy call",
+      "start": 23,
+      "end": 39,
+      "sourceSha256": "52aebbc7602b82d8d24fd1dfc1221dd4ff6bfd593182a4903ee96412050fa907",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.456Z",
+      "rows": [
+        {
+          "line": 23,
+          "text": "    public Object exec(String productId, String saleUnitId, String channelCode) {"
+        },
+        {
+          "line": 24,
+          "text": "        SaleUnitAggregate saleUnitAggregate = saleUnitRepository.findById(saleUnitId).orElseThrow(() -> new BadRequestException(PlatformErrorCode.SALE_UNIT_NOT_FOUND));"
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "        ProductTreeModel matchedProduct = saleUnitAggregate.getListChannels().stream()"
+        },
+        {
+          "line": 27,
+          "text": "                .filter(channel -> channel.getChannelCode().equals(channelCode))"
+        },
+        {
+          "line": 28,
+          "text": "                .flatMap(channel -> channel.getProductTreeModels().stream())"
+        },
+        {
+          "line": 29,
+          "text": "                .filter(product -> product.getProductId().equals(productId))"
+        },
+        {
+          "line": 30,
+          "text": "                .findFirst()"
+        },
+        {
+          "line": 31,
+          "text": "                .orElse(null);"
+        },
+        {
+          "line": 32,
+          "text": ""
+        },
+        {
+          "line": 33,
+          "text": "        if (matchedProduct == null) {"
+        },
+        {
+          "line": 34,
+          "text": "            throw new BadRequestException(PlatformErrorCode.DISTRIBUTION_CHANNEL_NOT_FOUND);"
+        },
+        {
+          "line": 35,
+          "text": "        }"
+        },
+        {
+          "line": 36,
+          "text": ""
+        },
+        {
+          "line": 37,
+          "text": "        internalProxyApi.getFullInfoQuotation(productId, matchedProduct.getPackageCode());"
+        },
+        {
+          "line": 38,
+          "text": "        String productKeyCache = productId + \"/\" + matchedProduct.getPackageCode();"
+        },
+        {
+          "line": 39,
+          "text": "        return platformCacheConfig.getProduct().get(productKeyCache);"
+        }
+      ]
+    },
+    {
+      "id": "sms-client",
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/api/SmsApi.java",
+      "symbol": "SmsApi · default system.sms.api",
+      "start": 8,
+      "end": 19,
+      "sourceSha256": "e1b2fea7ac503bbe220ba71b5f12a9b1e339463837efd9bfd8a63c62f6059343",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.648Z",
+      "rows": [
+        {
+          "line": 8,
+          "text": "import org.springframework.web.bind.annotation.RequestBody;"
+        },
+        {
+          "line": 9,
+          "text": "import org.springframework.web.bind.annotation.RequestHeader;"
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.sms.api:[đã che]}\")"
+        },
+        {
+          "line": 12,
+          "text": "public interface SmsApi {"
+        },
+        {
+          "line": 13,
+          "text": ""
+        },
+        {
+          "line": 14,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 15,
+          "text": "    @PostMapping(value = \"/sendSMS\", consumes = MediaType.APPLICATION_JSON_VALUE)"
+        },
+        {
+          "line": 16,
+          "text": "    SendSmsResponse sendSms(@RequestHeader(\"[đã che]\") String token,"
+        },
+        {
+          "line": 17,
+          "text": "                            @RequestBody SendSmsRequest content);"
+        },
+        {
+          "line": 18,
+          "text": "}"
+        },
+        {
+          "line": 19,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "assessment",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/quote/RequestAssessmentFunc.java",
+      "symbol": "RequestAssessmentFunc · assessment URL binding",
+      "start": 28,
+      "end": 41,
+      "sourceSha256": "513877fbc6732ce365e604f43becc4c39285c9b4e640c3750325bf4760c9a18f",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.462Z",
+      "rows": [
+        {
+          "line": 28,
+          "text": "@Component"
+        },
+        {
+          "line": 29,
+          "text": "public class RequestAssessmentFunc extends BaseFunc {"
+        },
+        {
+          "line": 30,
+          "text": "    private final QuoteRepository quoteRepository;"
+        },
+        {
+          "line": 31,
+          "text": "    private final RabbitTemplate template;"
+        },
+        {
+          "line": 32,
+          "text": "    private final InsuranceObjectRepository insuranceObjectRepository;"
+        },
+        {
+          "line": 33,
+          "text": "    @Value(\"${system.assessment.url:[đã che]}\")"
+        },
+        {
+          "line": 34,
+          "text": "    private String urlAssessment;"
+        },
+        {
+          "line": 35,
+          "text": "    private final Cache assessmentCache;"
+        },
+        {
+          "line": 36,
+          "text": ""
+        },
+        {
+          "line": 37,
+          "text": "    public RequestAssessmentFunc(QuoteRepository quoteRepository, RabbitTemplate template, InsuranceObjectRepository insuranceObjectRepository, AssessmentCacheConfig assessmentCacheConfig) {"
+        },
+        {
+          "line": 38,
+          "text": "        this.quoteRepository = quoteRepository;"
+        },
+        {
+          "line": 39,
+          "text": "        this.template = template;"
+        },
+        {
+          "line": 40,
+          "text": "        this.insuranceObjectRepository = insuranceObjectRepository;"
+        },
+        {
+          "line": 41,
+          "text": "        this.assessmentCache = assessmentCacheConfig.getAssessmentCache();"
+        }
+      ]
+    },
+    {
+      "id": "assessment-call",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/quote/RequestAssessmentFunc.java",
+      "symbol": "RequestAssessmentFunc.checkSuccess · URL in SMS payload",
+      "start": 72,
+      "end": 86,
+      "sourceSha256": "513877fbc6732ce365e604f43becc4c39285c9b4e640c3750325bf4760c9a18f",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.462Z",
+      "rows": [
+        {
+          "line": 72,
+          "text": "    private static String checkSuccess(AssessmentRequest request, AssessmentModel response, String urlAssessment, RabbitTemplate template) {"
+        },
+        {
+          "line": 73,
+          "text": "        if (response.getData().isEmpty()) {"
+        },
+        {
+          "line": 74,
+          "text": "            throw new BadRequestException(\"[đã che]\");"
+        },
+        {
+          "line": 75,
+          "text": "        }"
+        },
+        {
+          "line": 76,
+          "text": "        String url = urlAssessment + \"/\" + response.getCode();"
+        },
+        {
+          "line": 77,
+          "text": "        Map<String, Object> scope = new HashMap<>();"
+        },
+        {
+          "line": 78,
+          "text": "        scope.put(\"[đã che]\", url);"
+        },
+        {
+          "line": 79,
+          "text": "        SmsNotificationModel modelQueue = SmsNotificationModel.builder()"
+        },
+        {
+          "line": 80,
+          "text": "                .to(request.getPhoneNumber())"
+        },
+        {
+          "line": 81,
+          "text": "                .template(\"[đã che]\")"
+        },
+        {
+          "line": 82,
+          "text": "                .defTemplate(\"[đã che]\")"
+        },
+        {
+          "line": 83,
+          "text": "                .scopes(scope)"
+        },
+        {
+          "line": 84,
+          "text": "                .build();"
+        },
+        {
+          "line": 85,
+          "text": "        template.convertAndSend(RabbitMQQueue.QUEUE_SEND_SMS_NOTIFICATION, modelQueue);"
+        },
+        {
+          "line": 86,
+          "text": "        return response.getCode();"
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/payment/IPNFunc.java",
+      "symbol": "IPNFunc · quote/policy/payment return URL keys",
+      "start": 57,
+      "end": 69,
+      "sourceSha256": "7ecef732956d4099b56a65e5e0c53fb7b4f4b369a93083ad6903fa123dd067eb",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.435Z",
+      "rows": [
+        {
+          "line": 57,
+          "text": "    private final RabbitTemplate rabbitTemplate;"
+        },
+        {
+          "line": 58,
+          "text": ""
+        },
+        {
+          "line": 59,
+          "text": "    @Value(value = \"${system.quote-url.url:[đã che]}\")"
+        },
+        {
+          "line": 60,
+          "text": "    String quoteUrl;"
+        },
+        {
+          "line": 61,
+          "text": ""
+        },
+        {
+          "line": 62,
+          "text": "    @Value(value = \"${system.policy-url.url:[đã che]}\")"
+        },
+        {
+          "line": 63,
+          "text": "    String policyUrl;"
+        },
+        {
+          "line": 64,
+          "text": ""
+        },
+        {
+          "line": 65,
+          "text": "    @Value(value = \"${system.payment-process-url.url:[đã che]}\")"
+        },
+        {
+          "line": 66,
+          "text": "    String paymentUrl;"
+        },
+        {
+          "line": 67,
+          "text": ""
+        },
+        {
+          "line": 68,
+          "text": "    @Value(value = \"${alpaca.redirect-key:[đã che]}\")"
+        },
+        {
+          "line": 69,
+          "text": "    String redirectKey;"
+        }
+      ]
+    },
+    {
+      "id": "navigation-call",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/payment/IPNFunc.java",
+      "symbol": "IPNFunc · RedirectView / URI",
+      "start": 146,
+      "end": 162,
+      "sourceSha256": "7ecef732956d4099b56a65e5e0c53fb7b4f4b369a93083ad6903fa123dd067eb",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.435Z",
+      "rows": [
+        {
+          "line": 146,
+          "text": "                    .paymentId(reqRequestId)"
+        },
+        {
+          "line": 147,
+          "text": "                    .paymentSuccess(TxInfoModel.STATUS_DONE.equals(entity.getCheckoutInfo().getTx().getStatus()))"
+        },
+        {
+          "line": 148,
+          "text": "                    .policyCode(policyAggregate.getPolicyCode())"
+        },
+        {
+          "line": 149,
+          "text": "                    .priceWithTax(policyAggregate.getCheckoutInfo().getTx().getAmount())"
+        },
+        {
+          "line": 150,
+          "text": "                    .paidTime(new Date())"
+        },
+        {
+          "line": 151,
+          "text": "                    .build());"
+        },
+        {
+          "line": 152,
+          "text": "            URI uri = URI.create(String.format(policyUrl, policyId, true, policyAggregate.getQuoteCode()));"
+        },
+        {
+          "line": 153,
+          "text": "            return CallBackPaymentModel.builder().entityId(entity.getId())"
+        },
+        {
+          "line": 154,
+          "text": "                    .uri(uri).build();"
+        },
+        {
+          "line": 155,
+          "text": "        } catch (Exception e) {"
+        },
+        {
+          "line": 156,
+          "text": "            e.printStackTrace();"
+        },
+        {
+          "line": 157,
+          "text": "            logger.error(\"[đã che]\", e);"
+        },
+        {
+          "line": 158,
+          "text": "            return CallBackPaymentModel.builder().entityId(entity.getId())"
+        },
+        {
+          "line": 159,
+          "text": "                    .uri(URI.create(String.format(quoteUrl, entity.getId(), false, null))).build();"
+        },
+        {
+          "line": 160,
+          "text": "        }"
+        },
+        {
+          "line": 161,
+          "text": "    }"
+        },
+        {
+          "line": 162,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "config-util",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/helper/ConfigUtil.java",
+      "symbol": "ConfigUtil · navigation and email templates",
+      "start": 7,
+      "end": 29,
+      "sourceSha256": "8a318c9dd67b832e3eb1334671cdaf570135de33bac92bf77503bb82ddca11e8",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.492Z",
+      "rows": [
+        {
+          "line": 7,
+          "text": "public class ConfigUtil {"
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "    @Value(\"${alpaca.config.home-url:[đã che]}\")"
+        },
+        {
+          "line": 10,
+          "text": "    public String homeUrl;"
+        },
+        {
+          "line": 11,
+          "text": ""
+        },
+        {
+          "line": 12,
+          "text": "    @Value(\"${alpaca.config.reset-password-url:[đã che]}\")"
+        },
+        {
+          "line": 13,
+          "text": "    public String resetPasswordUrl;"
+        },
+        {
+          "line": 14,
+          "text": ""
+        },
+        {
+          "line": 15,
+          "text": "    @Value(\"${alpaca.config.reset-password-subject:[đã che]}\")"
+        },
+        {
+          "line": 16,
+          "text": "    public String resetPasswordSubject;"
+        },
+        {
+          "line": 17,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": "    @Value(\"${alpaca.config.active-account-subject:[đã che]}\")"
+        },
+        {
+          "line": 19,
+          "text": "    public String activeAccountSubject;"
+        },
+        {
+          "line": 20,
+          "text": ""
+        },
+        {
+          "line": 21,
+          "text": "    @Value(\"${alpaca.config.reset-password-from:[đã che]}\")"
+        },
+        {
+          "line": 22,
+          "text": "    public String resetPasswordFrom;"
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "    @Value(\"${alpaca.config.active-account-from:[đã che]}\")"
+        },
+        {
+          "line": 25,
+          "text": "    public String activeAccountFrom;"
+        },
+        {
+          "line": 26,
+          "text": ""
+        },
+        {
+          "line": 27,
+          "text": "    @Value(\"${alpaca.config.reset-password-template:[đã che]}\")"
+        },
+        {
+          "line": 28,
+          "text": "    public String resetPasswordTemplate;"
+        },
+        {
+          "line": 29,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "asset-url",
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/service/SharedGlobalConfigService.java",
+      "symbol": "SharedGlobalConfigService · assets/micro-site public URL",
+      "start": 34,
+      "end": 50,
+      "sourceSha256": "5c117493ce57cdea2541f0ac81ce17ec1377e3933ac6c5c9571448e313e104cd",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.921Z",
+      "rows": [
+        {
+          "line": 34,
+          "text": "    String clientSecret;"
+        },
+        {
+          "line": 35,
+          "text": ""
+        },
+        {
+          "line": 36,
+          "text": "    @Value(\"${system.assets.url:[đã che]}\")"
+        },
+        {
+          "line": 37,
+          "text": "    String assetsUrl;"
+        },
+        {
+          "line": 38,
+          "text": ""
+        },
+        {
+          "line": 39,
+          "text": "    @Value(\"${alpaca.config.secret-key:[đã che]}\")"
+        },
+        {
+          "line": 40,
+          "text": "    private String secretKey;"
+        },
+        {
+          "line": 41,
+          "text": ""
+        },
+        {
+          "line": 42,
+          "text": "    @Value(\"${alpaca.config.system-name:[đã che]}\")"
+        },
+        {
+          "line": 43,
+          "text": "    private String systemName;"
+        },
+        {
+          "line": 44,
+          "text": ""
+        },
+        {
+          "line": 45,
+          "text": "    @Value(\"${alpaca.time-duration-one-month:[đã che]}\")"
+        },
+        {
+          "line": 46,
+          "text": "    private int timeDurationOneMonth;"
+        },
+        {
+          "line": 47,
+          "text": ""
+        },
+        {
+          "line": 48,
+          "text": "    @Value(\"${system.micro-site-service.url:[đã che]}\")"
+        },
+        {
+          "line": 49,
+          "text": "    public String qrCodeFormat;"
+        },
+        {
+          "line": 50,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "business-entry",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/SaleUnitController.java",
+      "symbol": "SaleUnitController.downloadDocument · POST /sale-unit/download-document/{documentType}",
+      "start": 164,
+      "end": 172,
+      "sourceSha256": "6016452df80c8b500104f3cbae67237fa0eff55aa51633e5f3b4255af1f9958c",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.418Z",
+      "rows": [
+        {
+          "line": 164,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 165,
+          "text": "    @PostMapping(value = \"/download-document/{documentType}\")"
+        },
+        {
+          "line": 166,
+          "text": "    public CompletableFuture<ResponseEntity<?>> downloadDocument(@PathVariable String documentType) {"
+        },
+        {
+          "line": 167,
+          "text": "        return CompletableFuture.supplyAsync(() -> {"
+        },
+        {
+          "line": 168,
+          "text": "            String attachmentId = applicationContext.getBean(DownloadDocumentFunc.class).exec(documentType);"
+        },
+        {
+          "line": 169,
+          "text": "            String url = sharedGlobalConfigService.getAssetsUrl() + \"/assets/\" + attachmentId + \"/download\";"
+        },
+        {
+          "line": 170,
+          "text": "            return ResponseEntity.status(HttpStatus.FOUND).location(URI.create(url)).build();"
+        },
+        {
+          "line": 171,
+          "text": "        }, executorService);"
+        },
+        {
+          "line": 172,
+          "text": "    }"
+        }
+      ]
+    },
+    {
+      "id": "business-root",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/SaleUnitController.java",
+      "symbol": "SaleUnitController · class request mapping",
+      "start": 33,
+      "end": 42,
+      "sourceSha256": "6016452df80c8b500104f3cbae67237fa0eff55aa51633e5f3b4255af1f9958c",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.418Z",
+      "rows": [
+        {
+          "line": 33,
+          "text": "@Setter"
+        },
+        {
+          "line": 34,
+          "text": "@RestController"
+        },
+        {
+          "line": 35,
+          "text": "@AllArgsConstructor"
+        },
+        {
+          "line": 36,
+          "text": "@RequestMapping(\"sale-unit\")"
+        },
+        {
+          "line": 37,
+          "text": "public class SaleUnitController extends BaseController {"
+        },
+        {
+          "line": 38,
+          "text": "    private final SharedGlobalConfigService sharedGlobalConfigService;"
+        },
+        {
+          "line": 39,
+          "text": ""
+        },
+        {
+          "line": 40,
+          "text": "    @PostMapping(value = \"/create\")"
+        },
+        {
+          "line": 41,
+          "text": "    public CompletableFuture<WrapResponse<Object>> createSaleUnit(@Valid @RequestBody CreateSaleUnitRequest request) {"
+        },
+        {
+          "line": 42,
+          "text": "        return CompletableFuture.supplyAsync(() -> WrapResponse.ok(applicationContext.getBean(CreateSaleUnitAgencyFunc.class).exec(request)), executorService);"
+        }
+      ]
+    },
+    {
+      "id": "business-call",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/sale_unit/document/DownloadDocumentFunc.java",
+      "symbol": "DownloadDocumentFunc.exec / runInternal",
+      "start": 15,
+      "end": 43,
+      "sourceSha256": "11a0d60632061a7be1d753ab3704e0cdbeb87a6a741db85813b54d9bc0b8235f",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.480Z",
+      "rows": [
+        {
+          "line": 15,
+          "text": "@Component"
+        },
+        {
+          "line": 16,
+          "text": "@AllArgsConstructor"
+        },
+        {
+          "line": 17,
+          "text": "public class DownloadDocumentFunc extends BaseFunc {"
+        },
+        {
+          "line": 18,
+          "text": "    private final SaleUnitRepository saleUnitRepository;"
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "    public String exec(String documentType) {"
+        },
+        {
+          "line": 21,
+          "text": "        String rootId = SessionUtils.getThreadUserSession().getUserModel().getRootId();"
+        },
+        {
+          "line": 22,
+          "text": "        if (rootId == null) {"
+        },
+        {
+          "line": 23,
+          "text": "            throw new ServiceException(PlatformErrorCode.AGENCY_ROOT_ID_NOT_FOUND);"
+        },
+        {
+          "line": 24,
+          "text": "        }"
+        },
+        {
+          "line": 25,
+          "text": "        SaleUnitAggregate saleUnit = saleUnitRepository.findById(rootId).orElse(null);"
+        },
+        {
+          "line": 26,
+          "text": "        if (saleUnit == null) {"
+        },
+        {
+          "line": 27,
+          "text": "            throw new ServiceException(PlatformErrorCode.AGENCY_ROOT_ID_NOT_FOUND);"
+        },
+        {
+          "line": 28,
+          "text": "        }"
+        },
+        {
+          "line": 29,
+          "text": "        return execInTransaction(() -> runInternal(saleUnit, documentType));"
+        },
+        {
+          "line": 30,
+          "text": "    }"
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "    private String runInternal(SaleUnitAggregate saleUnit, String documentType) {"
+        },
+        {
+          "line": 33,
+          "text": "        if (CollectionUtils.isEmpty(saleUnit.getDocumentList())) {"
+        },
+        {
+          "line": 34,
+          "text": "            throw new ServiceException(PlatformErrorCode.DOCUMENT_TYPE_NOT_FOUND);"
+        },
+        {
+          "line": 35,
+          "text": "        }"
+        },
+        {
+          "line": 36,
+          "text": "        String templateCode = saleUnit.getDocumentList().getOrDefault(TemplateCode.Type.IRF, null);"
+        },
+        {
+          "line": 37,
+          "text": "        if (StringUtils.isBlank(templateCode)) {"
+        },
+        {
+          "line": 38,
+          "text": "            throw new ServiceException(PlatformErrorCode.AGENCY_ROOT_ID_NOT_FOUND);"
+        },
+        {
+          "line": 39,
+          "text": "        }"
+        },
+        {
+          "line": 40,
+          "text": "        return templateCode;"
+        },
+        {
+          "line": 41,
+          "text": "    }"
+        },
+        {
+          "line": 42,
+          "text": "}"
+        },
+        {
+          "line": 43,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "transaction",
+      "path": "workspaces/1-shared/shared-webmvc/src/main/java/com/alpaca/base/BaseFunc.java",
+      "symbol": "BaseFunc.execInTransaction / loadUserSession",
+      "start": 71,
+      "end": 85,
+      "sourceSha256": "0f87938d5debffa63981bd1071e9db98265d4668744cc0ce8a34d5355d7aca58",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.647Z",
+      "rows": [
+        {
+          "line": 71,
+          "text": "    protected <T> T execInTransaction(Supplier<T> supplier) {"
+        },
+        {
+          "line": 72,
+          "text": "        return transactionTemplate.execute((status) -> supplier.get());"
+        },
+        {
+          "line": 73,
+          "text": "    }"
+        },
+        {
+          "line": 74,
+          "text": ""
+        },
+        {
+          "line": 75,
+          "text": "    protected <T> T execInLock(String key, long timeLock, Supplier<T> supplier) {"
+        },
+        {
+          "line": 76,
+          "text": "        return lockService.lock(key, timeLock, supplier);"
+        },
+        {
+          "line": 77,
+          "text": "    }"
+        },
+        {
+          "line": 78,
+          "text": ""
+        },
+        {
+          "line": 79,
+          "text": "    protected <T> T execInLockMulti(long timeLock, Supplier<T> supplier, String... key) {"
+        },
+        {
+          "line": 80,
+          "text": "        return lockService.lockMulti(key, timeLock, supplier);"
+        },
+        {
+          "line": 81,
+          "text": "    }"
+        },
+        {
+          "line": 82,
+          "text": ""
+        },
+        {
+          "line": 83,
+          "text": "    protected UserDataSession loadUserSession() {"
+        },
+        {
+          "line": 84,
+          "text": "        return SessionUtils.getThreadUserSession();"
+        },
+        {
+          "line": 85,
+          "text": "    }"
+        }
+      ]
+    },
+    {
+      "id": "query-main",
+      "path": "workspaces/agent-service/3-agent-query-service/src/main/java/com/alpaca/agent/AgentQueryServiceApplication.java",
+      "symbol": "AgentQueryServiceApplication · main",
+      "start": 12,
+      "end": 27,
+      "sourceSha256": "cc9fa53a755d674c418a582bd91bd5ec5488c9be853aef934c5b45f8e5618700",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.537Z",
+      "rows": [
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "@SpringBootApplication()"
+        },
+        {
+          "line": 14,
+          "text": "@EnableFeignClients(basePackages = \"com.alpaca\")"
+        },
+        {
+          "line": 15,
+          "text": "@ComponentScan(\"com.alpaca\")"
+        },
+        {
+          "line": 16,
+          "text": "@EntityScan(\"com.alpaca\")"
+        },
+        {
+          "line": 17,
+          "text": "@EnableJpaRepositories(\"com.alpaca\")"
+        },
+        {
+          "line": 18,
+          "text": "@OpenAPIDefinition(info ="
+        },
+        {
+          "line": 19,
+          "text": "@Info(title = \"[đã che]\", version = \"[đã che]\", description = \"[đã che]\"),"
+        },
+        {
+          "line": 20,
+          "text": "        servers = {@Server(url = \"/platform-query\")}"
+        },
+        {
+          "line": 21,
+          "text": ")"
+        },
+        {
+          "line": 22,
+          "text": "public class AgentQueryServiceApplication {"
+        },
+        {
+          "line": 23,
+          "text": "    public static void main(String[] args) {"
+        },
+        {
+          "line": 24,
+          "text": "        SpringApplication.run(AgentQueryServiceApplication.class, args);"
+        },
+        {
+          "line": 25,
+          "text": "    }"
+        },
+        {
+          "line": 26,
+          "text": "}"
+        },
+        {
+          "line": 27,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "assets-main",
+      "path": "workspaces/2-infrastructure/assets-service/src/main/java/com/alpaca/assets/AssetsApplication.java",
+      "symbol": "AssetsApplication · main",
+      "start": 10,
+      "end": 27,
+      "sourceSha256": "de51e8796b6c3e5fa5ba2b85e14752beb26421aa2e6215280dea27fe23f0df94",
+      "revision": "9ac4d7f48450f0d71abba7aaf94e290040a8f023",
+      "lastModified": "2026-11-04T04:24:46.291Z",
+      "rows": [
+        {
+          "line": 10,
+          "text": "import org.springframework.context.annotation.ComponentScan;"
+        },
+        {
+          "line": 11,
+          "text": "import org.springframework.data.jpa.repository.config.EnableJpaRepositories;"
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "@SpringBootApplication"
+        },
+        {
+          "line": 14,
+          "text": "@ComponentScan(\"com.alpaca\")"
+        },
+        {
+          "line": 15,
+          "text": "@EntityScan(\"com.alpaca\")"
+        },
+        {
+          "line": 16,
+          "text": "@EnableJpaRepositories(\"com.alpaca\")"
+        },
+        {
+          "line": 17,
+          "text": "@EnableFeignClients(basePackages = \"com.alpaca\")"
+        },
+        {
+          "line": 18,
+          "text": "@OpenAPIDefinition(info ="
+        },
+        {
+          "line": 19,
+          "text": "@Info(title = \"[đã che]\", version = \"[đã che]\", description = \"[đã che]\"),"
+        },
+        {
+          "line": 20,
+          "text": "\t\tservers = {@Server(url = \"[đã che]\")}"
+        },
+        {
+          "line": 21,
+          "text": ")"
+        },
+        {
+          "line": 22,
+          "text": "public class AssetsApplication {"
+        },
+        {
+          "line": 23,
+          "text": "\tpublic static void main(String[] args) {"
+        },
+        {
+          "line": 24,
+          "text": "\t\tSpringApplication.run(AssetsApplication.class, args);"
+        },
+        {
+          "line": 25,
+          "text": "\t}"
+        },
+        {
+          "line": 26,
+          "text": "}"
+        },
+        {
+          "line": 27,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "sso-main",
+      "path": "workspaces/2-infrastructure/sso-server/src/main/java/com/alpaca/auth/SsoServerApplication.java",
+      "symbol": "SsoServerApplication · main",
+      "start": 10,
+      "end": 22,
+      "sourceSha256": "f62c43c4252b8bd761ba7a54cd1359220a8fb05ee9cbe56a57def27255a5fc68",
+      "revision": "6cb94b95b23d57b7e3b94b22623868edcf2dcfcb",
+      "lastModified": "2026-11-04T04:24:59.656Z",
+      "rows": [
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "@SpringBootApplication"
+        },
+        {
+          "line": 12,
+          "text": "@ComponentScan(value = \"com.alpaca\", excludeFilters = @ComponentScan.Filter("
+        },
+        {
+          "line": 13,
+          "text": "        type = FilterType.ASSIGNABLE_TYPE, classes = com.alpaca.auth.config.SharedAuthConfig.class))"
+        },
+        {
+          "line": 14,
+          "text": "@EnableFeignClients(basePackages = \"com.alpaca\")"
+        },
+        {
+          "line": 15,
+          "text": "@EntityScan(\"com.alpaca\")"
+        },
+        {
+          "line": 16,
+          "text": "@EnableJpaRepositories(\"com.alpaca\")"
+        },
+        {
+          "line": 17,
+          "text": "public class SsoServerApplication {"
+        },
+        {
+          "line": 18,
+          "text": "    public static void main(String[] args) {"
+        },
+        {
+          "line": 19,
+          "text": "        SpringApplication.run(SsoServerApplication.class, args);"
+        },
+        {
+          "line": 20,
+          "text": "    }"
+        },
+        {
+          "line": 21,
+          "text": "}"
+        },
+        {
+          "line": 22,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "shared-adminqueryapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/AdminQueryApi.java",
+      "symbol": "AdminQueryApi · Feign declaration",
+      "start": 21,
+      "end": 35,
+      "sourceSha256": "2ecdedc6a7ad00c5e5389480984d8bf23ad2ccac1271a3d9be3c6cef7fd35879",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.596Z",
+      "rows": [
+        {
+          "line": 21,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.admin-query.api:[đã che]}\")"
+        },
+        {
+          "line": 22,
+          "text": "public interface AdminQueryApi {"
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "    @GetMapping(value = \"/internal/distribution-channel/find-channel-id-by-code/{channelCode}\")"
+        },
+        {
+          "line": 27,
+          "text": "    WrapCoreResponse<String> findChannelIdByCode(@PathVariable String channelCode);"
+        },
+        {
+          "line": 28,
+          "text": ""
+        },
+        {
+          "line": 29,
+          "text": "    @GetMapping(value = \"/internal/company/find-by-id/{companyId}\")"
+        },
+        {
+          "line": 30,
+          "text": "    WrapCoreResponse<CompanyModel> findCompanyById(@PathVariable String companyId);"
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "    @PostMapping(value = \"/internal/distribution-channel/search-list\")"
+        },
+        {
+          "line": 33,
+          "text": "    WrapCoreResponse<List<DistributionChannelResponse>> searchDistributionChannel(@RequestBody SearchChannelDistributionRequest request);"
+        },
+        {
+          "line": 34,
+          "text": ""
+        },
+        {
+          "line": 35,
+          "text": "    @GetMapping(value = \"/address-info/get-list-nationality\")"
+        }
+      ]
+    },
+    {
+      "id": "shared-authqueryapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/AuthQueryApi.java",
+      "symbol": "AuthQueryApi · Feign declaration",
+      "start": 10,
+      "end": 21,
+      "sourceSha256": "ca97af97b6906607c8b3b80df36dcb1a97b4313fe377ac8aefeec49eb4c4ab38",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.596Z",
+      "rows": [
+        {
+          "line": 10,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.auth-query.api:[đã che]}\")"
+        },
+        {
+          "line": 11,
+          "text": "public interface AuthQueryApi {"
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 14,
+          "text": ""
+        },
+        {
+          "line": 15,
+          "text": "    @PostMapping(value = \"/user/list-user-by-department-ids\")"
+        },
+        {
+          "line": 16,
+          "text": "    WrapCoreResponse<List<UserShortModel>> getUserByDepartmentIds(@RequestBody List<String> ids, @RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 17,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": "    @GetMapping(value = \"/internal/user/find-director-unit/{companyCode}\")"
+        },
+        {
+          "line": 19,
+          "text": "    WrapCoreResponse<UserShortModel> finDirectUnitByCompanyCode(@PathVariable String companyCode);"
+        },
+        {
+          "line": 20,
+          "text": "}"
+        },
+        {
+          "line": 21,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "shared-claimnetapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/ClaimNetApi.java",
+      "symbol": "ClaimNetApi · Feign declaration",
+      "start": 14,
+      "end": 21,
+      "sourceSha256": "82d566788a69d956b7fcaee81c0da3708769a78554c4602814511ad84e2542e8",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.596Z",
+      "rows": [
+        {
+          "line": 14,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.claim-net.api:[đã che]}\")"
+        },
+        {
+          "line": 15,
+          "text": "public interface ClaimNetApi {"
+        },
+        {
+          "line": 16,
+          "text": ""
+        },
+        {
+          "line": 17,
+          "text": "    @PostMapping(value = \"/Claim/search-claim\")"
+        },
+        {
+          "line": 18,
+          "text": "    WrapLowerResponse<PageModel<ClaimModel>> search(@Valid @RequestBody SearchClaimRequest request, @RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 19,
+          "text": "}"
+        },
+        {
+          "line": 20,
+          "text": "    "
+        },
+        {
+          "line": 21,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "shared-claimqueryapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/ClaimQueryApi.java",
+      "symbol": "ClaimQueryApi · Feign declaration",
+      "start": 14,
+      "end": 21,
+      "sourceSha256": "7ce464100e7499b1ddc18527326ec81634db52c8d56b714e80c97e1877b61b54",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.597Z",
+      "rows": [
+        {
+          "line": 14,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.claim-vehicle-query.api:[đã che]}\")"
+        },
+        {
+          "line": 15,
+          "text": "public interface ClaimQueryApi {"
+        },
+        {
+          "line": 16,
+          "text": ""
+        },
+        {
+          "line": 17,
+          "text": "    @PostMapping(value = \"/claim-document/search\")"
+        },
+        {
+          "line": 18,
+          "text": "    WrapCoreResponse<PageModel<ClaimModel>> search(@Valid @RequestBody SearchClaimRequest request, @RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 19,
+          "text": "}"
+        },
+        {
+          "line": 20,
+          "text": "    "
+        },
+        {
+          "line": 21,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "shared-claimvehicleapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/ClaimVehicleApi.java",
+      "symbol": "ClaimVehicleApi · Feign declaration",
+      "start": 13,
+      "end": 18,
+      "sourceSha256": "23213c2789e660e751699572ec4e98f697b5afea282b48e54862164ac3b69913",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.597Z",
+      "rows": [
+        {
+          "line": 13,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.claim-vehicle-query.api:[đã che]}\")"
+        },
+        {
+          "line": 14,
+          "text": "public interface ClaimVehicleApi {"
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "    @PostMapping(value = \"/claim-document/search\")"
+        },
+        {
+          "line": 17,
+          "text": "    WrapCoreResponse<PageModel<ClaimModel>> search(@Valid @RequestBody SearchClaimRequest request, @RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 18,
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "shared-corecommandapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/CoreCommandApi.java",
+      "symbol": "CoreCommandApi · Feign declaration",
+      "start": 13,
+      "end": 24,
+      "sourceSha256": "f71acdc7345922c1333d0901a429f7df513b777d8c0cec1d30ce6d1388488f76",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.597Z",
+      "rows": [
+        {
+          "line": 13,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.core-command.api:[đã che]}\")"
+        },
+        {
+          "line": 14,
+          "text": "public interface CoreCommandApi {"
+        },
+        {
+          "line": 15,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 16,
+          "text": ""
+        },
+        {
+          "line": 17,
+          "text": "    @PostMapping(value = \"/internal/sales-platform/sync-policy\")"
+        },
+        {
+          "line": 18,
+          "text": "    WrapCoreResponse<String> syncSalesPlatformPolicy(@Valid @RequestBody SyncCorePolicyRequest request, @RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "    @PostMapping(value = \"/internal/sales-platform/update-policy-attachments\")"
+        },
+        {
+          "line": 21,
+          "text": "    WrapCoreResponse<String> syncDocumentPolicy(@Valid @RequestBody SyncCorePolicyDocumentRequest request, @RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 22,
+          "text": "}"
+        },
+        {
+          "line": 23,
+          "text": "    "
+        },
+        {
+          "line": 24,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "shared-corequeryapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/CoreQueryApi.java",
+      "symbol": "CoreQueryApi · Feign declaration",
+      "start": 13,
+      "end": 27,
+      "sourceSha256": "774b5a47a092cce5268485c59e8b1b9c8d83088e378fda66fadf3b93b881b811",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.598Z",
+      "rows": [
+        {
+          "line": 13,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.core-query.api:[đã che]}\")"
+        },
+        {
+          "line": 14,
+          "text": "public interface CoreQueryApi {"
+        },
+        {
+          "line": 15,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 16,
+          "text": ""
+        },
+        {
+          "line": 17,
+          "text": "    @PostMapping(value = \"/internal/sales-platform/policy-with-endorsement\")"
+        },
+        {
+          "line": 18,
+          "text": "    WrapCoreResponse<Object> getEndorsementInfo(@Valid @RequestBody GetEndorsementInfoRequest request, @RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "    @PostMapping(value = \"/internal/product/detect-duplicate/{productId}\")"
+        },
+        {
+          "line": 21,
+          "text": "    WrapCoreResponse<List<ProductDuplicateCheckResult>> getDetectDuplicate(@PathVariable String productId, @RequestBody DetectDuplicateRequest request, @RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 22,
+          "text": ""
+        },
+        {
+          "line": 23,
+          "text": "    @GetMapping(value = \"/internal/sales-platform/policy/find-id-by-code/{code}\")"
+        },
+        {
+          "line": 24,
+          "text": "    WrapCoreResponse<String> findPolicyByCode(@PathVariable String code, @RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "    @GetMapping(value = \"/internal/sales-platform/policy/detail/{id}\")"
+        },
+        {
+          "line": 27,
+          "text": "    WrapCoreResponse<Object> findPolicyById(@PathVariable String id, @RequestHeader(\"[đã che]\") String bearerToken);"
+        }
+      ]
+    },
+    {
+      "id": "shared-crmcommandapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/CrmCommandApi.java",
+      "symbol": "CrmCommandApi · Feign declaration",
+      "start": 8,
+      "end": 16,
+      "sourceSha256": "10e4d86266b1efdf713bf19a8e66a137df79cd43e94cdcc512a892bc4b1a1d3a",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.598Z",
+      "rows": [
+        {
+          "line": 8,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.crm-command.api:[đã che]}\")"
+        },
+        {
+          "line": 9,
+          "text": "public interface CrmCommandApi {"
+        },
+        {
+          "line": 10,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 11,
+          "text": ""
+        },
+        {
+          "line": 12,
+          "text": "    @PostMapping(value = \"/internal/customers/create-for-sale-platform\")"
+        },
+        {
+          "line": 13,
+          "text": "    WrapCoreResponse<String> createForSalePlatform(@RequestBody SyncCustomerRequest request);"
+        },
+        {
+          "line": 14,
+          "text": "}"
+        },
+        {
+          "line": 15,
+          "text": "    "
+        },
+        {
+          "line": 16,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "shared-paymentgatewayapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/PaymentGatewayApi.java",
+      "symbol": "PaymentGatewayApi · Feign declaration",
+      "start": 14,
+      "end": 28,
+      "sourceSha256": "34fb8f8efd261056eb46cccd45eb57b2bf8e592b8a9011f032da30b23248d652",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.598Z",
+      "rows": [
+        {
+          "line": 14,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.payment-gateway.api:[đã che]}\")"
+        },
+        {
+          "line": 15,
+          "text": "public interface PaymentGatewayApi {"
+        },
+        {
+          "line": 16,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 17,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": "    @PostMapping(value = \"/api/ProcessPayment/CreateUrlPayment\")"
+        },
+        {
+          "line": 19,
+          "text": "    WrapResponse<CreateUrlPaymentResponse> createUrlPayment(@Valid @RequestBody CreateUrlPaymentRequest request,"
+        },
+        {
+          "line": 20,
+          "text": "                                                            @RequestParam(value = \"[đã che]\") String payOptions,"
+        },
+        {
+          "line": 21,
+          "text": "                                                            @RequestParam(value = \"[đã che]\") String system,"
+        },
+        {
+          "line": 22,
+          "text": "                                                            @RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "    @GetMapping(value = \"/api/ProcessPayment/QueryForce/ByOrderNo/{orderNo}\")"
+        },
+        {
+          "line": 25,
+          "text": "    WrapResponse<List<PaymentResponse>> getPayment(@PathVariable(value = \"[đã che]\") String orderNo,"
+        },
+        {
+          "line": 26,
+          "text": "                                                   @RequestParam(value = \"[đã che]\") String system,"
+        },
+        {
+          "line": 27,
+          "text": "                                                   @RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 28,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "shared-productbuilderapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/ProductBuilderApi.java",
+      "symbol": "ProductBuilderApi · Feign declaration",
+      "start": 20,
+      "end": 34,
+      "sourceSha256": "e5327f52c04e4cb158c19b53d0f040198cea6d8cce51a2ec6bf117319f301b97",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.598Z",
+      "rows": [
+        {
+          "line": 20,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.product-builder.api:[đã che]}\")"
+        },
+        {
+          "line": 21,
+          "text": "public interface ProductBuilderApi {"
+        },
+        {
+          "line": 22,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "    @PostMapping(value = \"/internal/document/listtemp/SP/{templateCode}/1-1\")"
+        },
+        {
+          "line": 25,
+          "text": "    WrapLowerResponse<List<GeneratePdfExtraRequest>> getTemplateFormCore(@PathVariable(\"[đã che]\") String templateCode, @RequestBody PrintProductDocumentRequest request);"
+        },
+        {
+          "line": 26,
+          "text": ""
+        },
+        {
+          "line": 27,
+          "text": "    @GetMapping(value = \"/api/v1/ProductPrices/fullInfoQuotation/{productId}/bychannel/{acAgencyCode}\")"
+        },
+        {
+          "line": 28,
+          "text": "    WrapLowerResponse<Object> getFullInfoQuotation(@PathVariable(\"[đã che]\") String productId, @PathVariable(\"[đã che]\") String acAgencyCode, @RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 29,
+          "text": ""
+        },
+        {
+          "line": 30,
+          "text": "    @GetMapping(value = \"/api/v1/ProductPrices/fullInfoQuotation/{productId}/bychannel/{acAgencyCode}\")"
+        },
+        {
+          "line": 31,
+          "text": "    WrapLowerResponse<Object> getFullInfoQuotationWithoutAuth(@PathVariable(\"[đã che]\") String productId, @PathVariable(\"[đã che]\") String acAgencyCode);"
+        },
+        {
+          "line": 32,
+          "text": ""
+        },
+        {
+          "line": 33,
+          "text": "    @GetMapping(value = \"/api/v1/ProductPrices/fullInfoQuotation/{productId}/DocumentJsons\", consumes = MediaType.TEXT_PLAIN_VALUE)"
+        },
+        {
+          "line": 34,
+          "text": "    WrapLowerResponse<DocumentJsonResponse> getFolderByProductId(@PathVariable(\"[đã che]\") String productId);"
+        }
+      ]
+    },
+    {
+      "id": "shared-publiccoreapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/PublicCoreApi.java",
+      "symbol": "PublicCoreApi · Feign declaration",
+      "start": 23,
+      "end": 37,
+      "sourceSha256": "81a7ef1bccfdcac6a9ec033c96acd9d0df65ed182c097fb328bdc9c683b4eb17",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.599Z",
+      "rows": [
+        {
+          "line": 23,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.core.api:[đã che]}\")"
+        },
+        {
+          "line": 24,
+          "text": "public interface PublicCoreApi {"
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "// [đã che chú thích]"
+        },
+        {
+          "line": 27,
+          "text": ""
+        },
+        {
+          "line": 28,
+          "text": "    @GetMapping(value = \"/admin-query/internal/distribution-channel/find-channel-id-by-code/{channelCode}\")"
+        },
+        {
+          "line": 29,
+          "text": "    WrapCoreResponse<String> findChannelIdByCode(@PathVariable String channelCode);"
+        },
+        {
+          "line": 30,
+          "text": ""
+        },
+        {
+          "line": 31,
+          "text": "    @GetMapping(value = \"/admin-query/address-info/get-list-nationality\")"
+        },
+        {
+          "line": 32,
+          "text": "    WrapCoreResponse<Object> getListNationality(@RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 33,
+          "text": ""
+        },
+        {
+          "line": 34,
+          "text": "    @GetMapping(value = \"/admin-query/address-info/get-list-province\")"
+        },
+        {
+          "line": 35,
+          "text": "    WrapCoreResponse<Object> getListProvince(@RequestHeader(\"[đã che]\") String bearerToken);"
+        },
+        {
+          "line": 36,
+          "text": ""
+        },
+        {
+          "line": 37,
+          "text": "    @GetMapping(value = \"/admin-query/address-info/get-list-district-by-province-id/{provinceCode}\")"
+        }
+      ]
+    },
+    {
+      "id": "shared-publicpaymeyapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/PublicPayMeyApi.java",
+      "symbol": "PublicPayMeyApi · Feign declaration",
+      "start": 17,
+      "end": 31,
+      "sourceSha256": "8f230ff00a81985c8132a529482ea6b5c76d73b10802d6fcdc2d55744fd3f195",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.600Z",
+      "rows": [
+        {
+          "line": 17,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.pay-me.api:[đã che]}\")"
+        },
+        {
+          "line": 18,
+          "text": "public interface PublicPayMeyApi {"
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "    @PostMapping(value = \"/be/widgets/link/create\", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)"
+        },
+        {
+          "line": 21,
+          "text": "    WrapPayMeResponse<PayMeUrlLinkModel> createUrlPayMeLink(@RequestHeader(\"[đã che]\") String apiClient,"
+        },
+        {
+          "line": 22,
+          "text": "                                                            @RequestHeader(\"[đã che]\") String apiValidate,"
+        },
+        {
+          "line": 23,
+          "text": "                                                            @RequestBody PayMeLinkRequest request);"
+        },
+        {
+          "line": 24,
+          "text": ""
+        },
+        {
+          "line": 25,
+          "text": "    @PostMapping(value = \"/payment/web\", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)"
+        },
+        {
+          "line": 26,
+          "text": "    WrapPayMeResponse<PayMeWebModel> createWebPayMe(@RequestHeader(\"[đã che]\") String apiClient,"
+        },
+        {
+          "line": 27,
+          "text": "                                                    @RequestHeader(\"[đã che]\") String apiValidate,"
+        },
+        {
+          "line": 28,
+          "text": "                                                    @RequestBody PayMeWebRequest request);"
+        },
+        {
+          "line": 29,
+          "text": ""
+        },
+        {
+          "line": 30,
+          "text": "    @PostMapping(value = \"/payment/query\", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)"
+        },
+        {
+          "line": 31,
+          "text": "    WrapPayMeResponse<PayMePaymentInfoModel> paymentQuery(@RequestHeader(\"[đã che]\") String apiClient,"
+        }
+      ]
+    },
+    {
+      "id": "shared-publicssoapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/PublicSsoApi.java",
+      "symbol": "PublicSsoApi · Feign declaration",
+      "start": 10,
+      "end": 16,
+      "sourceSha256": "19c76b9506740e6533d107c77c3d5c2dcab468cf9b635b9ebcf0f0f529101f7a",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.600Z",
+      "rows": [
+        {
+          "line": 10,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.sso.api:[đã che]}\")"
+        },
+        {
+          "line": 11,
+          "text": "public interface PublicSsoApi {"
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "    @PostMapping(value = \"/oauth/token\", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)"
+        },
+        {
+          "line": 14,
+          "text": "    TokenModel getToken(Map<String, ?> formParams);"
+        },
+        {
+          "line": 15,
+          "text": "}"
+        },
+        {
+          "line": 16,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "shared-ssoserviceapi",
+      "path": "workspaces/1-shared/shared-proxy/src/main/java/com/alpaca/proxy/api/SsoServiceApi.java",
+      "symbol": "SsoServiceApi · Feign declaration",
+      "start": 10,
+      "end": 16,
+      "sourceSha256": "e980b87a09f4344ebe833d296394c9c14dfa48711d1dd0bdaf748a599c699863",
+      "revision": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "lastModified": "2026-11-04T04:24:42.600Z",
+      "rows": [
+        {
+          "line": 10,
+          "text": "@FeignClient(name = \"[đã che]\", url = \"${system.sso-service.api:[đã che]}\")"
+        },
+        {
+          "line": 11,
+          "text": "public interface SsoServiceApi {"
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "    @PostMapping(value = \"/oauth/token\", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)"
+        },
+        {
+          "line": 14,
+          "text": "    TokenModel getToken(Map<String, ?> formParams);"
+        },
+        {
+          "line": 15,
+          "text": "}"
+        },
+        {
+          "line": 16,
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "id": "postgres",
+      "label": "PostgreSQL write",
+      "keys": [
+        "spring.datasource.url",
+        "spring.datasource.driver-class-name",
+        "spring.jpa.properties.hibernate.default_schema"
+      ],
+      "lines": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        42,
+        43,
+        44,
+        45
+      ],
+      "binding": [
+        "jdbc",
+        "repository"
+      ],
+      "call": [
+        "init",
+        "init-db",
+        "business-call"
+      ],
+      "purpose": "Lưu dữ liệu và event; repository đọc/ghi DB.",
+      "when": "Startup và request dùng repository.",
+      "condition": "InitConfig.postConstruct gọi createOwner/initGlobalConfig; DB có thể bị ghi dữ liệu khởi tạo.",
+      "limit": "Binding datasource URL do Spring Boot cung cấp, không có source framework trong repo. Chưa kiểm tra DB/schema/quyền hiện tại.",
+      "status": "code",
+      "relation": "direct",
+      "compose": "postgres-write",
+      "javaMain": null,
+      "targetLine": 33,
+      "targets": {
+        "base": {
+          "kind": "unknown",
+          "description": "Chưa xác định nơi cung cấp chỉ từ khóa này."
+        },
+        "dev": {
+          "kind": "loopback",
+          "description": "DOCKER_HOST_IP nếu được đặt sẽ thay đích; mặc định localhost trên host chạy Java."
+        }
+      },
+      "history": "S07: port/container từng được ghi nhận; chưa xác nhận DB/schema/quyền phiên mới",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "rabbit",
+      "label": "RabbitMQ",
+      "keys": [
+        "spring.rabbitmq.host",
+        "spring.rabbitmq.port"
+      ],
+      "lines": [
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "binding": [
+        "rabbit-binding",
+        "rabbit-queues"
+      ],
+      "call": [
+        "rabbit-call",
+        "notification"
+      ],
+      "purpose": "Nhận job nền và gửi thông báo AMQP.",
+      "when": "Listener nền khi được khởi động; nghiệp vụ có convertAndSend.",
+      "condition": "@RabbitListener và Queue beans tồn tại; auto-start/factory/env hiệu lực cần đối chiếu. Có bean chưa là đã kết nối broker.",
+      "limit": "Không có source auto-configuration ConnectionFactory trong repo; chưa chứng minh mọi listener đã ready.",
+      "status": "code",
+      "relation": "direct",
+      "compose": "rabbitmq",
+      "javaMain": null,
+      "targetLine": 52,
+      "targets": {
+        "base": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        },
+        "dev": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        }
+      },
+      "history": "S07: tái dùng service project khác; cần xác nhận owner/quyền",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "redis",
+      "label": "Redis · cache/session/lock",
+      "keys": [
+        "cache.redis",
+        "cache.redis-persistent",
+        "cache.redis-session"
+      ],
+      "lines": [
+        118,
+        119,
+        120,
+        121
+      ],
+      "binding": [
+        "cache",
+        "lock",
+        "cache-use"
+      ],
+      "call": [
+        "init-lock",
+        "session",
+        "self-call"
+      ],
+      "purpose": "Cache, session và distributed lock.",
+      "when": "Tạo Redisson beans/startup lock; request đọc cache/session.",
+      "condition": "InitConfig.initGlobalConfig gọi LockService; AuthSharedService kiểm tra user cache.",
+      "limit": "Ba khóa đều cùng localhost:6379 DB 0 trong hai YAML: một đích cấu hình, không phải ba instance. Override có thể thay đổi từng khóa.",
+      "status": "code",
+      "relation": "direct",
+      "compose": "redis",
+      "javaMain": null,
+      "targetLine": 119,
+      "targets": {
+        "base": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        },
+        "dev": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        }
+      },
+      "history": "S07: tái dùng service project khác; cần xác nhận owner/quyền",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "kafka",
+      "label": "Kafka",
+      "keys": [
+        "eventuatelocal.kafka.bootstrap.servers"
+      ],
+      "lines": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "binding": [
+        "kafka-binding",
+        "main",
+        "event-import",
+        "event-config"
+      ],
+      "call": [
+        "kafka-sub",
+        "kafka-consumer"
+      ],
+      "purpose": "Transport nhận event trong shared event-sourcing.",
+      "when": "Khi có subscription đăng ký và consumer được start.",
+      "condition": "Main import LibraEventuateLocalConfiguration; subscribe tạo KafkaConsumer và gọi start. Chưa tìm được subscriber cụ thể của Command trong phạm vi khảo sát.",
+      "limit": "Không suy ra Kafka là bắt buộc cho mọi startup hoặc mọi request. Không có bằng chứng event xuyên module đã chạy.",
+      "status": "code",
+      "relation": "direct",
+      "compose": "kafka",
+      "javaMain": null,
+      "targetLine": 10,
+      "targets": {
+        "base": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        },
+        "dev": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "zookeeper",
+      "label": "Zookeeper",
+      "keys": [
+        "eventuatelocal.zookeeper.connection.string"
+      ],
+      "lines": [
+        11,
+        12,
+        13
+      ],
+      "binding": [],
+      "call": [
+        "zk-compose"
+      ],
+      "purpose": "Trong Compose, Kafka image cấu hình ZOOKEEPER_SERVERS.",
+      "when": "Gián tiếp khi dùng Kafka stack được khai báo trong Compose.",
+      "condition": "Chưa tìm thấy Java trong Command/shared đọc khóa zookeeper. Kafka Compose depends_on zookeeper là bằng chứng riêng.",
+      "limit": "Không vẽ Java → Zookeeper như client đã xác minh; không kết luận phải chạy chỉ vì có YAML.",
+      "status": "config",
+      "relation": "indirect",
+      "compose": "zookeeper",
+      "javaMain": null,
+      "targetLine": 13,
+      "targets": {
+        "base": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        },
+        "dev": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "sso",
+      "label": "SSO / token introspection",
+      "keys": [
+        "system.sso-service.api",
+        "spring.security.oauth2.resourceserver.opaquetoken.introspection-uri",
+        "alpaca.local"
+      ],
+      "lines": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        72,
+        73,
+        74,
+        94,
+        95
+      ],
+      "binding": [
+        "security",
+        "main",
+        "shared-ssoserviceapi"
+      ],
+      "call": [
+        "security"
+      ],
+      "purpose": "Xác thực Bearer opaque token qua resource server.",
+      "when": "Request cần xác thực theo securityFilterChain; không mặc định HTTP call ngay khi tạo bean.",
+      "condition": "dev: alpaca.local=false, anyRequest authenticated; có permitAll path riêng. File gốc local=true nhưng vẫn đăng ký opaqueToken filter.",
+      "limit": "Code HTTP introspection nằm trong dependency Spring Security; chưa kiểm tra introspection response/client credential/token hiện tại. Introspector custom trong shared-auth không được Command đăng ký trong source đã khảo sát.",
+      "status": "code",
+      "relation": "direct",
+      "compose": null,
+      "javaMain": "sso-main",
+      "targetLine": 74,
+      "targets": {
+        "base": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        },
+        "dev": {
+          "kind": "remote",
+          "description": "URL ngoài loopback trong source, đã che đích; cần kiểm tra truy cập/auth và override."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "platform-query",
+      "label": "Platform Query · cần đối chiếu khóa",
+      "keys": [
+        "system.platform-query.api",
+        "system.sp-query.api"
+      ],
+      "lines": [
+        75,
+        76
+      ],
+      "binding": [
+        "query-client"
+      ],
+      "call": [],
+      "purpose": "Có khai báo URL Query và một Feign client Query trong agent-shared.",
+      "when": "Chưa tìm thấy nơi gọi InternalSPQueryApi trong Command/agent-shared đã khảo sát.",
+      "condition": "YAML dùng system.platform-query.api; InternalSPQueryApi đọc system.sp-query.api với default rỗng. Không tự coi hai khóa là một.",
+      "limit": "Cần tìm override/alias hoặc maintainer xác nhận mapping. Chưa thể cung cấp startup command đúng target.",
+      "status": "gap",
+      "relation": "direct",
+      "compose": null,
+      "javaMain": "query-main",
+      "targetLine": 76,
+      "targets": {
+        "base": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        },
+        "dev": {
+          "kind": "remote",
+          "description": "URL ngoài loopback trong source, đã che đích; cần kiểm tra truy cập/auth và override."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "platform-command",
+      "label": "Platform Command · self/remote tùy cấu hình",
+      "keys": [
+        "system.platform-command.api"
+      ],
+      "lines": [
+        77,
+        78
+      ],
+      "binding": [
+        "self-client",
+        "main"
+      ],
+      "call": [
+        "self-call",
+        "session"
+      ],
+      "purpose": "Nạp user model qua internal client khi cache miss.",
+      "when": "getUserModel khi không phải guest, chưa có model và cache không có user.",
+      "condition": "File gốc trỏ localhost:9901, cùng port Command: có thể là self-call. dev trỏ remote đã che; không tự thêm một app local thứ hai.",
+      "limit": "Có nhiều InternalSPCommandApi trong Command/shared; effective bean, quyền và override chưa được runtime xác nhận. Không tính URL này thành một instance mới mặc định.",
+      "status": "code",
+      "relation": "direct",
+      "compose": null,
+      "javaMain": null,
+      "targetLine": 78,
+      "targets": {
+        "base": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        },
+        "dev": {
+          "kind": "remote",
+          "description": "URL ngoài loopback trong source, đã che đích; cần kiểm tra truy cập/auth và override."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "assets",
+      "label": "Assets",
+      "keys": [
+        "system.assets.api",
+        "system.assets.url"
+      ],
+      "lines": [
+        79,
+        80,
+        81
+      ],
+      "binding": [
+        "assets-client",
+        "asset-url"
+      ],
+      "call": [
+        "assets-call",
+        "business-entry"
+      ],
+      "purpose": "Client tạo tài liệu; public URL còn dùng cho redirect phía client.",
+      "when": "Sender gọi generateStoreOverride/Zip; với kịch bản download, Command trả 302 và client có thể đi theo URL Assets.",
+      "condition": "Phân biệt system.assets.api (Feign server call) và system.assets.url (public redirect). Không gộp cả hai đường gọi cho mọi request.",
+      "limit": "Bài download không gọi InternalAssetsApi; cần Assets khi client theo redirect để tải file. Chưa kiểm tra response/file/quyền.",
+      "status": "code",
+      "relation": "direct",
+      "compose": null,
+      "javaMain": "assets-main",
+      "targetLine": 80,
+      "targets": {
+        "base": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        },
+        "dev": {
+          "kind": "remote",
+          "description": "URL ngoài loopback trong source, đã che đích; cần kiểm tra truy cập/auth và override."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "core-proxy",
+      "label": "Core Proxy",
+      "keys": [
+        "system.core-proxy.api"
+      ],
+      "lines": [
+        82,
+        83
+      ],
+      "binding": [
+        "proxy-client"
+      ],
+      "call": [
+        "proxy-call"
+      ],
+      "purpose": "Tra cứu/tích hợp Core qua InternalProxyApi.",
+      "when": "Nghiệp vụ chọn đúng nhánh gọi client, ví dụ GetFullInfoQuotation sau kiểm tra matchedProduct.",
+      "condition": "Client có default localhost:9903 nhưng YAML hiện tại được ưu tiên; dev khai báo remote.",
+      "limit": "Không áp mọi method của Core Proxy cho mọi request. Chưa xác minh module/main tương ứng để sinh startup command.",
+      "status": "code",
+      "relation": "direct",
+      "compose": null,
+      "javaMain": null,
+      "targetLine": 83,
+      "targets": {
+        "base": {
+          "kind": "loopback",
+          "description": "Loopback của host chạy Java; chưa chứng minh dịch vụ do Docker hay process host cung cấp."
+        },
+        "dev": {
+          "kind": "remote",
+          "description": "URL ngoài loopback trong source, đã che đích; cần kiểm tra truy cập/auth và override."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "sms",
+      "label": "SMS client · chưa tìm thấy caller",
+      "keys": [
+        "system.sms.api"
+      ],
+      "lines": [],
+      "binding": [
+        "sms-client"
+      ],
+      "call": [],
+      "purpose": "Có SmsApi Feign client với default endpoint từ xa đã che.",
+      "when": "Chưa tìm thấy nơi gọi SmsApi trong Command/agent-shared đã khảo sát.",
+      "condition": "Không có system.sms.api trong hai YAML đang xét; default nằm ở annotation. Gửi SMS qua AMQP là đường khác.",
+      "limit": "Không kết luận client không dùng và không đưa SMS vào dependency của mọi startup.",
+      "status": "binding",
+      "relation": "direct",
+      "compose": null,
+      "javaMain": null,
+      "targetLine": null,
+      "targets": {
+        "base": {
+          "kind": "remote",
+          "description": "Default endpoint từ xa ở SmsApi; chưa thấy override trong hai YAML."
+        },
+        "dev": {
+          "kind": "remote",
+          "description": "Default endpoint từ xa ở SmsApi; chưa thấy override trong hai YAML."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "assessment",
+      "label": "Assessment link / SMS payload",
+      "keys": [
+        "system.assessment.url"
+      ],
+      "lines": [
+        92,
+        93
+      ],
+      "binding": [
+        "assessment"
+      ],
+      "call": [
+        "assessment-call"
+      ],
+      "purpose": "Tạo URL assessment đưa vào nội dung thông báo SMS.",
+      "when": "RequestAssessmentFunc.checkSuccess ghép link và publish RabbitMQ.",
+      "condition": "Đường đã đọc không có HTTP call tới assessment URL; lưu cache + gửi message.",
+      "limit": "Không biến URL này thành một service BE do Command trực tiếp gọi. Backend/consumer nhận SMS chưa khảo sát đầy đủ.",
+      "status": "code",
+      "relation": "payload",
+      "compose": null,
+      "javaMain": null,
+      "targetLine": 93,
+      "targets": {
+        "base": {
+          "kind": "remote",
+          "description": "URL ngoài loopback trong source, đã che đích; cần kiểm tra truy cập/auth và override."
+        },
+        "dev": {
+          "kind": "remote",
+          "description": "URL ngoài loopback trong source, đã che đích; cần kiểm tra truy cập/auth và override."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "notification",
+      "label": "Email / notification qua AMQP",
+      "keys": [
+        "alpaca.config.*-subject",
+        "alpaca.config.*-from",
+        "alpaca.config.*-template"
+      ],
+      "lines": [
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "binding": [
+        "config-util"
+      ],
+      "call": [
+        "notification",
+        "assets-call"
+      ],
+      "purpose": "Template email và message QUEUE_SEND_NOTIFICATION.",
+      "when": "Nhánh Sender gửi email/tài liệu, không nằm trong kịch bản đọc document metadata.",
+      "condition": "Command publish RabbitTemplate; SMTP/notification worker là quan hệ gián tiếp, không có SMTP client binding đã xác minh ở đường này.",
+      "limit": "Không tính địa chỉ email hoặc template thành backend endpoint. Không tự khởi động notification app.",
+      "status": "code",
+      "relation": "indirect",
+      "compose": null,
+      "javaMain": null,
+      "targetLine": null,
+      "targets": {
+        "base": {
+          "kind": "unknown",
+          "description": "Chưa xác định đích hiệu lực; kiểm tra annotation default / override."
+        },
+        "dev": {
+          "kind": "unknown",
+          "description": "Chưa xác định đích hiệu lực; kiểm tra annotation default / override."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "navigation",
+      "label": "URL điều hướng / public link",
+      "keys": [
+        "system.micro-site-service.url",
+        "system.quote-url.url",
+        "system.policy-url.url",
+        "system.payment-process-url.url",
+        "alpaca.config.home-url",
+        "alpaca.config.reset-password-url"
+      ],
+      "lines": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        96,
+        98,
+        99
+      ],
+      "binding": [
+        "navigation",
+        "asset-url",
+        "config-util"
+      ],
+      "call": [
+        "navigation-call"
+      ],
+      "purpose": "Redirect/payment return URL và nội dung email/link.",
+      "when": "Client điều hướng hoặc nhận link trong nội dung, theo nhánh nghiệp vụ.",
+      "condition": "IPNFunc dựng URI/RedirectView. Có binding URL không có nghĩa server gửi HTTP đến URL đó.",
+      "limit": "Không đưa các link này vào số service BE bắt buộc chạy.",
+      "status": "code",
+      "relation": "navigation",
+      "compose": null,
+      "javaMain": null,
+      "targetLine": null,
+      "targets": {
+        "base": {
+          "kind": "unknown",
+          "description": "Chưa xác định đích hiệu lực; kiểm tra annotation default / override."
+        },
+        "dev": {
+          "kind": "unknown",
+          "description": "Chưa xác định đích hiệu lực; kiểm tra annotation default / override."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "shared-clients",
+      "label": "Các client shared-proxy bổ sung",
+      "keys": [
+        "system.admin-query.api",
+        "system.auth-query.api",
+        "system.claim-net.api",
+        "system.claim-vehicle-query.api",
+        "system.claim-vehicle-query.api",
+        "system.core-command.api",
+        "system.core-query.api",
+        "system.crm-command.api",
+        "system.payment-gateway.api",
+        "system.product-builder.api",
+        "system.core.api",
+        "system.pay-me.api",
+        "system.sso.api"
+      ],
+      "lines": [],
+      "binding": [
+        "shared-adminqueryapi",
+        "shared-authqueryapi",
+        "shared-claimnetapi",
+        "shared-claimqueryapi",
+        "shared-claimvehicleapi",
+        "shared-corecommandapi",
+        "shared-corequeryapi",
+        "shared-crmcommandapi",
+        "shared-paymentgatewayapi",
+        "shared-productbuilderapi",
+        "shared-publiccoreapi",
+        "shared-publicpaymeyapi",
+        "shared-publicssoapi",
+        "agent-build"
+      ],
+      "call": [],
+      "purpose": "Feign clients trên classpath: endpoint mặc định/cấu hình riêng.",
+      "when": "Chưa gắn toàn bộ client này với request Command cụ thể.",
+      "condition": "agent-shared phụ thuộc shared-proxy; EnableFeignClients quét com.alpaca. Danh sách client/khóa nằm trong phần bằng chứng mở thêm.",
+      "limit": "Mới xác định khai báo client; không mặc định mọi client được gọi hoặc đều phải chạy lúc startup.",
+      "status": "binding",
+      "relation": "direct",
+      "compose": null,
+      "javaMain": null,
+      "targetLine": null,
+      "targets": {
+        "base": {
+          "kind": "unknown",
+          "description": "Chưa xác định đích hiệu lực; kiểm tra annotation default / override."
+        },
+        "dev": {
+          "kind": "unknown",
+          "description": "Chưa xác định đích hiệu lực; kiểm tra annotation default / override."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    },
+    {
+      "id": "cdc",
+      "label": "CDC / Debezium · hạ tầng gián tiếp",
+      "keys": [],
+      "lines": [],
+      "binding": [
+        "cdc-compose"
+      ],
+      "call": [
+        "zk-compose"
+      ],
+      "purpose": "Compose khai báo Debezium Connect cho hạ tầng event.",
+      "when": "Khi mục tiêu cần CDC và connector/topology đã được owner xác nhận.",
+      "condition": "depends_on postgres-write/kafka/zookeeper; không có HTTP client Command → Debezium đã xác minh.",
+      "limit": "Chưa chứng minh connector được đăng ký, CDC hoặc replication write/read hoạt động. Chưa cấp startup command sẵn sàng chạy cho luồng này.",
+      "status": "config",
+      "relation": "indirect",
+      "compose": null,
+      "javaMain": null,
+      "targetLine": null,
+      "targets": {
+        "base": {
+          "kind": "unknown",
+          "description": "Chưa xác định đích hiệu lực; kiểm tra annotation default / override."
+        },
+        "dev": {
+          "kind": "unknown",
+          "description": "Chưa xác định đích hiệu lực; kiểm tra annotation default / override."
+        }
+      },
+      "history": "Chưa có bằng chứng runtime riêng cho kết nối này trong tài liệu bàn giao đã đối chiếu.",
+      "runtime": "Chưa kiểm chứng runtime hiện tại. Đọc source không mở kết nối."
+    }
+  ],
+  "otherClients": [
+    {
+      "symbol": "AdminQueryApi",
+      "keys": [
+        "system.admin-query.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-adminqueryapi",
+      "callers": [
+        "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/quote/CreateQuoteFunc.java",
+        "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/helper/GeneratorUtils.java"
+      ],
+      "note": "Có tham chiếu kiểu; cần kiểm tra method gọi và điều kiện."
+    },
+    {
+      "symbol": "AuthQueryApi",
+      "keys": [
+        "system.auth-query.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-authqueryapi",
+      "callers": [],
+      "note": "Chưa tìm thấy trong phạm vi Command/agent-shared đã khảo sát."
+    },
+    {
+      "symbol": "ClaimNetApi",
+      "keys": [
+        "system.claim-net.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-claimnetapi",
+      "callers": [],
+      "note": "Chưa tìm thấy trong phạm vi Command/agent-shared đã khảo sát."
+    },
+    {
+      "symbol": "ClaimQueryApi",
+      "keys": [
+        "system.claim-vehicle-query.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-claimqueryapi",
+      "callers": [],
+      "note": "Chưa tìm thấy trong phạm vi Command/agent-shared đã khảo sát."
+    },
+    {
+      "symbol": "ClaimVehicleApi",
+      "keys": [
+        "system.claim-vehicle-query.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-claimvehicleapi",
+      "callers": [],
+      "note": "Chưa tìm thấy trong phạm vi Command/agent-shared đã khảo sát."
+    },
+    {
+      "symbol": "CoreCommandApi",
+      "keys": [
+        "system.core-command.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-corecommandapi",
+      "callers": [],
+      "note": "Chưa tìm thấy trong phạm vi Command/agent-shared đã khảo sát."
+    },
+    {
+      "symbol": "CoreQueryApi",
+      "keys": [
+        "system.core-query.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-corequeryapi",
+      "callers": [],
+      "note": "Chưa tìm thấy trong phạm vi Command/agent-shared đã khảo sát."
+    },
+    {
+      "symbol": "CrmCommandApi",
+      "keys": [
+        "system.crm-command.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-crmcommandapi",
+      "callers": [],
+      "note": "Chưa tìm thấy trong phạm vi Command/agent-shared đã khảo sát."
+    },
+    {
+      "symbol": "PaymentGatewayApi",
+      "keys": [
+        "system.payment-gateway.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-paymentgatewayapi",
+      "callers": [],
+      "note": "Chưa tìm thấy trong phạm vi Command/agent-shared đã khảo sát."
+    },
+    {
+      "symbol": "ProductBuilderApi",
+      "keys": [
+        "system.product-builder.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-productbuilderapi",
+      "callers": [],
+      "note": "Chưa tìm thấy trong phạm vi Command/agent-shared đã khảo sát."
+    },
+    {
+      "symbol": "PublicCoreApi",
+      "keys": [
+        "system.core.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-publiccoreapi",
+      "callers": [],
+      "note": "Chưa tìm thấy trong phạm vi Command/agent-shared đã khảo sát."
+    },
+    {
+      "symbol": "PublicPayMeyApi",
+      "keys": [
+        "system.pay-me.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-publicpaymeyapi",
+      "callers": [],
+      "note": "Chưa tìm thấy trong phạm vi Command/agent-shared đã khảo sát."
+    },
+    {
+      "symbol": "PublicSsoApi",
+      "keys": [
+        "system.sso.api"
+      ],
+      "groupId": "shared-clients",
+      "proof": "shared-publicssoapi",
+      "callers": [
+        "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/service/SharedGlobalConfigService.java"
+      ],
+      "note": "Có tham chiếu kiểu; cần kiểm tra method gọi và điều kiện."
+    },
+    {
+      "symbol": "SsoServiceApi",
+      "keys": [
+        "system.sso-service.api"
+      ],
+      "groupId": "sso",
+      "proof": "shared-ssoserviceapi",
+      "callers": [],
+      "note": "Chưa tìm thấy trong phạm vi Command/agent-shared đã khảo sát."
+    }
+  ],
+  "business": {
+    "id": "document-redirect",
+    "label": "Đọc tài liệu đại lý và trả redirect",
+    "method": "POST",
+    "path": "/sale-unit/download-document/{documentType}",
+    "chain": [
+      "business-root",
+      "business-entry",
+      "business-call",
+      "repository",
+      "transaction",
+      "session",
+      "self-call"
+    ],
+    "result": "Đọc SaleUnitRepository, lấy mã tài liệu rồi trả HTTP 302 Location dùng system.assets.url. Command không gọi InternalAssetsApi trong nhánh này; client cần Assets nếu theo redirect.",
+    "limits": "Cần user/rootId và dữ liệu document hợp lệ. Context path/gateway, token và dữ liệu thử chưa xác nhận; không cấp nút gọi API thật."
+  }
+}

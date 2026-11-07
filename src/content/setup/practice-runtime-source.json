@@ -1,0 +1,857 @@
+{
+  "extractedAt": "2026-11-05T13:19:36.631Z",
+  "revisions": {
+    "workspace": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+    "command": "f0971ae41170c84bb883be92cd1ebd6632010302"
+  },
+  "report": {
+    "path": "D:/tmp/agent-service-workspaces-setup-evidence-report.md",
+    "date": "2026-11-04",
+    "sha256": "68210e7067349f65b40668ae0ac161350af734648a4bd9346d59335bc751cb58",
+    "sections": [
+      "S00",
+      "S02",
+      "S03",
+      "S17"
+    ]
+  },
+  "limits": "Source hiện tại chỉ đọc; mô hình F–J và log minh họa không kiểm chứng máy thật. Không giữ raw transcript targeted build/startup trong báo cáo.",
+  "files": [
+    {
+      "id": "default",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application.yml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "76262f03d968756b9906d64ea8116cc5ff7d121305e945419f5ffd1e9e4c85fb",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.497Z",
+      "rows": [
+        {
+          "line": 2,
+          "text": "server:"
+        },
+        {
+          "line": 3,
+          "text": "  port: 9901"
+        },
+        {
+          "line": 8,
+          "text": "  kafka:"
+        },
+        {
+          "line": 9,
+          "text": "    bootstrap:"
+        },
+        {
+          "line": 10,
+          "text": "      servers: [đã che]"
+        },
+        {
+          "line": 11,
+          "text": "  zookeeper:"
+        },
+        {
+          "line": 12,
+          "text": "    connection:"
+        },
+        {
+          "line": 14,
+          "text": "spring:"
+        },
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 33,
+          "text": "    url: [đã che; PostgreSQL remote; chưa xác nhận cho local]"
+        },
+        {
+          "line": 34,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 35,
+          "text": "    hikari:"
+        },
+        {
+          "line": 36,
+          "text": "      connection-init-sql: CREATE SCHEMA IF NOT EXISTS platform_event"
+        },
+        {
+          "line": 37,
+          "text": "  jpa:"
+        },
+        {
+          "line": 40,
+          "text": "    hibernate:"
+        },
+        {
+          "line": 41,
+          "text": "      ddl-auto: update"
+        },
+        {
+          "line": 43,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 45,
+          "text": "        default_schema: platform_event"
+        },
+        {
+          "line": 51,
+          "text": "  rabbitmq:"
+        },
+        {
+          "line": 52,
+          "text": "    host: [đã che]"
+        },
+        {
+          "line": 53,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 54,
+          "text": "    port: 5672"
+        },
+        {
+          "line": 55,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 59,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 79,
+          "text": "  assets:"
+        },
+        {
+          "line": 80,
+          "text": "    api: [đã che; localhost]"
+        },
+        {
+          "line": 81,
+          "text": "    url: [đã che; localhost]"
+        },
+        {
+          "line": 82,
+          "text": "  core-proxy:"
+        },
+        {
+          "line": 83,
+          "text": "    api: [đã che; localhost]"
+        },
+        {
+          "line": 84,
+          "text": "  micro-site-service:"
+        },
+        {
+          "line": 85,
+          "text": "    url: [đã che; API ngoài]"
+        },
+        {
+          "line": 86,
+          "text": "  quote-url:"
+        },
+        {
+          "line": 87,
+          "text": "    url: [đã che; API ngoài]"
+        },
+        {
+          "line": 88,
+          "text": "  policy-url:"
+        },
+        {
+          "line": 89,
+          "text": "    url: [đã che; API ngoài]"
+        },
+        {
+          "line": 90,
+          "text": "  payment-process-url:"
+        },
+        {
+          "line": 91,
+          "text": "    url: [đã che; API ngoài]"
+        },
+        {
+          "line": 92,
+          "text": "  assessment:"
+        },
+        {
+          "line": 93,
+          "text": "    url: [đã che; API ngoài]"
+        },
+        {
+          "line": 94,
+          "text": "alpaca:"
+        },
+        {
+          "line": 95,
+          "text": "  local: true"
+        },
+        {
+          "line": 96,
+          "text": "  config:"
+        },
+        {
+          "line": 117,
+          "text": "    pass: [đã che]"
+        },
+        {
+          "line": 118,
+          "text": "cache:"
+        },
+        {
+          "line": 119,
+          "text": "  redis: [đã che; Redis localhost; cổng 6379]"
+        },
+        {
+          "line": 120,
+          "text": "  redis-persistent: [đã che; Redis localhost; cổng 6379]"
+        }
+      ]
+    },
+    {
+      "id": "dev",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "55ef0453bcfbdc281397a8f682c1ba7cfc7d0e4fc4ace030adac94aad64c06a4",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.496Z",
+      "rows": [
+        {
+          "line": 2,
+          "text": "server:"
+        },
+        {
+          "line": 3,
+          "text": "  port: 9901"
+        },
+        {
+          "line": 8,
+          "text": "  kafka:"
+        },
+        {
+          "line": 9,
+          "text": "    bootstrap:"
+        },
+        {
+          "line": 10,
+          "text": "      servers: [đã che]"
+        },
+        {
+          "line": 11,
+          "text": "  zookeeper:"
+        },
+        {
+          "line": 12,
+          "text": "    connection:"
+        },
+        {
+          "line": 14,
+          "text": "spring:"
+        },
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 33,
+          "text": "    url: [đã che; localhost; DB alpaca-event; không ghi port]"
+        },
+        {
+          "line": 34,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 35,
+          "text": "    hikari:"
+        },
+        {
+          "line": 36,
+          "text": "      connection-init-sql: CREATE SCHEMA IF NOT EXISTS platform_event"
+        },
+        {
+          "line": 37,
+          "text": "  jpa:"
+        },
+        {
+          "line": 40,
+          "text": "    hibernate:"
+        },
+        {
+          "line": 41,
+          "text": "      ddl-auto: update"
+        },
+        {
+          "line": 43,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 45,
+          "text": "        default_schema: platform_event"
+        },
+        {
+          "line": 51,
+          "text": "  rabbitmq:"
+        },
+        {
+          "line": 52,
+          "text": "    host: [đã che]"
+        },
+        {
+          "line": 53,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 54,
+          "text": "    port: 5672"
+        },
+        {
+          "line": 55,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 59,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 79,
+          "text": "  assets:"
+        },
+        {
+          "line": 80,
+          "text": "    api: [đã che; API ngoài]"
+        },
+        {
+          "line": 81,
+          "text": "    url: [đã che; API ngoài]"
+        },
+        {
+          "line": 82,
+          "text": "  core-proxy:"
+        },
+        {
+          "line": 83,
+          "text": "    api: [đã che; API ngoài]"
+        },
+        {
+          "line": 84,
+          "text": "  micro-site-service:"
+        },
+        {
+          "line": 85,
+          "text": "    url: [đã che; API ngoài]"
+        },
+        {
+          "line": 86,
+          "text": "  quote-url:"
+        },
+        {
+          "line": 87,
+          "text": "    url: [đã che; API ngoài]"
+        },
+        {
+          "line": 88,
+          "text": "  policy-url:"
+        },
+        {
+          "line": 89,
+          "text": "    url: [đã che; API ngoài]"
+        },
+        {
+          "line": 90,
+          "text": "  payment-process-url:"
+        },
+        {
+          "line": 91,
+          "text": "    url: [đã che; API ngoài]"
+        },
+        {
+          "line": 92,
+          "text": "  assessment:"
+        },
+        {
+          "line": 93,
+          "text": "    url: [đã che; API ngoài]"
+        },
+        {
+          "line": 94,
+          "text": "alpaca:"
+        },
+        {
+          "line": 95,
+          "text": "  local: false"
+        },
+        {
+          "line": 96,
+          "text": "  config:"
+        },
+        {
+          "line": 117,
+          "text": "    pass: [đã che]"
+        },
+        {
+          "line": 118,
+          "text": "cache:"
+        },
+        {
+          "line": 119,
+          "text": "  redis: [đã che; Redis localhost; cổng 6379]"
+        },
+        {
+          "line": 120,
+          "text": "  redis-persistent: [đã che; Redis localhost; cổng 6379]"
+        }
+      ]
+    },
+    {
+      "id": "compose",
+      "path": "docker-compose-env.yml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "34205d1b10b8efa458df251e60578df00046fa54e50bb72fd824c0d1d73605f7",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "lastModified": "2026-11-04T03:48:48.154Z",
+      "rows": [
+        {
+          "line": 2,
+          "text": "services:"
+        },
+        {
+          "line": 3,
+          "text": "  rabbitmq:"
+        },
+        {
+          "line": 5,
+          "text": "    container_name: rabbitmq"
+        },
+        {
+          "line": 6,
+          "text": "    ports:"
+        },
+        {
+          "line": 7,
+          "text": "      - 15672:15672"
+        },
+        {
+          "line": 8,
+          "text": "      - 5672:5672"
+        },
+        {
+          "line": 9,
+          "text": "      - 4369:4369"
+        },
+        {
+          "line": 19,
+          "text": "  zookeeper:"
+        },
+        {
+          "line": 21,
+          "text": "    ports:"
+        },
+        {
+          "line": 22,
+          "text": "      - 2181:2181"
+        },
+        {
+          "line": 23,
+          "text": "  kafka:"
+        },
+        {
+          "line": 25,
+          "text": "    container_name: alpaca.kafka.event"
+        },
+        {
+          "line": 26,
+          "text": "    ports:"
+        },
+        {
+          "line": 27,
+          "text": "      - 9092:9092"
+        },
+        {
+          "line": 34,
+          "text": "  kafka-ui:"
+        },
+        {
+          "line": 35,
+          "text": "    container_name: kafka-ui"
+        },
+        {
+          "line": 37,
+          "text": "    ports:"
+        },
+        {
+          "line": 38,
+          "text": "      - 8080:8080"
+        },
+        {
+          "line": 45,
+          "text": "  debezium:"
+        },
+        {
+          "line": 48,
+          "text": "    container_name: debezium"
+        },
+        {
+          "line": 54,
+          "text": "    ports:"
+        },
+        {
+          "line": 55,
+          "text": "      - '8086:8083'"
+        },
+        {
+          "line": 65,
+          "text": "  redis:"
+        },
+        {
+          "line": 67,
+          "text": "    container_name: redis"
+        },
+        {
+          "line": 69,
+          "text": "    ports:"
+        },
+        {
+          "line": 70,
+          "text": "      - 6379:6379"
+        },
+        {
+          "line": 71,
+          "text": "  rebrow:"
+        },
+        {
+          "line": 73,
+          "text": "    container_name: rebrow"
+        },
+        {
+          "line": 75,
+          "text": "    ports:"
+        },
+        {
+          "line": 76,
+          "text": "      - 5001:5001"
+        },
+        {
+          "line": 77,
+          "text": "  postgres-write:"
+        },
+        {
+          "line": 79,
+          "text": "    ports:"
+        },
+        {
+          "line": 80,
+          "text": "      - 5432:5432"
+        },
+        {
+          "line": 87,
+          "text": "  postgres-read:"
+        },
+        {
+          "line": 89,
+          "text": "    ports:"
+        },
+        {
+          "line": 90,
+          "text": "      - \"5433:5432\""
+        }
+      ]
+    },
+    {
+      "id": "main",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/AgentCommandServiceApplication.java",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "65d5eb4fe95be53ac4feedd9824131290043f0416f1f59f133b9dbce7942c6c9",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.410Z",
+      "rows": [
+        {
+          "line": 15,
+          "text": "@SpringBootApplication"
+        },
+        {
+          "line": 16,
+          "text": "@Import({LibraEventuateLocalConfiguration.class})"
+        },
+        {
+          "line": 17,
+          "text": "@EnableFeignClients(basePackages = \"com.alpaca\")"
+        },
+        {
+          "line": 18,
+          "text": "@ComponentScan(\"com.alpaca\")"
+        },
+        {
+          "line": 19,
+          "text": "@EntityScan(\"com.alpaca\")"
+        },
+        {
+          "line": 20,
+          "text": "@EnableJpaRepositories(\"com.alpaca\")"
+        },
+        {
+          "line": 21,
+          "text": "@OpenAPIDefinition(info ="
+        },
+        {
+          "line": 22,
+          "text": "@Info(title = \"Platform Command API\", version = \"1.0\", description = \"Platform Command API v1.0\"),"
+        },
+        {
+          "line": 23,
+          "text": "        servers = {@Server(url = \"/platform-command\")}"
+        },
+        {
+          "line": 24,
+          "text": ")"
+        },
+        {
+          "line": 25,
+          "text": "public class AgentCommandServiceApplication {"
+        },
+        {
+          "line": 26,
+          "text": "    public static void main(String[] args) {"
+        },
+        {
+          "line": 27,
+          "text": "        SpringApplication.run(AgentCommandServiceApplication.class, args);"
+        },
+        {
+          "line": 28,
+          "text": "    }"
+        },
+        {
+          "line": 29,
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/ResourceServerConfiguration.java",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "a4257e7b301ce0e3eabce1e276105ef8ca9f167ba26b163e47efc10751f27027",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.414Z",
+      "rows": [
+        {
+          "line": 10,
+          "text": "@Configuration"
+        },
+        {
+          "line": 11,
+          "text": "@EnableMethodSecurity"
+        },
+        {
+          "line": 12,
+          "text": "public class ResourceServerConfiguration {"
+        },
+        {
+          "line": 13,
+          "text": "    @Value(\"${alpaca.local:false}\")"
+        },
+        {
+          "line": 14,
+          "text": "    private boolean local;"
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "    @Bean"
+        },
+        {
+          "line": 17,
+          "text": "    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {"
+        },
+        {
+          "line": 18,
+          "text": "        http.authorizeHttpRequests(authorize -> {"
+        },
+        {
+          "line": 19,
+          "text": "                    authorize.requestMatchers(\"/internal/**\", \"/actuator/**\", \"/client/**\", \"/user/reset-password/**\", \"/pub/**\","
+        },
+        {
+          "line": 20,
+          "text": "                            \"/user/validate-reset-password-code/**\", \"/user/forgot-password\", \"/gdtx/**\", \"/adapter/**\").permitAll();"
+        },
+        {
+          "line": 21,
+          "text": "                    if (local) {"
+        },
+        {
+          "line": 22,
+          "text": "                        authorize.anyRequest().permitAll();"
+        },
+        {
+          "line": 23,
+          "text": "                    } else {"
+        },
+        {
+          "line": 24,
+          "text": "                        authorize.anyRequest().authenticated();"
+        },
+        {
+          "line": 25,
+          "text": "                    }"
+        },
+        {
+          "line": 26,
+          "text": "                })"
+        },
+        {
+          "line": 27,
+          "text": "                .csrf(csrf -> csrf.disable())"
+        },
+        {
+          "line": 28,
+          "text": "                .cors(cors -> cors.disable())"
+        },
+        {
+          "line": 29,
+          "text": "                .httpBasic(basic -> basic.disable())"
+        },
+        {
+          "line": 30,
+          "text": "                .oauth2ResourceServer(resourceServer -> resourceServer.opaqueToken(opaqueToken -> {}));"
+        },
+        {
+          "line": 31,
+          "text": "        return http.build();"
+        }
+      ]
+    },
+    {
+      "id": "wrapper-properties",
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "b44638da5c7e0c8d31ad1d3eba5505b9997a1729c99286eda8fbb1d79dbc40a1",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "lastModified": "2026-11-04T03:48:48.160Z",
+      "rows": [
+        {
+          "line": 3,
+          "text": "distributionUrl=[đã che; Gradle 8.14.3]"
+        }
+      ]
+    },
+    {
+      "id": "ide-project",
+      "path": ".idea/misc.xml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "44a2f75954ed5bfb29cd2cd14156ef63168a782458adcfe97c5494f9e9d4284e",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "lastModified": "2026-11-04T05:16:50.056Z",
+      "rows": [
+        {
+          "line": 4,
+          "text": "  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"21\" project-jdk-type=\"JavaSDK\" />"
+        }
+      ]
+    },
+    {
+      "id": "ide-gradle",
+      "path": ".idea/gradle.xml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "7c0b5fb278a33e07ffcfddbdb983bc8b288485428cdd8b31bab177c83aec8433",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "lastModified": "2026-11-04T04:32:30.855Z",
+      "rows": [
+        {
+          "line": 8,
+          "text": "        <option name=\"gradleJvm\" value=\"21\" />"
+        }
+      ]
+    },
+    {
+      "id": "ide-compiler",
+      "path": ".idea/compiler.xml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "766ee4a074161eb22ae6379c5b02f515c1616b17d4401cceb73cadeccd7974d8",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "lastModified": "2026-11-04T05:23:21.279Z",
+      "rows": [
+        {
+          "line": 50,
+          "text": "    <bytecodeTargetLevel target=\"21\" />"
+        }
+      ]
+    }
+  ],
+  "artifact": {
+    "path": "workspaces/agent-service/1-agent-command-service/build/libs/1-agent-command-service-0.0.1-SNAPSHOT.jar",
+    "bytes": 154136893,
+    "lastModified": "2026-11-04T04:41:26.228Z",
+    "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+    "kind": "Metadata artifact đọc từ filesystem; không chạy JAR"
+  },
+  "connections": [
+    {
+      "id": "postgres",
+      "name": "PostgreSQL write",
+      "line": 33,
+      "service": "postgres-write",
+      "composeLine": 77,
+      "portLine": 80,
+      "hostPort": 5432,
+      "containerPort": 5432,
+      "purpose": "Lưu dữ liệu ghi/event của Command",
+      "historical": "S07: port/container từng được ghi nhận; chưa xác nhận DB/schema/quyền phiên mới"
+    },
+    {
+      "id": "rabbit",
+      "name": "RabbitMQ",
+      "line": 52,
+      "service": "rabbitmq",
+      "composeLine": 3,
+      "portLine": 8,
+      "hostPort": 5672,
+      "containerPort": 5672,
+      "purpose": "Thông điệp AMQP",
+      "historical": "S07: tái dùng service project khác; cần xác nhận owner/quyền"
+    },
+    {
+      "id": "redis",
+      "name": "Redis",
+      "line": 119,
+      "service": "redis",
+      "composeLine": 65,
+      "portLine": 70,
+      "hostPort": 6379,
+      "containerPort": 6379,
+      "purpose": "Cache/session",
+      "historical": "S07: tái dùng service project khác; cần xác nhận owner/quyền"
+    }
+  ],
+  "endpoint": {
+    "state": "Cần xác nhận",
+    "reason": "Có Actuator dependency và rule permitAll /actuator/**; chưa xác nhận exposure/base path/override và response hiện tại. Không cấp endpoint hay gửi request từ bài học.",
+    "sources": [
+      "build.gradle:73",
+      "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/ResourceServerConfiguration.java:19",
+      "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml:64"
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+.connection-method{padding:16px;border:1px solid #9dcbdc;border-left:4px solid #1685a3;border-radius:7px;background:#edf8fb;margin-bottom:16px;}
+.connection-method>b{font-size:17px;color:#17546c;}
+.guide-detail .connection-method p{margin:6px 0 12px;}
+.connection-method ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;font-size:13px;color:#376b80;}
+.connection-method li+li:before{content:'→';margin-right:6px;color:#678c9d;}
+.connection-scope-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0;}
+.connection-scope-fields label,.docker-tool-scenario,.compose-service-select{display:grid;gap:6px;font-size:14px;font-weight:600;color:#416a7e;}
+.connection-scope-fields select,.docker-tool-scenario select,.compose-service-select select{min-width:0;width:100%;font-size:15px;color:#2c5d76;border:1px solid #bad2df;border-radius:5px;padding:10px;background:#fff;}
+.connection-unverified{padding:18px;background:#fff9ec;border:1px solid #e5d5af;border-radius:7px;}
+.connection-unverified b{color:#78591e;}
+.guide-detail .connection-lesson-scope,.guide-detail .connection-scope-note{font-size:14px;color:#52788a;}
+.docker-entry{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
+.docker-entry button[aria-pressed=true]{background:#e4f4fa;border-color:#1485a0;color:#12627b;box-shadow:inset 0 -2px #1485a0;}
+.guide-detail .docker-entry-note,.guide-detail .compose-scope-note{font-size:13px;color:#5d7c8e;}
+.docker-tool-scenario{margin:15px 0;max-width:430px;}
+.docker-install{font-size:14px;margin:12px 0;padding:8px 0;}
+.docker-install summary{cursor:pointer;color:#4e7488;}
+.docker-owned{padding:13px;}
+.docker-project-heading{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:5px 0 12px;color:#2c5f78;}
+.docker-project-heading b{font-size:14px;}
+.docker-project-heading span{font-size:12px;color:#5a798b;}
+.docker-empty{padding:22px 16px;border:1px dashed #afcbdc;border-radius:6px;background:#f7fbfd;color:#456b80;}
+.docker-empty b{font-size:15px;}
+.guide-detail .docker-empty p{font-size:14px;margin-bottom:0;}
+.docker-foreign{padding:12px 14px;background:#f8fafc;border-top:1px solid #d6e3eb;font-size:13px;color:#58788b;}
+.docker-foreign summary{cursor:pointer;font-weight:600;}
+.docker-foreign [role=table]{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 0;}
+.foreign-project{border:1px solid #d9e5ec;border-radius:5px;padding:10px;background:#fff;}
+.guide-detail .foreign-project p{font-size:13px;margin:7px 0;}
+.docker-lifecycle-note{font-size:13px!important;color:#547589;}
+.compose-practice{margin-top:18px;}
+.compose-project-proof{padding:13px 15px;background:#eef6fa;border:1px solid #c6dde8;border-radius:7px;}
+.compose-project-proof>b{font-size:14px;color:#315f76;}
+.guide-detail .compose-project-proof p{font-size:13px;margin:7px 0;}
+.compose-project-proof details{font-size:13px;}
+.compose-service-select{margin:17px 0 10px;}
+.compose-planning{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;}
+.compose-planning>article{border:1px solid #c7dce7;border-radius:7px;min-width:0;overflow:hidden;}
+.compose-source>header{display:grid;gap:4px;padding:12px;background:#f0f7fa;font-size:14px;color:#37677f;}
+.compose-source>header span{font-size:12px;}
+.compose-source-code{height:260px;border-block:1px solid #d6e4ec;}
+.compose-source-code [data-testid=highlighted-code]{font-size:12px;}
+.guide-detail .compose-source>p,.compose-source>details{font-size:13px;padding:0 12px;}
+.compose-source>details{padding-bottom:12px;}
+.compose-command-card{padding:15px;}
+.compose-command-card h4{font-size:15px;color:#365f75;margin:0 0 14px;}
+.compose-command-card dl{margin:0 0 14px;}
+.compose-command-card dt{font-size:12px;color:#597e92;margin:10px 0 4px;}
+.compose-command-card dd{margin:0;font-size:13px;overflow-wrap:anywhere;}
+.compose-command-card dd small{display:block;color:#617f90;margin-top:4px;}
+.compose-command-parts{padding-left:16px;font-size:13px;line-height:1.65;}
+.compose-command-parts li{margin:9px 0;}
+.compose-command{font-size:12px!important;}
+.compose-existing{padding:12px;background:#edf6fa;font-size:13px!important;border-radius:5px;}
+.compose-stages{margin:16px 0;padding:15px;border:1px solid #b7d5e2;border-radius:7px;background:#f6fbfd;}
+.compose-stages ol{list-style:none;display:flex;flex-wrap:wrap;gap:9px;padding:0;margin:0 0 12px;font-size:13px;}
+.compose-stages li{border:1px solid #c8dae5;border-radius:5px;padding:7px;color:#5d7b8b;background:#fff;}
+.compose-stages li[data-complete=true]{background:#e9f5ee;color:#386f50;border-color:#bad6c4;}
+.compose-stage-result{padding:12px;border-left:3px solid #3984a0;background:#fff;margin-bottom:12px;}
+.compose-stage-result>b{font-size:15px;color:#32677e;}
+.guide-detail .compose-stage-result p{font-size:14px;}
+.compose-conflict{background:#fff7e8;border:1px solid #e5cfaa;border-radius:7px;padding:15px;margin:15px 0;}
+.compose-conflict b{color:#8c641d;}
+.docker-created-action{padding:12px;border-top:1px solid #cadce6;background:#f1f8fb;}
+.guide-detail .docker-created-action p{font-size:14px;margin:0 0 10px;}
+.guide-detail .docker-final-note{font-size:13px;color:#53788c;padding:12px;background:#f2f7fa;border-radius:6px;}
+@media(max-width:900px){.connection-scope-fields,.compose-planning{grid-template-columns:minmax(0,1fr);}.docker-entry{display:grid;}.docker-entry button{justify-content:center;text-align:center;}.docker-foreign [role=table]{grid-template-columns:minmax(0,1fr);}.compose-stages ol{display:grid;}.compose-stages .button,.compose-command-card .button{width:100%;justify-content:center;white-space:normal;text-align:center;}.docker-project-heading{display:grid;}.docker-owned{padding:10px;}.docker-tool-scenario select,.connection-scope-fields select,.compose-service-select select{font-size:16px;}}

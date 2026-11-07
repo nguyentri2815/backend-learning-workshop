@@ -1,0 +1,1675 @@
+{
+  "extractedAt": "2026-11-06T08:21:29.693Z",
+  "files": [
+    {
+      "id": "default",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application.yml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "sourceSha256": "76262f03d968756b9906d64ea8116cc5ff7d121305e945419f5ffd1e9e4c85fb",
+      "lastModified": "2026-11-04T04:25:19.497Z",
+      "rows": [
+        {
+          "line": 1,
+          "text": "debug: true"
+        },
+        {
+          "line": 2,
+          "text": "server:"
+        },
+        {
+          "line": 3,
+          "text": "  port: 9901"
+        },
+        {
+          "line": 4,
+          "text": "eventuate:"
+        },
+        {
+          "line": 5,
+          "text": "  database:"
+        },
+        {
+          "line": 6,
+          "text": "    schema: platform_event"
+        },
+        {
+          "line": 7,
+          "text": "eventuatelocal:"
+        },
+        {
+          "line": 8,
+          "text": "  kafka:"
+        },
+        {
+          "line": 9,
+          "text": "    bootstrap:"
+        },
+        {
+          "line": 10,
+          "text": "      servers: 127.0.0.1:9092"
+        },
+        {
+          "line": 11,
+          "text": "  zookeeper:"
+        },
+        {
+          "line": 12,
+          "text": "    connection:"
+        },
+        {
+          "line": 13,
+          "text": "      string: 127.0.0.1:2181"
+        },
+        {
+          "line": 14,
+          "text": "spring:"
+        },
+        {
+          "line": 15,
+          "text": "  security:"
+        },
+        {
+          "line": 16,
+          "text": "    oauth2:"
+        },
+        {
+          "line": 17,
+          "text": "      resourceserver:"
+        },
+        {
+          "line": 18,
+          "text": "        opaquetoken:"
+        },
+        {
+          "line": 19,
+          "text": "          introspection-uri: [đã che]"
+        },
+        {
+          "line": 20,
+          "text": "          client-id: [đã che]"
+        },
+        {
+          "line": 21,
+          "text": "          client-secret: [đã che]"
+        },
+        {
+          "line": 22,
+          "text": "  main:"
+        },
+        {
+          "line": 23,
+          "text": "    allow-bean-definition-overriding: [đã che]"
+        },
+        {
+          "line": 24,
+          "text": "  application:"
+        },
+        {
+          "line": 25,
+          "text": "    name: [đã che]"
+        },
+        {
+          "line": 26,
+          "text": "  cloud:"
+        },
+        {
+          "line": 27,
+          "text": "    loadbalancer:"
+        },
+        {
+          "line": 28,
+          "text": "      ribbon:"
+        },
+        {
+          "line": 29,
+          "text": "        enabled: false"
+        },
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 33,
+          "text": "    url: [đã che; PostgreSQL remote; đích không phải Compose local]"
+        },
+        {
+          "line": 34,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 35,
+          "text": "    hikari:"
+        },
+        {
+          "line": 36,
+          "text": "      connection-init-sql: CREATE SCHEMA IF NOT EXISTS platform_event"
+        },
+        {
+          "line": 37,
+          "text": "  jpa:"
+        },
+        {
+          "line": 38,
+          "text": "    database-platform: [đã che]"
+        },
+        {
+          "line": 39,
+          "text": "    generate-ddl: true"
+        },
+        {
+          "line": 40,
+          "text": "    hibernate:"
+        },
+        {
+          "line": 41,
+          "text": "      ddl-auto: update"
+        },
+        {
+          "line": 42,
+          "text": "    properties:"
+        },
+        {
+          "line": 43,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 44,
+          "text": "        hbm2ddl.create_namespaces: [đã che]"
+        },
+        {
+          "line": 45,
+          "text": "        default_schema: platform_event"
+        },
+        {
+          "line": 46,
+          "text": "        jdbc:"
+        },
+        {
+          "line": 47,
+          "text": "          batch_size: [đã che]"
+        },
+        {
+          "line": 48,
+          "text": "  sql:"
+        },
+        {
+          "line": 49,
+          "text": "    init:"
+        },
+        {
+          "line": 50,
+          "text": "      mode: always"
+        },
+        {
+          "line": 51,
+          "text": "  rabbitmq:"
+        },
+        {
+          "line": 52,
+          "text": "    host: 127.0.0.1"
+        },
+        {
+          "line": 53,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 54,
+          "text": "    port: 5672"
+        },
+        {
+          "line": 55,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 56,
+          "text": "logging:"
+        },
+        {
+          "line": 57,
+          "text": "  level:"
+        },
+        {
+          "line": 58,
+          "text": "    org:"
+        },
+        {
+          "line": 59,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 60,
+          "text": "        type:"
+        },
+        {
+          "line": 61,
+          "text": "          descriptor:"
+        },
+        {
+          "line": 62,
+          "text": "            sql:"
+        },
+        {
+          "line": 63,
+          "text": "              BasicBinder: [đã che]"
+        },
+        {
+          "line": 64,
+          "text": "        SQL: [đã che]"
+        },
+        {
+          "line": 65,
+          "text": "management:"
+        },
+        {
+          "line": 66,
+          "text": "  health:"
+        },
+        {
+          "line": 67,
+          "text": "    elasticsearch:"
+        },
+        {
+          "line": 68,
+          "text": "      enabled: false"
+        },
+        {
+          "line": 69,
+          "text": "springdoc:"
+        },
+        {
+          "line": 70,
+          "text": "  packagesToScan: [đã che]"
+        },
+        {
+          "line": 71,
+          "text": "  pathsToMatch: [đã che]"
+        },
+        {
+          "line": 72,
+          "text": "system:"
+        },
+        {
+          "line": 73,
+          "text": "  sso-service:"
+        },
+        {
+          "line": 74,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 75,
+          "text": "  platform-query:"
+        },
+        {
+          "line": 76,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 77,
+          "text": "  platform-command:"
+        },
+        {
+          "line": 78,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 79,
+          "text": "  assets:"
+        },
+        {
+          "line": 80,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 81,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 82,
+          "text": "  core-proxy:"
+        },
+        {
+          "line": 83,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 84,
+          "text": "  micro-site-service:"
+        },
+        {
+          "line": 85,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 86,
+          "text": "  quote-url:"
+        },
+        {
+          "line": 87,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 88,
+          "text": "  policy-url:"
+        },
+        {
+          "line": 89,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 90,
+          "text": "  payment-process-url:"
+        },
+        {
+          "line": 91,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 92,
+          "text": "  assessment:"
+        },
+        {
+          "line": 93,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 94,
+          "text": "alpaca:"
+        },
+        {
+          "line": 95,
+          "text": "  local: true"
+        },
+        {
+          "line": 96,
+          "text": "  config:"
+        },
+        {
+          "line": 97,
+          "text": "    auto-create-owner-user: [đã che]"
+        },
+        {
+          "line": 98,
+          "text": "    home-url: [đã che]"
+        },
+        {
+          "line": 99,
+          "text": "    reset-password-url: [đã che]"
+        },
+        {
+          "line": 100,
+          "text": "    reset-password-subject: [đã che]"
+        },
+        {
+          "line": 101,
+          "text": "    active-account-subject: [đã che]"
+        },
+        {
+          "line": 102,
+          "text": "    reset-password-from: [đã che]"
+        },
+        {
+          "line": 103,
+          "text": "    active-account-from: [đã che]"
+        },
+        {
+          "line": 104,
+          "text": "    reset-password-template: [đã che]"
+        },
+        {
+          "line": 105,
+          "text": "    active-account-template: [đã che]"
+        },
+        {
+          "line": 106,
+          "text": "    email-send-error: [đã che]"
+        },
+        {
+          "line": 107,
+          "text": "    secret-key: [đã che]"
+        },
+        {
+          "line": 108,
+          "text": "    system-name: [đã che]"
+        },
+        {
+          "line": 109,
+          "text": "  user-core: [đã che]"
+        },
+        {
+          "line": 110,
+          "text": "  password-user-core: [đã che]"
+        },
+        {
+          "line": 111,
+          "text": "  client-id: [đã che]"
+        },
+        {
+          "line": 112,
+          "text": "  client-secret: [đã che]"
+        },
+        {
+          "line": 113,
+          "text": "  time-duration-one-month: [đã che]"
+        },
+        {
+          "line": 114,
+          "text": "  redirect-key: [đã che]"
+        },
+        {
+          "line": 115,
+          "text": "  keystore:"
+        },
+        {
+          "line": 116,
+          "text": "    name: [đã che]"
+        },
+        {
+          "line": 117,
+          "text": "    pass: [đã che]"
+        },
+        {
+          "line": 118,
+          "text": "cache:"
+        },
+        {
+          "line": 119,
+          "text": "  redis: [đã che; Redis localhost:6379; DB 0]"
+        },
+        {
+          "line": 120,
+          "text": "  redis-persistent: [đã che; Redis localhost:6379; DB 0]"
+        },
+        {
+          "line": 121,
+          "text": "  redis-session: [đã che; Redis localhost:6379; DB 0]"
+        },
+        {
+          "line": 122,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "dev",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "sourceSha256": "55ef0453bcfbdc281397a8f682c1ba7cfc7d0e4fc4ace030adac94aad64c06a4",
+      "lastModified": "2026-11-04T04:25:19.496Z",
+      "rows": [
+        {
+          "line": 1,
+          "text": "debug: true"
+        },
+        {
+          "line": 2,
+          "text": "server:"
+        },
+        {
+          "line": 3,
+          "text": "  port: 9901"
+        },
+        {
+          "line": 4,
+          "text": "eventuate:"
+        },
+        {
+          "line": 5,
+          "text": "  database:"
+        },
+        {
+          "line": 6,
+          "text": "    schema: platform_event"
+        },
+        {
+          "line": 7,
+          "text": "eventuatelocal:"
+        },
+        {
+          "line": 8,
+          "text": "  kafka:"
+        },
+        {
+          "line": 9,
+          "text": "    bootstrap:"
+        },
+        {
+          "line": 10,
+          "text": "      servers: 127.0.0.1:9092"
+        },
+        {
+          "line": 11,
+          "text": "  zookeeper:"
+        },
+        {
+          "line": 12,
+          "text": "    connection:"
+        },
+        {
+          "line": 13,
+          "text": "      string: 127.0.0.1:2181"
+        },
+        {
+          "line": 14,
+          "text": "spring:"
+        },
+        {
+          "line": 15,
+          "text": "  security:"
+        },
+        {
+          "line": 16,
+          "text": "    oauth2:"
+        },
+        {
+          "line": 17,
+          "text": "      resourceserver:"
+        },
+        {
+          "line": 18,
+          "text": "        opaquetoken:"
+        },
+        {
+          "line": 19,
+          "text": "          introspection-uri: [đã che]"
+        },
+        {
+          "line": 20,
+          "text": "          client-id: [đã che]"
+        },
+        {
+          "line": 21,
+          "text": "          client-secret: [đã che]"
+        },
+        {
+          "line": 22,
+          "text": "  main:"
+        },
+        {
+          "line": 23,
+          "text": "    allow-bean-definition-overriding: [đã che]"
+        },
+        {
+          "line": 24,
+          "text": "  application:"
+        },
+        {
+          "line": 25,
+          "text": "    name: [đã che]"
+        },
+        {
+          "line": 26,
+          "text": "  cloud:"
+        },
+        {
+          "line": 27,
+          "text": "    loadbalancer:"
+        },
+        {
+          "line": 28,
+          "text": "      ribbon:"
+        },
+        {
+          "line": 29,
+          "text": "        enabled: false"
+        },
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 33,
+          "text": "    url: [đã che; PostgreSQL ${DOCKER_HOST_IP:localhost}:5432; DB alpaca-event]"
+        },
+        {
+          "line": 34,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 35,
+          "text": "    hikari:"
+        },
+        {
+          "line": 36,
+          "text": "      connection-init-sql: CREATE SCHEMA IF NOT EXISTS platform_event"
+        },
+        {
+          "line": 37,
+          "text": "  jpa:"
+        },
+        {
+          "line": 38,
+          "text": "    database-platform: [đã che]"
+        },
+        {
+          "line": 39,
+          "text": "    generate-ddl: true"
+        },
+        {
+          "line": 40,
+          "text": "    hibernate:"
+        },
+        {
+          "line": 41,
+          "text": "      ddl-auto: update"
+        },
+        {
+          "line": 42,
+          "text": "    properties:"
+        },
+        {
+          "line": 43,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 44,
+          "text": "        hbm2ddl.create_namespaces: [đã che]"
+        },
+        {
+          "line": 45,
+          "text": "        default_schema: platform_event"
+        },
+        {
+          "line": 46,
+          "text": "        jdbc:"
+        },
+        {
+          "line": 47,
+          "text": "          batch_size: [đã che]"
+        },
+        {
+          "line": 48,
+          "text": "  sql:"
+        },
+        {
+          "line": 49,
+          "text": "    init:"
+        },
+        {
+          "line": 50,
+          "text": "      mode: always"
+        },
+        {
+          "line": 51,
+          "text": "  rabbitmq:"
+        },
+        {
+          "line": 52,
+          "text": "    host: 127.0.0.1"
+        },
+        {
+          "line": 53,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 54,
+          "text": "    port: 5672"
+        },
+        {
+          "line": 55,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 56,
+          "text": "logging:"
+        },
+        {
+          "line": 57,
+          "text": "  level:"
+        },
+        {
+          "line": 58,
+          "text": "    org:"
+        },
+        {
+          "line": 59,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 60,
+          "text": "        type:"
+        },
+        {
+          "line": 61,
+          "text": "          descriptor:"
+        },
+        {
+          "line": 62,
+          "text": "            sql:"
+        },
+        {
+          "line": 63,
+          "text": "              BasicBinder: [đã che]"
+        },
+        {
+          "line": 64,
+          "text": "        SQL: [đã che]"
+        },
+        {
+          "line": 65,
+          "text": "management:"
+        },
+        {
+          "line": 66,
+          "text": "  health:"
+        },
+        {
+          "line": 67,
+          "text": "    elasticsearch:"
+        },
+        {
+          "line": 68,
+          "text": "      enabled: false"
+        },
+        {
+          "line": 69,
+          "text": "springdoc:"
+        },
+        {
+          "line": 70,
+          "text": "  packagesToScan: [đã che]"
+        },
+        {
+          "line": 71,
+          "text": "  pathsToMatch: [đã che]"
+        },
+        {
+          "line": 72,
+          "text": "system:"
+        },
+        {
+          "line": 73,
+          "text": "  sso-service:"
+        },
+        {
+          "line": 74,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 75,
+          "text": "  platform-query:"
+        },
+        {
+          "line": 76,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 77,
+          "text": "  platform-command:"
+        },
+        {
+          "line": 78,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 79,
+          "text": "  assets:"
+        },
+        {
+          "line": 80,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 81,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 82,
+          "text": "  core-proxy:"
+        },
+        {
+          "line": 83,
+          "text": "    api: [đã che]"
+        },
+        {
+          "line": 84,
+          "text": "  micro-site-service:"
+        },
+        {
+          "line": 85,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 86,
+          "text": "  quote-url:"
+        },
+        {
+          "line": 87,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 88,
+          "text": "  policy-url:"
+        },
+        {
+          "line": 89,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 90,
+          "text": "  payment-process-url:"
+        },
+        {
+          "line": 91,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 92,
+          "text": "  assessment:"
+        },
+        {
+          "line": 93,
+          "text": "    url: [đã che]"
+        },
+        {
+          "line": 94,
+          "text": "alpaca:"
+        },
+        {
+          "line": 95,
+          "text": "  local: false"
+        },
+        {
+          "line": 96,
+          "text": "  config:"
+        },
+        {
+          "line": 97,
+          "text": "    auto-create-owner-user: [đã che]"
+        },
+        {
+          "line": 98,
+          "text": "    home-url: [đã che]"
+        },
+        {
+          "line": 99,
+          "text": "    reset-password-url: [đã che]"
+        },
+        {
+          "line": 100,
+          "text": "    reset-password-subject: [đã che]"
+        },
+        {
+          "line": 101,
+          "text": "    active-account-subject: [đã che]"
+        },
+        {
+          "line": 102,
+          "text": "    reset-password-from: [đã che]"
+        },
+        {
+          "line": 103,
+          "text": "    active-account-from: [đã che]"
+        },
+        {
+          "line": 104,
+          "text": "    reset-password-template: [đã che]"
+        },
+        {
+          "line": 105,
+          "text": "    active-account-template: [đã che]"
+        },
+        {
+          "line": 106,
+          "text": "    email-send-error: [đã che]"
+        },
+        {
+          "line": 107,
+          "text": "    secret-key: [đã che]"
+        },
+        {
+          "line": 108,
+          "text": "    system-name: [đã che]"
+        },
+        {
+          "line": 109,
+          "text": "  user-core: [đã che]"
+        },
+        {
+          "line": 110,
+          "text": "  password-user-core: [đã che]"
+        },
+        {
+          "line": 111,
+          "text": "  client-id: [đã che]"
+        },
+        {
+          "line": 112,
+          "text": "  client-secret: [đã che]"
+        },
+        {
+          "line": 113,
+          "text": "  time-duration-one-month: [đã che]"
+        },
+        {
+          "line": 114,
+          "text": "  redirect-key: [đã che]"
+        },
+        {
+          "line": 115,
+          "text": "  keystore:"
+        },
+        {
+          "line": 116,
+          "text": "    name: [đã che]"
+        },
+        {
+          "line": 117,
+          "text": "    pass: [đã che]"
+        },
+        {
+          "line": 118,
+          "text": "cache:"
+        },
+        {
+          "line": 119,
+          "text": "  redis: [đã che; Redis localhost:6379; DB 0]"
+        },
+        {
+          "line": 120,
+          "text": "  redis-persistent: [đã che; Redis localhost:6379; DB 0]"
+        },
+        {
+          "line": 121,
+          "text": "  redis-session: [đã che; Redis localhost:6379; DB 0]"
+        },
+        {
+          "line": 122,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "compose",
+      "path": "docker-compose-env.yml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "sourceSha256": "34205d1b10b8efa458df251e60578df00046fa54e50bb72fd824c0d1d73605f7",
+      "lastModified": "2026-11-04T03:48:48.154Z",
+      "rows": [
+        {
+          "line": 1,
+          "text": "version: [đã che]"
+        },
+        {
+          "line": 2,
+          "text": "services:"
+        },
+        {
+          "line": 3,
+          "text": "  rabbitmq:"
+        },
+        {
+          "line": 4,
+          "text": "    image: rabbitmq:3.8.19-management"
+        },
+        {
+          "line": 5,
+          "text": "    container_name: rabbitmq"
+        },
+        {
+          "line": 6,
+          "text": "    ports:"
+        },
+        {
+          "line": 7,
+          "text": "      - 15672:15672"
+        },
+        {
+          "line": 8,
+          "text": "      - 5672:5672"
+        },
+        {
+          "line": 9,
+          "text": "      - 4369:4369"
+        },
+        {
+          "line": 10,
+          "text": "    restart: always"
+        },
+        {
+          "line": 11,
+          "text": "    environment:"
+        },
+        {
+          "line": 12,
+          "text": "      RABBITMQ_ERLANG_COOKIE: [đã che]"
+        },
+        {
+          "line": 13,
+          "text": "      RABBITMQ_VM_MEMORY_HIGH_WATERMARK: [đã che]"
+        },
+        {
+          "line": 14,
+          "text": "      RABBITMQ_DEFAULT_USER: [đã che]"
+        },
+        {
+          "line": 15,
+          "text": "      RABBITMQ_DEFAULT_PASS: [đã che]"
+        },
+        {
+          "line": 16,
+          "text": "      RABBITMQ_DEFAULT_VHOST: [đã che]"
+        },
+        {
+          "line": 17,
+          "text": "    volumes:"
+        },
+        {
+          "line": 18,
+          "text": "      - ./.docker/rabbitmq/plugins:/opt/rabbitmq/addon-plugins"
+        },
+        {
+          "line": 19,
+          "text": "  zookeeper:"
+        },
+        {
+          "line": 20,
+          "text": "    image: eventuateio/eventuate-zookeeper:0.9.0.RELEASE"
+        },
+        {
+          "line": 21,
+          "text": "    ports:"
+        },
+        {
+          "line": 22,
+          "text": "      - 2181:2181"
+        },
+        {
+          "line": 23,
+          "text": "  kafka:"
+        },
+        {
+          "line": 24,
+          "text": "    image: eventuateio/eventuate-kafka:0.9.0.RELEASE"
+        },
+        {
+          "line": 25,
+          "text": "    container_name: alpaca.kafka.event"
+        },
+        {
+          "line": 26,
+          "text": "    ports:"
+        },
+        {
+          "line": 27,
+          "text": "      - 9092:9092"
+        },
+        {
+          "line": 28,
+          "text": "    depends_on:"
+        },
+        {
+          "line": 29,
+          "text": "      - zookeeper"
+        },
+        {
+          "line": 30,
+          "text": "    environment:"
+        },
+        {
+          "line": 31,
+          "text": "[đã che]"
+        },
+        {
+          "line": 32,
+          "text": "[đã che]"
+        },
+        {
+          "line": 33,
+          "text": "[đã che]"
+        },
+        {
+          "line": 34,
+          "text": "  kafka-ui:"
+        },
+        {
+          "line": 35,
+          "text": "    container_name: kafka-ui"
+        },
+        {
+          "line": 36,
+          "text": "    image: provectuslabs/kafka-ui:latest"
+        },
+        {
+          "line": 37,
+          "text": "    ports:"
+        },
+        {
+          "line": 38,
+          "text": "      - 8080:8080"
+        },
+        {
+          "line": 39,
+          "text": "    depends_on:"
+        },
+        {
+          "line": 40,
+          "text": "      - kafka"
+        },
+        {
+          "line": 41,
+          "text": "    environment:"
+        },
+        {
+          "line": 42,
+          "text": "      DYNAMIC_CONFIG_ENABLED: [đã che]"
+        },
+        {
+          "line": 43,
+          "text": "    volumes:"
+        },
+        {
+          "line": 44,
+          "text": "[đã che]"
+        },
+        {
+          "line": 45,
+          "text": "  debezium:"
+        },
+        {
+          "line": 46,
+          "text": "    image: debezium/connect:2.7.3.Final"
+        },
+        {
+          "line": 47,
+          "text": "    restart: always"
+        },
+        {
+          "line": 48,
+          "text": "    container_name: debezium"
+        },
+        {
+          "line": 49,
+          "text": "    hostname: debezium"
+        },
+        {
+          "line": 50,
+          "text": "    depends_on:"
+        },
+        {
+          "line": 51,
+          "text": "      - postgres-write"
+        },
+        {
+          "line": 52,
+          "text": "      - kafka"
+        },
+        {
+          "line": 53,
+          "text": "      - zookeeper"
+        },
+        {
+          "line": 54,
+          "text": "    ports:"
+        },
+        {
+          "line": 55,
+          "text": "      - '8086:8083'"
+        },
+        {
+          "line": 56,
+          "text": "    environment:"
+        },
+        {
+          "line": 57,
+          "text": "      BOOTSTRAP_SERVERS: alpaca.kafka.event:9092"
+        },
+        {
+          "line": 58,
+          "text": "      GROUP_ID: [đã che]"
+        },
+        {
+          "line": 59,
+          "text": "      CONFIG_STORAGE_TOPIC: [đã che]"
+        },
+        {
+          "line": 60,
+          "text": "      STATUS_STORAGE_TOPIC: [đã che]"
+        },
+        {
+          "line": 61,
+          "text": "      OFFSET_STORAGE_TOPIC: [đã che]"
+        },
+        {
+          "line": 62,
+          "text": "      KEY_CONVERTER: [đã che]"
+        },
+        {
+          "line": 63,
+          "text": "      VALUE_CONVERTER: [đã che]"
+        },
+        {
+          "line": 64,
+          "text": "      ENABLE_DEBEZIUM_SCRIPTING: [đã che]"
+        },
+        {
+          "line": 65,
+          "text": "  redis:"
+        },
+        {
+          "line": 66,
+          "text": "    image: redis"
+        },
+        {
+          "line": 67,
+          "text": "    container_name: redis"
+        },
+        {
+          "line": 68,
+          "text": "    restart: always"
+        },
+        {
+          "line": 69,
+          "text": "    ports:"
+        },
+        {
+          "line": 70,
+          "text": "      - 6379:6379"
+        },
+        {
+          "line": 71,
+          "text": "  rebrow:"
+        },
+        {
+          "line": 72,
+          "text": "    image: marian/rebrow"
+        },
+        {
+          "line": 73,
+          "text": "    container_name: rebrow"
+        },
+        {
+          "line": 74,
+          "text": "    restart: always"
+        },
+        {
+          "line": 75,
+          "text": "    ports:"
+        },
+        {
+          "line": 76,
+          "text": "      - 5001:5001"
+        },
+        {
+          "line": 77,
+          "text": "  postgres-write:"
+        },
+        {
+          "line": 78,
+          "text": "    build: docker/postgres"
+        },
+        {
+          "line": 79,
+          "text": "    ports:"
+        },
+        {
+          "line": 80,
+          "text": "      - 5432:5432"
+        },
+        {
+          "line": 81,
+          "text": "    volumes:"
+        },
+        {
+          "line": 82,
+          "text": "      - ./.docker/postgresql-write:/var/lib/postgresql/data"
+        },
+        {
+          "line": 83,
+          "text": "    environment:"
+        },
+        {
+          "line": 84,
+          "text": "      POSTGRES_USER: [đã che]"
+        },
+        {
+          "line": 85,
+          "text": "      POSTGRES_PASSWORD: [đã che]"
+        },
+        {
+          "line": 86,
+          "text": "      POSTGRES_DB: [đã che]"
+        },
+        {
+          "line": 87,
+          "text": "  postgres-read:"
+        },
+        {
+          "line": 88,
+          "text": "    build: docker/postgres"
+        },
+        {
+          "line": 89,
+          "text": "    ports:"
+        },
+        {
+          "line": 90,
+          "text": "      - \"5433:5432\""
+        },
+        {
+          "line": 91,
+          "text": "    volumes:"
+        },
+        {
+          "line": 92,
+          "text": "      - ./.docker/postgresql-read:/var/lib/postgresql/data"
+        },
+        {
+          "line": 93,
+          "text": "    environment:"
+        },
+        {
+          "line": 94,
+          "text": "      POSTGRES_USER: [đã che]"
+        },
+        {
+          "line": 95,
+          "text": "      POSTGRES_PASSWORD: [đã che]"
+        },
+        {
+          "line": 96,
+          "text": "      POSTGRES_DB: [đã che]"
+        },
+        {
+          "line": 97,
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "command-dev",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+      "sourceSha256": "55ef0453bcfbdc281397a8f682c1ba7cfc7d0e4fc4ace030adac94aad64c06a4",
+      "rows": [
+        {
+          "line": 7,
+          "text": "eventuatelocal:"
+        },
+        {
+          "line": 8,
+          "text": "  kafka:"
+        },
+        {
+          "line": 9,
+          "text": "    bootstrap:"
+        },
+        {
+          "line": 10,
+          "text": "      servers: 127.0.0.1:9092"
+        },
+        {
+          "line": 11,
+          "text": "  zookeeper:"
+        },
+        {
+          "line": 12,
+          "text": "    connection:"
+        },
+        {
+          "line": 13,
+          "text": "      string: 127.0.0.1:2181"
+        },
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 33,
+          "text": "    url: [đã che; PostgreSQL ${DOCKER_HOST_IP:localhost}:5432; DB alpaca-event]"
+        },
+        {
+          "line": 34,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 35,
+          "text": "    hikari:"
+        },
+        {
+          "line": 36,
+          "text": "      connection-init-sql: CREATE SCHEMA IF NOT EXISTS platform_event"
+        },
+        {
+          "line": 37,
+          "text": "  jpa:"
+        },
+        {
+          "line": 38,
+          "text": "    database-platform: [đã che]"
+        },
+        {
+          "line": 39,
+          "text": "    generate-ddl: true"
+        },
+        {
+          "line": 40,
+          "text": "    hibernate:"
+        },
+        {
+          "line": 41,
+          "text": "      ddl-auto: update"
+        },
+        {
+          "line": 42,
+          "text": "    properties:"
+        },
+        {
+          "line": 43,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 44,
+          "text": "        hbm2ddl.create_namespaces: [đã che]"
+        },
+        {
+          "line": 45,
+          "text": "        default_schema: platform_event"
+        },
+        {
+          "line": 51,
+          "text": "  rabbitmq:"
+        },
+        {
+          "line": 52,
+          "text": "    host: 127.0.0.1"
+        },
+        {
+          "line": 53,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 54,
+          "text": "    port: 5672"
+        },
+        {
+          "line": 55,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 118,
+          "text": "cache:"
+        },
+        {
+          "line": 119,
+          "text": "  redis: [đã che; Redis localhost:6379; DB 0]"
+        },
+        {
+          "line": 120,
+          "text": "  redis-persistent: [đã che; Redis localhost:6379; DB 0]"
+        },
+        {
+          "line": 121,
+          "text": "  redis-session: [đã che; Redis localhost:6379; DB 0]"
+        }
+      ]
+    },
+    {
+      "id": "query-base",
+      "path": "workspaces/agent-service/3-agent-query-service/src/main/resources/application.yml",
+      "sourceSha256": "c9ad9e999da75f80615ee140dfd94fa6491225e3f5a1251fc1f251a83afa9217",
+      "rows": [
+        {
+          "line": 21,
+          "text": "  datasource:"
+        },
+        {
+          "line": 22,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 23,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 24,
+          "text": "    url: [đã che; PostgreSQL localhost:5433; DB alpaca-event]"
+        }
+      ]
+    },
+    {
+      "id": "query-dev",
+      "path": "workspaces/agent-service/3-agent-query-service/src/main/resources/application-dev.yml",
+      "sourceSha256": "95500fd79fd342411aec3c850695ad452dce72b930f26c2debe45902041bc6cd",
+      "rows": [
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 33,
+          "text": "    url: [đã che; PostgreSQL localhost:5432; DB alpaca-event]"
+        }
+      ]
+    },
+    {
+      "id": "flow-base",
+      "path": "workspaces/agent-service/2-agent-flow-service/src/main/resources/application.yml",
+      "sourceSha256": "2c6944ed2a98c95ed91ece2e26b1840b2154c08492ec8ff76e582182b1d36fde",
+      "rows": [
+        {
+          "line": 64,
+          "text": "  platform-command:"
+        },
+        {
+          "line": 65,
+          "text": "    api: [HTTP] localhost:9901"
+        }
+      ]
+    },
+    {
+      "id": "cdc",
+      "path": "workspaces/2-infrastructure/kafka-cdc-service/src/main/resources/application-dev.yml",
+      "sourceSha256": "89a2e4073f08b897f3a03584f854bf733dffebffa575301815aee9cff0d6592d",
+      "rows": [
+        {
+          "line": 1,
+          "text": "debug: false"
+        },
+        {
+          "line": 2,
+          "text": "spring:"
+        },
+        {
+          "line": 3,
+          "text": "  kafka:"
+        },
+        {
+          "line": 4,
+          "text": "    bootstrap-servers: alpaca.kafka.event:9092"
+        },
+        {
+          "line": 29,
+          "text": "    mail: [đã che]"
+        },
+        {
+          "line": 30,
+          "text": "  kafka:"
+        },
+        {
+          "line": 31,
+          "text": "    bootstrap-servers: alpaca.kafka.event:9092"
+        }
+      ]
+    }
+  ],
+  "composeSetup": {
+    "repository": "agent-system",
+    "directory": "D:/ALPACA/agent-system",
+    "projectName": "sale-platform",
+    "composeFile": "docker-compose-env.yml",
+    "projectEvidence": {
+      "path": "build.gradle",
+      "sourceSha256": "f8bd807e40ff51c867044abc20426cb977b8bdf61a4d79cae63b762d878958e0",
+      "rows": [
+        {
+          "line": 102,
+          "text": "    projectName = \"sale-platform\""
+        },
+        {
+          "line": 103,
+          "text": "    useComposeFiles = [\"docker-compose-env.yml\"]"
+        }
+      ]
+    },
+    "dockerfile": {
+      "path": "docker/postgres/Dockerfile",
+      "sourceSha256": "add94b49ddc6f115911dfd95c36bd3774385e2a17e95a5f0bd1231b7f6c4a378",
+      "rows": [
+        {
+          "line": 1,
+          "text": "FROM debezium/postgres:16-alpine"
+        },
+        {
+          "line": 3,
+          "text": "COPY postgresql.conf.sample /usr/local/share/postgresql/postgresql.conf.sample"
+        },
+        {
+          "line": 6,
+          "text": "COPY /docker-entrypoint-initdb.d /docker-entrypoint-initdb.d"
+        }
+      ]
+    },
+    "legacyScript": {
+      "path": "docker-up.sh",
+      "sourceSha256": "5ace4f65e28ccb41588afbda843f047b7b5fc799ffd53b01b7c5b8acddbdb573",
+      "note": "Script cũ gọi docker-compose up toàn bộ file, không truyền -p; bài học giới hạn service và đặt -p tường minh."
+    }
+  }
+}

@@ -1,0 +1,414 @@
+{
+  "checkedAt": "2026-11-06T17:41:20.1557565+00:00",
+  "sourceRoot": "D:/ALPACA/agent-system",
+  "status": "not-started",
+  "reason": "Không bảo đảm phạm vi dữ liệu/schema/event: startup có đường ghi tự động. Dừng trước Run theo điều kiện người dùng; không sửa cấu hình hoặc bật dịch vụ để thử.",
+  "createdPids": [],
+  "stoppedPids": [],
+  "processCheck": {
+    "checkedAt": "2026-11-06T17:41:20.1557565+00:00",
+    "processCheck": "checked",
+    "portCheck": "checked",
+    "commandProcesses": [],
+    "javaProcesses": [
+      {
+        "pid": 40108,
+        "executable": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.13.9-hotspot\\bin\\java.exe",
+        "isCommand": false,
+        "isGradle": true
+      }
+    ],
+    "listeners": [],
+    "javaExecutable": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.13.9-hotspot\\bin\\java.exe",
+    "createdPids": [],
+    "stoppedPids": []
+  },
+  "ide": {
+    "mainClass": "com.alpaca.agent.AgentCommandServiceApplication",
+    "module": "agent-workspaces.workspaces.agent-service.1-agent-command-service.main",
+    "sdk": "21",
+    "makeBeforeLaunch": true,
+    "profileOptions": [
+      {
+        "name": "ACTIVE_PROFILES",
+        "present": false,
+        "setsProfile": false
+      },
+      {
+        "name": "SPRING_PROFILES_ACTIVE",
+        "present": false,
+        "setsProfile": false
+      },
+      {
+        "name": "PROGRAM_PARAMETERS",
+        "present": false,
+        "setsProfile": false
+      },
+      {
+        "name": "VM_PARAMETERS",
+        "present": false,
+        "setsProfile": false
+      }
+    ],
+    "profileConclusion": "Run Configuration không khai báo profile/arguments riêng trong đoạn đã đọc. Nếu không có override từ môi trường/IDE, Boot dùng default. Chưa đọc được toàn bộ environment của process IntelliJ.",
+    "workingDirectory": "Không khai báo riêng; chưa khẳng định cwd của phiên IDE mới."
+  },
+  "candidate": {
+    "executed": false,
+    "method": "Gradle bootRun tương đương ở mức main class/profile; không phải thao tác trực tiếp IntelliJ.",
+    "directory": "D:/ALPACA/agent-system",
+    "profile": "dev",
+    "jdk": "21",
+    "command": ".\\gradlew.bat :workspaces:agent-service:1-agent-command-service:bootRun --args=\"--spring.profiles.active=dev\"",
+    "differences": "Gradle chuẩn bị classpath/task và dùng toolchain; IntelliJ dùng Run Configuration/module/SDK và Before launch Make. Không khẳng định giống toàn bộ VM arguments, environment hoặc cách build.",
+    "dependencies": [
+      {
+        "key": "eventuatelocal.kafka.bootstrap.servers",
+        "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+        "line": 10,
+        "destination": "127.0.0.1:9092",
+        "unresolved": []
+      },
+      {
+        "key": "spring.datasource.url",
+        "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+        "line": 33,
+        "destination": "postgresql://localhost/alpaca-event",
+        "unresolved": []
+      },
+      {
+        "key": "spring.rabbitmq.host",
+        "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+        "line": 52,
+        "destination": "127.0.0.1",
+        "unresolved": []
+      },
+      {
+        "key": "spring.rabbitmq.port",
+        "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+        "line": 54,
+        "destination": "5672",
+        "unresolved": []
+      },
+      {
+        "key": "system.sso-service.api",
+        "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+        "line": 74,
+        "destination": "https://[host ngoài đã che]",
+        "unresolved": []
+      },
+      {
+        "key": "system.platform-query.api",
+        "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+        "line": 76,
+        "destination": "http://[host ngoài đã che]",
+        "unresolved": []
+      },
+      {
+        "key": "system.platform-command.api",
+        "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+        "line": 78,
+        "destination": "http://[host ngoài đã che]",
+        "unresolved": []
+      },
+      {
+        "key": "system.assets.api",
+        "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+        "line": 80,
+        "destination": "http://[host ngoài đã che]",
+        "unresolved": []
+      },
+      {
+        "key": "system.core-proxy.api",
+        "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+        "line": 83,
+        "destination": "http://[host ngoài đã che]",
+        "unresolved": []
+      },
+      {
+        "key": "cache.redis",
+        "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+        "line": 119,
+        "destination": "redis://localhost:6379",
+        "unresolved": []
+      },
+      {
+        "key": "cache.redis-persistent",
+        "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+        "line": 120,
+        "destination": "redis://localhost:6379",
+        "unresolved": []
+      },
+      {
+        "key": "cache.redis-session",
+        "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+        "line": 121,
+        "destination": "redis://localhost:6379",
+        "unresolved": []
+      }
+    ],
+    "limits": "Các đích trên chỉ dự kiến khi chồng application.yml + application-dev.yml và biến môi trường shell hiện có. Env/VM args/file ngoài của IDE chưa xác định; không có profile thực tế của phiên mới vì không khởi chạy.",
+    "serverPort": {
+      "value": "9901",
+      "source": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+      "line": 3
+    }
+  },
+  "shellOverrides": [
+    {
+      "name": "SPRING_PROFILES_ACTIVE",
+      "present": false
+    },
+    {
+      "name": "SPRING_DATASOURCE_URL",
+      "present": false
+    },
+    {
+      "name": "SPRING_CONFIG_LOCATION",
+      "present": false
+    },
+    {
+      "name": "SPRING_CONFIG_NAME",
+      "present": false
+    },
+    {
+      "name": "SPRING_CONFIG_IMPORT",
+      "present": false
+    },
+    {
+      "name": "SPRING_CONFIG_ADDITIONAL_LOCATION",
+      "present": false
+    },
+    {
+      "name": "SPRING_APPLICATION_JSON",
+      "present": false
+    },
+    {
+      "name": "JAVA_TOOL_OPTIONS",
+      "present": false
+    },
+    {
+      "name": "JDK_JAVA_OPTIONS",
+      "present": false
+    },
+    {
+      "name": "GRADLE_OPTS",
+      "present": false
+    },
+    {
+      "name": "DOCKER_HOST_IP",
+      "present": false
+    },
+    {
+      "name": "SERVER_PORT",
+      "present": false
+    }
+  ],
+  "risks": [
+    {
+      "id": "ddl",
+      "summary": "Hibernate có thể đổi schema và tạo namespace lúc startup.",
+      "evidence": [
+        {
+          "key": "spring.jpa.hibernate.ddl-auto",
+          "value": "update",
+          "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+          "line": 41
+        },
+        {
+          "key": "spring.jpa.properties.hibernate.hbm2ddl.create_namespaces",
+          "value": "true",
+          "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+          "line": 44
+        }
+      ]
+    },
+    {
+      "id": "bootstrap",
+      "summary": "@PostConstruct gọi createOwner và initGlobalConfig; có nhánh tạo aggregate/event và ghi global config.",
+      "evidence": [
+        {
+          "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+          "line": 56,
+          "symbol": "postConstruct → createOwner / initGlobalConfig"
+        },
+        {
+          "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+          "line": 69,
+          "symbol": "countByUserName → CreateSaleUnitOwnerFunc.exec"
+        },
+        {
+          "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/sale_unit/CreateSaleUnitOwnerFunc.java",
+          "line": 54,
+          "symbol": "saleUnitAggregateRepository.save(command)"
+        },
+        {
+          "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/io/eventuate/sync/AggregateRepository.java",
+          "line": 73,
+          "symbol": "processCommand → aggregateStore.save(events)"
+        },
+        {
+          "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+          "line": 247,
+          "symbol": "countByKey → configRepository.save(value)"
+        }
+      ]
+    },
+    {
+      "id": "redis-lock",
+      "summary": "initGlobalConfig gọi rlock.lock: có thể ghi trạng thái khóa Redis trong hook startup.",
+      "evidence": [
+        {
+          "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+          "line": 178,
+          "symbol": "initGlobalConfig → rlock.lock"
+        }
+      ]
+    }
+  ],
+  "projectDependencies": [
+    "workspaces/agent-service/1-agent-command-service",
+    "workspaces/1-shared/shared-event-sourcing",
+    "workspaces/1-shared/shared-base",
+    "workspaces/1-shared/shared-database",
+    "workspaces/1-shared/shared-event-sourcing-base",
+    "workspaces/1-shared/shared-notification",
+    "workspaces/1-shared/shared-assets",
+    "workspaces/1-shared/shared-cache",
+    "workspaces/1-shared/shared-webmvc",
+    "workspaces/1-shared/shared-auth",
+    "workspaces/1-shared/shared-auth-base",
+    "workspaces/1-shared/shared-amqp",
+    "workspaces/agent-service/4-agent-shared-domain",
+    "workspaces/agent-service/agent-shared",
+    "workspaces/1-shared/shared-proxy",
+    "workspaces/1-shared/shared-product-engine-model",
+    "workspaces/1-shared/shared-eventuate",
+    "workspaces/1-shared/shared-retry"
+  ],
+  "sourceChecks": {
+    "mainMatches": true,
+    "java21": true,
+    "bootPlugin": true,
+    "commandDependencies": true
+  },
+  "files": [
+    {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/AgentCommandServiceApplication.java",
+      "sha256": "65d5eb4fe95be53ac4feedd9824131290043f0416f1f59f133b9dbce7942c6c9"
+    },
+    {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application.yml",
+      "sha256": "76262f03d968756b9906d64ea8116cc5ff7d121305e945419f5ffd1e9e4c85fb"
+    },
+    {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+      "sha256": "55ef0453bcfbdc281397a8f682c1ba7cfc7d0e4fc4ace030adac94aad64c06a4"
+    },
+    {
+      "path": "build.gradle",
+      "sha256": "f8bd807e40ff51c867044abc20426cb977b8bdf61a4d79cae63b762d878958e0"
+    },
+    {
+      "path": "workspaces/agent-service/1-agent-command-service/build.gradle",
+      "sha256": "9f4c5533c785adb589760ff4ab8e9e071a5b419dc0fcea61a93b0992db0d43c8"
+    },
+    {
+      "path": ".idea/workspace.xml",
+      "sha256": "1f3f4d807c091306f5bcbbe498bc8af23d6e6d68c3711e50e5358ff98bb1478f"
+    },
+    {
+      "path": ".idea/misc.xml",
+      "sha256": "44a2f75954ed5bfb29cd2cd14156ef63168a782458adcfe97c5494f9e9d4284e"
+    },
+    {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+      "sha256": "087f6b50c817d0bcc08f0e0f0c2f7bf77bdf9014839721d3cca3c708cfc5e9c0"
+    },
+    {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/sale_unit/CreateSaleUnitOwnerFunc.java",
+      "sha256": "ea65c537f16926e8e8c0b9ec3ab4cf5b22ca4bd98bd9ffffc7adc17a8a0b326b"
+    },
+    {
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/io/eventuate/sync/AggregateRepository.java",
+      "sha256": "a9d9d05f1e416135e8e149314f9f7c9e7d6189b099143b45d22b750e5cc087c7"
+    },
+    {
+      "path": "workspaces/1-shared/shared-event-sourcing/build.gradle",
+      "sha256": "9d702b54b6c24b017be9b5763bb4b887892fa40847bc9568dca7a7ef3bde525b"
+    },
+    {
+      "path": "workspaces/1-shared/shared-base/build.gradle",
+      "sha256": "bbd4e4519b7ddd25fd89b4bf17517a8601a79daf4ed73e44a2fa1c7d3845c51e"
+    },
+    {
+      "path": "workspaces/1-shared/shared-database/build.gradle",
+      "sha256": "5f8f328697060a01e9a838c32a08f6fbe1f77e1fbe61cc77b1151fed61f006d1"
+    },
+    {
+      "path": "workspaces/1-shared/shared-event-sourcing-base/build.gradle",
+      "sha256": "b1749f09db4255a6ddff8b1aaecc91cfd6db3c2c6df7a6b1acbb796600b0c1b5"
+    },
+    {
+      "path": "workspaces/1-shared/shared-notification/build.gradle",
+      "sha256": "b1749f09db4255a6ddff8b1aaecc91cfd6db3c2c6df7a6b1acbb796600b0c1b5"
+    },
+    {
+      "path": "workspaces/1-shared/shared-assets/build.gradle",
+      "sha256": "50365aede5f1fab4454bca91a59c6b0caa6ad700dc6668593247fe61c2be85a4"
+    },
+    {
+      "path": "workspaces/1-shared/shared-cache/build.gradle",
+      "sha256": "07a078d9acdad2704576edaebbe64c5eaecbadfa32f81f7ea9a4dd7953635b44"
+    },
+    {
+      "path": "workspaces/1-shared/shared-webmvc/build.gradle",
+      "sha256": "ef38bbd9921b66decb6d831dd0e840b594c3cd7d59786c86ed3bc23993e53095"
+    },
+    {
+      "path": "workspaces/1-shared/shared-auth/build.gradle",
+      "sha256": "8049368463b05475b27abb5dddad4c37cf193c30f677699c31ee11f6cf56bf29"
+    },
+    {
+      "path": "workspaces/1-shared/shared-auth-base/build.gradle",
+      "sha256": "4614b332737a6b82a02a4d3721b8ec9e940ca891adc68a25944231dbbdd84885"
+    },
+    {
+      "path": "workspaces/1-shared/shared-amqp/build.gradle",
+      "sha256": "b570ae6000d3af22fa431d051fb544fd51034a16cbfd002928d6ff644cf006a5"
+    },
+    {
+      "path": "workspaces/agent-service/4-agent-shared-domain/build.gradle",
+      "sha256": "40c9d4ac804b07b1c3bbcffea78c0165ad826c25a1e4949d4abb936ac1ce8e50"
+    },
+    {
+      "path": "workspaces/agent-service/agent-shared/build.gradle",
+      "sha256": "7c3437fdca89ef903bdb9dca4b852ab0562c391b03b497a6ca515a7880e10900"
+    },
+    {
+      "path": "workspaces/1-shared/shared-proxy/build.gradle",
+      "sha256": "3e9d09f24366e13341b1f278bae550157a0e862e7053bfb08b4fe542e4e311b5"
+    },
+    {
+      "path": "workspaces/1-shared/shared-product-engine-model/build.gradle",
+      "sha256": "345a04fd5829148b5d253ed3b5a855bb2419264ffda64b573c6a5a78021c66ba"
+    },
+    {
+      "path": "workspaces/1-shared/shared-eventuate/build.gradle",
+      "sha256": "d64fb938d604e954380d14f5792f168c3b1b528b0244693857117c37987e9f31"
+    },
+    {
+      "path": "workspaces/1-shared/shared-retry/build.gradle",
+      "sha256": "5d86de6802d36db51fe372256376420b0da8804592fbb5f689deecfd22b9a9fa"
+    }
+  ],
+  "limits": "Không có startup log mới. Dùng các phiên Command lịch sử đã tách từ agent-system/logs/app.log để tiếp tục; không dùng INSURTECH. Scheduler/consumer/request effects cần phân loại theo trigger, không suy từ classpath hoặc cấu hình.",
+  "triggers": [
+    {
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/InitConfig.java",
+      "line": 56,
+      "trigger": "PostConstruct"
+    }
+  ],
+  "triggerLimit": "Quét source src/main/java của các project dependency khai báo trong Gradle; không là quan sát scheduler/consumer đang chạy hoặc kiểm chứng mọi auto-configuration của thư viện ngoài."
+}

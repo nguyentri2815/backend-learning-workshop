@@ -1,0 +1,1098 @@
+{
+  "extractedAt": "2026-11-05T05:12:44.394Z",
+  "revisions": {
+    "workspace": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+    "command": "f0971ae41170c84bb883be92cd1ebd6632010302"
+  },
+  "report": {
+    "path": "D:/tmp/agent-service-workspaces-setup-evidence-report.md",
+    "date": "2026-11-04",
+    "sha256": "68210e7067349f65b40668ae0ac161350af734648a4bd9346d59335bc751cb58",
+    "sections": [
+      "S00",
+      "S02",
+      "S03",
+      "S17"
+    ]
+  },
+  "limits": "Tái dựng theo báo cáo, không có snapshot nguyên bản đầy đủ. Source trích từ file hiện tại, có thể khác lịch sử; không phải cấu hình/runtime đã kiểm chứng.",
+  "redactions": [
+    "Che toàn bộ URL Git và connection string, giữ namespace/target cần học.",
+    "Che username/password và chỉ trích các khóa cấu hình thuộc allowlist; giữ số dòng gốc."
+  ],
+  "files": [
+    {
+      "id": "settings",
+      "path": "settings.gradle",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "57b5a6d6c7952b5b166a3e64fcefb7dd3a5a10d4c0ab4eac920fd1db5a6b0d91",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "lastModified": "2026-11-04T03:48:48.162Z",
+      "rows": [
+        {
+          "line": 1,
+          "text": "rootProject.name = 'agent-workspaces'"
+        },
+        {
+          "line": 2,
+          "text": "include 'workspaces:1-shared:shared-base'"
+        },
+        {
+          "line": 3,
+          "text": "include 'workspaces:1-shared:shared-notification'"
+        },
+        {
+          "line": 4,
+          "text": "include 'workspaces:1-shared:shared-assets'"
+        },
+        {
+          "line": 5,
+          "text": "include 'workspaces:1-shared:shared-auth-base'"
+        },
+        {
+          "line": 6,
+          "text": "include 'workspaces:1-shared:shared-auth'"
+        },
+        {
+          "line": 7,
+          "text": "include 'workspaces:1-shared:shared-webmvc'"
+        },
+        {
+          "line": 8,
+          "text": "include 'workspaces:1-shared:shared-cache'"
+        },
+        {
+          "line": 9,
+          "text": "include 'workspaces:1-shared:shared-eventuate'"
+        },
+        {
+          "line": 10,
+          "text": "include 'workspaces:1-shared:shared-event-sourcing-base'"
+        },
+        {
+          "line": 11,
+          "text": "include 'workspaces:1-shared:shared-event-sourcing'"
+        },
+        {
+          "line": 12,
+          "text": "include 'workspaces:1-shared:shared-database'"
+        },
+        {
+          "line": 13,
+          "text": "include 'workspaces:1-shared:shared-amqp'"
+        },
+        {
+          "line": 14,
+          "text": "include 'workspaces:1-shared:shared-camunda'"
+        },
+        {
+          "line": 15,
+          "text": "include 'workspaces:1-shared:shared-proxy'"
+        },
+        {
+          "line": 16,
+          "text": "include 'workspaces:1-shared:shared-retry'"
+        },
+        {
+          "line": 17,
+          "text": "include 'workspaces:1-shared:shared-schedule'"
+        },
+        {
+          "line": 18,
+          "text": "include 'workspaces:1-shared:shared-product-engine'"
+        },
+        {
+          "line": 19,
+          "text": "include 'workspaces:1-shared:shared-product-engine-model'"
+        },
+        {
+          "line": 20,
+          "text": ""
+        },
+        {
+          "line": 21,
+          "text": "include 'workspaces:2-infrastructure:notification-service'"
+        },
+        {
+          "line": 22,
+          "text": "include 'workspaces:2-infrastructure:stomp-service'"
+        },
+        {
+          "line": 23,
+          "text": "include 'workspaces:2-infrastructure:sso-server'"
+        },
+        {
+          "line": 24,
+          "text": "include 'workspaces:2-infrastructure:schedule-service'"
+        },
+        {
+          "line": 25,
+          "text": "include 'workspaces:2-infrastructure:assets-service'"
+        },
+        {
+          "line": 26,
+          "text": "include 'workspaces:2-infrastructure:camunda-service'"
+        },
+        {
+          "line": 27,
+          "text": "include 'workspaces:2-infrastructure:swagger-service'"
+        },
+        {
+          "line": 28,
+          "text": "include 'workspaces:2-infrastructure:kafka-cdc-service'"
+        },
+        {
+          "line": 29,
+          "text": ""
+        },
+        {
+          "line": 30,
+          "text": "include 'workspaces:agent-service:1-agent-command-service'"
+        },
+        {
+          "line": 31,
+          "text": "include 'workspaces:agent-service:2-agent-flow-service'"
+        },
+        {
+          "line": 32,
+          "text": "include 'workspaces:agent-service:3-agent-query-service'"
+        },
+        {
+          "line": 33,
+          "text": "include 'workspaces:agent-service:4-agent-shared-domain'"
+        },
+        {
+          "line": 34,
+          "text": "include 'workspaces:agent-service:5-agent-shared-entity'"
+        },
+        {
+          "line": 35,
+          "text": ""
+        },
+        {
+          "line": 36,
+          "text": "include 'workspaces:agent-service:agent-shared'"
+        },
+        {
+          "line": 37,
+          "text": "include 'workspaces:agent-integration-service:agent-integration-service'"
+        },
+        {
+          "line": 38,
+          "text": ""
+        },
+        {
+          "line": 39,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "build",
+      "path": "build.gradle",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "f8bd807e40ff51c867044abc20426cb977b8bdf61a4d79cae63b762d878958e0",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "lastModified": "2026-11-04T03:48:48.153Z",
+      "rows": [
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "wrapper {"
+        },
+        {
+          "line": 21,
+          "text": "    gradleVersion = '8.14.3'"
+        },
+        {
+          "line": 22,
+          "text": "}"
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "apply plugin: 'docker-compose'"
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "bootJar {"
+        },
+        {
+          "line": 27,
+          "text": "    enabled = false"
+        },
+        {
+          "line": 28,
+          "text": "}"
+        },
+        {
+          "line": 33,
+          "text": ""
+        },
+        {
+          "line": 34,
+          "text": "subprojects {"
+        },
+        {
+          "line": 35,
+          "text": "    apply plugin: \"java\""
+        },
+        {
+          "line": 36,
+          "text": "    apply plugin: \"jacoco\""
+        },
+        {
+          "line": 37,
+          "text": "    apply plugin: \"org.springframework.boot\""
+        },
+        {
+          "line": 38,
+          "text": "    apply plugin: \"io.spring.dependency-management\""
+        },
+        {
+          "line": 39,
+          "text": "//    apply plugin: \"org.sonarqube\""
+        },
+        {
+          "line": 40,
+          "text": "//    sonar {"
+        },
+        {
+          "line": 41,
+          "text": "//        properties {"
+        },
+        {
+          "line": 42,
+          "text": "//            property \"sonar.sources\", \"src\""
+        },
+        {
+          "line": 43,
+          "text": "//        }"
+        },
+        {
+          "line": 44,
+          "text": "//    }"
+        },
+        {
+          "line": 45,
+          "text": "    group = 'com.alpaca'"
+        },
+        {
+          "line": 46,
+          "text": "    java {"
+        },
+        {
+          "line": 47,
+          "text": "        toolchain {"
+        },
+        {
+          "line": 48,
+          "text": "            languageVersion = JavaLanguageVersion.of(21)"
+        },
+        {
+          "line": 49,
+          "text": "        }"
+        },
+        {
+          "line": 50,
+          "text": "    }"
+        }
+      ]
+    },
+    {
+      "id": "wrapper",
+      "path": "gradlew.bat",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "af835f98787e9269af5a046edcb821a592fed372139df7b947b471a63cfc236b",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "lastModified": "2026-11-04T03:48:48.161Z",
+      "rows": [
+        {
+          "line": 18,
+          "text": "@rem ##########################################################################"
+        },
+        {
+          "line": 19,
+          "text": "@rem"
+        },
+        {
+          "line": 20,
+          "text": "@rem  Gradle startup script for Windows"
+        },
+        {
+          "line": 21,
+          "text": "@rem"
+        },
+        {
+          "line": 22,
+          "text": "@rem ##########################################################################"
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "@rem Set local scope for the variables with windows NT shell"
+        },
+        {
+          "line": 25,
+          "text": "if \"%OS%\"==\"Windows_NT\" setlocal"
+        },
+        {
+          "line": 26,
+          "text": ""
+        },
+        {
+          "line": 27,
+          "text": "set DIRNAME=%~dp0"
+        },
+        {
+          "line": 28,
+          "text": "if \"%DIRNAME%\" == \"\" set DIRNAME=."
+        },
+        {
+          "line": 29,
+          "text": "set APP_BASE_NAME=%~n0"
+        },
+        {
+          "line": 30,
+          "text": "set APP_HOME=%DIRNAME%"
+        }
+      ]
+    },
+    {
+      "id": "clone",
+      "path": "git-cmd.sh",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "622e7630fc247a68ff86e235463e8fbd029211d3f081a97b8cec1b094a3b0a13",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "lastModified": "2026-11-04T03:48:48.159Z",
+      "rows": [
+        {
+          "line": 1,
+          "text": "git clone [nguồn repo agent-system đã che] workspaces/1-shared"
+        },
+        {
+          "line": 2,
+          "text": "git clone [nguồn repo agent-system đã che] workspaces/2-infrastructure/assets-service"
+        },
+        {
+          "line": 3,
+          "text": "git clone [nguồn repo agent-system đã che] workspaces/2-infrastructure/camunda-service"
+        },
+        {
+          "line": 4,
+          "text": "git clone [nguồn repo agent-system đã che] workspaces/2-infrastructure/notification-service"
+        },
+        {
+          "line": 5,
+          "text": "git clone [nguồn repo agent-system đã che] workspaces/2-infrastructure/schedule-service"
+        },
+        {
+          "line": 6,
+          "text": "git clone [nguồn repo agent-system đã che] workspaces/2-infrastructure/sso-server"
+        },
+        {
+          "line": 7,
+          "text": "git clone [nguồn repo agent-system đã che] workspaces/2-infrastructure/stomp-service"
+        },
+        {
+          "line": 8,
+          "text": "git clone [nguồn repo agent-system đã che] workspaces/2-infrastructure/kafka-cdc-service"
+        },
+        {
+          "line": 10,
+          "text": "git clone [nguồn repo agent-system đã che] workspaces/agent-service"
+        },
+        {
+          "line": 11,
+          "text": "git clone [nguồn repo agent-system đã che] workspaces/agent-integration-service"
+        }
+      ]
+    },
+    {
+      "id": "alternate",
+      "path": "init-shared.sh",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "7c2e66af756e656372a8ec59ca2d9d40b36786ecd46603587f20306f6d909f6a",
+      "revision": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+      "lastModified": "2026-11-04T03:48:48.161Z",
+      "rows": [
+        {
+          "line": 1,
+          "text": "git clone [nguồn repo sale-system đã che] workspaces/1-shared"
+        },
+        {
+          "line": 2,
+          "text": "git clone [nguồn repo nhóm khác đã che] workspaces/2-infrastructure/assets-service"
+        },
+        {
+          "line": 3,
+          "text": "git clone [nguồn repo nhóm khác đã che] workspaces/2-infrastructure/camunda-service"
+        },
+        {
+          "line": 4,
+          "text": "git clone [nguồn repo nhóm khác đã che] workspaces/2-infrastructure/notification-service"
+        },
+        {
+          "line": 5,
+          "text": "git clone [nguồn repo nhóm khác đã che] workspaces/2-infrastructure/schedule-service"
+        },
+        {
+          "line": 6,
+          "text": "git clone [nguồn repo nhóm khác đã che] workspaces/2-infrastructure/sso-server"
+        },
+        {
+          "line": 7,
+          "text": "git clone [nguồn repo nhóm khác đã che] workspaces/2-infrastructure/stomp-service"
+        },
+        {
+          "line": 8,
+          "text": "git clone [nguồn repo nhóm khác đã che] workspaces/2-infrastructure/swagger-service"
+        },
+        {
+          "line": 9,
+          "text": "git clone [nguồn repo nhóm khác đã che] workspaces/2-infrastructure/kafka-cdc-service"
+        },
+        {
+          "line": 11,
+          "text": "git clone [nguồn repo sale-system đã che] workspaces/core-proxy-service"
+        },
+        {
+          "line": 12,
+          "text": "git clone [nguồn repo sale-system đã che] workspaces/sale-platform-service"
+        },
+        {
+          "line": 14,
+          "text": "git clone [nguồn repo nhóm khác đã che] deploy"
+        },
+        {
+          "line": 15,
+          "text": "git clone [nguồn repo nhóm khác đã che] k8s-manifest"
+        }
+      ]
+    },
+    {
+      "id": "command-build",
+      "path": "workspaces/agent-service/1-agent-command-service/build.gradle",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "9f4c5533c785adb589760ff4ab8e9e071a5b419dc0fcea61a93b0992db0d43c8",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.408Z",
+      "rows": [
+        {
+          "line": 1,
+          "text": "apply plugin: \"distribution\""
+        },
+        {
+          "line": 2,
+          "text": "apply plugin: \"java\""
+        },
+        {
+          "line": 8,
+          "text": "    }"
+        },
+        {
+          "line": 9,
+          "text": "}"
+        },
+        {
+          "line": 11,
+          "text": "dependencies {"
+        },
+        {
+          "line": 12,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-event-sourcing', configuration: 'default')"
+        },
+        {
+          "line": 13,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-notification', configuration: 'default')"
+        },
+        {
+          "line": 14,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-assets', configuration: 'default')"
+        },
+        {
+          "line": 15,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-cache', configuration: 'default')"
+        },
+        {
+          "line": 16,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-webmvc', configuration: 'default')"
+        },
+        {
+          "line": 17,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-amqp', configuration: 'default')"
+        },
+        {
+          "line": 18,
+          "text": "    implementation project(path: ':workspaces:1-shared:shared-auth', configuration: 'default')"
+        },
+        {
+          "line": 22,
+          "text": "    implementation project(path: ':workspaces:agent-service:4-agent-shared-domain', configuration: 'default')"
+        },
+        {
+          "line": 24,
+          "text": "}"
+        },
+        {
+          "line": 31,
+          "text": "            }"
+        },
+        {
+          "line": 36,
+          "text": "            }"
+        },
+        {
+          "line": 39,
+          "text": "        }"
+        },
+        {
+          "line": 40,
+          "text": "    }"
+        },
+        {
+          "line": 41,
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "default",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application.yml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "76262f03d968756b9906d64ea8116cc5ff7d121305e945419f5ffd1e9e4c85fb",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.497Z",
+      "rows": [
+        {
+          "line": 2,
+          "text": "server:"
+        },
+        {
+          "line": 3,
+          "text": "  port: 9901"
+        },
+        {
+          "line": 14,
+          "text": "spring:"
+        },
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 33,
+          "text": "    url: [đã che; PostgreSQL remote; chưa xác nhận cho local]"
+        },
+        {
+          "line": 34,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 35,
+          "text": "    hikari:"
+        },
+        {
+          "line": 36,
+          "text": "      connection-init-sql: CREATE SCHEMA IF NOT EXISTS platform_event"
+        },
+        {
+          "line": 37,
+          "text": "  jpa:"
+        },
+        {
+          "line": 40,
+          "text": "    hibernate:"
+        },
+        {
+          "line": 41,
+          "text": "      ddl-auto: update"
+        },
+        {
+          "line": 43,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 45,
+          "text": "        default_schema: platform_event"
+        },
+        {
+          "line": 59,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 94,
+          "text": "alpaca:"
+        },
+        {
+          "line": 95,
+          "text": "  local: true"
+        },
+        {
+          "line": 96,
+          "text": "  config:"
+        }
+      ],
+      "profileActivationLines": []
+    },
+    {
+      "id": "dev",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/resources/application-dev.yml",
+      "sourceRoot": "D:/ALPACA/agent-system",
+      "sourceSha256": "55ef0453bcfbdc281397a8f682c1ba7cfc7d0e4fc4ace030adac94aad64c06a4",
+      "revision": "f0971ae41170c84bb883be92cd1ebd6632010302",
+      "lastModified": "2026-11-04T04:25:19.496Z",
+      "rows": [
+        {
+          "line": 2,
+          "text": "server:"
+        },
+        {
+          "line": 3,
+          "text": "  port: 9901"
+        },
+        {
+          "line": 14,
+          "text": "spring:"
+        },
+        {
+          "line": 30,
+          "text": "  datasource:"
+        },
+        {
+          "line": 31,
+          "text": "    driver-class-name: org.postgresql.Driver"
+        },
+        {
+          "line": 32,
+          "text": "    password: [đã che]"
+        },
+        {
+          "line": 33,
+          "text": "    url: [đã che; localhost; DB alpaca-event; không ghi port]"
+        },
+        {
+          "line": 34,
+          "text": "    username: [đã che]"
+        },
+        {
+          "line": 35,
+          "text": "    hikari:"
+        },
+        {
+          "line": 36,
+          "text": "      connection-init-sql: CREATE SCHEMA IF NOT EXISTS platform_event"
+        },
+        {
+          "line": 37,
+          "text": "  jpa:"
+        },
+        {
+          "line": 40,
+          "text": "    hibernate:"
+        },
+        {
+          "line": 41,
+          "text": "      ddl-auto: update"
+        },
+        {
+          "line": 43,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 45,
+          "text": "        default_schema: platform_event"
+        },
+        {
+          "line": 59,
+          "text": "      hibernate:"
+        },
+        {
+          "line": 94,
+          "text": "alpaca:"
+        },
+        {
+          "line": 95,
+          "text": "  local: false"
+        },
+        {
+          "line": 96,
+          "text": "  config:"
+        }
+      ],
+      "profileActivationLines": []
+    }
+  ],
+  "cloneTargets": [
+    {
+      "line": 1,
+      "path": "workspaces/1-shared",
+      "group": "agent-system"
+    },
+    {
+      "line": 2,
+      "path": "workspaces/2-infrastructure/assets-service",
+      "group": "agent-system"
+    },
+    {
+      "line": 3,
+      "path": "workspaces/2-infrastructure/camunda-service",
+      "group": "agent-system"
+    },
+    {
+      "line": 4,
+      "path": "workspaces/2-infrastructure/notification-service",
+      "group": "agent-system"
+    },
+    {
+      "line": 5,
+      "path": "workspaces/2-infrastructure/schedule-service",
+      "group": "agent-system"
+    },
+    {
+      "line": 6,
+      "path": "workspaces/2-infrastructure/sso-server",
+      "group": "agent-system"
+    },
+    {
+      "line": 7,
+      "path": "workspaces/2-infrastructure/stomp-service",
+      "group": "agent-system"
+    },
+    {
+      "line": 8,
+      "path": "workspaces/2-infrastructure/kafka-cdc-service",
+      "group": "agent-system"
+    },
+    {
+      "line": 10,
+      "path": "workspaces/agent-service",
+      "group": "agent-system"
+    },
+    {
+      "line": 11,
+      "path": "workspaces/agent-integration-service",
+      "group": "agent-system"
+    }
+  ],
+  "modulePaths": [
+    {
+      "line": 2,
+      "declaration": "workspaces:1-shared:shared-base",
+      "path": "workspaces/1-shared/shared-base",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 3,
+      "declaration": "workspaces:1-shared:shared-notification",
+      "path": "workspaces/1-shared/shared-notification",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 4,
+      "declaration": "workspaces:1-shared:shared-assets",
+      "path": "workspaces/1-shared/shared-assets",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 5,
+      "declaration": "workspaces:1-shared:shared-auth-base",
+      "path": "workspaces/1-shared/shared-auth-base",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 6,
+      "declaration": "workspaces:1-shared:shared-auth",
+      "path": "workspaces/1-shared/shared-auth",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 7,
+      "declaration": "workspaces:1-shared:shared-webmvc",
+      "path": "workspaces/1-shared/shared-webmvc",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 8,
+      "declaration": "workspaces:1-shared:shared-cache",
+      "path": "workspaces/1-shared/shared-cache",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 9,
+      "declaration": "workspaces:1-shared:shared-eventuate",
+      "path": "workspaces/1-shared/shared-eventuate",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 10,
+      "declaration": "workspaces:1-shared:shared-event-sourcing-base",
+      "path": "workspaces/1-shared/shared-event-sourcing-base",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 11,
+      "declaration": "workspaces:1-shared:shared-event-sourcing",
+      "path": "workspaces/1-shared/shared-event-sourcing",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 12,
+      "declaration": "workspaces:1-shared:shared-database",
+      "path": "workspaces/1-shared/shared-database",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 13,
+      "declaration": "workspaces:1-shared:shared-amqp",
+      "path": "workspaces/1-shared/shared-amqp",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 14,
+      "declaration": "workspaces:1-shared:shared-camunda",
+      "path": "workspaces/1-shared/shared-camunda",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 15,
+      "declaration": "workspaces:1-shared:shared-proxy",
+      "path": "workspaces/1-shared/shared-proxy",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 16,
+      "declaration": "workspaces:1-shared:shared-retry",
+      "path": "workspaces/1-shared/shared-retry",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 17,
+      "declaration": "workspaces:1-shared:shared-schedule",
+      "path": "workspaces/1-shared/shared-schedule",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 18,
+      "declaration": "workspaces:1-shared:shared-product-engine",
+      "path": "workspaces/1-shared/shared-product-engine",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 19,
+      "declaration": "workspaces:1-shared:shared-product-engine-model",
+      "path": "workspaces/1-shared/shared-product-engine-model",
+      "cloneLine": 1,
+      "repoPath": "workspaces/1-shared",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 21,
+      "declaration": "workspaces:2-infrastructure:notification-service",
+      "path": "workspaces/2-infrastructure/notification-service",
+      "cloneLine": 4,
+      "repoPath": "workspaces/2-infrastructure/notification-service",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 22,
+      "declaration": "workspaces:2-infrastructure:stomp-service",
+      "path": "workspaces/2-infrastructure/stomp-service",
+      "cloneLine": 7,
+      "repoPath": "workspaces/2-infrastructure/stomp-service",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 23,
+      "declaration": "workspaces:2-infrastructure:sso-server",
+      "path": "workspaces/2-infrastructure/sso-server",
+      "cloneLine": 6,
+      "repoPath": "workspaces/2-infrastructure/sso-server",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 24,
+      "declaration": "workspaces:2-infrastructure:schedule-service",
+      "path": "workspaces/2-infrastructure/schedule-service",
+      "cloneLine": 5,
+      "repoPath": "workspaces/2-infrastructure/schedule-service",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 25,
+      "declaration": "workspaces:2-infrastructure:assets-service",
+      "path": "workspaces/2-infrastructure/assets-service",
+      "cloneLine": 2,
+      "repoPath": "workspaces/2-infrastructure/assets-service",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 26,
+      "declaration": "workspaces:2-infrastructure:camunda-service",
+      "path": "workspaces/2-infrastructure/camunda-service",
+      "cloneLine": 3,
+      "repoPath": "workspaces/2-infrastructure/camunda-service",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 27,
+      "declaration": "workspaces:2-infrastructure:swagger-service",
+      "path": "workspaces/2-infrastructure/swagger-service",
+      "cloneLine": null,
+      "repoPath": null,
+      "reportedAfter": false,
+      "presentNow": false
+    },
+    {
+      "line": 28,
+      "declaration": "workspaces:2-infrastructure:kafka-cdc-service",
+      "path": "workspaces/2-infrastructure/kafka-cdc-service",
+      "cloneLine": 8,
+      "repoPath": "workspaces/2-infrastructure/kafka-cdc-service",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 30,
+      "declaration": "workspaces:agent-service:1-agent-command-service",
+      "path": "workspaces/agent-service/1-agent-command-service",
+      "cloneLine": 10,
+      "repoPath": "workspaces/agent-service",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 31,
+      "declaration": "workspaces:agent-service:2-agent-flow-service",
+      "path": "workspaces/agent-service/2-agent-flow-service",
+      "cloneLine": 10,
+      "repoPath": "workspaces/agent-service",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 32,
+      "declaration": "workspaces:agent-service:3-agent-query-service",
+      "path": "workspaces/agent-service/3-agent-query-service",
+      "cloneLine": 10,
+      "repoPath": "workspaces/agent-service",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 33,
+      "declaration": "workspaces:agent-service:4-agent-shared-domain",
+      "path": "workspaces/agent-service/4-agent-shared-domain",
+      "cloneLine": 10,
+      "repoPath": "workspaces/agent-service",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 34,
+      "declaration": "workspaces:agent-service:5-agent-shared-entity",
+      "path": "workspaces/agent-service/5-agent-shared-entity",
+      "cloneLine": 10,
+      "repoPath": "workspaces/agent-service",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 36,
+      "declaration": "workspaces:agent-service:agent-shared",
+      "path": "workspaces/agent-service/agent-shared",
+      "cloneLine": 10,
+      "repoPath": "workspaces/agent-service",
+      "reportedAfter": true,
+      "presentNow": true
+    },
+    {
+      "line": 37,
+      "declaration": "workspaces:agent-integration-service:agent-integration-service",
+      "path": "workspaces/agent-integration-service/agent-integration-service",
+      "cloneLine": 11,
+      "repoPath": "workspaces/agent-integration-service",
+      "reportedAfter": true,
+      "presentNow": true
+    }
+  ]
+}
