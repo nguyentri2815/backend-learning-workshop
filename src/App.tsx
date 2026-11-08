@@ -32,6 +32,8 @@ import { JourneyWorkspace } from "./JourneyWorkspace";
 import { useDemoPolicy, useProgress } from "./state";
 import { SetupWorkspace } from "./setup/SetupWorkspace";
 import { useSetupProgress } from "./setup/progress";
+import { PolicyWorkspace } from "./policy/PolicyWorkspace";
+import { usePolicyProgress } from "./policy/policy-model";
 
 const journeyIcons = {
   environment: Server,
@@ -47,10 +49,11 @@ export function App() {
     : undefined;
   const progress = useProgress();
   const setupProgress = useSetupProgress();
-  const demoCount = progress.completed.filter(key => !key.startsWith("environment:")).length;
+  const policyProgress = usePolicyProgress();
+  const demoCount = progress.completed.filter(key => key.startsWith("claims:")).length;
   const setupCount = setupProgress.completed.length;
-  const completedCount = demoCount + setupCount;
-  const countFor = (id: string) => id === "environment" ? setupCount : progress.completed.filter(key => key.startsWith(`${id}:`)).length;
+  const completedCount = demoCount + setupCount + policyProgress.completed.length;
+  const countFor = (id: string) => id === "environment" ? setupCount : id === "policy" ? policyProgress.completed.length : progress.completed.filter(key => key.startsWith(`${id}:`)).length;
   const demo = useDemoPolicy();
   const memory = useRef<Record<string, string>>({});
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -92,11 +95,11 @@ export function App() {
   }
   const nextJourney =
     journeys.find((j) =>
-      j.steps.some((s) => j.id === "environment" ? !setupProgress.completed.some(id => id === s.id) : !progress.completed.includes(`${j.id}:${s.id}`)),
+      j.steps.some((s) => j.id === "environment" ? !setupProgress.completed.some(id => id === s.id) : j.id === "policy" ? !policyProgress.completed.some(id => id === s.id) : !progress.completed.includes(`${j.id}:${s.id}`)),
     ) ?? journeys[0];
   const nextStep =
     nextJourney.steps.find(
-      (s) => nextJourney.id === "environment" ? !setupProgress.completed.some(id => id === s.id) : !progress.completed.includes(`${nextJourney.id}:${s.id}`),
+      (s) => nextJourney.id === "environment" ? !setupProgress.completed.some(id => id === s.id) : nextJourney.id === "policy" ? !policyProgress.completed.some(id => id === s.id) : !progress.completed.includes(`${nextJourney.id}:${s.id}`),
     ) ?? nextJourney.steps[0];
   return (
     <div className="app-shell">
@@ -148,7 +151,7 @@ export function App() {
                 <span>
                   {j.id === "claims" ? "Yêu cầu bồi thường" : j.title}
                   <small>
-                    {j.number} · {count}/{j.steps.length} {j.id === "environment" ? "bước setup" : "bước mẫu"}
+                    {j.number} · {count}/{j.steps.length} {j.id === "environment" ? "bước setup" : j.id === "policy" ? "bước đọc" : "bước mẫu"}
                   </small>
                 </span>
                 {journey?.id === j.id && <span className="nav-dot" />}
@@ -224,7 +227,7 @@ export function App() {
             </strong>
           </div>
           <div className="topbar-right">
-            <Badge state="demo">Checklist setup · Policy/Claim minh họa</Badge>
+            <Badge state="demo">Setup / Policy có nguồn · thao tác mô phỏng</Badge>
             <span className="avatar">NT</span>
           </div>
         </header>
@@ -258,7 +261,7 @@ export function App() {
                   <div className="actions">
                     <Link
                       className="button primary"
-                      to={nextJourney.id === "environment" ? journeyUrl("environment") : `/journey/${nextJourney.id}?step=${nextStep.id}`}
+                      to={nextJourney.id === "environment" || nextJourney.id === "policy" ? journeyUrl(nextJourney.id) : `/journey/${nextJourney.id}?step=${nextStep.id}`}
                     >
                       <Play size={16} />
                       {completedCount
@@ -342,7 +345,7 @@ export function App() {
                       <Badge state={j.state}>
                         {j.id === "environment" ? "Hướng dẫn hành động · có căn cứ source" : j.id === "claims"
                           ? "Khung mẫu · chờ yêu cầu thật"
-                          : "Có thể duyệt bản minh họa"}
+                          : "Source đã đối chiếu · dữ liệu mẫu"}
                       </Badge>
                       <h3>{j.title}</h3>
                       <p>{j.summary}</p>
@@ -405,7 +408,7 @@ export function App() {
                   <div className="scope-row">
                     <Badge state="demo" />
                     <span>
-                      Policy/Claim và mã giả để duyệt tương tác.
+                      Policy mô phỏng theo API/source Java; Claim giữ khung câu hỏi mở.
                     </span>
                   </div>
                   <div className="scope-row">
@@ -425,7 +428,7 @@ export function App() {
                   <span className="eyebrow">ĐIỂM BẮT ĐẦU GỢI Ý</span>
                   <h3>{nextStep.title}</h3>
                   <p>{nextStep.goal}</p>
-                  <Link to={nextJourney.id === "environment" ? journeyUrl("environment") : `/journey/${nextJourney.id}?step=${nextStep.id}`}>
+                  <Link to={nextJourney.id === "environment" || nextJourney.id === "policy" ? journeyUrl(nextJourney.id) : `/journey/${nextJourney.id}?step=${nextStep.id}`}>
                     Mở bước này
                     <ArrowRight size={17} />
                   </Link>
@@ -439,6 +442,8 @@ export function App() {
             </>
           ) : journey?.id === "environment" ? (
             <SetupWorkspace progress={setupProgress} copyLink={() => copy(window.location.href)} />
+          ) : journey?.id === "policy" ? (
+            <PolicyWorkspace progress={policyProgress} copyLink={() => copy(window.location.href)} />
           ) : journey ? (
             <JourneyWorkspace
               journey={journey}
@@ -473,9 +478,9 @@ export function App() {
         onClose={() => setResetOpen(false)}
         className="reset-dialog"
       >
-        <h2>{journey?.id === "environment" ? "Đặt lại tiến độ setup?" : "Đặt lại phần học minh họa?"}</h2>
+        <h2>{journey?.id === "environment" ? "Đặt lại tiến độ setup?" : journey?.id === "policy" ? "Đặt lại bài đọc Policy?" : "Đặt lại phần học minh họa?"}</h2>
         <p>
-          {journey?.id === "environment" ? "Chỉ xóa checklist, dấu cần bổ sung và module đã chọn của 7 bước. Giữ tiến độ Policy/Claim, dữ liệu học cũ và tùy chọn hiển thị." : "Chỉ xóa dấu hoàn thành và ghi chú của phần minh họa. Giữ checklist setup và tùy chọn hiển thị."}
+          {journey?.id === "environment" ? "Chỉ xóa checklist, dấu cần bổ sung và module đã chọn của 7 bước. Giữ tiến độ Policy/Claim, dữ liệu học cũ và tùy chọn hiển thị." : journey?.id === "policy" ? "Chỉ xóa tiến độ bài đọc Policy. Giữ checklist setup, ghi chú Claim, dữ liệu học cũ và tùy chọn hiển thị." : "Chỉ xóa dấu hoàn thành và ghi chú của phần minh họa. Giữ checklist setup và tùy chọn hiển thị."}
         </p>
         <div className="actions">
           <button
@@ -488,6 +493,7 @@ export function App() {
             className="button primary"
             onClick={() => {
               if (journey?.id === "environment") setupProgress.reset();
+              else if (journey?.id === "policy") policyProgress.reset();
               else progress.reset();
               setResetOpen(false);
               navigate("/");
@@ -612,7 +618,7 @@ function Sources() {
           <Badge state="verified">Setup có nguồn và thời điểm</Badge>
           <h2>Setup Java đã được khảo sát</h2>
           <p>
-            Lịch sử S00–S18 lấy từ báo cáo ngày 04/11/2026; source/build/config được đối chiếu khi thiết kế cùng ngày. Lượt triển khai UI không chạy Java/Docker/DB hoặc kiểm tra runtime lại. Policy và Claim giữ nội dung minh họa.
+            Lịch sử S00–S18 lấy từ báo cáo ngày 04/11/2026; source/build/config được đối chiếu khi thiết kế cùng ngày. Policy được đọc lại ngày 08/11/2026, có snapshot, commit và số dòng. Thao tác Policy mô phỏng trong UI; Claim giữ khung câu hỏi mở. Lượt triển khai này không chạy Java/Docker/DB hoặc API backend.
           </p>
           <div className="empty compact">
             <Database size={26} />
@@ -631,11 +637,11 @@ function Sources() {
           </p>
           <p>
             Tiến độ và ghi chú chỉ thuộc namespace{" "}
-            <code>backend-learning-workshop.*</code>. Ví dụ Policy chạy trong bộ
-            nhớ và được xóa khi reload.
+            <code>backend-learning-workshop.*</code>. Bài Policy lưu riêng tiến độ tự đọc;
+            URL giữ tiêu chí, trang, ID đã chọn và điểm source. Hồ sơ luôn là dữ liệu mẫu.
           </p>
           <Link className="button secondary" to="/journey/policy">
-            Duyệt kịch bản mẫu
+            Mở bài đọc Policy
             <ArrowRight size={16} />
           </Link>
         </section>

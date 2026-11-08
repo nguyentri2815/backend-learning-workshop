@@ -21,6 +21,10 @@ npm.cmd run dev
 
 Mở [workshop](http://localhost:3182/journey/environment) hoặc đi thẳng [Chạy Command và đọc kết quả](http://localhost:3182/journey/environment?experience=project&task=startup&step=run&prun=run).
 
+[Khám phá Policy — Quote → Policy](http://localhost:3182/journey/policy): năm tab chính và hai cách học cho mỗi flow. Bài Tạo mới có chọn Quote, nhánh chặn tạo, ghi Command, mô phỏng Flow ghi view và theo cùng Policy ID sang Danh sách/Chi tiết. Workspace tái sử dụng cây thư mục, Shiki và panel chỉnh độ rộng; sơ đồ dùng React Flow. Xem [đường review và bảng rà Cập nhật/Đổi trạng thái](docs/POLICY-EXPLORATION-HANDOFF.md).
+
+Bài [Phát hành trực tiếp từ Quote · sáu bước](docs/POLICY-DIRECT-PRACTICE-HANDOFF.md) bắt đầu bằng màn Chi tiết báo giá, Network Đang xử lý, debug từng lần đọc và điều kiện chặn; sau đó dựng/ghi Policy, ghi view và mở cùng Policy ID bằng hai đường đọc. Cả sáu bước có điều hướng trước/sau, sơ đồ thực thi, nơi gọi/quay lại và thanh hành động riêng trên vùng cuộn code; ngữ cảnh snapshot giữ số dòng gốc và chỉ rõ phần file chưa có.
+
 Server chỉ lắng nghe `localhost:3182`, dùng strictPort. Nếu cổng đang được dùng, xác định đúng server/process trước khi tái dùng hoặc dừng; script không tự dừng process khác.
 
 ## Kiểm tra và build
@@ -61,6 +65,8 @@ npm.cmd run verify:fixtures
 
 ## Tài liệu và source
 
+- [Khám phá Policy — hai tầng tab, bài Tạo mới và bảng bằng chứng](docs/POLICY-EXPLORATION-HANDOFF.md).
+- [Tạo mới → Nhìn toàn cảnh — nguồn Quote, Flow chính và bốn đường phát hành](docs/POLICY-CREATION-OVERVIEW-HANDOFF.md).
 - [Mốc dừng Hiểu và chạy dự án, trước khi chuyển sang Khám phá Policy](docs/PROJECT-SETUP-CHECKPOINT.md).
 - [I2 — Tập đọc log thật và lần đường kết nối Redis](docs/PROJECT-REAL-LOG-PRACTICE.md).
 - [I2 — Lần đường kết nối PostgreSQL](docs/PROJECT-POSTGRES-CONNECTION-ROUTE.md).
@@ -76,6 +82,7 @@ Các tài liệu bàn giao cũ có thể dẫn tới `.verification/`: đó là 
 Các vùng code chính:
 
 - `src/setup/`: hành trình mô phỏng, điều hướng và trạng thái.
+- `src/policy/`, `src/content/policy/`: bài đọc Policy, dữ liệu mẫu và snapshot Java. Tiến độ đọc dùng namespace riêng, không chuyển dấu demo cũ thành hoàn thành bài mới.
 - `src/setup/RuntimeCommandLesson.tsx`, `CommandRunWindow.tsx`, `StartupReplay.tsx`: Run và đọc kết quả trong một phiên.
 - `src/setup/command-cases.ts`, `CommandCases.tsx`: dữ liệu case và thao tác tìm nguyên nhân/sửa/thử lại.
 - `src/content/`: dữ liệu bài học đóng gói; `tests/browser/`: tương tác và hồi quy.

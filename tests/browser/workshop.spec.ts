@@ -32,65 +32,6 @@ test("overview explains all journeys and scope; local FE provenance is visible",
   expect(errors).toEqual([]);
 });
 
-test("Policy validates, simulates failure/retry, creates and reads without API requests", async ({
-  page,
-}) => {
-  const apiCalls: string[] = [];
-  page.on("request", (request) => {
-    if (["xhr", "fetch"].includes(request.resourceType()))
-      apiCalls.push(request.url());
-  });
-  await page.goto("/journey/policy");
-  const create = page
-    .getByRole("button", { name: "Tạo Policy mẫu", exact: true })
-    .last();
-  await create.click();
-  await expect(
-    page.getByText("Nhập tên bên mua minh họa.", { exact: true }),
-  ).toBeVisible();
-  await expect(page.getByLabel("Tên bên mua minh họa")).toBeFocused();
-  await page.getByRole("button", { name: "Điền mẫu", exact: true }).click();
-  await page.getByLabel("Gây lỗi lần mô phỏng kế tiếp").check();
-  await create.click();
-  await expect(page.getByText("Đang xử lý mô phỏng…")).toBeVisible();
-  await expect(page.getByRole("alert")).toContainText(
-    "Lỗi phản hồi được mô phỏng",
-  );
-  await expect(page.getByLabel("Tên bên mua minh họa")).toHaveValue(
-    "Khách hàng minh họa",
-  );
-  await page.getByRole("button", { name: "Thử lại", exact: true }).click();
-  await expect(
-    page.getByText("Đã tạo trong bộ nhớ minh họa", { exact: true }),
-  ).toBeVisible();
-  await page
-    .getByRole("button", { name: "Đọc Policy mẫu", exact: true })
-    .first()
-    .click();
-  await page
-    .getByRole("button", { name: "Đọc Policy mẫu", exact: true })
-    .last()
-    .click();
-  await expect(
-    page.getByText("Đã đọc từ bộ nhớ minh họa", { exact: true }),
-  ).toBeVisible();
-  await expect(page.locator(".request-grid")).toContainText("SIMULATED_READ");
-  await expect(page.locator(".request-grid")).toContainText(
-    "Khách hàng minh họa",
-  );
-  expect(apiCalls).toEqual([]);
-  await page.reload();
-  await page
-    .getByRole("button", { name: "Đọc Policy mẫu", exact: true })
-    .first()
-    .click();
-  await page
-    .getByRole("button", { name: "Đọc Policy mẫu", exact: true })
-    .last()
-    .click();
-  await expect(page.getByRole("alert")).toContainText("Chưa có Policy mẫu");
-});
-
 test("source deep links, diff, references and browser history preserve the learning step", async ({
   page,
 }) => {
@@ -146,51 +87,6 @@ test("source deep links, diff, references and browser history preserve the learn
     fullPage: true,
   });
   expect(errors).toEqual([]);
-});
-
-test("selection survives switching view and journey, and flow selects matching source", async ({
-  page,
-}) => {
-  await page.goto(
-    "/journey/policy?step=validate&view=source&file=policy-input&side=before",
-  );
-  await page
-    .getByRole("button", { name: "Thực hành & kiểm chứng", exact: true })
-    .click();
-  await page
-    .getByLabel("Ghi chú và cách giải thích của bạn")
-    .fill("Tên chỉ có khoảng trắng cần được kiểm tra.");
-  await page
-    .getByRole("button", { name: "Source & inspector", exact: true })
-    .click();
-  await expect(
-    page.getByRole("button", { name: "Before", exact: true }),
-  ).toHaveAttribute("aria-pressed", "true");
-  await page.getByRole("link", { name: /Yêu cầu bồi thường.*03/ }).click();
-  await page.getByRole("link", { name: /Khám phá Policy.*02/ }).click();
-  await expect(page).toHaveURL(/step=validate/);
-  await expect(page).toHaveURL(/side=before/);
-  await page
-    .locator(".flow-card")
-    .getByRole("button", { name: "04 Đọc lại" })
-    .click();
-  await expect(page).toHaveURL(/step=read/);
-  await expect(page).toHaveURL(/file=policy-store/);
-  await expect(page.locator(".lesson-heading")).toContainText(
-    "Đọc lại & mở source",
-  );
-  await expect(page.locator(".inspector-body")).toContainText(
-    "createPolicy / readPolicy",
-  );
-  await page
-    .getByRole("button", { name: "Thực hành & kiểm chứng", exact: true })
-    .click();
-  await page
-    .getByRole("button", { name: /02 Theo flow kiểm tra đầu vào/ })
-    .click();
-  await expect(
-    page.getByLabel("Ghi chú và cách giải thích của bạn"),
-  ).toHaveValue("Tên chỉ có khoảng trắng cần được kiểm tra.");
 });
 
 test("progress and notes persist; reset only clears the new learning namespace", async ({
@@ -317,16 +213,14 @@ test("bad deep links and malformed storage have usable fallbacks", async ({
     "/journey/policy?step=missing&view=source&file=missing&side=before",
   );
   await expect(
-    page.getByText("Liên kết có bước hoặc file chưa có dữ liệu.", {
+    page.getByText("Link có bước, ID hoặc tham chiếu không hợp lệ.", {
       exact: false,
     }),
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "Nhìn kết quả từ UI", exact: true }),
+    page.getByRole("heading", { name: "Tìm một hợp đồng", exact: true }),
   ).toBeVisible();
-  await expect(page.getByTestId("highlighted-code")).toContainText(
-    "validateInput",
-  );
+  await expect(page.getByTestId("highlighted-code")).toContainText("SearchPolicyFunc.class");
   await page.goto("/unknown");
   await expect(
     page.getByRole("heading", { name: "Không tìm thấy khu vực này" }),

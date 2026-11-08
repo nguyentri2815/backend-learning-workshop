@@ -1,46 +1,14 @@
 import type { Journey } from "./model";
 import { setupJourney } from "./setup";
+import { policyJourney } from "./policy/lesson";
 
-const policyFiles = [
-  {
-    id: "policy-input",
-    path: "demo/policy/input.pseudo",
-    symbol: "validateInput",
-    role: "Kiểm tra tên đã nhập trong ví dụ giao diện. Không mô tả validation của repo Java.",
-    input: "{ holderName } từ form mô phỏng.",
-    output: "Tên hợp lệ hoặc thông báo cạnh trường.",
-    before:
-      "// Mã giả minh họa — không phải source Java\nfunction validateInput(input) {\n  return input;\n}",
-    after:
-      '// Mã giả minh họa — không phải source Java\nfunction validateInput(input) {\n  if (input.holderName.trim() === "") {\n    return { error: "Nhập tên bên mua minh họa" };\n  }\n  return { holderName: input.holderName.trim() };\n}',
-    range: [3, 6] as [number, number],
-    links: [
-      { target: "policy-store", label: "Dữ liệu hợp lệ được chuyển đi đâu?" },
-    ],
-  },
-  {
-    id: "policy-store",
-    path: "demo/policy/memory-store.pseudo",
-    symbol: "createPolicy / readPolicy",
-    role: "Minh họa ghi rồi đọc bằng bộ nhớ của UI. Không kết nối database.",
-    input: "Tên từ ví dụ form hoặc ID vừa tạo.",
-    output: "Bản ghi mẫu hoặc trạng thái chưa có dữ liệu.",
-    before: "// Mã giả minh họa — bộ nhớ của UI\nconst policies = new Map();",
-    after:
-      '// Mã giả minh họa — bộ nhớ của UI\nconst policies = new Map();\n\nfunction createPolicy(input) {\n  const policy = { id: "POL-DEMO-001", ...input };\n  policies.set(policy.id, policy);\n  return policy;\n}\n\nfunction readPolicy(id) {\n  return policies.get(id) ?? { error: "Chưa có bản ghi" };\n}',
-    range: [4, 7] as [number, number],
-    links: [
-      { target: "policy-input", label: "Xem dữ liệu đầu vào và validation" },
-    ],
-  },
-];
 const claimFiles = [
   {
     id: "claim-questions",
     path: "demo/claims/open-questions.md",
     symbol: "Câu hỏi nghiệp vụ",
     role: "Giữ những điều chưa biết để tránh biến giả định thành yêu cầu triển khai.",
-    input: "Yêu cầu thật, ví dụ nghiệp vụ và source Policy (đang chờ).",
+    input: "Yêu cầu Claim và ví dụ nghiệp vụ đang chờ xác định riêng; source Policy để tham khảo cấu trúc kỹ thuật.",
     output: "Danh sách quyết định được xác nhận trước khi lập kế hoạch thật.",
     before: "# Yêu cầu\nChưa có yêu cầu nghiệp vụ thật.",
     after:
@@ -85,89 +53,7 @@ const claimFiles = [
 
 export const journeys: Journey[] = [
   setupJourney,
-  {
-    id: "policy",
-    number: "02",
-    title: "Khám phá Policy",
-    subtitle: "Đi từ kết quả về source",
-    duration: "4 bước mẫu",
-    state: "demo",
-    summary:
-      "Thử tạo và đọc một Policy minh họa. Lần theo dữ liệu qua flow, request/response và mã giả.",
-    outcome:
-      "Kết nối được thao tác trên UI với luồng xử lý và source liên quan.",
-    files: policyFiles,
-    steps: [
-      {
-        id: "input",
-        title: "Nhìn kết quả từ UI",
-        short: "Nhập dữ liệu",
-        goal: "Thử một thao tác tạo và nhận diện dữ liệu đầu vào.",
-        why: "Kết quả nhìn thấy giúp bạn có câu hỏi cụ thể khi mở source.",
-        expected: "Một Policy mẫu có ID POL-DEMO-001 và tên bạn đã nhập.",
-        check:
-          "Điền mẫu → Tạo Policy mẫu → đối chiếu tên trong kết quả và response.",
-        practice:
-          "Tạo Policy mẫu với một tên khác và chỉ ra phần response thay đổi.",
-        evidence: "Kết quả chỉ chạy trong bộ nhớ của giao diện học.",
-        file: "policy-input",
-        explanation:
-          "Form này mô phỏng một kịch bản tối thiểu; không đại diện màn hình hoặc contract Java.",
-      },
-      {
-        id: "validate",
-        title: "Theo flow kiểm tra đầu vào",
-        short: "Kiểm tra",
-        goal: "Quan sát nhánh thiếu dữ liệu và vị trí trả thông báo.",
-        why: "FE và BE có thể cùng validate nhưng đảm nhiệm các ranh giới khác nhau.",
-        expected: "Bỏ trống tên sẽ có lỗi cạnh input và không tạo bản ghi.",
-        check: "Xóa tên → Tạo Policy mẫu → quan sát lỗi và focus input.",
-        practice:
-          "So sánh kết quả khi tên rỗng, chỉ có khoảng trắng và tên hợp lệ.",
-        evidence: "Validation đang là quy tắc của UI minh họa.",
-        file: "policy-input",
-        range: [3, 5],
-        explanation:
-          "Ví dụ thêm nhánh kiểm tra tên rỗng trước khi tạo dữ liệu.",
-      },
-      {
-        id: "save",
-        title: "Quan sát tạo & phản hồi",
-        short: "Tạo mẫu",
-        goal: "Đối chiếu đầu vào đã chuẩn hóa với bản ghi và response.",
-        why: "Phản hồi cho biết điều gì đã được chấp nhận, chưa chứng minh cơ chế lưu của BE.",
-        expected:
-          "Request mô phỏng có operation CREATE_POLICY; response chứa ID và tên.",
-        check:
-          "Thử “Gây lỗi lần kế tiếp”, sau đó Thử lại; dữ liệu nhập được giữ.",
-        practice:
-          "Giải thích vì sao lỗi phản hồi phải giữ dữ liệu và có đường thử lại.",
-        evidence:
-          "Không có HTTP request hoặc database. Độ trễ và lỗi được giả lập trong UI.",
-        file: "policy-store",
-        range: [4, 7],
-        explanation:
-          "Map trong mã giả giải thích bộ nhớ minh họa, không ngụ ý repo dùng Map để lưu Policy.",
-      },
-      {
-        id: "read",
-        title: "Đọc lại & mở source",
-        short: "Đọc lại",
-        goal: "Đọc lại đúng Policy vừa tạo và lần ngược về nơi dữ liệu được lấy.",
-        why: "Đọc từ dữ liệu đã tạo là bước riêng, không đồng nghĩa hiển thị lại response tạo.",
-        expected: "Chuyển sang Đọc Policy mẫu và nhận cùng ID, tên từ bộ nhớ.",
-        check:
-          "Tạo mẫu trước, rồi Đọc Policy mẫu; reload sẽ bắt đầu lại bộ nhớ.",
-        practice:
-          "Mở memory-store.pseudo → tham chiếu input.pseudo → quay lại đúng file và bước.",
-        evidence: "Không có endpoint đọc thật. Reload xóa bộ nhớ mô phỏng.",
-        file: "policy-store",
-        range: [10, 11],
-        explanation:
-          "readPolicy có nhánh chưa có dữ liệu để bạn quan sát cả kết quả trống.",
-      },
-    ],
-  },
+  policyJourney,
   {
     id: "claims",
     number: "03",
@@ -200,15 +86,15 @@ export const journeys: Journey[] = [
         id: "compare",
         title: "Đối chiếu với Policy",
         short: "Đối chiếu",
-        goal: "Tìm những cách làm sẵn có để tái sử dụng sau khi đọc source Policy.",
+        goal: "Tham khảo cách tổ chức và kiểm thử của Policy, rồi đặt câu hỏi riêng cho Claim.",
         why: "Tính nhất quán cần dựa vào repo thật, không vào một kiến trúc BE tưởng tượng.",
         expected:
           "Bảng đối chiếu trách nhiệm, file/symbol và điều cần khác đi.",
         check:
-          "Mọi liên hệ với Policy phải có dẫn chứng source thật ở giai đoạn sau.",
+          "Bài Policy đã có dẫn chứng source; cách áp dụng vào Claim chờ yêu cầu riêng.",
         practice:
-          "Từ flow Policy mẫu, liệt kê điều muốn khảo sát: validation, lỗi, lưu và đọc.",
-        evidence: "Source Policy thật chưa được khảo sát.",
+          "Từ bài Danh sách → Chi tiết, liệt kê bộ lọc, quyền, nguồn dữ liệu và cách kiểm chứng cần xác nhận cho Claim.",
+        evidence: "Source Policy đã được đọc; chưa xác định API, dữ liệu, quy tắc hoặc trạng thái Claim.",
         file: "claim-plan",
         range: [4, 5],
         explanation:

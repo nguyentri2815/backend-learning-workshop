@@ -5,13 +5,33 @@
   "files": [
     {
       "path": "src/content/journeys.ts",
-      "bytes": 14520,
-      "sha256": "2851b21fd6b13951da47727f0f51639920c67d0f87fab4d70699fe0f8109e5a1"
+      "bytes": 8751,
+      "sha256": "af9f219ed82e4c57e45922df15d207efb0eff972422f73ba012f8c97d90bcc08"
     },
     {
       "path": "src/content/model.ts",
       "bytes": 970,
       "sha256": "767d991fe25a86b38a0b8a5ed76ba0c634593d1fadf629865a266c0527b64c8b"
+    },
+    {
+      "path": "src/content/policy/flows.ts",
+      "bytes": 15386,
+      "sha256": "51fa395355d1de4aad6de96cb7a252270e9033ea3f601288b2f244ef0954c30f"
+    },
+    {
+      "path": "src/content/policy/issuance.ts",
+      "bytes": 25167,
+      "sha256": "ad550f8dd71895f8132219f10e71ae9b9e330e2810dc0c1d3a344e469e52ccb8"
+    },
+    {
+      "path": "src/content/policy/lesson.ts",
+      "bytes": 15742,
+      "sha256": "c73ee3578218ec9c27440f30267244f9d34368617d896c975c0bb3e404efec47"
+    },
+    {
+      "path": "src/content/policy/source.json",
+      "bytes": 361332,
+      "sha256": "b0aeb906b94d483d7c3634c8b026057b391bdce89209991a841b0bec733d7ee9"
     },
     {
       "path": "src/content/setup/action-guide.ts",

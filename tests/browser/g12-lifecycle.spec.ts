@@ -26,7 +26,12 @@ test("G1 teaches a method and never substitutes Command configuration for an unv
   await practice(page).getByLabel("Profile khảo sát",{exact:true}).selectOption("test");
   await expect(practice(page).locator(".connection-unverified")).toContainText("profile test");
   await page.goBack();await expect(page).toHaveURL(flow);
+  await expect(practice(page).getByLabel("Module khảo sát",{exact:true})).toHaveValue("flow");
+  await expect(practice(page).getByLabel("Profile khảo sát",{exact:true})).toHaveValue("dev");
   await button(page,"Quay lại ví dụ Command • dev").click();
+  // Wait for the user-visible scope before editing it; click completion precedes React's URL restore.
+  await expect(practice(page).getByLabel("Module khảo sát",{exact:true})).toHaveValue("command");
+  await expect(practice(page).getByLabel("Profile khảo sát",{exact:true})).toHaveValue("dev");
   await practice(page).getByLabel("Profile khảo sát",{exact:true}).selectOption("base");
   await expect(practice(page).locator(".connection-practice")).toContainText("không khớp đích đó");
   expect(new URL(page.url()).searchParams.get("pprofile")).toBe("dev");

@@ -751,18 +751,24 @@ function SourceWorkspace({
   );
 }
 
+const sourceTreeMemory = new Map<string, string[]>();
 export function SourceTree({
   files,
   selected,
   onSelect,
   label = "Cây thư mục minh họa",
+  memoryKey,
+  compactFolders = false,
 }: {
   files: Pick<SourceFile, "id" | "path">[];
   selected: string;
   onSelect: (id: string) => void;
   label?: string;
+  memoryKey?: string;
+  compactFolders?: boolean;
 }) {
-  const [collapsed, setCollapsed] = useState<string[]>([]);
+  const [collapsed, setCollapsed] = useState<string[]>(()=>memoryKey?sourceTreeMemory.get(memoryKey)??[]:[]);
+  useEffect(()=>{if(memoryKey)sourceTreeMemory.set(memoryKey,collapsed);},[memoryKey,collapsed]);
   const container = useRef<HTMLDivElement>(null);
   const selectedPath = files.find((f) => f.id === selected)?.path ?? "";
   useEffect(() => {
@@ -781,7 +787,19 @@ export function SourceTree({
     return (
       <ul>
         {children.map((name) => {
-          const path = prefix + name;
+          let path = prefix + name;
+          let displayName = name;
+          if (compactFolders && name === 'src') {
+            // Keep workspace/module roots visible; collapse a single package chain.
+            while (true) {
+              const parts = [...new Set(files.filter(f => f.path.startsWith(path + '/')).map(f => f.path.slice(path.length + 1).split('/')[0]))];
+              if (parts.length !== 1 || files.some(f => f.path === path + '/' + parts[0])) break;
+              path += '/' + parts[0];
+              displayName += '/' + parts[0];
+            }
+            const parts = displayName.split('/');
+            if (parts.length > 4) displayName = parts.slice(0, 3).join('/') + '/…/' + parts.at(-1);
+          }
           const file = files.find((f) => f.path === path);
           const closed = collapsed.includes(path);
           return (
@@ -802,6 +820,7 @@ export function SourceTree({
                 <>
                   <button
                     className="tree-folder"
+                    title={path}
                     aria-expanded={!closed}
                     onClick={() =>
                       setCollapsed(
@@ -817,7 +836,7 @@ export function SourceTree({
                       <ChevronDown size={13} />
                     )}
                     {closed ? <Folder size={15} /> : <FolderOpen size={15} />}
-                    {name}
+                    {displayName}
                   </button>
                   {!closed && branch(path + "/")}
                 </>

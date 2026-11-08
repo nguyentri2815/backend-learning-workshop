@@ -28,6 +28,10 @@
   color: #8794a6;
   font-size: 11px;
 }
+.executionMark { flex:0 0 25px; font:10px/25px Consolas,monospace; color:#56819b; user-select:none; }
+.codeLine[data-executed=true] .executionMark { color:#248166; }
+.codeLine[data-upcoming=true] .executionMark { color:#b07d19; }
+.codeLine[data-viewing=true] { border-left-color:#268ac0; }
 .codeLine code {
   white-space: pre;
 }

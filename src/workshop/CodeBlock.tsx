@@ -26,6 +26,7 @@ const highlighter = createHighlighterCore({
 });
 type Token = { content: string; color?: string; fontStyle?: number };
 const readingPositions = new Map<string, { top: number; left: number }>();
+const revealedRequests = new Map<string,string>();
 export function CodeBlock({
   rows,
   path,
@@ -40,6 +41,9 @@ export function CodeBlock({
   memoryKey,
   onLineSelect,
   preferTarget = false,
+  symbolLinks,
+  lineMarks,
+  revealRequest,
 }: {
   rows: CodeRow[];
   path: string;
@@ -58,6 +62,9 @@ export function CodeBlock({
   memoryKey?: string;
   onLineSelect?: (line: number) => void;
   preferTarget?: boolean;
+  symbolLinks?: Array<{text: string; label: string; onClick: () => void}>;
+  lineMarks?: {executed:number[];upcoming:number[];viewing:number[]};
+  revealRequest?:string;
 }) {
   const [wrap] = useCodeWrap();
   const [tokens, setTokens] = useState<Token[][]>([]);
@@ -108,7 +115,8 @@ export function CodeBlock({
     };
   }, [code, language]);
   useEffect(() => {
-    const explicit = previousJump.current !== jump;
+    const requested=Boolean(revealRequest&&memoryKey&&revealedRequests.get(memoryKey)!==revealRequest);
+    const explicit = previousJump.current !== jump||requested;
     previousJump.current = jump;
     if (!autoFollow && !explicit && positioned.current) return;
     const container = scroll.current;
@@ -138,6 +146,7 @@ export function CodeBlock({
         behavior: "instant",
       });
       positioned.current = true;
+      if(revealRequest&&memoryKey)revealedRequests.set(memoryKey,revealRequest);
       pending = false;
     };
     reveal();
@@ -159,6 +168,7 @@ export function CodeBlock({
     preferTarget,
     tokens.length,
     code,
+    revealRequest,
   ]);
   return (
     <div
@@ -244,6 +254,9 @@ export function CodeBlock({
               data-highlight={highlight?.purpose}
               data-occurrence={highlight?.occurrence}
               data-focus-line={Boolean(range && line === range.start)}
+              data-executed={Boolean(line&&lineMarks?.executed.includes(line))}
+              data-upcoming={Boolean(line&&lineMarks?.upcoming.includes(line))}
+              data-viewing={Boolean(line&&lineMarks?.viewing.includes(line))}
               onClick={onLineSelect && line ? () => onLineSelect(line) : undefined}
               title={
                 explained
@@ -251,6 +264,7 @@ export function CodeBlock({
                   : undefined
               }
             >
+              {lineMarks&&<span className={styles.executionMark} title={[line&&lineMarks.executed.includes(line)?'Đã chạy':'',line&&lineMarks.upcoming.includes(line)?'Sắp chạy':'',line&&lineMarks.viewing.includes(line)?'Đang xem':''].filter(Boolean).join(' · ')}>{line&&lineMarks.executed.includes(line)?'✓':''}{line&&lineMarks.upcoming.includes(line)?'▶':''}{line&&lineMarks.viewing.includes(line)?'●':''}</span>}
               {diff ? (
                 <>
                   <span className={styles.lineNumber} aria-hidden>
@@ -294,7 +308,13 @@ export function CodeBlock({
                               : undefined,
                         }}
                       >
-                        {token.content}
+                        {symbolLinks?.some(link => token.content.includes(link.text))
+                          ? (() => {
+                              const link = symbolLinks.find(item => token.content.includes(item.text))!;
+                              const parts = token.content.split(link.text);
+                              return parts.flatMap((part, index) => index === 0 ? [part] : [<button type="button" className="source-symbol-link" key={index} aria-label={link.label} onClick={event => {event.stopPropagation(); link.onClick();}}>{link.text}</button>, part]);
+                            })()
+                          : token.content}
                       </span>
                     ))
                   : row.text}

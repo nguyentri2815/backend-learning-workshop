@@ -7,6 +7,8 @@ const validKeys = new Set(
     ...journeys.filter(j => j.id !== "environment").flatMap((j) => j.steps.map((s) => `${j.id}:${s.id}`)),
     // Preserve legacy demo notes; never count/migrate them as real setup progress.
     ...["map", "prerequisites", "start", "check", "diagnose"].map(id => `environment:${id}`),
+    // Keep old Policy demo notes; never migrate them into the sourced reading lesson.
+    ...["input", "validate", "save", "read"].map(id => `policy:${id}`),
   ],
 );
 type Progress = { completed: string[]; notes: Record<string, string> };
