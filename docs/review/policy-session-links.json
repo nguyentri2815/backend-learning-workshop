@@ -1,0 +1,6 @@
+{
+  "start": "http://localhost:3182/journey/policy?group=create&mode=session",
+  "ide": "http://localhost:3182/journey/policy?group=create&mode=session&sessionAt=apply&sessionDone=7&sessionFile=aggregate&sessionMode=round&sessionFilter=changed&sessionTrials=entry-valid%2Centry-missing%2Centry-blocked",
+  "beforeSave": "http://localhost:3182/journey/policy?group=create&mode=session&sessionAt=payment&sessionDone=10&sessionFile=func&sessionMode=file&sessionFilter=changed&sessionTrials=entry-valid%2Centry-missing%2Centry-blocked%2Cpending%2Csuccess%2Cread-id",
+  "review": "http://localhost:3182/journey/policy?group=create&mode=session&sessionAt=review&sessionDone=10&sessionFile=func&sessionMode=total&sessionFilter=changed&sessionTrials=entry-valid%2Centry-missing%2Centry-blocked%2Cpending%2Csuccess%2Cread-id"
+}

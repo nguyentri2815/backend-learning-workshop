@@ -1,3 +1,4 @@
+import {chooseTaskInStep} from "./runtime-helpers";
 import {test,expect} from "@playwright/test";
 import type {Page} from "@playwright/test";
 import {normalizeSimulation} from "../../src/setup/practice-runtime-model";
@@ -10,7 +11,7 @@ const configured={mainSelected:true,runSetup:{step:"saved",draftProfile:"dev",ap
 const button=(page:Page,name:string)=>practice(page).getByRole("button",{name,exact:true});
 const snapshot=(page:Page)=>JSON.parse(new URL(page.url()).searchParams.get("psim")??"{}");
 async function open(page:Page,task:string,sim:object){await page.goto(`/journey/environment?${new URLSearchParams({experience:"project",task,pprofile:"dev",psim:JSON.stringify(sim)})}`);await expect(practice(page)).toBeVisible();}
-async function runStep(page:Page){await practice(page).getByRole("button",{name:/^I2 /}).click();await expect(practice(page).locator(".command-lesson")).toBeVisible();}
+async function runStep(page:Page){await chooseTaskInStep(page,"I2");await expect(practice(page).locator(".command-lesson")).toBeVisible();}
 
 test("startup conditions ignore log-reading progress in both Run models and throughout startup",()=>{
  const base=normalizeSimulation({...configured,daemon:true,containers:Object.fromEntries(services.map(id=>[id,"running"])),readyEvidence:[]});

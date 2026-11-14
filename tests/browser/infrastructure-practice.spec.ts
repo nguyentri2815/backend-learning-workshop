@@ -1,3 +1,4 @@
+import {chooseTaskInStep} from "./runtime-helpers";
 import {expect,test} from "@playwright/test";
 import type {Page,Locator} from "@playwright/test";
 import {readFile} from "node:fs/promises";
@@ -99,7 +100,7 @@ test("Docker Engine, container process, readiness and Java connection remain dis
   await practice(page).locator(".docker-practice").screenshot({path:".verification/labs-docker-container-running.png"});
   await createContainer(page,"redis");await expect(practice(page).locator(".docker-evidence")).toContainText("Chưa xác nhận");
   await page.reload();await expect(practice(page).locator(".docker-table .container-running")).toHaveCount(2);
-  await practice(page).getByRole("button",{name:/^J2 /}).click();
+  await chooseTaskInStep(page,"J2");
   await practice(page).locator(".command-state-details>summary").click();await expect(practice(page).locator(".execution-state")).toContainText("running");await expect(practice(page).locator(".command-state-details")).toContainText("từng dependency hoặc API");
   await page.goto(engine);await expect(practice(page).locator(".docker-table .container-running")).toHaveCount(0);
   await button(page,"Làm lại phần này").click();await expect(practice(page).locator(".docker-version")).toContainText("không truy cập được");
@@ -134,13 +135,13 @@ test("visiting approved A–E tasks preserves shared container state and returni
   await practice(page).locator(".practice-task-nav button").first().click();
   await expect(page).toHaveURL(/task=root/);
   expect(JSON.parse(new URL(page.url()).searchParams.get("psim")!).containers.redis).toBe("running");
-  const root=page.url();await practice(page).getByRole("button",{name:/^G1 /}).click();
+  const root=page.url();await chooseTaskInStep(page,"G1");
   await expect(button(page,"Xem cấu hình Redis")).toHaveAttribute("aria-pressed","true");
   await expect(practice(page).locator(".connection-status")).toContainText("running");
   const connection=page.url();await page.goBack();await expect(page).toHaveURL(root);
   await page.goForward();await expect(page).toHaveURL(connection);await page.reload();
   await expect(practice(page).locator(".connection-status")).toContainText("running");
-  await practice(page).getByRole("button",{name:/^G2 /}).click();
+  await chooseTaskInStep(page,"G2");
   await expect(practice(page).getByRole("row",{name:"Chọn container redis",exact:true})).toContainText("running");
 });
 test("mobile 390px supports the complete IDE route and stacked connection comparison without overflow",async({page})=>{

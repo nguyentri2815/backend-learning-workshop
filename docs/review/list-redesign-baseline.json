@@ -1,0 +1,162 @@
+[
+  {
+    "mode": "overview",
+    "headings": [
+      "Bốn đường phát hành, một điểm hội tụ",
+      "Đặt lại bài đọc Policy?"
+    ],
+    "navigation": [
+      "Điều hướng chính",
+      "Nhóm thao tác Policy",
+      "Cách học flow"
+    ]
+  },
+  {
+    "mode": "steps",
+    "headings": [
+      "Bước 1/6 · Phát hành từ Quote",
+      "Phát hành từ Quote",
+      "Q-DEMO-101",
+      "Đặt lại bài đọc Policy?"
+    ],
+    "navigation": [
+      "Điều hướng chính",
+      "Nhóm thao tác Policy",
+      "Cách học flow",
+      "Sáu bước phát hành trực tiếp",
+      "Điều hướng bước đang thao tác"
+    ]
+  },
+  {
+    "checkpoints": [
+      "1/8 · CreatePolicyFunc.exec:L61 · Đọc Quote bằng ID ✓",
+      "2/8 · CreatePolicyFunc.exec:L62 · Rẽ nhánh khi không có Quote ✓",
+      "3/8 · CreatePolicyFunc.exec:L66 · Lấy Quote từ optional ✓",
+      "4/8 · CreatePolicyFunc.exec:L67 · Dừng ở lời gọi runInternal ✓",
+      "5/8 · CreatePolicyFunc.runInternal:L70 · Vào runInternal với Quote đã đọc ✓",
+      "6/8 · CreatePolicyFunc.runInternal:L74 · Đọc Policy cùng quoteCode ✓",
+      "7/8 · CreatePolicyFunc.runInternal:L75 · Đọc đối tượng bảo hiểm của Quote ✓",
+      "8/8 · CreatePolicyFunc.runInternal:L76 · Quyết định có được tạo Policy ✓"
+    ],
+    "buttons": [
+      "⇤ Bước trước",
+      "← Điểm trước",
+      "→ Điểm sau",
+      "⇥ Bước sau"
+    ]
+  },
+  {
+    "source": "WORKSPACE · SOURCE THẬT\nĐoạn liên quan\nMở rộng ngữ cảnh\nXuống dòng code\nCode\nTheo giao diện\nSáng\nTối\n✓ Đã chạy\n◆ Đang dừng\n▶ Sắp chạy\n● Đang xem\nSnapshot trích đoạn · chưa có bản đầy đủ\n\nEXPLORER\n2 file đã mở\n\nMở vị trí đang xem\nCreatePolicyFunc.java · runInternal:L76\nXem vị trí trước\nCreatePolicyFunc.java · exec:L67\nworkspaces\nagent-service\n1-agent-command-service\nsrc/main/java/…/agent\ncontroller\nPolicyController.java\nfunction\npolicy\nCreatePolicyFunc.java\nCreatePolicyFunc.runInternal:L76\nworkspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java\nSnapshot L60–78 · f0971ae41170\n60\n    public EntityWithIdAndVersion<PolicyAggregate> exec(String quoteId) {\n✓\n61\n        Optional<QuoteAggregate> optional = quoteRepository.findById(quoteId);\n✓\n62\n        if (optional.isEmpty()) {\n63\n            throw new ServiceException(PlatformErrorCode.QUOTE_NOT_EXIST);\n64\n        }\n65\n        logger.info(\"createPolicy from quoteId {}\", quoteId);\n✓\n66\n        QuoteAggregate quoteAggregate = optional.get();\n✓\n67\n        return execInTransactionAndLock(QuoteAggregate.KEY_LOCK_AGGREGATE + quoteId, () -> runInternal(quoteAggregate));\n68\n    }\n69\n✓\n70\n    private EntityWithIdAndVersion<PolicyAggregate> runInternal(QuoteAggregate quoteAggregate) {\n71\n        List<Integer> status = new ArrayList<>();\n72\n        status.add(PolicyStatus.NOT_RUNNING);\n73\n        status.add(PolicyStatus.RUNNING);\n✓\n74\n        List<PolicyAggregate> policyAggregateList = policyRepository.findAllByQuoteCodeAndStatusIn(quoteAggregate.getQuoteCode(), status);\n✓\n75\n        List<InsuranceObjectAggregate> insuranceObjectList = insuranceObjectRepository.findAllByEntityIdAndObjectTypeAndDeleted(quoteAggregate.getId(), InsuredObjectType.QUOTE, false);\n◆\n76\n        if (policyAggregateList.size() != 0) {\n77\n            throw new ServiceException(PlatformErrorCode.QUOTE_CAN_NOT_RELEASE_POLICY);\n78\n        }\nquoteRepository.findById → JpaRepository ↗\nQuoteAggregate → quote_aggregate ↗\nDùng Quote ở MappingUtils.mapObject ↗"
+  },
+  {
+    "mode": "assembly",
+    "headings": [
+      "1/6 · Phát hành từ Quote",
+      "Để suy luận quyết định 1",
+      "Vì sao cần thiết kế này?",
+      "Bản đồ thành phần",
+      "Controller · cửa nhận yêu cầu",
+      "Gặp tính năng tương tự, bắt đầu từ đâu?",
+      "Đặt lại bài đọc Policy?"
+    ],
+    "navigation": [
+      "Điều hướng chính",
+      "Nhóm thao tác Policy",
+      "Cách học flow",
+      "Sáu bước tư duy lắp ráp",
+      "Tiến trình quyết định",
+      "Thành phần trong bước"
+    ]
+  },
+  {
+    "view": "Phối hợp",
+    "headings": [
+      "1/6 · Phát hành từ Quote",
+      "Bàn giao quoteId",
+      "Sơ đồ phối hợp · Nhận ID trên URL → giao Func",
+      "Bàn giao quoteId",
+      "Vì sao cần thiết kế này?",
+      "Bản đồ thành phần",
+      "Controller · cửa nhận yêu cầu",
+      "Gặp tính năng tương tự, bắt đầu từ đâu?",
+      "Đặt lại bài đọc Policy?"
+    ],
+    "buttons": [
+      "",
+      "Suy luận",
+      "Phối hợp",
+      "Chọn mẫu",
+      "1. Gửi gì?Đã khám phá",
+      "2. Giao cho ai?Đã khám phá",
+      "Xem mẫu thiết kế",
+      "Bước 2 · Kiểm tra Quote",
+      "Bàn giao quoteId",
+      "",
+      "",
+      "",
+      "1. Bàn giao quoteId ",
+      "Controller",
+      "Func",
+      "Controller FuncBàn giao quoteId",
+      "KHUNG THÀNH PHẦN",
+      "KHUNG PHỐI HỢP",
+      "",
+      "Xem sơ đồ phối hợp",
+      "A · Bên gọiPolicyController.createPolicy",
+      "B · Bên nhậnCreatePolicyFunc.exec",
+      "A · Bên gọi · Source thật · Ví dụ triển khaiPolicyController.java · L41–49",
+      "",
+      "Xem sơ đồ liên quan",
+      "B · Bên nhận · Source thật · Ví dụ triển khaiCreatePolicyFunc.java · L56–64",
+      "",
+      "Xem sơ đồ liên quan",
+      "",
+      "Source thật · Ví dụ cùng khungPolicyController.java · L31–36",
+      ""
+    ]
+  },
+  {
+    "view": "Chọn mẫu",
+    "headings": [
+      "1/6 · Phát hành từ Quote",
+      "Bàn giao quoteId",
+      "Sơ đồ phối hợp · Nhận ID trên URL → giao Func",
+      "Bàn giao quoteId",
+      "Vì sao cần thiết kế này?",
+      "Bản đồ thành phần",
+      "Controller · cửa nhận yêu cầu",
+      "Gặp tính năng tương tự, bắt đầu từ đâu?",
+      "Đặt lại bài đọc Policy?"
+    ],
+    "buttons": [
+      "",
+      "Suy luận",
+      "Phối hợp",
+      "Chọn mẫu",
+      "1. Gửi gì?Đã khám phá",
+      "2. Giao cho ai?Đã khám phá",
+      "Bước 2 · Kiểm tra Quote",
+      "Controller",
+      "Func",
+      "Controller FuncBàn giao quoteId",
+      "KHUNG THÀNH PHẦN",
+      "KHUNG PHỐI HỢP",
+      "",
+      "Xem sơ đồ phối hợp",
+      "A · Bên gọiPolicyController.createPolicy",
+      "B · Bên nhậnCreatePolicyFunc.exec",
+      "A · Bên gọi · Source thật · Ví dụ triển khaiPolicyController.java · L41–49",
+      "",
+      "Xem sơ đồ liên quan",
+      "B · Bên nhận · Source thật · Ví dụ triển khaiCreatePolicyFunc.java · L56–64",
+      "",
+      "Xem sơ đồ liên quan",
+      "",
+      "Source thật · Ví dụ cùng khungPolicyController.java · L31–36",
+      ""
+    ]
+  },
+  {
+    "implementation": "Từng bước triển khai · Tạo Policy từ Quote\nTìm file trong cây, thực hiện thao tác rồi xem code và kết quả của từng lượt.\nSơ đồ liên quan\nTừng bước triển khai\nTrước\nLượt 1/3 · 0/3 đã thực hiện\nTiếp theo\nLàm lại phần này\nMốc khởi đầu · Bước 1\n\nWorkspace đã có Spring, BaseController, BaseFunc và các mẫu Controller. Riêng API tạo Policy và exec của CreatePolicyFunc được bỏ khỏi bản mô phỏng để bạn lắp lại. Các phần của bước 2–6 chưa được lắp.\n\nThứ tự thực hành để lắp lại tính năng theo source; không mô tả lịch sử viết code hay thứ tự chạy backend. Thao tác chỉ đổi bản mô phỏng của chế độ này.\nWorkspace · agent-system\nworkspaces\nagent-service\n1-agent-command-service\nsrc/main/java/…/agent\ncontroller\nPolicyController.java\nfunction\npolicy\nCreatePolicyFunc.java\nFindPolicyByIdFunc.java\n4-agent-shared-domain\nsrc/main/java/…/agent\nrepository\nQuoteRepository.java\ncommand\npolicy\nCreatePolicyCommand.java\ndomain\nPolicyAggregate.java\nagent-shared\nsrc/main/java/…/policy\nCreatePolicyEvent.java\n5-agent-shared-entity\nsrc/main/java/…/entity\nPolicyViewEntity.java\n2-agent-flow-service\nsrc/main/java/…/agent\nworkflow\nPolicyWorkflow.java\nfunction\nPolicySyncViewFunc.java\n3-agent-query-service\nsrc/main/java/…/controller\nPolicyController.java\n1-shared\nshared-base\nsrc/main/java/…/controller\nBaseController.java\nshared-webmvc\nsrc/main/java/…/base\nBaseFunc.java\n\nFile có sẵn có thể chỉ cần thêm method hoặc một nhánh. Trạng thái bên phải gắn với đúng đoạn cần làm.\n\nPhần có sẵn để dùng · 3\nSẽ dùng ở các bước sau · 9 file\n1.\nXác định đầu vào và tìm mẫu Controller\n2.\nChuẩn bị điểm nhận ở Func\n3.\nNối Controller với Func\n1 · VIỆC CẦN LÀM\nCó sẵn để dùng\nXác định đầu vào và tìm mẫu Controller\n\nChốt API nhận gì trước khi tạo đầu nhận. Mẫu sync có cùng cách nhận ID trên URL và dùng lớp nền.\n\n2 · VỊ TRÍ TRONG WORKSPACE\n\nMẫu endpoint nhận ID · BaseController cung cấp context/executor\n\nworkspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/PolicyController.java\nChỉ vị trí\n3 · THAO TÁC TRONG MÔ PHỎNG\nChọn cách nối / dữ liệu\nChọn để thực hiện…\nquoteId trên URL · String\nCreateQuoteRequest trong body\nChọn đầu vào API\n\nMở file mục tiêu trong cây để thao tác. Bạn có thể tự tìm hoặc chọn “Chỉ vị trí”.\n\n4 · KẾT QUẢ VÀ VIỆC LÀM TIẾP\n\nThực hiện thao tác để tạo kết quả và xem phần có thể làm tiếp.\n\nChọn một file trong cây workspace để đọc source. Đoạn cần thêm sẽ hiện sau thao tác mô phỏng.\n\nFixture đang dùng: QUOTE-LEARN-101 · ngày mẫu 2026-11-08. Mỗi bài có mốc đầu riêng; xem lại giữ kết quả, “Làm lại phần này” đặt lại toàn bộ bài ở bước hiện tại."
+  }
+]

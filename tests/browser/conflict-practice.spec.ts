@@ -1,3 +1,4 @@
+import {chooseTaskInStep} from "./runtime-helpers";
 import {test,expect} from "@playwright/test";
 import type {Page} from "@playwright/test";
 import {conflictForeign,conflictService,emptyConflictCase,runConflict} from "../../src/setup/conflict-lab-model";
@@ -66,7 +67,7 @@ test("port conflict creates but cannot start; renaming fails, port correction an
  await button(page,"Chạy lại kế hoạch trong bài").click();await expect(practice(page).getByTestId("created-postgres-learning")).toContainText("running");
  await expect(practice(page).getByTestId("existing-pg-analytics")).toContainText("running");
  expect(state(page).containers).toEqual({"postgres-write":"stopped"});expect(state(page).readyEvidence??[]).toEqual([]);expect(state(page).process??"idle").toBe("idle");
- await practice(page).getByRole("button",{name:/^J2 /}).click();await expect(practice(page).locator(".conflict-summary")).toContainText("postgres-learning running · 15432 (G3)");
+ await chooseTaskInStep(page,"J2");await expect(practice(page).locator(".conflict-summary")).toContainText("postgres-learning running · 15432 (G3)");
 });
 
 test("skipping optional service changes plan before retry and leaves existing containers plus other lessons intact",async({page})=>{

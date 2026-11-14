@@ -3,6 +3,24 @@ import type { CodeRow } from '../workshop/source';
 
 export type ReadingMode='related'|'context'|'file';
 export interface SourceLocation {ref:string;line:number;to?:number;label?:string}
+export interface SourcePosition extends SourceLocation {method:string}
+export function sourceMethod(ref:string,line:number) {
+  const source=excerptById[ref];
+  const signatures=policySource.excerpts.filter(e=>e.path===source.path).flatMap(e=>e.rows)
+    .filter(r=>r.line!==undefined&&r.line<=line)
+    .map(r=>({line:r.line!,name:r.text.match(/^\s*(?:public|private|protected)\s+(?:(?:static|final|synchronized)\s+)*(?:[\w<>,?\[\].]+\s+)?(\w+)\s*\(/)?.[1]}))
+    .filter(r=>r.name).sort((a,b)=>b.line-a.line);
+  return signatures[0]?`${source.path.split('/').at(-1)!.replace(/\.java$/,'')}.${signatures[0].name}`:undefined;
+}
+export function sourceTransition(from:SourcePosition,to:SourcePosition,via='') {
+  const origin=excerptById[from.ref],destination=excerptById[to.ref];
+  const short=(method:string)=>method.split('.').at(-1)!;
+  const route=`${short(from.method)}:L${from.line} → ${short(to.method)}:L${to.line}`;
+  if(origin.path!==destination.path)return {sameFile:false,title:`${via.startsWith('Qua event')?'Qua event · ':''}Chuyển file`,route:`${origin.path} · ${short(from.method)}:L${from.line} → ${destination.path} · ${short(to.method)}:L${to.line}`};
+  const title=from.method===to.method?`Cùng file · ${destination.path.split('/').at(-1)} · ${short(to.method)} · L${from.line} → L${to.line}`
+    :`Cùng file · ${via.startsWith('Trả về')?'Trả về nơi gọi · Tiếp tục': 'Gọi'} ${short(to.method)}`;
+  return {sameFile:true,title,route};
+}
 export function snapshotContext(id:string,focus:number) {
   const source=excerptById[id];
   const snippets=policySource.excerpts.filter(e=>e.path===source.path);

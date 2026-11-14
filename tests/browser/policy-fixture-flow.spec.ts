@@ -1,0 +1,123 @@
+import {expect,test} from '@playwright/test';
+import {beginnerFiles,beginnerHistory,beginnerRounds,beginnerRows} from '../../src/content/policy/beginner-session';
+import {runBeginnerTrial} from '../../src/policy/beginner-fixture';
+import {groupFilesByCreation,sessionFileMilestones} from '../../src/policy/session-file-changes';
+
+const at=(id:string)=>beginnerRounds.findIndex(round=>round.id===id);
+const route='/journey/policy?group=create&mode=session&sessionId=quote-beginner';
+
+test('fixture traversal follows applied statements, keeps guard branches separate and stops before unfinished code',()=>{
+ const valid=runBeginnerTrial('quote-valid',at('quote-guard'))!;
+ const points=valid.lanes.flatMap(lane=>lane.points);
+ expect(points.filter(p=>p.status==='passed').map(p=>p.id)).toEqual(['url','controller','exec','read','found','lock','internal']);
+ expect(valid.furthest).toBe('internal');
+ expect(points.find(p=>p.id==='internal')?.source?.ref).toBe('func');
+ expect(points.filter(p=>p.status==='unwired').map(p=>p.id)).toEqual(['command','save']);
+ expect(points.filter(p=>p.status==='skipped').map(p=>p.id)).toEqual(['empty','missing-error']);
+ expect(valid).toMatchObject({commands:0,events:0,writes:0});expect(valid.policyId).toBeUndefined();
+ const missing=runBeginnerTrial('quote-missing',at('quote-guard'))!;
+ expect(missing.furthest).toBe('missing-error');expect(missing.error).toBe('QUOTE_NOT_EXIST');
+ expect(missing.lanes.flatMap(l=>l.points).filter(p=>p.status==='passed'||p.status==='stopped').map(p=>p.id)).toEqual(['url','controller','exec','read','empty','missing-error']);
+ expect(missing.lanes.flatMap(l=>l.points).filter(p=>['lock','internal'].includes(p.id)).every(p=>p.status==='skipped')).toBe(true);
+ expect(missing).toMatchObject({commands:0,events:0,writes:0});expect(missing.policyId).toBeUndefined();
+ expect(runBeginnerTrial('quote-valid',at('quote-guard')-1)).toBeNull();
+ expect(runBeginnerTrial('quote-valid',at('command-type'))).toMatchObject({commands:0,events:0,writes:0});
+ expect(runBeginnerTrial('quote-valid',at('mapping'))).toMatchObject({commands:1,events:0,writes:0,furthest:'command'});
+ expect(runBeginnerTrial('quote-valid',at('persist'))).toMatchObject({commands:1,events:1,writes:1,furthest:'result',policyId:'POL-BEGINNER-101'});
+ expect(runBeginnerTrial('duplicate',at('duplicate-guard'))).toMatchObject({commands:0,events:0,writes:0,error:'QUOTE_CAN_NOT_RELEASE_POLICY',furthest:'duplicate-guard'});
+ expect(runBeginnerTrial('read-id',at('verify'))).toMatchObject({commands:0,events:0,writes:0,furthest:'compare'});
+});
+
+test('creation groups use first applied addition and keep files from the same round together',()=>{
+ const events=Object.fromEntries(beginnerFiles.map(file=>[file.id,sessionFileMilestones(file.id,beginnerRows,beginnerHistory,at('verify'))]));
+ expect(events.controller.map(e=>[e.index+1,e.status])).toEqual([[7,'A'],[9,'M']]);
+ expect(events.repositoryBean.map(e=>e.status)).toEqual(['M']);
+ const fakeFiles=[{id:'a',path:'a.java'},{id:'b',path:'b.java'},{id:'existing',path:'existing.java'}];
+ const group=groupFilesByCreation(fakeFiles,{a:events.controller,b:events.controller,existing:events.repositoryBean});
+ expect(group).toHaveLength(1);expect(group[0].milestone.index+1).toBe(7);expect(group[0].files.map(f=>f.id)).toEqual(['a','b']);
+ const old=Object.fromEntries(beginnerFiles.map(file=>[file.id,sessionFileMilestones(file.id,beginnerRows,beginnerHistory,at('controller-pattern'))]));
+ expect(old.controller).toEqual([]);expect(groupFilesByCreation(beginnerFiles,old)).toHaveLength(2);
+});
+
+test('both Quote fixtures show their exact applied path, source and counts without leaving the round',async({page})=>{
+ await page.goto(route+'&sessionAt=quote-trial&sessionDone=9&sessionDecision.quote-trial=0');
+ const root=page.locator('.policy-session'),check=root.locator('.beginner-check');
+ await check.getByRole('button',{name:'Thử Quote hợp lệ',exact:true}).click();
+ const valid=check.locator('[data-trial=quote-valid]');
+ await expect(valid).toHaveAttribute('data-snapshot','9');
+ await expect(valid.locator('[data-furthest=true]')).toHaveAttribute('data-point','internal');
+ await expect(valid.locator('[data-furthest=true]')).toContainText('Đã tới đây');
+ await expect(valid.locator('[data-point=lock]')).toHaveAttribute('data-state','passed');
+ await expect(valid.locator('[data-point=command]')).toHaveAttribute('data-state','unwired');
+ await expect(valid.locator('[data-point=save]')).toContainText('Chưa nối tại mốc này');
+ await expect(valid.locator('[data-point=missing-error]')).toContainText('Không chạy ở lần thử này');
+ await expect(valid.locator('.trial-counts')).toHaveText('0 Command0 Event0 lần ghi mớiChưa có Policy ID');
+ await valid.getByRole('button',{name:/runInternal · CreatePolicyFunc/}).click();
+ await expect(valid.locator('.beginner-trial-source')).toContainText('Chưa nối dựng và ghi Policy');
+ await expect(root).toHaveAttribute('data-round','quote-trial');
+ await check.getByRole('button',{name:'Thử Quote không tồn tại',exact:true}).click();
+ const missing=check.locator('[data-trial=quote-missing]');
+ await expect(missing.locator('[data-point=empty]')).toHaveAttribute('data-state','passed');
+ await expect(missing.locator('[data-furthest=true]')).toHaveAttribute('data-point','missing-error');
+ await expect(missing.locator('[data-point=missing-error]')).toHaveAttribute('data-state','stopped');
+ await expect(missing.locator('[data-point=missing-error]')).toContainText('QUOTE_NOT_EXIST');
+ for(const point of ['lock','internal'])await expect(missing.locator(`[data-point=${point}]`)).toHaveAttribute('data-state','skipped');
+ await missing.getByRole('button',{name:/Dừng trong exec · CreatePolicyFunc/}).click();
+ await expect(missing.locator('.beginner-trial-source')).toContainText('QUOTE_NOT_EXIST');
+ await expect(root).toHaveAttribute('data-round','quote-trial');
+ await page.reload();await expect(check.locator('[data-trial=quote-valid]')).toHaveAttribute('data-snapshot','9');
+ await valid.screenshot({path:'docs/review/policy-fixture-valid.png',style:'.notebook-header { visibility:hidden; }'});
+ await missing.screenshot({path:'docs/review/policy-fixture-missing.png',style:'.notebook-header { visibility:hidden; }'});
+ const saved=new URL(page.url()).searchParams;saved.set('sessionAt','review');saved.set('sessionDone','24');
+ await page.goto('/journey/policy?'+saved);
+ await expect(root.locator('.session-test-results [data-trial=quote-valid]')).toHaveAttribute('data-snapshot','9');
+ await expect(root.locator('.session-test-results [data-trial=quote-valid] .trial-counts')).toContainText('0 Command');
+});
+
+test('Explorer shows birth rounds, opens exact files from labels and preserves creation after later edits',async({page})=>{
+ await page.goto(route+'&sessionAt=controller&sessionDone=6&sessionDecision.controller=0&sessionScope=total&sessionFile=controller');
+ const root=page.locator('.policy-session'),tree=root.locator('.session-tree');
+ const current=tree.getByRole('button',{name:'Tạo ở lượt 7 · Lượt này · PolicyController.java',exact:true});
+ await expect(current).toBeVisible();
+ await expect(tree.getByRole('button',{name:/Tạo ở lượt 4 · IPolicyCommand.java/})).toBeVisible();
+ await expect(tree.getByRole('button',{name:/Tạo ở lượt 5 · PolicyAggregate.java/})).toBeVisible();
+ await expect(tree.locator('.session-file-milestone').filter({hasText:'Lượt này'})).toHaveCount(1);
+ await expect(tree.locator('.tree-folder')).not.toHaveCount(0);
+ await tree.screenshot({path:'docs/review/policy-file-birth-tree.png',style:'.notebook-header { visibility:hidden; }'});
+ await tree.getByRole('button',{name:'Theo lượt tạo',exact:true}).click();
+ await expect(tree.locator('[data-created-round]')).toHaveCount(3);
+ await expect(tree.locator('[data-created-round="7"]')).toContainText('Tạo vùng nhận yêu cầu Policy');
+ await tree.screenshot({path:'docs/review/policy-file-birth-timeline.png',style:'.notebook-header { visibility:hidden; }'});
+ await tree.getByRole('button',{name:/Tạo ở lượt 5 · PolicyAggregate.java/}).click();
+ await expect(root).toHaveAttribute('data-round','aggregate-model');
+ await expect(root.getByTestId('session-code')).toHaveAttribute('data-file','aggregate');
+ await tree.getByRole('button',{name:'Từ đầu phiên',exact:true}).click();
+ await expect(tree.locator('[data-created-round]')).toHaveCount(2);
+ await expect(tree).not.toContainText('PolicyController.java');
+ await tree.getByRole('button',{name:'Theo thư mục',exact:true}).click();
+ await tree.getByRole('button',{name:/Tạo ở lượt 4 · IPolicyCommand.java/}).click();
+ await expect(root).toHaveAttribute('data-round','marker');
+ await expect(root.getByTestId('session-code')).toHaveAttribute('data-file','marker');
+ await page.goto(route+'&sessionAt=wire&sessionDone=8&sessionDecision.wire=0&sessionScope=total&sessionFile=controller');
+ await expect(tree.getByRole('button',{name:'Tạo ở lượt 7 · PolicyController.java',exact:true})).toBeVisible();
+ await expect(root.locator('.session-file-history .session-history-kind')).toHaveText(['Tạo file · Lượt 7','Sửa file · Lượt 9']);
+ await tree.getByRole('button',{name:'Lượt này',exact:true}).click();
+ await expect(tree.getByRole('button',{name:'Sửa ở lượt 9 · Lượt này · PolicyController.java',exact:true})).toBeVisible();
+ await page.goto(route+'&sessionAt=registration&sessionDone=22&sessionDecision.registration=0&sessionScope=total&sessionFile=repositoryBean');
+ await expect(tree.getByRole('button',{name:'Sửa ở lượt 23 · Lượt này · PlatformConfig.java',exact:true})).toBeVisible();
+ await tree.getByRole('button',{name:'Theo lượt tạo',exact:true}).click();
+ await expect(tree.getByRole('region',{name:'File có sẵn được sửa'})).toContainText('PlatformConfig.java');
+});
+
+for(const dark of [false,true])test(`fixture paths fit a 390px ${dark?'dark':'light'} screen`,async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ await page.goto(route+'&sessionAt=quote-trial&sessionDone=9&sessionDecision.quote-trial=0');
+ if(dark)await page.getByRole('button',{name:'Giao diện tối',exact:true}).click();
+ await page.getByRole('button',{name:'Thử Quote hợp lệ',exact:true}).click();
+ await page.getByRole('button',{name:'Thử Quote không tồn tại',exact:true}).click();
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+ const card=page.locator('.beginner-check [data-trial=quote-missing]');
+ const lock=await card.locator('[data-point=lock]').boundingBox(),internal=await card.locator('[data-point=internal]').boundingBox();
+ expect(internal!.y).toBeGreaterThan(lock!.y+lock!.height);
+ await card.screenshot({path:`docs/review/policy-fixture-mobile-${dark?'dark':'light'}.png`,style:'.notebook-header { visibility:hidden; }'});
+});

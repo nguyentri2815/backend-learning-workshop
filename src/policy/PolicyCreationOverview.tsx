@@ -9,6 +9,7 @@ import { creationContext, newQuoteAttempt, quotes } from './create-model';
 import { PolicyIssuanceDiagram } from './PolicyIssuanceDiagram';
 import type { IssuanceMapPoint } from './PolicyIssuanceDiagram';
 import { PolicySourceExplorer } from './PolicySourceExplorer';
+import {LearningOverviewFrame} from './LearningOverviewFrame';
 import './policy-overview.css';
 
 type Changes=Record<string,string|null>;
@@ -38,10 +39,9 @@ export function PolicyCreationOverview({update,openPractice,resume,practiceNode,
   function code(ref:string){update({evidence:ref});}
   const branchExtensions=issuanceExtensions.filter(e=>branch.extensions.includes(e.id)&&e.id!=='core-update');
   const panelTitle=inspect==='quote'?'1 · Quote đã có':inspect==='origin'?'Quote đến từ đâu?':inspect==='save'?'3 · Tạo Policy và đối tượng bảo hiểm':inspect==='published'?'4A · Quote chuyển PUBLISHED':inspect==='view'?'4B · Event → Flow → Policy View':inspect==='core'?'4C · Đồng bộ Core':extension?.title??branchTitles[branch.id];
-  return <div className="policy-creation-overview">
-    <div className="policy-map-heading"><div><span className="eyebrow">TỪ QUOTE ĐẾN POLICY</span><h2>Bốn đường phát hành, một điểm hội tụ</h2></div><p className="policy-learning-path">Đường học: <strong>{branchTitles[branch.id]}</strong></p></div>
-    <div className={`policy-map-layout ${inspect?'has-detail':''}`}>
-      <PolicyIssuanceDiagram branch={branch.id} inspected={inspect==='branch'?branch.id:inspect==='origin'?'quote':extension?(extension.id==='core-update'?'core':branch.id):inspect} onOpen={select} onPractice={learn}/>
+  return <LearningOverviewFrame eyebrow="TỪ QUOTE ĐẾN POLICY" title="Bốn đường phát hành, một điểm hội tụ" path={<p className="policy-learning-path">Đường học: <strong>{branchTitles[branch.id]}</strong></p>}
+    map={<PolicyIssuanceDiagram branch={branch.id} inspected={inspect==='branch'?branch.id:inspect==='origin'?'quote':extension?(extension.id==='core-update'?'core':branch.id):inspect} onOpen={select} onPractice={learn}/>}
+    resume={hasPractice&&<div className="policy-overview-resume"><span>Đang giữ bước {['quote','validate','map','save','flow','result'].indexOf(practiceNode.id)+1}: {practiceNode.title}</span><button type="button" className="text-button policy-resume" data-testid="policy-resume-practice" onClick={resume}><CornerUpLeft size={14}/>Quay về đúng bước đang học</button></div>}>
       {inspect&&<aside className="policy-map-detail" aria-label="Chi tiết điểm trên sơ đồ" data-testid="issuance-map-detail">
         <header><div><span className="eyebrow">ĐANG XEM · {branchTitles[branch.id]}</span><h3>{panelTitle}</h3></div><button type="button" className="policy-map-close" aria-label="Đóng chi tiết" onClick={()=>update({inspect:null,evidence:null,overview:null})}><X size={17}/></button></header>
         <div className="policy-map-detail-body">
@@ -75,7 +75,5 @@ export function PolicyCreationOverview({update,openPractice,resume,practiceNode,
           </section>}
         </div>
       </aside>}
-    </div>
-    {hasPractice&&<div className="policy-overview-resume"><span>Đang giữ bước {['quote','validate','map','save','flow','result'].indexOf(practiceNode.id)+1}: {practiceNode.title}</span><button type="button" className="text-button policy-resume" data-testid="policy-resume-practice" onClick={resume}><CornerUpLeft size={14}/>Quay về đúng bước đang học</button></div>}
-  </div>;
+  </LearningOverviewFrame>;
 }

@@ -85,7 +85,9 @@ test("React Flow renders seven readable nodes and six clear ordered edges; selec
   await expect(page.locator('.react-flow__node[data-id="tools"] button')).toHaveAttribute("aria-current","step");
   for (const id of ["tools-java","tools-jdk","tools-gradle","tools-ide","tools-docker"]) {
     if (await page.locator(`#guide-action-${id}`).getAttribute("aria-expanded") !== "true") await page.locator(`#guide-action-${id}`).click();
-    await page.getByRole("checkbox").check();
+    await expect(page.locator(`#guide-action-${id}`)).toHaveAttribute("aria-expanded","true");
+    const checkbox=page.locator(`#guide-body-${id}`).getByRole("checkbox");
+    await checkbox.check();await expect(checkbox).toBeChecked();
   }
   await expect(page.locator('.react-flow__node[data-id="tools"]')).toContainText("Đã tự kiểm tra");
   await expect(page.locator('.react-flow__node[data-id="tools"]')).toContainText("5/5");
@@ -156,8 +158,8 @@ test("viewport survives checklist, details/file dialog, node selection, Back/For
   await graphReady(page);
   await expectView(page,position);
   await expect(page.locator(".guide-detail-heading")).toContainText("Build module");
-  await page.getByRole("link",{name:/Policy.*02/}).click();
-  await page.getByRole("link",{name:/Hiểu và chạy dự án.*01/}).click();
+  await page.getByRole("link",{name:'Khám phá Policy',exact:true}).click();
+  await page.getByRole("link",{name:'Hiểu và chạy dự án',exact:true}).click();
   await graphReady(page);
   await expectView(page,position);
 });

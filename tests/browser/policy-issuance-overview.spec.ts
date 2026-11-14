@@ -1,6 +1,8 @@
 import {expect,test} from '@playwright/test';
 import {approvalBranch,issuanceBranches,issuanceExtensions,mainIssuancePoints,postIssuance,quoteOrigin} from '../../src/content/policy/issuance';
 import {excerptById} from '../../src/content/policy/lesson';
+import {button,runThrough} from './execution-helpers';
+import {finishDetail} from './policy-detail-helpers';
 
 test('issuance content points to source and keeps branch return contracts and extension anchors distinct',()=>{
   const points=[...quoteOrigin,...mainIssuancePoints,...issuanceBranches.flatMap(b=>b.points),...approvalBranch().points,...approvalBranch(true).points];
@@ -130,11 +132,8 @@ test('origin to direct practice to online recheck returns to the exact practice 
   await page.getByRole('button',{name:'Quote đến từ đâu?',exact:true}).click();
   await page.getByRole('button',{name:'Mở bài phát hành trực tiếp',exact:true}).click();
   await page.getByLabel('Quote mẫu',{exact:true}).selectOption('QUOTE-LEARN-102');
-  await page.getByRole('button',{name:'Phát hành thành hợp đồng',exact:true}).click();
-  await page.getByRole('button',{name:'Lần vào backend',exact:true}).click();
-  await page.getByRole('button',{name:'Vào bước 2: Kiểm tra Quote',exact:true}).click();
-  for(let i=0;i<8;i++)await page.getByTestId('practice-action-dock').getByRole('button').last().click();
-  await page.getByRole('button',{name:'Sang bước 3: Dựng dữ liệu Policy',exact:true}).click();
+  await runThrough(page,'duplicate-guard');
+  await button(page,'Bước sau').click();
   await page.getByRole('button',{name:'fillMissingValue → customerName ↗',exact:true}).click();
   await page.getByRole('tab',{name:'Nhìn toàn cảnh',exact:true}).click();
   await openNode(page,'online');
@@ -146,7 +145,8 @@ test('origin to direct practice to online recheck returns to the exact practice 
   await expect(page.getByTestId('policy-source')).toHaveAttribute('data-source-id','online-recheck');
   await page.getByTestId('policy-resume-practice').click();
   const params=new URL(page.url()).searchParams;
-  expect(params.get('node')).toBe('map');expect(params.get('ref')).toBe('create-customer');expect(params.get('sim')).toBe('checked');
+  expect(params.get('node')).toBe('map');expect(params.get('at')).toBe('fill-enter');expect(params.get('sim')).toBe('checked');
+  await expect(page.getByTestId('policy-source')).toHaveAttribute('data-source-id','create-customer');
   await expect(page.getByTestId('quote-policy-mapping')).toContainText('Khách hàng mẫu Nam');
   await page.goBack();await expect(page.getByTestId('policy-source')).toHaveAttribute('data-source-id','online-recheck');
 });
@@ -155,6 +155,7 @@ test('Command detail opens directly before view; Query and Core results remain s
   const context='group=create&mode=overview&node=flow&quote=QUOTE-LEARN-101&sim=command';
   await page.goto(`/journey/policy?${context}`);await openNode(page,'save');
   await page.getByRole('button',{name:'Mở bài Chi tiết',exact:true}).click();
+  await finishDetail(page);
   await expect(page.getByTestId('policy-detail')).toContainText('POL-FROM-QUOTE-LEARN-101');
   await page.goto(`/journey/policy?${context}`);await openNode(page,'view');
   await expect(page.getByTestId('issuance-map-detail')).toContainText('mốc view chưa chạy');

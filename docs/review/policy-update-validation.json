@@ -1,0 +1,419 @@
+{
+  "reviewedOn": "2026-11-11",
+  "summary": "Đạt 7/7 flow, đủ ba chế độ học và 28/28 bài Từng bước triển khai. Build/typecheck đạt; 23 test Cập nhật, một audit source và 36 test hồi quy đạt sau các lượt kiểm tra lại. Đã kiểm tra A/B toàn file và sao chép mẫu cho cả bảy flow.",
+  "build": {
+    "status": "passed",
+    "command": "npm.cmd run build",
+    "warning": "Vite vẫn cảnh báo một số chunk lớn hơn 500 kB."
+  },
+  "tests": {
+    "update": {
+      "uniqueTests": 23,
+      "status": "passed",
+      "command": "npx.cmd playwright test tests/browser/policy-update-checkout.spec.ts tests/browser/policy-update.spec.ts",
+      "exercises": {
+        "businessSteps": 28,
+        "tasksPerStep": 3,
+        "trialScope": "Từ điểm vào đến checkpoint cuối của chính bước; không tự chạy toàn bộ flow."
+      },
+      "finalAdditionalChecks": {
+        "tests": 7,
+        "status": "passed",
+        "scope": "Clipboard giữ code/xuống dòng (chuẩn hóa CRLF Windows), Khung thành phần/phối hợp, A và B trong toàn file, bài triển khai, reload."
+      }
+    },
+    "sourceAudit": {
+      "tests": 1,
+      "status": "passed",
+      "files": 77,
+      "command": "WORKSHOP_VERIFY_SOURCES=1 playwright test policy-update.spec.ts -g \"full Java update snapshot\""
+    },
+    "regression": {
+      "uniqueTests": 36,
+      "status": "passed",
+      "suites": [
+        "bundled-fixtures",
+        "policy-assembly-learning",
+        "policy-checkpoints",
+        "policy-implementation-navigation",
+        "policy-issuance-overview",
+        "policy-navigation",
+        "policy-pattern-workspace"
+      ],
+      "initialRun": {
+        "passed": 35,
+        "failed": 1
+      },
+      "resolution": "Test mở Chi tiết từ Tạo mới còn chờ kết quả trước khi đi qua checkpoint. Đã thêm finishDetail; kiểm tra riêng đạt và chạy lại toàn bộ tám test policy-issuance-overview: 8/8 đạt."
+    }
+  },
+  "fixtures": {
+    "bundledFiles": 42,
+    "status": "passed"
+  },
+  "source": {
+    "files": 77,
+    "rootCommit": "af8d7f32fa5d3f5a380626679d30c4698960f33f",
+    "status": "77/77 file khớp SHA256, commit và working tree",
+    "backendChangedByTask": false
+  },
+  "screenshots": {
+    "states": 54,
+    "errors": [],
+    "comparisonPairs": 7,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "zoom": 1,
+    "deviceScaleFactor": 1,
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "documentWidth": 390
+    }
+  },
+  "acceptance": {
+    "defaultFlow": "checkout",
+    "sameFixture": "POL-LEARN-001",
+    "samePaymentProcess": "PROCESS-LEARN-001",
+    "modePositionRestored": true,
+    "flowPositionRestored": true,
+    "secondaryFlowGroupRoundTrip": true,
+    "deepLinkAndReload": true,
+    "sourceInspectionPreservesReplayCursor": true,
+    "clipboardAllFlows": true,
+    "fullFileHighlightsAAndBAllFlows": true,
+    "reviewPageHttpStatus": 200
+  },
+  "flows": [
+    {
+      "id": "checkout",
+      "title": "Ghi thông tin checkout cho Policy",
+      "entry": "POST /payment/pay-for-policy",
+      "actor": "HTTP với PaymentRequest; phiên người dùng được đọc từ SessionUtils. POST /payment-policy-process/create-and-pay cũng tạo process rồi gọi PayForPolicyFunc.exec.",
+      "policyIdentity": "processId → PaymentPolicyProcessingAggregate.policyIds → Policy ID",
+      "businessSteps": 4,
+      "checkpoints": 18,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationExercises": 4,
+      "status": "passed",
+      "stopBranches": [
+        {
+          "id": "paid",
+          "label": "Phiên đã PAYED",
+          "stopAt": "checkout-guard",
+          "message": "PAYMENT_POLICY_HAS_BEEN_PAID",
+          "kind": "error"
+        },
+        {
+          "id": "endorsement",
+          "label": "Policy có điều chỉnh",
+          "stopAt": "checkout-before-pay",
+          "message": "POLICY_HAVE_ENDORSEMENT",
+          "kind": "error"
+        },
+        {
+          "id": "missing",
+          "label": "Không có payment process",
+          "stopAt": "checkout-process",
+          "message": "PAYMENT_POLICY_PROCESS_NOT_EXIST",
+          "kind": "error"
+        },
+        {
+          "id": "payme",
+          "label": "PayMe chưa có builder",
+          "stopAt": "checkout-flow-builder",
+          "message": "INTERNAL_ERROR · Invalid Payment method",
+          "kind": "error"
+        }
+      ],
+      "changedFields": [
+        "checkoutInfoForPolicy",
+        "checkoutInfoHistoryForPolicy",
+        "paymentPolicyRequestId",
+        "paymentPolicyRequestDate",
+        "paymentPolicyOrderNo",
+        "paymentPolicyType",
+        "paymentPolicyIsOnProcess",
+        "paymentProcessId",
+        "updatedDate"
+      ],
+      "sourceLimits": [
+        "Command có paymentPolicyStatus=PAYED nhưng UpdateCheckoutInfoEvent không khai báo trường đó: không coi đây là thay đổi đã ghi vào Policy.",
+        "Không đổi status hợp đồng, paymentStatus (Core), paymentStatusFromSP hoặc paidTime ở flow checkout. Payment process kết thúc lượt này ở OPEN / IN_PROCESS.",
+        "Nhánh mẫu tạo URL mới đi qua lần ghi trong saveOrderPayment rồi một lần ghi nữa trong pay. Mọi lời gọi gateway là fixture; không đo transaction, HTTP hay độ trễ view thực tế."
+      ]
+    },
+    {
+      "id": "paid",
+      "title": "Ghi nhận Policy đã thanh toán trên SP",
+      "entry": "POST /payment/paid-for-policy",
+      "actor": "HTTP với orderNo; đường callback/IPN cũng gọi PaidForPolicyFunc.exec(..., true).",
+      "policyIdentity": "orderNo → payment process → policyIds",
+      "businessSteps": 4,
+      "checkpoints": 13,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationExercises": 4,
+      "status": "passed",
+      "stopBranches": [
+        {
+          "id": "cancel",
+          "label": "Process đã hủy",
+          "stopAt": "paid-before",
+          "message": "PAYMENT_POLICY_HAS_BEEN_CANCEL",
+          "kind": "error"
+        },
+        {
+          "id": "gateway-pending",
+          "label": "Gateway chưa xác nhận",
+          "stopAt": "paid-gateway-check",
+          "message": "PAYMENT_BAO_LONG_INTERNAL_ERROR",
+          "kind": "error"
+        }
+      ],
+      "changedFields": [
+        "checkoutInfoForPolicy",
+        "checkoutInfoHistoryForPolicy",
+        "paymentPolicyIsOnProcess",
+        "paidTime",
+        "paymentPolicyStatus",
+        "paymentStatusFromSP",
+        "updatedDate"
+      ],
+      "sourceLimits": [
+        "processor.paid xác minh trạng thái gateway trước afterPaid. Fixture giả lập gateway PAYED; không gọi cổng thanh toán thật.",
+        "paymentStatusFromSP và paidTime thay đổi qua FinishPolicyEvent; paymentStatus Core và status hợp đồng không đổi.",
+        "HTTP trả Done. Callback/IPN kiểm tra checksum và trả kết quả/redirect riêng; consumer này được giữ làm source đối chiếu, không giả lập xác minh chữ ký."
+      ]
+    },
+    {
+      "id": "endorsement",
+      "title": "Đồng bộ điều chỉnh từ Core",
+      "entry": "POST /policy/sync-endorsement",
+      "actor": "POST /policy/sync-endorsement, /internal/policy/sync-endorsement và /adapter/sync-endorsement cùng gọi SyncEndorsementFromCoreFunc.exec.",
+      "policyIdentity": "Bỏ hậu tố cuối endorsementCode → policyCode → Policy ID",
+      "businessSteps": 4,
+      "checkpoints": 12,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationExercises": 4,
+      "status": "passed",
+      "stopBranches": [
+        {
+          "id": "core-fail",
+          "label": "Core trả lỗi",
+          "stopAt": "endorsement-core",
+          "message": "ERROR_GET_ENDORSEMENT_FROM_CORE",
+          "kind": "error"
+        }
+      ],
+      "changedFields": [
+        "effectiveDate",
+        "expirationDate",
+        "distributionChannelId",
+        "distributionChannelCode",
+        "distributionChannelName",
+        "customerId",
+        "customerName",
+        "customerModel",
+        "priceModel",
+        "groupCoverPriceModel",
+        "haveEndorsement",
+        "insuranceTotalAmount",
+        "insuranceTotalAmountVnd",
+        "paymentStatus",
+        "status",
+        "changes",
+        "agencyId",
+        "agencyCode",
+        "agencyName",
+        "updatedDate"
+      ],
+      "sourceLimits": [
+        "Chỉ những key được fillChangeToCommand hỗ trợ mới đổi ngày/kênh. Nhóm customer chỉ đọc và ánh xạ khi changes có key chứa customer.",
+        "Nguồn Core và các API phụ (địa chỉ/quốc tịch) là fixture. Không suy ra quy tắc chuyển trạng thái được phép hay một form sửa Policy tổng quát.",
+        "Đối tượng hiện có đi nhánh update, chưa có đi nhánh create với ID Core. Bài mô phỏng ghi nhận các lần bàn giao này; source helper đầy đủ ở cùng file."
+      ]
+    },
+    {
+      "id": "permission",
+      "title": "Cập nhật đường dẫn quyền theo đơn vị bán",
+      "entry": "CreateRelationshipEvent / DeleteRelationshipEvent → queue → Func",
+      "actor": "SaleUnitWorkflow gửi saleUnitId qua queue; HTTP /sale-unit/update-permission-data-quote-and-policy/{quoteId} là đường vào khác đã xác minh.",
+      "policyIdentity": "SaleUnit ID → trang Quote → Quote.policyId → Policy projection",
+      "businessSteps": 4,
+      "checkpoints": 12,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationExercises": 4,
+      "status": "passed",
+      "stopBranches": [
+        {
+          "id": "missing",
+          "label": "Không tìm thấy SaleUnit",
+          "stopAt": "permission-unit",
+          "message": "return false · SaleUnit không tồn tại",
+          "kind": "skip"
+        },
+        {
+          "id": "same-path",
+          "label": "Policy đã có path mới",
+          "stopAt": "permission-command",
+          "message": "Bỏ qua Policy: policyPath bằng SaleUnit.path",
+          "kind": "skip"
+        }
+      ],
+      "changedFields": [
+        "saleUnitPath",
+        "saleUnitPathLevel",
+        "pathSaleUnitIds",
+        "updatedDate"
+      ],
+      "sourceLimits": [
+        "HTTP đặt tên path variable quoteId nhưng Func nhận giá trị như saleUnitId. Đường mặc định của bài bắt đầu từ event/queue, không phải form sửa Policy.",
+        "Policy projection phải có saleUnitPath khác đường dẫn SaleUnit. Không có projection/path hoặc đã giống thì bỏ qua cập nhật Policy.",
+        "Quote được xử lý trước và có khóa riêng. Trả true từ exec không chứng minh mọi Policy đều cần cập nhật."
+      ]
+    },
+    {
+      "id": "migration",
+      "title": "Chuyển dữ liệu đường dẫn đơn vị bán",
+      "entry": "GET /sync-to-view/migrate-data-quote-and-policy → queue",
+      "actor": "HTTP kích hoạt tác vụ duyệt mọi Quote ID rồi gửi queue; listener xử lý từng Quote.",
+      "policyIdentity": "Quote ID trong message → Quote.policyId",
+      "businessSteps": 4,
+      "checkpoints": 12,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationExercises": 4,
+      "status": "passed",
+      "stopBranches": [
+        {
+          "id": "missing",
+          "label": "Không có Quote",
+          "stopAt": "migration-load",
+          "message": "return false · không tìm thấy Quote",
+          "kind": "skip"
+        },
+        {
+          "id": "unlinked",
+          "label": "Quote chưa liên kết Policy",
+          "stopAt": "migration-linked",
+          "message": "Bỏ qua Policy; phần Quote đã xử lý",
+          "kind": "skip"
+        }
+      ],
+      "changedFields": [
+        "pathSaleUnitIds",
+        "saleUnitPathLevel"
+      ],
+      "sourceLimits": [
+        "pathSaleUnitIds lấy từ Quote.saleUnitPath, còn pathLevel lấy SaleUnit. Đây là backfill, khác flow quyền dùng path mới của SaleUnit.",
+        "Quote được cập nhật trước. Quote.policyId=null thì không ghi Policy; không dùng Quote ID làm Policy ID.",
+        "Apply của event này không gán updatedDate hoặc saleUnitPath; fixture giữ các trường đó. HTTP trả true chỉ xác nhận lượt gửi queue, không phải toàn bộ migration đã xong."
+      ]
+    },
+    {
+      "id": "documents",
+      "title": "Bổ sung metadata tài liệu",
+      "entry": "POST /policy/upload-multiple-document/{policyId}",
+      "actor": "HTTP gửi danh sách metadata attachment; không tải file thật trong Workshop.",
+      "policyIdentity": "Path policyId → PolicyRepository.findById (tham số Func mang tên quoteId)",
+      "businessSteps": 4,
+      "checkpoints": 12,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationExercises": 4,
+      "status": "passed",
+      "stopBranches": [
+        {
+          "id": "core-fail",
+          "label": "Core từ chối metadata",
+          "stopAt": "documents-core",
+          "message": "ServiceException · Lỗi đồng bộ hợp đồng",
+          "kind": "error"
+        },
+        {
+          "id": "missing",
+          "label": "Policy không tồn tại",
+          "stopAt": "documents-load",
+          "message": "QUOTE_NOT_EXIST (theo source)",
+          "kind": "error"
+        }
+      ],
+      "changedFields": [
+        "viaUploader",
+        "viaUploaderStatus",
+        "updatedDate"
+      ],
+      "sourceLimits": [
+        "Func dùng biến quoteId và khóa QuoteAggregate.KEY_LOCK_AGGREGATE dù repository đọc Policy. Thiếu Policy ném QUOTE_NOT_EXIST theo source.",
+        "Policy đã sync Core thì syncPolicyDocumentToCore phải thành công trước update local. Nhóm sản phẩm quyết định folder, không suy từ kind của file.",
+        "convertDocumentAssetModel đặt synced=true ngay cả nhánh không gọi Core; đây là giá trị source, không phải bằng chứng upload/sync thực tế thành công."
+      ]
+    },
+    {
+      "id": "correct",
+      "title": "Đường sửa createdDate cần xác nhận",
+      "entry": "GET /internal/policy/correct-created-date",
+      "actor": "API nội bộ gọi CorrectCreatedDatePolicyFunc.exec; đã xác minh caller trong InternalPolicyController.",
+      "policyIdentity": "Danh sách Policy có createdDate IS NULL → khóa từng Policy ID",
+      "businessSteps": 4,
+      "checkpoints": 10,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationExercises": 4,
+      "status": "passed",
+      "stopBranches": [
+        {
+          "id": "empty",
+          "label": "Không có hồ sơ cần xử lý",
+          "stopAt": "correct-select",
+          "message": "Danh sách rỗng · return true · không chạy lệnh ghi",
+          "kind": "skip"
+        }
+      ],
+      "changedFields": [
+        "createdDate"
+      ],
+      "sourceLimits": [
+        "Đường vào đã xác minh. Phần còn chưa xác nhận là nguồn giá trị ngày thay thế: source chọn createdDate null rồi truyền lại chính null. Không mô phỏng sửa ngày thành công.",
+        "Apply chỉ map event; không có câu gán updatedDate ở đây. Hàm exec bắt/log lỗi từng hồ sơ rồi vẫn return true.",
+        "Fixture bắt đầu từ đúng GET nội bộ và hồ sơ ngày null. Event/view có thể chạy nhưng không làm ngày trở thành hợp lệ trong mô phỏng."
+      ]
+    }
+  ],
+  "createdDate": {
+    "callerVerified": "InternalPolicyController.correctCreatedDate:L39–41",
+    "input": "createdDate IS NULL",
+    "command": "CorrectCreatedDatePolicyFunc:L38–40 lấy lại getCreatedDate()",
+    "before": null,
+    "after": null,
+    "replacementDateVerified": false
+  },
+  "scope": "Workshop mô phỏng source đã đọc; chưa chạy Java/API/DB/queue/gateway thật."
+}

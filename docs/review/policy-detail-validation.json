@@ -1,0 +1,17 @@
+{
+  "reviewedOn": "2026-11-11",
+  "summary": "Build và TypeScript đạt. Bộ hồi quy rộng 48/48 đạt; bộ Chi tiết cuối 9/9 đạt sau khi kiểm tra thêm cặp A/B cùng file và biến trước/sau. Integrity 40 fixture và audit 23 file Java Chi tiết đạt. Audit snapshot Danh sách cũ có sai khác ConfigUtil/localUsername, ghi rõ trong bàn giao.",
+  "build": {"command": "npm.cmd run build", "status": "passed", "warning": "Vite báo chunk lớn hơn 500 kB; app chunk khoảng 3.08 MB."},
+  "tests": [
+    {"command": "npx.cmd playwright test tests/browser/policy-detail.spec.ts tests/browser/policy-list-journey.spec.ts tests/browser/policy-reading.spec.ts --output=.verification/detail-integration", "passed": 24, "failed": 0, "status": "passed"},
+    {"command": "npx.cmd playwright test tests/browser/policy-detail.spec.ts tests/browser/policy-list-journey.spec.ts tests/browser/policy-reading.spec.ts tests/browser/policy-pattern-workspace.spec.ts tests/browser/policy-assembly-layout.spec.ts tests/browser/policy-checkpoints.spec.ts tests/browser/policy-navigation.spec.ts --output=.verification/detail-final", "passed": 48, "failed": 0, "status": "passed"},
+    {"command": "npx.cmd playwright test tests/browser/policy-detail.spec.ts --output=.verification/detail-acceptance", "passed": 9, "failed": 0, "status": "passed", "note": "Chạy sau các chỉnh sửa cuối về evidence lời gọi helper L36 và dữ liệu còn trong scope trước/sau mapping/thanh toán. Có thêm ca A/B cùng file, nên tổng số ca khác nhau qua bộ rộng và bộ cuối là 49."}
+  ],
+  "fixtures": {"command": "npm.cmd run verify:fixtures", "files": 40, "status": "passed"},
+  "detailSourceAudit": {"command": "node scripts/extract-policy-detail-source.mjs --root D:/ALPACA/agent-system --check", "files": 23, "status": "passed"},
+  "legacyListSourceAudit": {"command": "node scripts/extract-policy-list-source.mjs --root D:/ALPACA/agent-system --check", "status": "differs", "reason": "ConfigUtil hiện không còn localUsername; vùng L7–17 của snapshot cũ vượt chiều dài file hiện tại. SearchPolicyFunc:L39 hiện dùng owner khi local=true. Giữ snapshot bài cũ; ID, Query repository và view được xác minh lại trong catalog Chi tiết."},
+  "diffCheck": {"command": "git diff --check", "status": "passed"},
+  "screenshots": {"viewport": {"width": 1440, "height": 1000}, "deviceScaleFactor": 1, "zoom": 1, "comparisonPairs": 7, "additionalAcceptanceImages": 7},
+  "acceptance": ["List trang 2 → Policy ID → request → hồ sơ → response → quay lại cùng tiêu chí/draft/danh tính/trang", "Liên kết ID hợp lệ và không tìm thấy; [] và null; quay lại Tạo mới", "Bước liên quan → Suy luận → Phối hợp → Khung thành phần/phối hợp → source A/B/full file → triển khai → đúng điểm dừng", "Nối đủ các đoạn đọc, mapping, thanh toán và thử năm nhánh fixture", "Hai màu A/B trong cùng FindPolicyByIdFunc.java tại L36 → L40–63", "Desktop và mobile không tràn ngang; không gọi API backend trong lượt học"],
+  "limits": ["Workshop dùng fixture; chưa chạy Java/API/DB thật", "Chưa xác minh HTTP lỗi qua CompletableFuture hoặc prefix gateway", "FE core-insurance-portal tìm thấy dùng endpoint core-query khác GET Command đang khảo sát"]
+}

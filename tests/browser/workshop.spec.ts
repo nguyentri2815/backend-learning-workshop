@@ -10,6 +10,7 @@ test("overview explains all journeys and scope; local FE provenance is visible",
     "đến dòng code Backend",
   );
   await expect(page.locator(".journey-card")).toHaveCount(3);
+  await page.locator('.notebook-references > summary').click();
   await expect(
     page.getByText("Setup đã khảo sát · 04/11/2026", { exact: true }),
   ).toBeVisible();
@@ -113,6 +114,7 @@ test("progress and notes persist; reset only clears the new learning namespace",
   await expect(
     page.getByRole("button", { name: "Đã học bước mẫu", exact: true }),
   ).toBeVisible();
+  await page.locator('.notebook-references > summary').click();
   await page
     .getByRole("button", { name: "Đặt lại tiến độ", exact: true })
     .click();
@@ -179,7 +181,7 @@ test("mobile navigation and unchanged Claim source viewer fit the viewport", asy
   await page
     .getByRole("button", { name: "Mở điều hướng", exact: true })
     .click();
-  await page.getByRole("link", { name: /Yêu cầu bồi thường.*03/ }).click();
+  await page.getByRole("link", { name: "Yêu cầu bồi thường", exact: true }).click();
   await page
     .getByRole("button", { name: "Source & inspector", exact: true })
     .click();

@@ -1,4 +1,5 @@
 import { useSyncExternalStore } from "react";
+import {useWorkshopTheme} from '../appearance';
 
 const key = "backend-learning-workshop.code.wrap.v1";
 const event = "backend-learning:code-preference";
@@ -33,4 +34,24 @@ export function useCodeWrap() {
       window.dispatchEvent(new Event(event));
     },
   ] as const;
+}
+
+export type CodeTheme = 'light' | 'dark';
+export type CodeThemePreference = 'system' | CodeTheme;
+const themeKey = 'backend-learning-workshop.policy.code-theme.v1';
+let themeFallback: CodeThemePreference = 'system';
+let themeStorageFailed=false;
+const readTheme = (): CodeThemePreference => {
+  if(themeStorageFailed)return themeFallback;
+  try { const stored=localStorage.getItem(themeKey); return stored==='dark'||stored==='light'?stored:'system'; }
+  catch { return themeFallback; }
+};
+export function usePolicyCodeTheme() {
+  const preference = useSyncExternalStore(subscribe, readTheme);
+  const [workshopTheme]=useWorkshopTheme();
+  return [preference==='system'?workshopTheme:preference, (value: CodeThemePreference) => {
+    themeFallback = value;
+    try { localStorage.setItem(themeKey, value); } catch { themeStorageFailed=true; }
+    window.dispatchEvent(new Event(event));
+  },preference] as const;
 }

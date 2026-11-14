@@ -1,0 +1,315 @@
+{
+  "recordedAt": "2026-11-11T15:38:10.291Z",
+  "summary": "Hoàn tất 8 flow, 3 chế độ học và 40 bài triển khai theo bước. Build/typecheck đạt; 47 kiểm tra Đổi trạng thái, 66 kiểm tra hồi quy, 1 kiểm tra source và 16 kiểm tra lại cửa sổ/điều hướng đạt. 61 file Java khớp SHA256; 45 fixture hợp lệ; 90 màn review với bảy cặp đối chiếu Tạo mới.",
+  "tests": [
+    {
+      "description": "Đổi trạng thái · 8 flow / 3 chế độ / 40 bài / điều hướng",
+      "report": ".verification/status-acceptance/report.json",
+      "passed": 47,
+      "failed": 0,
+      "flaky": 0,
+      "skipped": 0,
+      "durationMs": 803060.271
+    },
+    {
+      "description": "Hồi quy Tạo mới, source workspace và toàn bộ Cập nhật",
+      "report": ".verification/status-regression/report.json",
+      "passed": 66,
+      "failed": 0,
+      "flaky": 0,
+      "skipped": 0,
+      "durationMs": 717744.605
+    },
+    {
+      "description": "Đối chiếu SHA256 snapshot với backend",
+      "report": ".verification/status-source/report.json",
+      "passed": 1,
+      "failed": 0,
+      "flaky": 0,
+      "skipped": 0,
+      "durationMs": 1166.083
+    },
+    {
+      "description": "Kiểm tra lại cửa sổ dùng chung sau khi đưa style về component chung",
+      "report": ".verification/status-dialog/report.json",
+      "passed": 16,
+      "failed": 0,
+      "flaky": 0,
+      "skipped": 0,
+      "durationMs": 139819.576
+    },
+    {
+      "description": "Đối chiếu lại dữ liệu tám flow và các biến thể sau khi chốt tên method nguồn",
+      "report": ".verification/status-final-model/report.json",
+      "passed": 3,
+      "failed": 0,
+      "flaky": 0,
+      "skipped": 0,
+      "durationMs": 1324.703
+    }
+  ],
+  "build": {
+    "command": "npm.cmd run build",
+    "result": "passed",
+    "note": "Vite có cảnh báo kích thước chunk >500 kB; source viewer dùng snapshot đầy đủ và được lazy-load theo tab."
+  },
+  "integrity": {
+    "sourceCommand": "node scripts/extract-policy-status-source.mjs --root D:/ALPACA/agent-system --check",
+    "sourceResult": "passed",
+    "completeJavaFiles": 61,
+    "schedulerConfigurationExcerpts": 4,
+    "fixtureCommand": "node scripts/verify-fixtures.mjs",
+    "fixtureResult": "passed",
+    "bundledFiles": 45,
+    "diffCheck": "passed"
+  },
+  "review": {
+    "url": "http://localhost:3182/docs/review/policy-status.html",
+    "result": "HTTP 200; local image references checked",
+    "captures": 90,
+    "browserErrors": [],
+    "desktopViewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "mobileViewport": {
+      "width": 390,
+      "height": 844
+    },
+    "zoom": 1,
+    "deviceScaleFactor": 1,
+    "pairedCreateScreens": [
+      "overview",
+      "checkpoint",
+      "reason",
+      "cooperate",
+      "pattern",
+      "diagram",
+      "implementation"
+    ]
+  },
+  "flows": [
+    {
+      "id": "date",
+      "title": "Tính lại trạng thái theo ngày",
+      "family": "existing",
+      "entry": "ScheduleService → RabbitMQ → QueueHandler",
+      "identity": "Query chọn Policy ID → khóa từng ID → đọc PolicyDTOModel",
+      "callerVerified": true,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationStages": 5,
+      "checkpoints": 15,
+      "event": "UpdatePolicyStatusEvent",
+      "limits": [
+        "ScheduleServiceApplication:L9 bật @EnableScheduling. Bốn file application.yml/dev/test/prod:L15,19 đặt enabled=true và cron 0 0/1 * * * * (mỗi phút); cấu hình triển khai có thể ghi đè, chưa quan sát runtime.",
+        "now được tạo một lần trong PolicyAutoUpdateStatusFunc.exec, dùng cho query và từng Policy. Date gửi từ scheduler không phải mốc được Func đọc.",
+        "Query dùng < và > nghiêm ngặt; hàm getPolicyStatus dùng Date.before. Đúng thời điểm biên có thể không được query chọn dù helper đối chiếu riêng cho kết quả 100.",
+        "Lấy tối đa 10 ID trước khi loại ID blank; không có ORDER BY nên không khẳng định thứ tự ngoài fixture. DTO thiếu, TERMINATED hoặc status không đổi thì không ghi.",
+        "Command.updatedDate=now, nhưng apply ghi đè updatedDate bằng event.createdEventTime. Workshop dùng thời điểm event mẫu riêng; không đo độ trễ runtime.",
+        "Update bị bắt/log trong runInternal rồi vẫn return true; giá trị true không đủ chứng minh lưu thành công. View chỉ xuất hiện sau lượt event/Flow đã xác minh."
+      ]
+    },
+    {
+      "id": "core-status",
+      "title": "Nhận trạng thái hợp đồng từ điều chỉnh Core",
+      "family": "existing",
+      "entry": "POST /policy/sync-endorsement",
+      "identity": "Bỏ hậu tố endorsementCode → tìm Policy bằng policyCode → khóa Policy ID",
+      "callerVerified": true,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationStages": 5,
+      "checkpoints": 12,
+      "event": "SyncEndorsementForPolicyEvent",
+      "limits": [
+        "command.status nhận trực tiếp endorsementInfoResponse.status tại L172. Không gọi helper theo ngày, không thấy bảng ánh xạ hoặc guard giữ status cũ trong khối này.",
+        "paymentStatus được tính riêng từ các kỳ mandatory/rest UNPAID; syncStatus và viaUploaderStatus thuộc các trục khác. Bài này tập trung phần trạng thái; bài Cập nhật liên kết trình bày các nhóm điều chỉnh còn lại.",
+        "Không kết luận có API chấm dứt riêng hoặc Core được phép tạo mọi chuyển trạng thái chỉ từ setStatus. Quy tắc nghiệp vụ Core và runtime của API chưa được xác minh."
+      ]
+    },
+    {
+      "id": "initial",
+      "title": "Khởi tạo trạng thái ban đầu khi tạo từ Quote",
+      "family": "initial",
+      "entry": "POST /policy/create/{quoteId}",
+      "identity": "Quote ID → command.quoteId; save cấp Policy ID mới",
+      "callerVerified": true,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationStages": 5,
+      "checkpoints": 14,
+      "event": "CreatePolicyEvent",
+      "limits": [
+        "Đường vào riêng tới CreatePolicyFunc; không có lời gọi tự động sang CreatePolicyFunc. Hội tụ ở command/event/aggregate store.",
+        "Trạng thái ban đầu tính từ ngày Quote bằng helper của chính creator; không phải cập nhật status Policy cũ.",
+        "Source helper chỉ trả 0/100/-1. TERMINATED=-100 không phải kết quả của ba nhánh ngày.",
+        "Command có mốc ngày tạo; apply dùng createdEventTime, rồi nơi save lại gán createdDate/updatedDate. Status không được tính lại ở hai bước này.",
+        "Các tác vụ gateway, email, dữ liệu phí/đối tượng và runtime view dùng fixture; bài học tập trung đường trạng thái và điểm hội tụ."
+      ]
+    },
+    {
+      "id": "approve-initial",
+      "title": "Khởi tạo khi duyệt thanh toán",
+      "family": "initial",
+      "entry": "POST /quote/approve-payment",
+      "identity": "Quote ID → command.quoteId; save cấp Policy ID mới",
+      "callerVerified": true,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationStages": 5,
+      "checkpoints": 15,
+      "event": "CreatePolicyEvent",
+      "limits": [
+        "Đường vào riêng tới ApprovePaymentFunc; không có lời gọi tự động sang CreatePolicyFunc. Hội tụ ở command/event/aggregate store.",
+        "Ngày có thể đổi theo releaseDate và đối tượng. Fixture Calendar giả định UTC+07:00; timezone mặc định của Java runtime chưa được xác minh.",
+        "Source helper chỉ trả 0/100/-1. TERMINATED=-100 không phải kết quả của ba nhánh ngày.",
+        "Command có mốc ngày tạo; apply dùng createdEventTime, rồi nơi save lại gán createdDate/updatedDate. Status không được tính lại ở hai bước này.",
+        "Các tác vụ gateway, email, dữ liệu phí/đối tượng và runtime view dùng fixture; bài học tập trung đường trạng thái và điểm hội tụ.",
+        "validatePaymentQuote yêu cầu Quote ở WAIT_PAYMENT_CASH hoặc WAIT_PAYMENT_ONLINE; khác validatePaymentNowQuote. afterPay bắt lỗi trả false, runInternal trả Boolean."
+      ]
+    },
+    {
+      "id": "approve-now",
+      "title": "Khởi tạo khi duyệt thanh toán ngay",
+      "family": "initial",
+      "entry": "POST /quote/approve-payment-now",
+      "identity": "Quote ID → command.quoteId; save cấp Policy ID mới",
+      "callerVerified": true,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationStages": 5,
+      "checkpoints": 15,
+      "event": "CreatePolicyEvent",
+      "limits": [
+        "Đường vào riêng tới ApprovePaymentNowFunc; không có lời gọi tự động sang CreatePolicyFunc. Hội tụ ở command/event/aggregate store.",
+        "Ngày có thể đổi theo releaseDate và đối tượng. Fixture Calendar giả định UTC+07:00; timezone mặc định của Java runtime chưa được xác minh.",
+        "Source helper chỉ trả 0/100/-1. TERMINATED=-100 không phải kết quả của ba nhánh ngày.",
+        "Command có mốc ngày tạo; apply dùng createdEventTime, rồi nơi save lại gán createdDate/updatedDate. Status không được tính lại ở hai bước này.",
+        "Các tác vụ gateway, email, dữ liệu phí/đối tượng và runtime view dùng fixture; bài học tập trung đường trạng thái và điểm hội tụ.",
+        "Nhánh group cover XG_2_5 active dùng releaseDate+1 ngày; nhánh thường dùng các difference ngày/giờ/phút. afterPay có thể trả null; runInternal chặn ID blank."
+      ]
+    },
+    {
+      "id": "online-initial",
+      "title": "Khởi tạo sau thanh toán online",
+      "family": "initial",
+      "entry": "POST /payment/paid-for-quote",
+      "identity": "Quote ID → command.quoteId; save cấp Policy ID mới",
+      "callerVerified": true,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationStages": 5,
+      "checkpoints": 19,
+      "event": "CreatePolicyEvent",
+      "limits": [
+        "Đường vào riêng tới CreatePolicyForPaymentOnlineFunc; không có lời gọi tự động sang CreatePolicyFunc. Hội tụ ở command/event/aggregate store.",
+        "Trạng thái ban đầu tính từ ngày Quote bằng helper của chính creator; không phải cập nhật status Policy cũ.",
+        "Source helper chỉ trả 0/100/-1. TERMINATED=-100 không phải kết quả của ba nhánh ngày.",
+        "Command có mốc ngày tạo; apply dùng createdEventTime, rồi nơi save lại gán createdDate/updatedDate. Status không được tính lại ở hai bước này.",
+        "Các tác vụ gateway, email, dữ liệu phí/đối tượng và runtime view dùng fixture; bài học tập trung đường trạng thái và điểm hội tụ.",
+        "Đường quét: POST /schedule/scan-payment-paid → ScanPaymentPaidFunc.exec; query thực tế retryReleasePolicy <= 3, dù tên method có LessThan. Không gán một cron chưa xác minh cho Func quét.",
+        "Quote.PUBLISHED trả Policy ID cũ trước processor và creator; gateway chưa PAYED thì không tới điểm tạo."
+      ]
+    },
+    {
+      "id": "cash-initial",
+      "title": "Khởi tạo qua thanh toán offline",
+      "family": "initial",
+      "entry": "POST /payment/pay-for-quote · COLLECTION_AGENT",
+      "identity": "Quote ID → command.quoteId; save cấp Policy ID mới",
+      "callerVerified": true,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationStages": 5,
+      "checkpoints": 18,
+      "event": "CreatePolicyEvent",
+      "limits": [
+        "Đường vào riêng tới CreatePolicyForCash; không có lời gọi tự động sang CreatePolicyFunc. Hội tụ ở command/event/aggregate store.",
+        "Ngày có thể đổi theo releaseDate và đối tượng. Fixture Calendar giả định UTC+07:00; timezone mặc định của Java runtime chưa được xác minh.",
+        "Source helper chỉ trả 0/100/-1. TERMINATED=-100 không phải kết quả của ba nhánh ngày.",
+        "Command có mốc ngày tạo; apply dùng createdEventTime, rồi nơi save lại gán createdDate/updatedDate. Status không được tính lại ở hai bước này.",
+        "Các tác vụ gateway, email, dữ liệu phí/đối tượng và runtime view dùng fixture; bài học tập trung đường trạng thái và điểm hội tụ.",
+        "Offline kế thừa beforePay/canPay của OnlineQuotePaymentFlow. Nhánh !acceptTerms && !confirmOTP và checkTPA có thể chặn trước creator.",
+        "XG_2_5 active hoặc BẢO TÂM AN dùng nhánh ngày kế tiếp; SỨC KHỎE TOÀN DIỆN loại khỏi nhánh dịch thông thường. Fixture ghi rõ nhánh đang dùng."
+      ]
+    },
+    {
+      "id": "untraced",
+      "title": "Nhánh tạo chưa tìm được tác nhân gọi",
+      "family": "initial",
+      "entry": "CreatePolicyWithoutLockAndTransactionFunc.exec(quoteId)",
+      "identity": "Quote ID → command.quoteId; save cấp Policy ID mới",
+      "callerVerified": false,
+      "modes": [
+        "overview",
+        "steps",
+        "assembly"
+      ],
+      "implementationStages": 5,
+      "checkpoints": 14,
+      "event": "CreatePolicyEvent",
+      "limits": [
+        "Chưa thấy caller trong Java/XML/YML đã rà. Fixture bắt đầu ở exec(quoteId); không vẽ một API, event hoặc job giả định.",
+        "Trạng thái ban đầu tính từ ngày Quote bằng helper của chính creator; không phải cập nhật status Policy cũ.",
+        "Source helper chỉ trả 0/100/-1. TERMINATED=-100 không phải kết quả của ba nhánh ngày.",
+        "Command có mốc ngày tạo; apply dùng createdEventTime, rồi nơi save lại gán createdDate/updatedDate. Status không được tính lại ở hai bước này.",
+        "Các tác vụ gateway, email, dữ liệu phí/đối tượng và runtime view dùng fixture; bài học tập trung đường trạng thái và điểm hội tụ."
+      ]
+    }
+  ],
+  "verifiedCases": [
+    "before effectiveDate → 0",
+    "within period → 100",
+    "after expirationDate → -1",
+    "exact effectiveDate with stored 0: query skips, helper not run",
+    "exact expirationDate with stored 100: query skips, helper not run",
+    "exact expirationDate with stored 0: selected, helper 100",
+    "missing/terminated DTO after selection: guard before helper",
+    "unchanged status: no Policy write",
+    "Core direct status including -100 and unknown numeric code; no date remap",
+    "Core same status still writes; paymentStatus computed separately",
+    "two creation entries converge at PolicyAggregate L328 after distinct guards",
+    "releaseDate adjustment precedes helper in approval/offline fixtures",
+    "online HTTP/queue/scan; PUBLISHED and blank-event early stop",
+    "mode/flow/group/reload/deep-link preservation",
+    "future source inspection cannot execute ahead of replay",
+    "full-file A/B highlights and clipboard",
+    "all eight mobile overviews and complete source in dark mode"
+  ],
+  "fixesVerified": [
+    "Controlled comparison date retains edits while Router changes URL.",
+    "Implementation action validates against current selected file.",
+    "Selecting a different online actor opens its checkpoint plan without reusing an executed HTTP cursor.",
+    "Shared dialog owns its tab/panel styles; header and mode tabs remain in view when scrolling implementation, with the status file tree alongside."
+  ],
+  "limits": [
+    "Fixture/source verification only; no Java, API, database, gateway or queue was executed.",
+    "Caller for CreatePolicyWithoutLockAndTransactionFunc remains unverified; lesson starts at exec and map marks unknown actor.",
+    "Core business rules and outside producer of QuotePaidEvent are not established by these local call sites.",
+    "Java runtime timezone and deployment configuration overrides are not verified; Calendar fixture declares UTC+07:00.",
+    "Event/view timing is represented by separate checkpoints, not a runtime latency claim."
+  ],
+  "backend": "Read-only; existing untracked docs directory preserved."
+}

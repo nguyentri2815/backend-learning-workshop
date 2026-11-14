@@ -1,0 +1,599 @@
+{
+  "observations": [
+    {
+      "flow": "checkout",
+      "name": "overview",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=checkout&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "checkout",
+      "name": "overview-map",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=checkout&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "checkout",
+      "name": "checkpoint",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=checkout&mode=steps&opened=payment-api&node=checkout-event&point=checkout-event&u.checkout.view=checkout-event&u.checkout.scenario=success&u.checkout.draftScenario=success&u.checkout.input=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.draft=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.started=1&u.checkout.stop=10&u.checkout.cursor=checkout-event&u.checkout.prior=checkout-command",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "checkout",
+      "name": "reason",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=checkout&mode=assembly&opened=payment-api&node=checkout-event&point=checkout-event&u.checkout.view=checkout-event&u.checkout.scenario=success&u.checkout.draftScenario=success&u.checkout.input=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.draft=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.started=1&u.checkout.stop=10&u.checkout.cursor=checkout-event&u.checkout.prior=checkout-command&u.checkout.position.steps=checkout-event&u.checkout.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "checkout",
+      "name": "cooperate",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=checkout&mode=assembly&opened=payment-api&node=checkout-event&point=checkout-event&u.checkout.view=checkout-event&u.checkout.scenario=success&u.checkout.draftScenario=success&u.checkout.input=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.draft=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.started=1&u.checkout.stop=10&u.checkout.cursor=checkout-event&u.checkout.prior=checkout-command&u.checkout.position.steps=checkout-event&u.checkout.mode=assembly&assemblyDecision.update-checkout-write=decision-2&assemblyView.update-checkout-write=cooperate&assemblyAnswers.update-checkout-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "checkout",
+      "name": "pattern",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=checkout&mode=assembly&opened=payment-api&node=checkout-event&point=checkout-event&u.checkout.view=checkout-event&u.checkout.scenario=success&u.checkout.draftScenario=success&u.checkout.input=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.draft=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.started=1&u.checkout.stop=10&u.checkout.cursor=checkout-event&u.checkout.prior=checkout-command&u.checkout.position.steps=checkout-event&u.checkout.mode=assembly&assemblyDecision.update-checkout-write=decision-2&assemblyView.update-checkout-write=pattern&assemblyAnswers.update-checkout-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "checkout",
+      "name": "pattern-code",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=checkout&mode=assembly&opened=payment-api&node=checkout-event&point=checkout-event&u.checkout.view=checkout-event&u.checkout.scenario=success&u.checkout.draftScenario=success&u.checkout.input=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.draft=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.started=1&u.checkout.stop=10&u.checkout.cursor=checkout-event&u.checkout.prior=checkout-command&u.checkout.position.steps=checkout-event&u.checkout.mode=assembly&assemblyDecision.update-checkout-write=decision-2&assemblyView.update-checkout-write=pattern&assemblyAnswers.update-checkout-write=0%2C0&assemblyComponent.update-checkout-write=checkout-gateway&assemblyEdge.update-checkout-write=checkout-write&assemblyFrame.update-checkout-write=cooperation&assemblyInspect.update-checkout-write=edge%3Acheckout-write",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "checkout",
+      "name": "full-source",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=checkout&mode=assembly&opened=payment-api&node=checkout-event&point=checkout-event&u.checkout.view=checkout-event&u.checkout.scenario=success&u.checkout.draftScenario=success&u.checkout.input=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.draft=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.started=1&u.checkout.stop=10&u.checkout.cursor=checkout-event&u.checkout.prior=checkout-command&u.checkout.position.steps=checkout-event&u.checkout.mode=assembly&assemblyDecision.update-checkout-write=decision-2&assemblyView.update-checkout-write=pattern&assemblyAnswers.update-checkout-write=0%2C0&assemblyComponent.update-checkout-write=checkout-gateway&assemblyEdge.update-checkout-write=checkout-write&assemblyFrame.update-checkout-write=cooperation&assemblyInspect.update-checkout-write=edge%3Acheckout-write",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "checkout",
+      "name": "diagram",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=checkout&mode=assembly&opened=payment-api&node=checkout-event&point=checkout-event&u.checkout.view=checkout-event&u.checkout.scenario=success&u.checkout.draftScenario=success&u.checkout.input=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.draft=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.started=1&u.checkout.stop=10&u.checkout.cursor=checkout-event&u.checkout.prior=checkout-command&u.checkout.position.steps=checkout-event&u.checkout.mode=assembly&assemblyDecision.update-checkout-write=decision-2&assemblyView.update-checkout-write=pattern&assemblyAnswers.update-checkout-write=0%2C0&assemblyComponent.update-checkout-write=checkout-gateway&assemblyEdge.update-checkout-write=checkout-write&assemblyFrame.update-checkout-write=cooperation&assemblyInspect.update-checkout-write=edge%3Acheckout-write&assemblyDiagram.update-checkout-write=1&assemblyDiagramRelation.update-checkout-write=checkout-write",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "checkout",
+      "name": "implementation",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=checkout&mode=assembly&opened=payment-api&node=checkout-event&point=checkout-event&u.checkout.view=checkout-event&u.checkout.scenario=success&u.checkout.draftScenario=success&u.checkout.input=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.draft=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.started=1&u.checkout.stop=10&u.checkout.cursor=checkout-event&u.checkout.prior=checkout-command&u.checkout.position.steps=checkout-event&u.checkout.mode=assembly&assemblyDecision.update-checkout-write=decision-2&assemblyView.update-checkout-write=pattern&assemblyAnswers.update-checkout-write=0%2C0&assemblyComponent.update-checkout-write=checkout-gateway&assemblyEdge.update-checkout-write=checkout-write&assemblyFrame.update-checkout-write=cooperation&assemblyInspect.update-checkout-write=edge%3Acheckout-write&assemblyDiagram.update-checkout-write=1&assemblyDiagramRelation.update-checkout-write=checkout-write&assemblyDiagramMode.update-checkout-write=practice&u.checkout.build.file=baseProcessor&u.checkout.build.done=write-locate%2Cwrite-connect&u.checkout.build.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "checkout",
+      "name": "result",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=checkout&mode=steps&opened=payment-api&node=checkout-view&point=checkout-view&u.checkout.view=checkout-view&u.checkout.scenario=success&u.checkout.draftScenario=success&u.checkout.input=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.draft=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.started=1&u.checkout.stop=17&u.checkout.cursor=checkout-view&u.checkout.prior=checkout-flow&u.checkout.position.steps=checkout-event&u.checkout.mode=steps&assemblyDecision.update-checkout-write=decision-2&assemblyView.update-checkout-write=pattern&assemblyAnswers.update-checkout-write=0%2C0&assemblyComponent.update-checkout-write=checkout-gateway&assemblyEdge.update-checkout-write=checkout-write&assemblyFrame.update-checkout-write=cooperation&assemblyInspect.update-checkout-write=edge%3Acheckout-write&assemblyDiagramRelation.update-checkout-write=checkout-write&assemblyDiagramMode.update-checkout-write=practice&u.checkout.build.file=baseProcessor&u.checkout.build.done=write-locate%2Cwrite-connect%2Cwrite-trial&u.checkout.build.task=write-trial&u.checkout.build.tested.write=success%2Cpaid&u.checkout.position.assembly=checkout-event",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "checkout",
+      "name": "stopped",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=checkout&mode=steps&u.checkout.draftScenario=paid&opened=payment-api&node=checkout-guard&point=checkout-guard&u.checkout.view=checkout-guard&u.checkout.input=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.draft=%7B%22processId%22%3A%22PROCESS-LEARN-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.checkout.scenario=paid&u.checkout.started=1&u.checkout.stop=2&u.checkout.cursor=checkout-guard&u.checkout.prior=checkout-guard",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "paid",
+      "name": "overview",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=paid&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "paid",
+      "name": "overview-map",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=paid&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "paid",
+      "name": "checkpoint",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=paid&mode=steps&opened=payment-api&node=paid-apply&point=paid-apply&u.paid.view=paid-apply&u.paid.scenario=success&u.paid.draftScenario=success&u.paid.input=%7B%22orderNo%22%3A%22POLICY-ORDER-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.paid.draft=%7B%22orderNo%22%3A%22POLICY-ORDER-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.paid.started=1&u.paid.stop=7&u.paid.cursor=paid-apply&u.paid.prior=paid-command",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "paid",
+      "name": "reason",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=paid&mode=assembly&opened=payment-api%2Cpaid-apply&node=paid-apply&point=paid-apply&u.paid.view=paid-apply&u.paid.scenario=success&u.paid.draftScenario=success&u.paid.input=%7B%22orderNo%22%3A%22POLICY-ORDER-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.paid.draft=%7B%22orderNo%22%3A%22POLICY-ORDER-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.paid.started=1&u.paid.stop=7&u.paid.cursor=paid-apply&u.paid.prior=paid-command&u.paid.position.steps=paid-apply&u.paid.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "paid",
+      "name": "pattern",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=paid&mode=assembly&opened=payment-api%2Cpaid-apply&node=paid-apply&point=paid-apply&u.paid.view=paid-apply&u.paid.scenario=success&u.paid.draftScenario=success&u.paid.input=%7B%22orderNo%22%3A%22POLICY-ORDER-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.paid.draft=%7B%22orderNo%22%3A%22POLICY-ORDER-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.paid.started=1&u.paid.stop=7&u.paid.cursor=paid-apply&u.paid.prior=paid-command&u.paid.position.steps=paid-apply&u.paid.mode=assembly&assemblyDecision.update-paid-write=decision-2&assemblyView.update-paid-write=pattern&assemblyAnswers.update-paid-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "paid",
+      "name": "implementation",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=paid&mode=assembly&opened=payment-api%2Cpaid-apply&node=paid-apply&point=paid-apply&u.paid.view=paid-apply&u.paid.scenario=success&u.paid.draftScenario=success&u.paid.input=%7B%22orderNo%22%3A%22POLICY-ORDER-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.paid.draft=%7B%22orderNo%22%3A%22POLICY-ORDER-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.paid.started=1&u.paid.stop=7&u.paid.cursor=paid-apply&u.paid.prior=paid-command&u.paid.position.steps=paid-apply&u.paid.mode=assembly&assemblyDecision.update-paid-write=decision-2&assemblyView.update-paid-write=pattern&assemblyAnswers.update-paid-write=0%2C0&assemblyDiagram.update-paid-write=1&assemblyDiagramRelation.update-paid-write=paid-finish&assemblyDiagramMode.update-paid-write=practice&u.paid.build.file=online&u.paid.build.done=write-locate%2Cwrite-connect&u.paid.build.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "paid",
+      "name": "result",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=paid&mode=steps&opened=payment-api%2Cpaid-apply&node=paid-view&point=paid-view&u.paid.view=paid-view&u.paid.scenario=success&u.paid.draftScenario=success&u.paid.input=%7B%22orderNo%22%3A%22POLICY-ORDER-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.paid.draft=%7B%22orderNo%22%3A%22POLICY-ORDER-001%22%2C%22paymentType%22%3A%22VNPay%22%7D&u.paid.started=1&u.paid.stop=12&u.paid.cursor=paid-view&u.paid.prior=paid-flow&u.paid.position.steps=paid-apply&u.paid.mode=steps&assemblyDecision.update-paid-write=decision-2&assemblyView.update-paid-write=pattern&assemblyAnswers.update-paid-write=0%2C0&assemblyDiagramRelation.update-paid-write=paid-finish&assemblyDiagramMode.update-paid-write=practice&u.paid.build.file=online&u.paid.build.done=write-locate%2Cwrite-connect%2Cwrite-trial&u.paid.build.task=write-trial&u.paid.build.tested.write=success%2Ccancel&u.paid.position.assembly=paid-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "endorsement",
+      "name": "overview",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=endorsement&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "endorsement",
+      "name": "overview-map",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=endorsement&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "endorsement",
+      "name": "checkpoint",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=endorsement&mode=steps&opened=endorsement-api&node=endorsement-apply&point=endorsement-apply&u.endorsement.view=endorsement-apply&u.endorsement.scenario=success&u.endorsement.draftScenario=success&u.endorsement.input=%7B%22endorsementCode%22%3A%22S-DEMO-001-01%22%2C%22endorsementId%22%3A%22END-001%22%2C%22policyId%22%3A%22CORE-POL-001%22%7D&u.endorsement.draft=%7B%22endorsementCode%22%3A%22S-DEMO-001-01%22%2C%22endorsementId%22%3A%22END-001%22%2C%22policyId%22%3A%22CORE-POL-001%22%7D&u.endorsement.started=1&u.endorsement.stop=7&u.endorsement.cursor=endorsement-apply&u.endorsement.prior=endorsement-command",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "endorsement",
+      "name": "reason",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=endorsement&mode=assembly&opened=endorsement-api%2Cendorsement-apply&node=endorsement-apply&point=endorsement-apply&u.endorsement.view=endorsement-apply&u.endorsement.scenario=success&u.endorsement.draftScenario=success&u.endorsement.input=%7B%22endorsementCode%22%3A%22S-DEMO-001-01%22%2C%22endorsementId%22%3A%22END-001%22%2C%22policyId%22%3A%22CORE-POL-001%22%7D&u.endorsement.draft=%7B%22endorsementCode%22%3A%22S-DEMO-001-01%22%2C%22endorsementId%22%3A%22END-001%22%2C%22policyId%22%3A%22CORE-POL-001%22%7D&u.endorsement.started=1&u.endorsement.stop=7&u.endorsement.cursor=endorsement-apply&u.endorsement.prior=endorsement-command&u.endorsement.position.steps=endorsement-apply&u.endorsement.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "endorsement",
+      "name": "pattern",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=endorsement&mode=assembly&opened=endorsement-api%2Cendorsement-apply&node=endorsement-apply&point=endorsement-apply&u.endorsement.view=endorsement-apply&u.endorsement.scenario=success&u.endorsement.draftScenario=success&u.endorsement.input=%7B%22endorsementCode%22%3A%22S-DEMO-001-01%22%2C%22endorsementId%22%3A%22END-001%22%2C%22policyId%22%3A%22CORE-POL-001%22%7D&u.endorsement.draft=%7B%22endorsementCode%22%3A%22S-DEMO-001-01%22%2C%22endorsementId%22%3A%22END-001%22%2C%22policyId%22%3A%22CORE-POL-001%22%7D&u.endorsement.started=1&u.endorsement.stop=7&u.endorsement.cursor=endorsement-apply&u.endorsement.prior=endorsement-command&u.endorsement.position.steps=endorsement-apply&u.endorsement.mode=assembly&assemblyDecision.update-endorsement-write=decision-2&assemblyView.update-endorsement-write=pattern&assemblyAnswers.update-endorsement-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "endorsement",
+      "name": "implementation",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=endorsement&mode=assembly&opened=endorsement-api%2Cendorsement-apply&node=endorsement-apply&point=endorsement-apply&u.endorsement.view=endorsement-apply&u.endorsement.scenario=success&u.endorsement.draftScenario=success&u.endorsement.input=%7B%22endorsementCode%22%3A%22S-DEMO-001-01%22%2C%22endorsementId%22%3A%22END-001%22%2C%22policyId%22%3A%22CORE-POL-001%22%7D&u.endorsement.draft=%7B%22endorsementCode%22%3A%22S-DEMO-001-01%22%2C%22endorsementId%22%3A%22END-001%22%2C%22policyId%22%3A%22CORE-POL-001%22%7D&u.endorsement.started=1&u.endorsement.stop=7&u.endorsement.cursor=endorsement-apply&u.endorsement.prior=endorsement-command&u.endorsement.position.steps=endorsement-apply&u.endorsement.mode=assembly&assemblyDecision.update-endorsement-write=decision-2&assemblyView.update-endorsement-write=pattern&assemblyAnswers.update-endorsement-write=0%2C0&assemblyDiagram.update-endorsement-write=1&assemblyDiagramRelation.update-endorsement-write=endorsement-command&assemblyDiagramMode.update-endorsement-write=practice&u.endorsement.build.file=endorsement&u.endorsement.build.done=write-locate%2Cwrite-connect&u.endorsement.build.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "endorsement",
+      "name": "result",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=endorsement&mode=steps&opened=endorsement-api%2Cendorsement-apply&node=endorsement-view&point=endorsement-view&u.endorsement.view=endorsement-view&u.endorsement.scenario=success&u.endorsement.draftScenario=success&u.endorsement.input=%7B%22endorsementCode%22%3A%22S-DEMO-001-01%22%2C%22endorsementId%22%3A%22END-001%22%2C%22policyId%22%3A%22CORE-POL-001%22%7D&u.endorsement.draft=%7B%22endorsementCode%22%3A%22S-DEMO-001-01%22%2C%22endorsementId%22%3A%22END-001%22%2C%22policyId%22%3A%22CORE-POL-001%22%7D&u.endorsement.started=1&u.endorsement.stop=11&u.endorsement.cursor=endorsement-view&u.endorsement.prior=endorsement-flow&u.endorsement.position.steps=endorsement-apply&u.endorsement.mode=steps&assemblyDecision.update-endorsement-write=decision-2&assemblyView.update-endorsement-write=pattern&assemblyAnswers.update-endorsement-write=0%2C0&assemblyDiagramRelation.update-endorsement-write=endorsement-command&assemblyDiagramMode.update-endorsement-write=practice&u.endorsement.build.file=endorsement&u.endorsement.build.done=write-locate%2Cwrite-connect%2Cwrite-trial&u.endorsement.build.task=write-trial&u.endorsement.build.tested.write=success%2Ccore-fail&u.endorsement.position.assembly=endorsement-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "permission",
+      "name": "overview",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=permission&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "permission",
+      "name": "overview-map",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=permission&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "permission",
+      "name": "checkpoint",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=permission&mode=steps&opened=permission-api%2Cpermission-event%2Cpermission-queue&node=permission-apply&point=permission-apply&u.permission.view=permission-apply&u.permission.scenario=success&u.permission.draftScenario=success&u.permission.input=%7B%22entityId%22%3A%22DV-A%22%2C%22eventType%22%3A%22CreateRelationshipEvent%22%7D&u.permission.draft=%7B%22entityId%22%3A%22DV-A%22%2C%22eventType%22%3A%22CreateRelationshipEvent%22%7D&u.permission.started=1&u.permission.stop=7&u.permission.cursor=permission-apply&u.permission.prior=permission-command",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "permission",
+      "name": "reason",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=permission&mode=assembly&opened=permission-api%2Cpermission-event%2Cpermission-queue%2Cpermission-apply&node=permission-apply&point=permission-apply&u.permission.view=permission-apply&u.permission.scenario=success&u.permission.draftScenario=success&u.permission.input=%7B%22entityId%22%3A%22DV-A%22%2C%22eventType%22%3A%22CreateRelationshipEvent%22%7D&u.permission.draft=%7B%22entityId%22%3A%22DV-A%22%2C%22eventType%22%3A%22CreateRelationshipEvent%22%7D&u.permission.started=1&u.permission.stop=7&u.permission.cursor=permission-apply&u.permission.prior=permission-command&u.permission.position.steps=permission-apply&u.permission.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "permission",
+      "name": "pattern",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=permission&mode=assembly&opened=permission-api%2Cpermission-event%2Cpermission-queue%2Cpermission-apply&node=permission-apply&point=permission-apply&u.permission.view=permission-apply&u.permission.scenario=success&u.permission.draftScenario=success&u.permission.input=%7B%22entityId%22%3A%22DV-A%22%2C%22eventType%22%3A%22CreateRelationshipEvent%22%7D&u.permission.draft=%7B%22entityId%22%3A%22DV-A%22%2C%22eventType%22%3A%22CreateRelationshipEvent%22%7D&u.permission.started=1&u.permission.stop=7&u.permission.cursor=permission-apply&u.permission.prior=permission-command&u.permission.position.steps=permission-apply&u.permission.mode=assembly&assemblyDecision.update-permission-write=decision-2&assemblyView.update-permission-write=pattern&assemblyAnswers.update-permission-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "permission",
+      "name": "implementation",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=permission&mode=assembly&opened=permission-api%2Cpermission-event%2Cpermission-queue%2Cpermission-apply&node=permission-apply&point=permission-apply&u.permission.view=permission-apply&u.permission.scenario=success&u.permission.draftScenario=success&u.permission.input=%7B%22entityId%22%3A%22DV-A%22%2C%22eventType%22%3A%22CreateRelationshipEvent%22%7D&u.permission.draft=%7B%22entityId%22%3A%22DV-A%22%2C%22eventType%22%3A%22CreateRelationshipEvent%22%7D&u.permission.started=1&u.permission.stop=7&u.permission.cursor=permission-apply&u.permission.prior=permission-command&u.permission.position.steps=permission-apply&u.permission.mode=assembly&assemblyDecision.update-permission-write=decision-2&assemblyView.update-permission-write=pattern&assemblyAnswers.update-permission-write=0%2C0&assemblyDiagram.update-permission-write=1&assemblyDiagramRelation.update-permission-write=permission-write&assemblyDiagramMode.update-permission-write=practice&u.permission.build.file=permission&u.permission.build.done=write-locate%2Cwrite-connect&u.permission.build.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "permission",
+      "name": "result",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=permission&mode=steps&opened=permission-api%2Cpermission-event%2Cpermission-queue%2Cpermission-apply&node=permission-view&point=permission-view&u.permission.view=permission-view&u.permission.scenario=success&u.permission.draftScenario=success&u.permission.input=%7B%22entityId%22%3A%22DV-A%22%2C%22eventType%22%3A%22CreateRelationshipEvent%22%7D&u.permission.draft=%7B%22entityId%22%3A%22DV-A%22%2C%22eventType%22%3A%22CreateRelationshipEvent%22%7D&u.permission.started=1&u.permission.stop=11&u.permission.cursor=permission-view&u.permission.prior=permission-flow&u.permission.position.steps=permission-apply&u.permission.mode=steps&assemblyDecision.update-permission-write=decision-2&assemblyView.update-permission-write=pattern&assemblyAnswers.update-permission-write=0%2C0&assemblyDiagramRelation.update-permission-write=permission-write&assemblyDiagramMode.update-permission-write=practice&u.permission.build.file=permission&u.permission.build.done=write-locate%2Cwrite-connect%2Cwrite-trial&u.permission.build.task=write-trial&u.permission.build.tested.write=success%2Cmissing&u.permission.position.assembly=permission-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "migration",
+      "name": "overview",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=migration&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "migration",
+      "name": "overview-map",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=migration&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "migration",
+      "name": "checkpoint",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=migration&mode=steps&opened=migration-api&node=migration-apply&point=migration-apply&u.migration.view=migration-apply&u.migration.scenario=success&u.migration.draftScenario=success&u.migration.input=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Fsync-to-view%2Fmigrate-data-quote-and-policy%22%7D&u.migration.draft=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Fsync-to-view%2Fmigrate-data-quote-and-policy%22%7D&u.migration.started=1&u.migration.stop=7&u.migration.cursor=migration-apply&u.migration.prior=migration-command",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "migration",
+      "name": "reason",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=migration&mode=assembly&opened=migration-api%2Cmigration-apply&node=migration-apply&point=migration-apply&u.migration.view=migration-apply&u.migration.scenario=success&u.migration.draftScenario=success&u.migration.input=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Fsync-to-view%2Fmigrate-data-quote-and-policy%22%7D&u.migration.draft=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Fsync-to-view%2Fmigrate-data-quote-and-policy%22%7D&u.migration.started=1&u.migration.stop=7&u.migration.cursor=migration-apply&u.migration.prior=migration-command&u.migration.position.steps=migration-apply&u.migration.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "migration",
+      "name": "pattern",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=migration&mode=assembly&opened=migration-api%2Cmigration-apply&node=migration-apply&point=migration-apply&u.migration.view=migration-apply&u.migration.scenario=success&u.migration.draftScenario=success&u.migration.input=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Fsync-to-view%2Fmigrate-data-quote-and-policy%22%7D&u.migration.draft=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Fsync-to-view%2Fmigrate-data-quote-and-policy%22%7D&u.migration.started=1&u.migration.stop=7&u.migration.cursor=migration-apply&u.migration.prior=migration-command&u.migration.position.steps=migration-apply&u.migration.mode=assembly&assemblyDecision.update-migration-write=decision-2&assemblyView.update-migration-write=pattern&assemblyAnswers.update-migration-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "migration",
+      "name": "implementation",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=migration&mode=assembly&opened=migration-api%2Cmigration-apply&node=migration-apply&point=migration-apply&u.migration.view=migration-apply&u.migration.scenario=success&u.migration.draftScenario=success&u.migration.input=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Fsync-to-view%2Fmigrate-data-quote-and-policy%22%7D&u.migration.draft=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Fsync-to-view%2Fmigrate-data-quote-and-policy%22%7D&u.migration.started=1&u.migration.stop=7&u.migration.cursor=migration-apply&u.migration.prior=migration-command&u.migration.position.steps=migration-apply&u.migration.mode=assembly&assemblyDecision.update-migration-write=decision-2&assemblyView.update-migration-write=pattern&assemblyAnswers.update-migration-write=0%2C0&assemblyDiagram.update-migration-write=1&assemblyDiagramRelation.update-migration-write=migration-write&assemblyDiagramMode.update-migration-write=practice&u.migration.build.file=migration&u.migration.build.done=write-locate%2Cwrite-connect&u.migration.build.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "migration",
+      "name": "result",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=migration&mode=steps&opened=migration-api%2Cmigration-apply&node=migration-view&point=migration-view&u.migration.view=migration-view&u.migration.scenario=success&u.migration.draftScenario=success&u.migration.input=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Fsync-to-view%2Fmigrate-data-quote-and-policy%22%7D&u.migration.draft=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Fsync-to-view%2Fmigrate-data-quote-and-policy%22%7D&u.migration.started=1&u.migration.stop=11&u.migration.cursor=migration-view&u.migration.prior=migration-flow&u.migration.position.steps=migration-apply&u.migration.mode=steps&assemblyDecision.update-migration-write=decision-2&assemblyView.update-migration-write=pattern&assemblyAnswers.update-migration-write=0%2C0&assemblyDiagramRelation.update-migration-write=migration-write&assemblyDiagramMode.update-migration-write=practice&u.migration.build.file=migration&u.migration.build.done=write-locate%2Cwrite-connect%2Cwrite-trial&u.migration.build.task=write-trial&u.migration.build.tested.write=success%2Cmissing&u.migration.position.assembly=migration-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "documents",
+      "name": "overview",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=documents&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "documents",
+      "name": "overview-map",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=documents&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "documents",
+      "name": "checkpoint",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=documents&mode=steps&opened=upload-api&node=documents-apply&point=documents-apply&u.documents.view=documents-apply&u.documents.scenario=success&u.documents.draftScenario=success&u.documents.input=%7B%22policyId%22%3A%22POL-LEARN-001%22%2C%22files%22%3A%5B%7B%22documentName%22%3A%22Gi%E1%BA%A5y+%C4%91%E1%BB%81+ngh%E1%BB%8B%22%2C%22attachmentId%22%3A%22ATT-002%22%2C%22attachmentName%22%3A%22de-nghi.pdf%22%2C%22kind%22%3Anull%7D%5D%7D&u.documents.draft=%7B%22policyId%22%3A%22POL-LEARN-001%22%2C%22files%22%3A%5B%7B%22documentName%22%3A%22Gi%E1%BA%A5y+%C4%91%E1%BB%81+ngh%E1%BB%8B%22%2C%22attachmentId%22%3A%22ATT-002%22%2C%22attachmentName%22%3A%22de-nghi.pdf%22%2C%22kind%22%3Anull%7D%5D%7D&u.documents.started=1&u.documents.stop=7&u.documents.cursor=documents-apply&u.documents.prior=documents-command",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "documents",
+      "name": "reason",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=documents&mode=assembly&opened=upload-api&node=documents-apply&point=documents-apply&u.documents.view=documents-apply&u.documents.scenario=success&u.documents.draftScenario=success&u.documents.input=%7B%22policyId%22%3A%22POL-LEARN-001%22%2C%22files%22%3A%5B%7B%22documentName%22%3A%22Gi%E1%BA%A5y+%C4%91%E1%BB%81+ngh%E1%BB%8B%22%2C%22attachmentId%22%3A%22ATT-002%22%2C%22attachmentName%22%3A%22de-nghi.pdf%22%2C%22kind%22%3Anull%7D%5D%7D&u.documents.draft=%7B%22policyId%22%3A%22POL-LEARN-001%22%2C%22files%22%3A%5B%7B%22documentName%22%3A%22Gi%E1%BA%A5y+%C4%91%E1%BB%81+ngh%E1%BB%8B%22%2C%22attachmentId%22%3A%22ATT-002%22%2C%22attachmentName%22%3A%22de-nghi.pdf%22%2C%22kind%22%3Anull%7D%5D%7D&u.documents.started=1&u.documents.stop=7&u.documents.cursor=documents-apply&u.documents.prior=documents-command&u.documents.position.steps=documents-apply&u.documents.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "documents",
+      "name": "pattern",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=documents&mode=assembly&opened=upload-api&node=documents-apply&point=documents-apply&u.documents.view=documents-apply&u.documents.scenario=success&u.documents.draftScenario=success&u.documents.input=%7B%22policyId%22%3A%22POL-LEARN-001%22%2C%22files%22%3A%5B%7B%22documentName%22%3A%22Gi%E1%BA%A5y+%C4%91%E1%BB%81+ngh%E1%BB%8B%22%2C%22attachmentId%22%3A%22ATT-002%22%2C%22attachmentName%22%3A%22de-nghi.pdf%22%2C%22kind%22%3Anull%7D%5D%7D&u.documents.draft=%7B%22policyId%22%3A%22POL-LEARN-001%22%2C%22files%22%3A%5B%7B%22documentName%22%3A%22Gi%E1%BA%A5y+%C4%91%E1%BB%81+ngh%E1%BB%8B%22%2C%22attachmentId%22%3A%22ATT-002%22%2C%22attachmentName%22%3A%22de-nghi.pdf%22%2C%22kind%22%3Anull%7D%5D%7D&u.documents.started=1&u.documents.stop=7&u.documents.cursor=documents-apply&u.documents.prior=documents-command&u.documents.position.steps=documents-apply&u.documents.mode=assembly&assemblyDecision.update-documents-write=decision-2&assemblyView.update-documents-write=pattern&assemblyAnswers.update-documents-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "documents",
+      "name": "implementation",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=documents&mode=assembly&opened=upload-api&node=documents-apply&point=documents-apply&u.documents.view=documents-apply&u.documents.scenario=success&u.documents.draftScenario=success&u.documents.input=%7B%22policyId%22%3A%22POL-LEARN-001%22%2C%22files%22%3A%5B%7B%22documentName%22%3A%22Gi%E1%BA%A5y+%C4%91%E1%BB%81+ngh%E1%BB%8B%22%2C%22attachmentId%22%3A%22ATT-002%22%2C%22attachmentName%22%3A%22de-nghi.pdf%22%2C%22kind%22%3Anull%7D%5D%7D&u.documents.draft=%7B%22policyId%22%3A%22POL-LEARN-001%22%2C%22files%22%3A%5B%7B%22documentName%22%3A%22Gi%E1%BA%A5y+%C4%91%E1%BB%81+ngh%E1%BB%8B%22%2C%22attachmentId%22%3A%22ATT-002%22%2C%22attachmentName%22%3A%22de-nghi.pdf%22%2C%22kind%22%3Anull%7D%5D%7D&u.documents.started=1&u.documents.stop=7&u.documents.cursor=documents-apply&u.documents.prior=documents-command&u.documents.position.steps=documents-apply&u.documents.mode=assembly&assemblyDecision.update-documents-write=decision-2&assemblyView.update-documents-write=pattern&assemblyAnswers.update-documents-write=0%2C0&assemblyDiagram.update-documents-write=1&assemblyDiagramRelation.update-documents-write=documents-write&assemblyDiagramMode.update-documents-write=practice&u.documents.build.file=documents&u.documents.build.done=write-locate%2Cwrite-connect&u.documents.build.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "documents",
+      "name": "result",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=documents&mode=steps&opened=upload-api&node=documents-view&point=documents-view&u.documents.view=documents-view&u.documents.scenario=success&u.documents.draftScenario=success&u.documents.input=%7B%22policyId%22%3A%22POL-LEARN-001%22%2C%22files%22%3A%5B%7B%22documentName%22%3A%22Gi%E1%BA%A5y+%C4%91%E1%BB%81+ngh%E1%BB%8B%22%2C%22attachmentId%22%3A%22ATT-002%22%2C%22attachmentName%22%3A%22de-nghi.pdf%22%2C%22kind%22%3Anull%7D%5D%7D&u.documents.draft=%7B%22policyId%22%3A%22POL-LEARN-001%22%2C%22files%22%3A%5B%7B%22documentName%22%3A%22Gi%E1%BA%A5y+%C4%91%E1%BB%81+ngh%E1%BB%8B%22%2C%22attachmentId%22%3A%22ATT-002%22%2C%22attachmentName%22%3A%22de-nghi.pdf%22%2C%22kind%22%3Anull%7D%5D%7D&u.documents.started=1&u.documents.stop=11&u.documents.cursor=documents-view&u.documents.prior=documents-flow&u.documents.position.steps=documents-apply&u.documents.mode=steps&assemblyDecision.update-documents-write=decision-2&assemblyView.update-documents-write=pattern&assemblyAnswers.update-documents-write=0%2C0&assemblyDiagramRelation.update-documents-write=documents-write&assemblyDiagramMode.update-documents-write=practice&u.documents.build.file=documents&u.documents.build.done=write-locate%2Cwrite-connect%2Cwrite-trial&u.documents.build.task=write-trial&u.documents.build.tested.write=success%2Ccore-fail&u.documents.position.assembly=documents-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "correct",
+      "name": "overview",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=correct&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "correct",
+      "name": "overview-map",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=correct&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "correct",
+      "name": "checkpoint",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=correct&mode=steps&opened=correct-api&node=correct-apply&point=correct-apply&u.correct.view=correct-apply&u.correct.scenario=success&u.correct.draftScenario=success&u.correct.input=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Finternal%2Fpolicy%2Fcorrect-created-date%22%7D&u.correct.draft=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Finternal%2Fpolicy%2Fcorrect-created-date%22%7D&u.correct.started=1&u.correct.stop=5&u.correct.cursor=correct-apply&u.correct.prior=correct-command",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "correct",
+      "name": "reason",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=correct&mode=assembly&opened=correct-api%2Ccorrect-apply&node=correct-apply&point=correct-apply&u.correct.view=correct-apply&u.correct.scenario=success&u.correct.draftScenario=success&u.correct.input=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Finternal%2Fpolicy%2Fcorrect-created-date%22%7D&u.correct.draft=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Finternal%2Fpolicy%2Fcorrect-created-date%22%7D&u.correct.started=1&u.correct.stop=5&u.correct.cursor=correct-apply&u.correct.prior=correct-command&u.correct.position.steps=correct-apply&u.correct.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "correct",
+      "name": "pattern",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=correct&mode=assembly&opened=correct-api%2Ccorrect-apply&node=correct-apply&point=correct-apply&u.correct.view=correct-apply&u.correct.scenario=success&u.correct.draftScenario=success&u.correct.input=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Finternal%2Fpolicy%2Fcorrect-created-date%22%7D&u.correct.draft=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Finternal%2Fpolicy%2Fcorrect-created-date%22%7D&u.correct.started=1&u.correct.stop=5&u.correct.cursor=correct-apply&u.correct.prior=correct-command&u.correct.position.steps=correct-apply&u.correct.mode=assembly&assemblyDecision.update-correct-write=decision-2&assemblyView.update-correct-write=pattern&assemblyAnswers.update-correct-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "correct",
+      "name": "implementation",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=correct&mode=assembly&opened=correct-api%2Ccorrect-apply&node=correct-apply&point=correct-apply&u.correct.view=correct-apply&u.correct.scenario=success&u.correct.draftScenario=success&u.correct.input=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Finternal%2Fpolicy%2Fcorrect-created-date%22%7D&u.correct.draft=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Finternal%2Fpolicy%2Fcorrect-created-date%22%7D&u.correct.started=1&u.correct.stop=5&u.correct.cursor=correct-apply&u.correct.prior=correct-command&u.correct.position.steps=correct-apply&u.correct.mode=assembly&assemblyDecision.update-correct-write=decision-2&assemblyView.update-correct-write=pattern&assemblyAnswers.update-correct-write=0%2C0&assemblyDiagram.update-correct-write=1&assemblyDiagramRelation.update-correct-write=correct-map&assemblyDiagramMode.update-correct-write=practice&u.correct.build.file=correct&u.correct.build.done=write-locate%2Cwrite-connect&u.correct.build.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "correct",
+      "name": "result",
+      "url": "http://localhost:3182/journey/policy?group=update&flow=correct&mode=steps&opened=correct-api%2Ccorrect-apply&node=correct-view&point=correct-view&u.correct.view=correct-view&u.correct.scenario=success&u.correct.draftScenario=success&u.correct.input=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Finternal%2Fpolicy%2Fcorrect-created-date%22%7D&u.correct.draft=%7B%22method%22%3A%22GET%22%2C%22path%22%3A%22%2Finternal%2Fpolicy%2Fcorrect-created-date%22%7D&u.correct.started=1&u.correct.stop=9&u.correct.cursor=correct-view&u.correct.prior=correct-flow&u.correct.position.steps=correct-apply&u.correct.mode=steps&assemblyDecision.update-correct-write=decision-2&assemblyView.update-correct-write=pattern&assemblyAnswers.update-correct-write=0%2C0&assemblyDiagramRelation.update-correct-write=correct-map&assemblyDiagramMode.update-correct-write=practice&u.correct.build.file=correct&u.correct.build.done=write-locate%2Cwrite-connect%2Cwrite-trial&u.correct.build.task=write-trial&u.correct.build.tested.write=success%2Cempty&u.correct.position.assembly=correct-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    }
+  ],
+  "errors": []
+}

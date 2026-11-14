@@ -32,6 +32,9 @@ export function ProjectPractice({openMachineGuide,navigationReady}: {openMachine
   const practiceReady=navigationReady&&serialized===location.search.replace(/^\?/,"");
   const task=practiceTasks.find(task=>task.id===context.task)!;
   const index=visiblePracticeTasks.findIndex(item=>item.id===task.id);
+  const currentStep=practiceStep(context.task,new URLSearchParams(location.search).get('step'));
+  const stepTasks=visiblePracticeTasks.filter(item=>practiceStep(item.id,currentStep)===currentStep);
+  const stepTaskIndex=stepTasks.findIndex(item=>item.id===context.task);
   const module=practiceSource.modulePaths.find(module=>module.line===context.moduleLine)!;
   const advanced=isRuntimeTask(context.task);
   const finalTask=["startup","verify","summary"].includes(context.task);
@@ -86,11 +89,6 @@ export function ProjectPractice({openMachineGuide,navigationReady}: {openMachine
       return ()=>cancelAnimationFrame(frame);
     }
   },[location.key]);
-  useEffect(()=>{
-    const nav=workspace.current?.querySelector<HTMLElement>(".practice-task-nav");
-    const current=nav?.querySelector<HTMLElement>("[aria-current]");
-    if(nav&&current) nav.scrollLeft=current.offsetLeft-nav.offsetLeft-nav.clientWidth/2+current.clientWidth/2;
-  },[context.task,practiceReady]);
   useEffect(()=>{
     try { localStorage.setItem(PRACTICE_KEY,JSON.stringify(progress)); setWarning(""); }
     catch { setWarning("Bài thực hành đang giữ trong phiên này; trình duyệt chưa lưu được tiến độ."); }
@@ -253,7 +251,7 @@ export function ProjectPractice({openMachineGuide,navigationReady}: {openMachine
     const item=files.find(file=>file.id===id)!;
     const focus=compare?(context.file===id&&context.line?context.line:33):context.line||item.rows[0].line;
     return <div className={`practice-file-panel ${compare?"is-comparison":""}`} key={id}>
-      <div className="practice-file-heading"><FileCode2 size={16}/><b>{item.path.split("/").at(-1)}</b><span>{compare?id==="dev"?"profile dev":"cấu hình gốc":`dòng ${focus}`}</span></div>
+      <div className="practice-file-heading"><FileCode2 size={16}/><b>{item.path.split("/").at(-1)}</b><span>{compare?id==="dev"?"profile dev":"cấu hình gốc":context.task==="java"?`Bấm số dòng ${focus} để đối chiếu`:`dòng ${focus}`}</span></div>
       <div className="practice-code"><Suspense fallback={<p>Đang mở source…</p>}><CodeBlock path={item.path} rows={sourceRows(id,context.task)} range={{name:"Đoạn đang đối chiếu",qualified:`practice:${id}`,start:focus,end:focus}} highlights={(id==="default"||id==="dev")?[{range:{name:"Port",qualified:`${id}:port`,start:2,end:3},purpose:"related"},{range:{name:"Datasource",qualified:`${id}:db`,start:31,end:45},purpose:"primary"},{range:{name:"Chế độ local",qualified:`${id}:local`,start:94,end:95},purpose:"related"},...(advanced?[{range:{name:"Kết nối được chọn",qualified:`${id}:connection`,start:focus,end:focus},purpose:"primary" as const}]:[])]:id==="build"?[{range:{name:"Gradle Wrapper",qualified:"build:wrapper",start:20,end:22},purpose:"related"},{range:{name:"Java toolchain",qualified:"build:java",start:46,end:50},purpose:"primary"}]:undefined} jump={focus} targetKey={`${context.task}:${id}:${focus}`} preferTarget memoryKey={`practice:${context.task}:${id}`} onLineSelect={line=>{ if (compare) change({file:id,line}); else selectLine(line); }}/></Suspense></div>
     </div>;
   }
@@ -261,12 +259,16 @@ export function ProjectPractice({openMachineGuide,navigationReady}: {openMachine
   if (!practiceReady) return <p className="practice-loading" role="status">Đang mở vị trí trong project…</p>;
   return <section className="project-practice" ref={workspace} aria-label="Thực hành trên project tái dựng">
     <div className="practice-intro"><div><strong>Thực hành trên project</strong><p>Tái dựng theo báo cáo · Không có snapshot nguyên bản đầy đủ</p></div><span>{visiblePracticeTasks.filter(item=>progress.completed.includes(item.id)).length}/{visiblePracticeTasks.length} nhiệm vụ trong bài</span></div>
-    <nav className="practice-task-nav" aria-label="Hành trình thực hành A–J">{visiblePracticeTasks.map(value=><button key={value.id} aria-label={`${value.letter} ${value.label}`} aria-current={value.id===context.task?"step":undefined} onClick={()=>chooseTask(value.id)}><span>{progress.completed.includes(value.id)?<Check size={14}/>:value.letter}</span>{value.label}</button>)}</nav>
+    <nav className="practice-task-selector" aria-label="Nhiệm vụ trong bước hiện tại">
+      <label htmlFor="practice-task-select">Nhiệm vụ <select id="practice-task-select" aria-label="Nhiệm vụ trong bước" value={context.task} onChange={event=>chooseTask(event.target.value as PracticeTask)}>{stepTasks.map(value=><option key={value.id} value={value.id}>{value.letter} · {value.label}{progress.completed.includes(value.id)?' · ✓':''}</option>)}</select></label>
+      <span>{stepTaskIndex+1}/{stepTasks.length} trong bước · {visiblePracticeTasks.filter(item=>progress.completed.includes(item.id)).length}/{visiblePracticeTasks.length} đã thực hành</span>
+      <div><button type="button" className="button secondary" aria-label="Nhiệm vụ trước" disabled={stepTaskIndex<=0} onClick={()=>chooseTask(stepTasks[stepTaskIndex-1].id)}><ArrowLeft size={15}/>Trước</button><button type="button" className="button secondary" aria-label="Nhiệm vụ sau" disabled={stepTaskIndex>=stepTasks.length-1} onClick={()=>chooseTask(stepTasks[stepTaskIndex+1].id)}>Sau<ArrowRight size={15}/></button></div>
+    </nav>
     <div className="practice-scope"><b>{advanced?"Mô phỏng tương tác":"Chỉ trong ứng dụng học"}</b><span>Cây và cấu hình bên dưới không đọc/điều khiển IntelliJ, không clone hay chạy dịch vụ.</span></div>
-    {advanced&&!focused&&<InfrastructurePanel sim={context.sim} update={patch=>change({sim:{...context.sim,...patch}})}/>}
     <PracticeWorkbench resizable={context.task==="run-config"||finalTask} className={`practice-workbench ${finalTask?"command-focus":""} ${context.task==="run-config"?"run-config-focus":""} ${context.task==="build-task"?"build-focus":""} ${advanced&&context.view==="activity"&&["ide","connections","daemon","conflict"].includes(context.task)?"runtime-focus":""} ${advanced&&context.view==="activity"&&["build-task","run-config","startup"].includes(context.task)?"execution-focus":""}`}>
       <aside className="practice-project"><div className="practice-pane-title">PROJECT <span>{context.phase==="before"?"Trước lấy source":"Sau lấy source · tái dựng"}</span></div><PracticeTree context={context} hintPath={hintPath} onFile={selectFile} onFolder={selectFolder}/><p className="practice-tree-note">{context.task==="build-task"?"build là nơi công cụ đặt kết quả; bạn không cần tự tạo.":"Chỉ hiện phần cây cần cho bài. “Thiếu” là vị trí được khai báo nhưng chưa có trong trạng thái học."}</p></aside>
       <div className="practice-center">
+        <div className="notebook-editor-title">NỘI DUNG ĐANG THAO TÁC <span>{task.label}</span></div>
         {advanced&&context.task!=="run-config"&&!finalTask&&<div className="runtime-view-tabs" aria-label="Vùng thao tác"><button aria-pressed={context.view==="activity"} onClick={()=>change({view:"activity"})}>Thao tác và kết quả</button><button aria-pressed={context.view==="source"} onClick={()=>change({view:"source"})}>Source đang mở{file?` · ${file.path.split("/").at(-1)}:${context.line}`:""}</button></div>}
         {context.task!=="run-config"&&!finalTask&&(!advanced||context.view==="source")&&sourceView}
         {["missing","script","after"].includes(context.task)&&<div className="practice-mapping"><h3>Khai báo ↔ thư mục source</h3><div className="practice-table-scroll"><table><thead><tr><th>Được khai báo</th><th>Đường dẫn cần có</th><th>Trạng thái trong bài</th></tr></thead><tbody>{comparison.map(item=><tr key={item.path} className={item.line===module.line?"is-current":""}><td><button onClick={()=>change({file:"settings",line:item.line,moduleLine:item.line,folder:""})}>include · dòng {item.line}</button></td><td>{item.path}</td><td><b className={context.phase==="after"&&item.reportedAfter?"practice-present":"practice-absent"}>{context.phase==="after"&&item.reportedAfter?"Có source":"Thiếu source"}</b></td></tr>)}</tbody></table></div><p>{context.phase==="after"?"Theo S03: 10 repo con đã có; Swagger vẫn thiếu. Không tự hoàn tất mọi mục.":"Theo S00: source repo con chưa có dù settings.gradle đã khai báo."}</p></div>}
@@ -291,6 +293,8 @@ export function ProjectPractice({openMachineGuide,navigationReady}: {openMachine
         {context.task==="profile"&&<button className="text-button" onClick={()=>openMachineGuide()}>Mở hướng dẫn trên máy thật<ArrowRight size={16}/></button>}
         {advanced&&<button className="text-button" onClick={()=>openMachineGuide(practiceStep(context.task))}>Mở hướng dẫn trên máy thật<ArrowRight size={16}/></button>}
       </aside>}
-    </PracticeWorkbench>{warning&&<p role="status" className="guide-notice">{warning}</p>}
+    </PracticeWorkbench>
+    {advanced&&!focused&&<InfrastructurePanel sim={context.sim} update={patch=>change({sim:{...context.sim,...patch}})}/>}
+    {warning&&<p role="status" className="guide-notice">{warning}</p>}
   </section>;
 }

@@ -1,4 +1,6 @@
+import {walkStatus} from './policy-status-helpers';
 import {expect, test} from '@playwright/test';
+import {finishDetail,detailStage,detailPoint} from './policy-detail-helpers';
 import {createHash} from 'node:crypto';
 import {operations, policySource, readingPoints} from '../../src/content/policy/lesson';
 import {detailSample, makeSearchRequest, MISSING_POLICY_ID, POLICY_PROGRESS_KEY, searchSamples} from '../../src/policy/policy-model';
@@ -71,8 +73,8 @@ test('deep step, reference, subtab, reload and browser history preserve context'
   await expect(page.getByRole('tab',{name:'04 Cập nhật'})).toHaveAttribute('aria-selected','true');
   await page.goForward();
   await expect(page.getByTestId('quote-policy-mapping')).toContainText('Khách hàng mẫu Nam');
-  await page.getByRole('link',{name:/Yêu cầu bồi thường.*03/}).click();
-  await page.getByRole('link',{name:/Khám phá Policy.*02/}).click();
+  await page.getByRole('link',{name:'Yêu cầu bồi thường',exact:true}).click();
+  await page.getByRole('link',{name:'Khám phá Policy',exact:true}).click();
   await expect(page.getByTestId('policy-source')).toHaveAttribute('data-source-id','create-customer');
   await page.getByRole('button',{name:'Về câu đang học',exact:true}).click();
   await expect(page.getByTestId('highlighted-code')).toHaveAttribute('data-ready','true');
@@ -87,36 +89,39 @@ test('deep step, reference, subtab, reload and browser history preserve context'
 
 test('verified update/status maps distinguish existing transitions, initial status and missing evidence',async({page})=>{
   await page.goto('/journey/policy?group=update');
-  await expect(page.locator('.policy-overview')).toContainText('Đồng bộ điều chỉnh từ Core');
-  await expect(page.locator('.policy-audit')).toContainText('saleUnitPathLevel');
-  await page.getByRole('button',{name:'Đường sửa createdDate cần xác nhận',exact:true}).click();
-  await expect(page.locator('.policy-overview')).toContainText('chưa có bằng chứng ngày được sửa');
+  await expect(page.getByTestId('update-lesson')).toHaveAttribute('data-flow','checkout');
+  await page.getByRole('navigation',{name:'Chọn flow Cập nhật',exact:true}).getByRole('button',{name:'Đường sửa createdDate cần xác nhận',exact:true}).click();
+  await expect(page.getByTestId('update-journey-map')).toContainText('createdDate vẫn null');
   await page.getByRole('tab',{name:'05 Đổi trạng thái'}).click();
   await page.getByRole('button',{name:'Nhận trạng thái hợp đồng từ điều chỉnh Core',exact:true}).click();
-  await expect(page.locator('.policy-overview')).toContainText('Chưa có bằng chứng API chấm dứt riêng');
-  await page.getByRole('button',{name:'Bắt đầu lần code',exact:true}).click();
-  await page.locator('.policy-reading-points').getByRole('button',{name:/\d+\. SyncEndorsementFromCoreFunc.runInternal/}).click();
+  await expect(page.locator('.status-evidence')).toContainText('API chấm dứt riêng');
+  await page.getByRole('button',{name:'Làm lại từng bước',exact:true}).click();
+  await page.getByRole('button',{name:'Nhận trạng thái Core mẫu',exact:true}).click();await walkStatus(page,'core-status','core-value');
   await expect(page.getByTestId('policy-source')).toContainText('command.setStatus(endorsementInfoResponse.getStatus())');
-  await expect(page.locator('.policy-status-note')).toContainText('paymentStatus là các trục riêng');
+  await expect(page.getByTestId('status-axes')).toContainText('paymentStatus');
 });
 
 test('existing list/detail keeps pagination, source references and the missing-policy branch',async({page})=>{
   await page.goto('/journey/policy?group=list&mode=steps');
   await page.getByRole('button',{name:'Tìm hợp đồng mẫu',exact:true}).click();
+  await page.getByRole('button',{name:'Xem tiêu chí đã nhận',exact:true}).click();
+  await page.getByRole('button',{name:'Bước sau',exact:true}).click();
+  await page.getByRole('button',{name:'Áp dụng phạm vi và tiêu chí',exact:true}).click();
+  await page.getByRole('button',{name:'Bước sau',exact:true}).click();
+  await page.getByRole('button',{name:'Nhận trang kết quả',exact:true}).click();
   await page.getByRole('button',{name:'Trang tiếp',exact:true}).click();
   await page.getByRole('button',{name:'Mở chi tiết POL-LEARN-003',exact:true}).click();
-  await page.getByRole('button',{name:'policyCode / customerName → PolicyAggregate',exact:true}).click();
-  await expect(page.getByTestId('policy-source')).toHaveAttribute('data-source-id','c-find');
-  await page.locator('.policy-call-links').getByRole('button',{name:'PolicyRepository extends JpaRepository ↗',exact:true}).click();
-  await expect(page.getByTestId('policy-source')).toHaveAttribute('data-source-id','c-repository');
-  await page.getByRole('button',{name:'Về câu đang học',exact:true}).click();
-  await expect(page.getByTestId('policy-source')).toHaveAttribute('data-source-id','c-find');
-  await page.getByRole('button',{name:'Nối hai đường đọc',exact:true}).click();
-  await page.getByRole('button',{name:'Thử ID không tồn tại',exact:true}).click();
+  await finishDetail(page);
+  await expect(page.getByTestId('policy-detail')).toContainText('POL-LEARN-003');
+  await page.locator('.detail-data-group').first().click();
+  await expect(page.getByTestId('policy-source')).toHaveAttribute('data-source-id','find');
+  await expect(page.getByTestId('policy-source').locator('[data-line="34"]')).toHaveAttribute('data-explained','true');
+  await expect(page.getByTestId('detail-checkpoint')).toHaveAttribute('data-stop','detail-response');
+  await page.goto('/journey/policy?group=detail&mode=steps&detailId=POL-NOT-FOUND');
+  await page.getByRole('button',{name:'Mở hợp đồng mẫu',exact:true}).click();
+  await detailStage(page,'detail-find');await detailPoint(page,'detail-find');await detailPoint(page,'detail-record');
   await expect(page.locator('.policy-branch-result')).toContainText('AGENT.POLICY_NOT_EXIST');
   await expect(page.getByTestId('policy-source').locator('[data-line="32"]')).toHaveAttribute('data-explained','true');
-  await page.getByRole('button',{name:'Trở lại ID đã chọn',exact:true}).click();
-  await expect(page.getByTestId('policy-detail')).toContainText('POL-LEARN-003');
 });
 
 test('progress reset stays scoped and mobile source/overview do not overflow',async({page})=>{
@@ -131,8 +136,8 @@ test('progress reset stays scoped and mobile source/overview do not overflow',as
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('backend-learning-workshop.learning.v1')!).completed)).toEqual(['claims:requirements']);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.getByRole('button',{name:'Làm lại từng bước',exact:true}).click();
-  await page.getByRole('button',{name:'Phát hành thành hợp đồng',exact:true}).click();
-  await page.getByRole('button',{name:'Lần vào backend',exact:true}).click();
+  await page.getByRole('button',{name:'Điểm sau',exact:true}).click();
+  await page.getByRole('button',{name:'Điểm sau',exact:true}).click();
   await expect(page.getByTestId('highlighted-code')).toHaveAttribute('data-ready','true');
   await page.getByRole('checkbox',{name:'Xuống dòng code',exact:true}).uncheck();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);

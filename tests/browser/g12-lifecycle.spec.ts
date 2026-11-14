@@ -1,3 +1,4 @@
+import {chooseTaskInStep} from "./runtime-helpers";
 import {expect,test} from "@playwright/test";
 import type {Page} from "@playwright/test";
 import {readFile} from "node:fs/promises";
@@ -85,11 +86,11 @@ test("existing stopped container starts again without image or creation and reta
   await expect(practice(page).locator(".docker-owned")).toContainText("1 container đã tạo");
   await expect(practice(page).locator(".compose-stages")).toHaveCount(0);
   await button(page,"database system is ready to accept connections").click();
-  await practice(page).getByRole("button",{name:/^G1 /}).click();await button(page,"Xem cấu hình PostgreSQL write").click();
+  await chooseTaskInStep(page,"G1");await button(page,"Xem cấu hình PostgreSQL write").click();
   await expect(practice(page).locator(".connection-status")).toContainText("running");
-  await practice(page).getByRole("button",{name:/^H /}).click();
+  await chooseTaskInStep(page,"H");
   await expect(practice(page).locator(".build-result")).toContainText("thành công");
-  await practice(page).getByRole("button",{name:/^G2 /}).click();await expect(row(page)).toContainText("running");
+  await chooseTaskInStep(page,"G2");await expect(row(page)).toContainText("running");
   await button(page,"Làm lại phần này").click();
   const sim=JSON.parse(new URL(page.url()).searchParams.get("psim")!);expect(sim.build).toBe("module-success");expect(sim.jdk).toBe(21);expect(sim.containers).toBeUndefined();
   const progress=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)!),PRACTICE_KEY);expect(progress.completed).toEqual(expect.arrayContaining(["root","profile","ide","build-task"]));expect(progress.completed).not.toContain("daemon");

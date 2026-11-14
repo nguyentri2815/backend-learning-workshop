@@ -1,6 +1,6 @@
-.postgres-effective-status{padding:10px 12px;border:1px solid #b5a976;border-radius:5px;background:#383528;color:#ede2b6!important}
-.postgres-roles{display:grid;grid-template-columns:135px minmax(0,1fr);gap:10px;padding:12px;background:#20363b;border:1px solid #587b7f;border-radius:5px}
-.postgres-roles dt{font-weight:600;color:#c2e3d5}.postgres-roles dd{margin:0;overflow-wrap:anywhere}
+.postgres-effective-status{padding:10px 12px;border:1px solid light-dark(#b5a976, var(--review-border));border-radius:5px;background:light-dark(#383528, var(--surface-raised));color:light-dark(#ede2b6, var(--review))!important}
+.postgres-roles{display:grid;grid-template-columns:135px minmax(0,1fr);gap:10px;padding:12px;background:light-dark(#20363b, var(--selected));border:1px solid light-dark(#587b7f, var(--line));border-radius:5px}
+.postgres-roles dt{font-weight:600;color:light-dark(#c2e3d5, var(--success))}.postgres-roles dd{margin:0;overflow-wrap:anywhere}
 .postgres-answer-options{flex-direction:column}.postgres-route .postgres-answer-options label{flex:0 1 auto}
-.postgres-route .postgres-resolved-url,.postgres-route .postgres-simulated-target{padding:10px 12px;background:#203a36;border-left:3px solid #92c8b0}
+.postgres-route .postgres-resolved-url,.postgres-route .postgres-simulated-target{padding:10px 12px;background:light-dark(#203a36, var(--selected));border-left:3px solid light-dark(#92c8b0, var(--accent-border))}
 @media(max-width:700px){.postgres-roles{grid-template-columns:minmax(0,1fr);gap:5px}.postgres-roles dd{margin-bottom:10px}}

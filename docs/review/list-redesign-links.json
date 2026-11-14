@@ -1,0 +1,208 @@
+{
+  "links": {
+    "overview": "http://localhost:3182/journey/policy?group=list&mode=overview",
+    "steps": "http://localhost:3182/journey/policy?group=list&mode=steps",
+    "assembly": "http://localhost:3182/journey/policy?group=list&mode=assembly&node=list-scope",
+    "pattern": "http://localhost:3182/journey/policy?group=list&mode=assembly&node=list-scope&listAssembly.scope=pattern&listPart.scope=handoff-2",
+    "implementation": "http://localhost:3182/journey/policy?group=list&mode=assembly&node=list-scope&listAssembly.scope=pattern&listDiagram=1&listDiagramMode=practice"
+  },
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "zoom": "100%",
+  "observations": [
+    {
+      "group": "create",
+      "mode": "overview",
+      "mobile": false,
+      "dark": false,
+      "zoom": 1,
+      "image": "list-redesign-create-overview.png"
+    },
+    {
+      "group": "list",
+      "mode": "overview",
+      "mobile": false,
+      "dark": false,
+      "zoom": 1,
+      "image": "list-redesign-list-overview.png"
+    },
+    {
+      "group": "create",
+      "mode": "steps",
+      "mobile": false,
+      "dark": false,
+      "zoom": 1,
+      "image": "list-redesign-create-steps.png"
+    },
+    {
+      "group": "list",
+      "mode": "steps",
+      "mobile": false,
+      "dark": false,
+      "zoom": 1,
+      "image": "list-redesign-list-steps.png"
+    },
+    {
+      "group": "create",
+      "mode": "assembly",
+      "mobile": false,
+      "dark": false,
+      "zoom": 1,
+      "image": "list-redesign-create-assembly.png"
+    },
+    {
+      "group": "list",
+      "mode": "assembly",
+      "mobile": false,
+      "dark": false,
+      "zoom": 1,
+      "image": "list-redesign-list-assembly.png"
+    },
+    {
+      "group": "create",
+      "mode": "overview",
+      "mobile": false,
+      "dark": true,
+      "zoom": 1,
+      "image": "list-redesign-create-overview-dark.png"
+    },
+    {
+      "group": "list",
+      "mode": "overview",
+      "mobile": false,
+      "dark": true,
+      "zoom": 1,
+      "image": "list-redesign-list-overview-dark.png"
+    },
+    {
+      "group": "create",
+      "mode": "steps",
+      "mobile": false,
+      "dark": true,
+      "zoom": 1,
+      "image": "list-redesign-create-steps-dark.png"
+    },
+    {
+      "group": "list",
+      "mode": "steps",
+      "mobile": false,
+      "dark": true,
+      "zoom": 1,
+      "image": "list-redesign-list-steps-dark.png"
+    },
+    {
+      "group": "create",
+      "mode": "assembly",
+      "mobile": false,
+      "dark": true,
+      "zoom": 1,
+      "image": "list-redesign-create-assembly-dark.png"
+    },
+    {
+      "group": "list",
+      "mode": "assembly",
+      "mobile": false,
+      "dark": true,
+      "zoom": 1,
+      "image": "list-redesign-list-assembly-dark.png"
+    },
+    {
+      "group": "create",
+      "mode": "overview",
+      "mobile": true,
+      "dark": false,
+      "zoom": 1,
+      "image": "list-redesign-create-overview-mobile.png"
+    },
+    {
+      "group": "list",
+      "mode": "overview",
+      "mobile": true,
+      "dark": false,
+      "zoom": 1,
+      "image": "list-redesign-list-overview-mobile.png"
+    },
+    {
+      "group": "create",
+      "mode": "steps",
+      "mobile": true,
+      "dark": false,
+      "zoom": 1,
+      "image": "list-redesign-create-steps-mobile.png"
+    },
+    {
+      "group": "list",
+      "mode": "steps",
+      "mobile": true,
+      "dark": false,
+      "zoom": 1,
+      "image": "list-redesign-list-steps-mobile.png"
+    },
+    {
+      "group": "create",
+      "mode": "assembly",
+      "mobile": true,
+      "dark": false,
+      "zoom": 1,
+      "image": "list-redesign-create-assembly-mobile.png"
+    },
+    {
+      "group": "list",
+      "mode": "assembly",
+      "mobile": true,
+      "dark": false,
+      "zoom": 1,
+      "image": "list-redesign-list-assembly-mobile.png"
+    },
+    {
+      "group": "create",
+      "mode": "overview",
+      "mobile": true,
+      "dark": true,
+      "zoom": 1,
+      "image": "list-redesign-create-overview-mobile-dark.png"
+    },
+    {
+      "group": "list",
+      "mode": "overview",
+      "mobile": true,
+      "dark": true,
+      "zoom": 1,
+      "image": "list-redesign-list-overview-mobile-dark.png"
+    },
+    {
+      "group": "create",
+      "mode": "steps",
+      "mobile": true,
+      "dark": true,
+      "zoom": 1,
+      "image": "list-redesign-create-steps-mobile-dark.png"
+    },
+    {
+      "group": "list",
+      "mode": "steps",
+      "mobile": true,
+      "dark": true,
+      "zoom": 1,
+      "image": "list-redesign-list-steps-mobile-dark.png"
+    },
+    {
+      "group": "create",
+      "mode": "assembly",
+      "mobile": true,
+      "dark": true,
+      "zoom": 1,
+      "image": "list-redesign-create-assembly-mobile-dark.png"
+    },
+    {
+      "group": "list",
+      "mode": "assembly",
+      "mobile": true,
+      "dark": true,
+      "zoom": 1,
+      "image": "list-redesign-list-assembly-mobile-dark.png"
+    }
+  ]
+}

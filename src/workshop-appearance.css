@@ -1,0 +1,101 @@
+/* Shared semantic palette. Local code overrides use the same palette without
+   changing the surrounding lesson, checkpoint toolbar or auxiliary dialogs. */
+:root,
+.policy-practice-station[data-code-theme=light] .practice-code-and-data,
+[data-testid=code-scroll][data-code-theme=light] {
+ color-scheme:light;
+ --text:#20241F; --muted:#505950; --surface:#FFFFFF; --canvas:#F7F6F2;
+ --surface-raised:#F0F2EC; --line:#D9DED5;
+ --accent:#245746; --accent-hover:#183E31; --accent-border:#91B29F; --selected:#EAF1E8; --on-accent:#FFFFFF;
+ --success:#35664A; --success-bg:#EFF5EB; --success-border:#ACC5AB;
+ --review:#96651F; --review-bg:#FBF1DD; --review-border:#C89537;
+ --error:#A52D2D; --error-bg:#FFF0ED; --focus:#35745B;
+ --disabled-text:#687064; --disabled-bg:#F0F1EB;
+ color:var(--text);
+}
+:root[data-theme=dark],
+.notebook .policy-practice-station[data-code-theme=dark] .practice-code-and-data,
+[data-testid=code-scroll][data-code-theme=dark] {
+ color-scheme:dark;
+ --text:#ECEDE5; --muted:#B5BDB4; --surface:#242729; --canvas:#1B1D1F;
+ --surface-raised:#2C3031; --line:#454D48;
+ --accent:#9BCBAE; --accent-hover:#B5DDC3; --accent-border:#638C73; --selected:#2D4437; --on-accent:#12251A;
+ --success:#ABD6A9; --success-bg:#2C3D30; --success-border:#638567;
+ --review:#E6BD76; --review-bg:#443725; --review-border:#B99454;
+ --error:#F19B91; --error-bg:#462D2D; --focus:#A7D6BA;
+ --disabled-text:#A5AEA5; --disabled-bg:#303532;
+ color:var(--text);
+}
+.notebook .policy-practice-station[data-code-theme=dark] .practice-code-and-data,
+[data-testid=code-scroll][data-code-theme=dark] { --surface:#1E1F22; --canvas:#2B2D30; --selected:#22332A; --review-bg:#372D20; --success-bg:#243327; background:var(--surface); }
+.notebook .policy-practice-station[data-code-theme=light] .practice-code-and-data { background:var(--surface); }
+.notebook .policy-practice-station[data-code-theme=dark] .tree-file.selected { color:var(--accent); }
+.notebook .button.primary { color:var(--on-accent); }
+.notebook .button:disabled { color:var(--disabled-text); background:var(--disabled-bg); border-color:var(--line); }
+:root { accent-color:var(--accent); }
+::selection { background:var(--selected); color:var(--text); }
+dialog { color:var(--text); background:var(--surface); border-color:var(--line); }
+:root[data-theme=dark] dialog::backdrop { background:#0009; }
+input,select,textarea { color:var(--text); }
+.notebook-header { gap:20px; }
+.notebook-header > nav { gap:14px; }
+.workshop-theme-toggle { display:flex; flex-shrink:0; border:1px solid var(--line); border-radius:4px; padding:3px; gap:2px; }
+.workshop-theme-toggle button { display:flex; align-items:center; justify-content:center; gap:5px; min-height:32px; padding:4px 7px; border:0; border-radius:2px; background:transparent; color:var(--muted); font-size:12px; }
+.workshop-theme-toggle button[aria-pressed=true] { background:var(--selected); color:var(--accent); font-weight:650; }
+.workshop-theme-toggle button:hover { background:var(--surface-raised); }
+.workspace-theme-choice { display:flex; align-items:center; gap:6px; }
+.notebook .workspace-theme-choice select { padding:6px 24px 6px 8px; border:1px solid var(--line); border-radius:4px; background:var(--surface); color:var(--text); font-size:12px; min-height:34px; }
+.notebook .practice-code-controls .workspace-theme-choice > span { font-size:11px; color:var(--muted); }
+
+/* One ordered strip for both lessons. Only this region scrolls horizontally. */
+.notebook .learning-steps { display:block; min-width:0; max-width:100%; border-block:1px solid var(--line); }
+.notebook .learning-steps ol { display:flex; flex-wrap:nowrap; gap:0; list-style:none; margin:0; padding:4px 0 7px; overflow-x:auto; overscroll-behavior-x:contain; scroll-padding-inline:12px; scrollbar-width:thin; scrollbar-color:var(--accent-border) transparent; border:0; }
+.notebook .learning-steps li { display:flex; flex:1 0 180px; align-items:center; min-width:0; }
+.notebook .learning-steps li:last-child { flex-basis:154px; }
+.notebook .learning-steps button,
+.notebook .learning-steps button[aria-current=step] { display:flex; align-items:center; flex:1; min-width:0; gap:7px; min-height:62px; width:auto; padding:9px 8px; border:1px solid transparent; border-radius:4px; background:transparent; color:var(--text); box-shadow:none; text-align:left; }
+.notebook .learning-steps .learning-step-number { display:flex; align-items:center; justify-content:center; flex:0 0 23px; width:23px; height:23px; border:1px solid var(--line); border-radius:50%; color:var(--muted); font-size:12px; font-weight:650; background:var(--surface); }
+.notebook .learning-step-copy { display:block; min-width:0; }
+.notebook .learning-steps button strong { display:block; font-size:12px; line-height:1.4; font-weight:600; }
+.notebook .learning-steps button small { display:block; margin-top:3px; color:var(--muted); font-size:10px; line-height:1.3; }
+.notebook .learning-steps button[aria-current=step] { color:var(--accent); border-color:var(--accent); background:var(--selected); }
+.notebook .learning-steps button[aria-current=step] .learning-step-number { background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+.notebook .learning-steps button[data-state=complete] { color:var(--success); background:transparent; }
+.learning-step-status { flex-shrink:0; color:var(--success); }
+.notebook .learning-steps button:disabled { opacity:1; background:transparent; color:var(--muted); }
+.notebook .learning-steps button:disabled .learning-step-status { color:var(--muted); }
+.notebook .learning-steps button:not(:disabled):hover { border-color:var(--accent-border); background:var(--selected); }
+.learning-step-arrow { display:flex; align-items:center; justify-content:center; width:28px; flex:0 0 28px; color:var(--muted); }
+.learning-step-arrow[data-traversed=true] { color:var(--success); }
+.learning-step-arrow[data-traversed=true] svg { stroke-width:2.7; }
+
+/* React Flow ships its own light defaults; keep diagrams and their controls in
+   the Workshop palette, including labels on edges and SVG markers. */
+.notebook .react-flow { --xy-background-color:var(--canvas); --xy-background-color-default:var(--canvas); --xy-node-color:var(--text); --xy-node-background-color:var(--surface); --xy-node-border:1px solid var(--line); --xy-edge-stroke:var(--accent-border); --xy-controls-button-background-color:var(--surface); --xy-controls-button-background-color-hover:var(--selected); --xy-controls-button-color:var(--text); --xy-controls-button-border-color:var(--line); --xy-edge-label-background-color:var(--surface); --xy-edge-label-color:var(--text); }
+:root[data-theme=dark] .react-flow__edge-text { fill:var(--text) !important; }
+:root[data-theme=dark] .react-flow__edge-textbg { fill:var(--surface) !important; }
+
+@media(max-width:1280px) {
+ .notebook-header { gap:12px; }
+ .notebook-header > nav { gap:8px; }
+ .notebook-header > nav a { font-size:13px; }
+ .notebook .learning-steps li { flex-basis:188px; }
+}
+@media(max-width:720px) {
+ .notebook-header { gap:8px; padding-inline:12px; }
+ .notebook-brand > span { font-size:15px; }
+ .notebook-brand small { font-size:7px; }
+ .notebook-brand > svg { width:20px; }
+ .notebook-brand { gap:5px; }
+ .notebook-menu-toggle { padding:6px; min-height:40px; }
+ .workshop-theme-toggle { padding:2px; }
+ .workshop-theme-toggle button { padding:4px; min-width:30px; min-height:34px; flex-direction:column; gap:1px; font-size:10px; }
+ .workshop-theme-toggle button svg { width:13px; height:13px; }
+ .notebook-references > summary { gap:3px; font-size:11px; }
+ .notebook .learning-steps li { flex:0 0 212px; }
+ .notebook .learning-steps li:last-child { flex-basis:184px; }
+ .notebook .learning-steps button { min-height:64px; }
+ .notebook .learning-steps button strong { font-size:13px; }
+ .notebook .learning-steps button small { font-size:11px; }
+ .notebook .workspace-theme-choice select { font-size:12px; min-height:36px; }
+}

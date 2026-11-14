@@ -1,0 +1,497 @@
+{
+  "search": {
+    "path": "workspaces/agent-service/3-agent-query-service/src/main/java/com/alpaca/agent/function/policy/SearchPolicyFunc.java",
+    "symbol": "SearchPolicyFunc · public Page<PolicyViewEntity> doFilter",
+    "line": 38,
+    "from": 35,
+    "commit": "97c0d4b7d03e955dca622360eb59031b4f5d642c",
+    "modified": false,
+    "sha256": "9e64999de0a5a5ce69099feae00fbf17e835f158ff88de5658a324e5484e44ad",
+    "rows": [
+      {
+        "line": 1,
+        "text": "package com.alpaca.agent.function.policy;"
+      },
+      {
+        "line": 2,
+        "text": ""
+      },
+      {
+        "line": 3,
+        "text": "import com.alpaca.base.BaseFunc;"
+      },
+      {
+        "line": 4,
+        "text": "import com.alpaca.base.exception.ServiceException;"
+      },
+      {
+        "line": 5,
+        "text": "import com.alpaca.common.SessionUtils;"
+      },
+      {
+        "line": 6,
+        "text": "import com.alpaca.database.util.PageableUtils;"
+      },
+      {
+        "line": 7,
+        "text": "import com.alpaca.agent.common.PlatformErrorCode;"
+      },
+      {
+        "line": 8,
+        "text": "import com.alpaca.agent.constant.Role;"
+      },
+      {
+        "line": 9,
+        "text": "import com.alpaca.agent.entity.PolicyViewEntity;"
+      },
+      {
+        "line": 10,
+        "text": "import com.alpaca.agent.entity.SaleUnitViewEntity;"
+      },
+      {
+        "line": 11,
+        "text": "import com.alpaca.agent.helper.ConfigUtil;"
+      },
+      {
+        "line": 12,
+        "text": "import com.alpaca.agent.repository.QueryCustomRepository;"
+      },
+      {
+        "line": 13,
+        "text": "import com.alpaca.agent.repository.SaleUnitViewRepository;"
+      },
+      {
+        "line": 14,
+        "text": "import com.alpaca.agent.request.policy.SearchPolicyRequest;"
+      },
+      {
+        "line": 15,
+        "text": "import com.alpaca.agent.response.policy.PolicyListResponse;"
+      },
+      {
+        "line": 16,
+        "text": "import com.alpaca.agent.util.QueryUtil;"
+      },
+      {
+        "line": 17,
+        "text": "import com.alpaca.util.MappingUtils;"
+      },
+      {
+        "line": 18,
+        "text": "import com.alpaca.util.TextUtils;"
+      },
+      {
+        "line": 19,
+        "text": "import lombok.AllArgsConstructor;"
+      },
+      {
+        "line": 20,
+        "text": "import org.apache.commons.lang3.StringUtils;"
+      },
+      {
+        "line": 21,
+        "text": "import org.springframework.data.domain.Page;"
+      },
+      {
+        "line": 22,
+        "text": "import org.springframework.data.domain.Pageable;"
+      },
+      {
+        "line": 23,
+        "text": "import org.springframework.stereotype.Component;"
+      },
+      {
+        "line": 24,
+        "text": "import org.springframework.util.CollectionUtils;"
+      },
+      {
+        "line": 25,
+        "text": ""
+      },
+      {
+        "line": 26,
+        "text": "import java.util.Arrays;"
+      },
+      {
+        "line": 27,
+        "text": "import java.util.List;"
+      },
+      {
+        "line": 28,
+        "text": "import java.util.Objects;"
+      },
+      {
+        "line": 29,
+        "text": ""
+      },
+      {
+        "line": 30,
+        "text": "@Component"
+      },
+      {
+        "line": 31,
+        "text": "@AllArgsConstructor"
+      },
+      {
+        "line": 32,
+        "text": "public class SearchPolicyFunc extends BaseFunc {"
+      },
+      {
+        "line": 33,
+        "text": "    private final QueryCustomRepository<PolicyViewEntity> queryCustomRepository;"
+      },
+      {
+        "line": 34,
+        "text": "    private final SaleUnitViewRepository saleUnitViewRepository;"
+      },
+      {
+        "line": 35,
+        "text": "    private final QueryUtil queryUtil;"
+      },
+      {
+        "line": 36,
+        "text": "    private final ConfigUtil configUtil;"
+      },
+      {
+        "line": 37,
+        "text": ""
+      },
+      {
+        "line": 38,
+        "text": "    public Page<PolicyViewEntity> doFilter(SearchPolicyRequest request) {"
+      },
+      {
+        "line": 39,
+        "text": "        String userName = configUtil.local ? \"klbho\" : SessionUtils.getUsername();"
+      },
+      {
+        "line": 40,
+        "text": "        SaleUnitViewEntity saleUnitView = saleUnitViewRepository.findByUserName(userName).orElseThrow(() -> new ServiceException(PlatformErrorCode.USER_NOT_EXIST));"
+      },
+      {
+        "line": 41,
+        "text": "        Pageable pageable = PageableUtils.convertPageableAndSort(request.getPageNumber(), request.getPageSize(), request.getSort());"
+      },
+      {
+        "line": 42,
+        "text": "        StringBuilder stringBuilder = new StringBuilder();"
+      },
+      {
+        "line": 43,
+        "text": "        StringBuilder whereBuilder = new StringBuilder();"
+      },
+      {
+        "line": 44,
+        "text": "        stringBuilder.append(\"SELECT * FROM \");"
+      },
+      {
+        "line": 45,
+        "text": "        stringBuilder.append(configUtil.schema);"
+      },
+      {
+        "line": 46,
+        "text": "        stringBuilder.append(\".policy_view_aggregate as a\");"
+      },
+      {
+        "line": 47,
+        "text": "        if (!Role.IT_ADMIN.equals(saleUnitView.getRole()) && !Role.OWNER.equals(saleUnitView.getRole())) {"
+      },
+      {
+        "line": 48,
+        "text": "            if (Boolean.TRUE.equals(saleUnitView.getIsSaleUnitManagement())) {"
+      },
+      {
+        "line": 49,
+        "text": "                queryUtil.addQueryAny(whereBuilder, \"pathSaleUnitIds\", saleUnitView.getRootId());"
+      },
+      {
+        "line": 50,
+        "text": "            } else {"
+      },
+      {
+        "line": 51,
+        "text": "                queryUtil.addQueryAny(whereBuilder, \"pathSaleUnitIds\", saleUnitView.getId());"
+      },
+      {
+        "line": 52,
+        "text": "            }"
+      },
+      {
+        "line": 53,
+        "text": "        }"
+      },
+      {
+        "line": 54,
+        "text": "        if (StringUtils.isNotBlank(request.getKeyword())) {"
+      },
+      {
+        "line": 55,
+        "text": "            queryUtil.addQueryLike(whereBuilder, \"searchingKey\", TextUtils.convertStringToSort(request.getKeyword()));"
+      },
+      {
+        "line": 56,
+        "text": "        }"
+      },
+      {
+        "line": 57,
+        "text": "        if (Objects.nonNull(request.getStatus())) {"
+      },
+      {
+        "line": 58,
+        "text": "            queryUtil.addQueryFind(whereBuilder, \"status\", request.getStatus());"
+      },
+      {
+        "line": 59,
+        "text": "        }"
+      },
+      {
+        "line": 60,
+        "text": "        if (StringUtils.isNotBlank(request.getProductId())) {"
+      },
+      {
+        "line": 61,
+        "text": "            queryUtil.addQueryFind(whereBuilder, \"productId\", request.getProductId());"
+      },
+      {
+        "line": 62,
+        "text": "        }"
+      },
+      {
+        "line": 63,
+        "text": "        if (StringUtils.isNotBlank(request.getQuoteStaffCode())) {"
+      },
+      {
+        "line": 64,
+        "text": "            queryUtil.addQueryFind(whereBuilder, \"quoteStaffCode\", request.getQuoteStaffCode());"
+      },
+      {
+        "line": 65,
+        "text": "        }"
+      },
+      {
+        "line": 66,
+        "text": "        if (Objects.nonNull(request.getStartCreatedDate()) && Objects.nonNull(request.getEndCreatedDate())) {"
+      },
+      {
+        "line": 67,
+        "text": "            queryUtil.addQueryDateBetween(whereBuilder, \"createdDate\", request.getStartCreatedDate(), request.getEndCreatedDate());"
+      },
+      {
+        "line": 68,
+        "text": "        }"
+      },
+      {
+        "line": 69,
+        "text": "        if (Objects.nonNull(request.getViaUploaderStatus())) {"
+      },
+      {
+        "line": 70,
+        "text": "            queryUtil.addQueryFind(whereBuilder, \"viaUploaderStatus\", request.getViaUploaderStatus());"
+      },
+      {
+        "line": 71,
+        "text": "        }"
+      },
+      {
+        "line": 72,
+        "text": "        if (Objects.nonNull(request.getPaymentStatus())) {"
+      },
+      {
+        "line": 73,
+        "text": "            queryUtil.addQueryFind(whereBuilder, \"paymentStatus\", request.getPaymentStatus());"
+      },
+      {
+        "line": 74,
+        "text": "        }"
+      },
+      {
+        "line": 75,
+        "text": "        if (Objects.nonNull(request.getCreatedBy())) {"
+      },
+      {
+        "line": 76,
+        "text": "            queryUtil.addQueryFind(whereBuilder, \"createdBy\", request.getCreatedBy());"
+      },
+      {
+        "line": 77,
+        "text": "        }"
+      },
+      {
+        "line": 78,
+        "text": "        if (StringUtils.isNotBlank(request.getDistributionChannelId())) {"
+      },
+      {
+        "line": 79,
+        "text": "            queryUtil.addQueryFind(whereBuilder, \"distributionChannelId\", request.getDistributionChannelId());"
+      },
+      {
+        "line": 80,
+        "text": "        }"
+      },
+      {
+        "line": 81,
+        "text": "        if (StringUtils.isNotBlank(request.getProductGroupCode())) {"
+      },
+      {
+        "line": 82,
+        "text": "            queryUtil.addQueryFind(whereBuilder, \"productGroupCode\", request.getProductGroupCode());"
+      },
+      {
+        "line": 83,
+        "text": "        }"
+      },
+      {
+        "line": 84,
+        "text": "        //list"
+      },
+      {
+        "line": 85,
+        "text": "        if (!CollectionUtils.isEmpty(request.getListProductGroupCode())) {"
+      },
+      {
+        "line": 86,
+        "text": "            queryUtil.addQueryIn(whereBuilder, \"productGroupCode\", request.getListProductGroupCode());"
+      },
+      {
+        "line": 87,
+        "text": "        }"
+      },
+      {
+        "line": 88,
+        "text": "        if (!CollectionUtils.isEmpty(request.getListProductId())) {"
+      },
+      {
+        "line": 89,
+        "text": "            queryUtil.addQueryIn(whereBuilder, \"productId\", request.getListProductId());"
+      },
+      {
+        "line": 90,
+        "text": "        }"
+      },
+      {
+        "line": 91,
+        "text": "        if (!CollectionUtils.isEmpty(request.getListStatus())) {"
+      },
+      {
+        "line": 92,
+        "text": "            queryUtil.addQueryIn(whereBuilder, \"status\", request.getListStatus());"
+      },
+      {
+        "line": 93,
+        "text": "        }"
+      },
+      {
+        "line": 94,
+        "text": "        if (!CollectionUtils.isEmpty(request.getListPaymentStatus())) {"
+      },
+      {
+        "line": 95,
+        "text": "            queryUtil.addQueryIn(whereBuilder, \"paymentStatus\", request.getListPaymentStatus());"
+      },
+      {
+        "line": 96,
+        "text": "        }"
+      },
+      {
+        "line": 97,
+        "text": "        if (!CollectionUtils.isEmpty(request.getListCreatedBy())) {"
+      },
+      {
+        "line": 98,
+        "text": "            queryUtil.addQueryIn(whereBuilder, \"createdBy\", request.getListCreatedBy());"
+      },
+      {
+        "line": 99,
+        "text": "        }"
+      },
+      {
+        "line": 100,
+        "text": "        if (!CollectionUtils.isEmpty(request.getListDistributionChannelId())) {"
+      },
+      {
+        "line": 101,
+        "text": "            queryUtil.addQueryIn(whereBuilder, \"distributionChannelId\", request.getListDistributionChannelId());"
+      },
+      {
+        "line": 102,
+        "text": "        }"
+      },
+      {
+        "line": 103,
+        "text": "        //"
+      },
+      {
+        "line": 104,
+        "text": "        if (!whereBuilder.isEmpty()) {"
+      },
+      {
+        "line": 105,
+        "text": "            stringBuilder.append(\" WHERE \").append(whereBuilder);"
+      },
+      {
+        "line": 106,
+        "text": "        }"
+      },
+      {
+        "line": 107,
+        "text": "        queryUtil.addSort(stringBuilder, request.getSort());"
+      },
+      {
+        "line": 108,
+        "text": "        String query = stringBuilder.toString();"
+      },
+      {
+        "line": 109,
+        "text": "        return queryCustomRepository.executeCustomSqlQuery(query, PolicyViewEntity.class, pageable);"
+      },
+      {
+        "line": 110,
+        "text": "    }"
+      },
+      {
+        "line": 111,
+        "text": ""
+      },
+      {
+        "line": 112,
+        "text": "    public Page<PolicyListResponse> exec(SearchPolicyRequest request) {"
+      },
+      {
+        "line": 113,
+        "text": "        try {"
+      },
+      {
+        "line": 114,
+        "text": "            Page<PolicyViewEntity> page = doFilter(request);"
+      },
+      {
+        "line": 115,
+        "text": "            return page.map(obj -> MappingUtils.mapObject(obj, PolicyListResponse.class));"
+      },
+      {
+        "line": 116,
+        "text": "        } catch (Exception e) {"
+      },
+      {
+        "line": 117,
+        "text": "            logger.error(\">>>>>>>>>>>>>>>>>>>>>>>> error \", e);"
+      },
+      {
+        "line": 118,
+        "text": "            return Page.empty();"
+      },
+      {
+        "line": 119,
+        "text": "        }"
+      },
+      {
+        "line": 120,
+        "text": "    }"
+      },
+      {
+        "line": 121,
+        "text": "}"
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "overview": "http://localhost:3183/journey/policy?group=list&mode=overview",
+  "steps": "http://localhost:3183/journey/policy?group=list&mode=steps",
+  "pattern": "http://localhost:3183/journey/policy?group=list&mode=assembly&listAssembly=pattern&listPart=handoff-3",
+  "related": "http://localhost:3183/journey/policy?group=list&mode=assembly&listAssembly=pattern&listPart=handoff-3&listDiagram=1&listDiagramMode=related",
+  "implementation": "http://localhost:3183/journey/policy?group=list&mode=assembly&listAssembly=pattern&listDiagram=1&listDiagramMode=practice"
+}

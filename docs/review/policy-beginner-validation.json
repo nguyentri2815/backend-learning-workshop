@@ -1,0 +1,1287 @@
+{
+  "fixtureDate": "2026-11-13T03:00:00Z",
+  "finalFiles": 11,
+  "added": 10,
+  "modified": 1,
+  "browserErrors": [],
+  "success": {
+    "id": "success",
+    "at": "verify",
+    "input": "QUOTE-BEGINNER-101",
+    "through": 24,
+    "output": "save trả Policy ID POL-BEGINNER-101, version=1; 1 bản ghi mới trong bộ nhớ fixture, quoteId=QUOTE-BEGINNER-101.",
+    "trace": [
+      "URL mang quoteId",
+      "Controller nhận Quote ID",
+      "CreatePolicyFunc.exec",
+      "QuoteRepository.findById",
+      "Quote tồn tại",
+      "Qua cơ chế khóa Quote",
+      "runInternal",
+      "Kiểm tra Policy cùng báo giá",
+      "Dựng Command",
+      "Gọi ghi Policy",
+      "Xử lý Command",
+      "Tạo CreatePolicyEvent",
+      "Cập nhật Aggregate từ Event",
+      "Lưu bản ghi Policy",
+      "Trả Policy ID"
+    ],
+    "lanes": [
+      {
+        "id": "entry",
+        "label": "Nhận yêu cầu và đọc Quote",
+        "points": [
+          {
+            "id": "url",
+            "label": "URL mang quoteId",
+            "detail": "POST /policy/create/QUOTE-BEGINNER-101",
+            "status": "passed"
+          },
+          {
+            "id": "controller",
+            "label": "Controller nhận Quote ID",
+            "status": "passed",
+            "source": {
+              "ref": "controller",
+              "from": 7,
+              "to": 9
+            }
+          },
+          {
+            "id": "exec",
+            "label": "CreatePolicyFunc.exec",
+            "status": "passed",
+            "source": {
+              "ref": "func",
+              "from": 8,
+              "to": 10
+            }
+          },
+          {
+            "id": "read",
+            "label": "QuoteRepository.findById",
+            "status": "passed",
+            "source": {
+              "ref": "func",
+              "from": 9,
+              "to": 11
+            }
+          }
+        ]
+      },
+      {
+        "id": "missing",
+        "label": "Nhánh không tìm thấy Quote",
+        "points": [
+          {
+            "id": "empty",
+            "label": "Optional.empty",
+            "status": "skipped",
+            "source": {
+              "ref": "func",
+              "from": 10,
+              "to": 12
+            }
+          },
+          {
+            "id": "missing-error",
+            "label": "Dừng trong exec",
+            "detail": "QUOTE_NOT_EXIST",
+            "status": "skipped",
+            "source": {
+              "ref": "func",
+              "from": 11,
+              "to": 13
+            }
+          }
+        ]
+      },
+      {
+        "id": "found",
+        "label": "Nhánh Quote tồn tại → xử lý và ghi",
+        "points": [
+          {
+            "id": "found",
+            "label": "Quote tồn tại",
+            "status": "passed",
+            "source": {
+              "ref": "func",
+              "from": 14,
+              "to": 16
+            }
+          },
+          {
+            "id": "lock",
+            "label": "Qua cơ chế khóa Quote",
+            "detail": "execInTransactionAndLock → transaction → callback",
+            "status": "passed",
+            "source": {
+              "ref": "base",
+              "from": 64,
+              "to": 66
+            }
+          },
+          {
+            "id": "internal",
+            "label": "runInternal",
+            "status": "passed",
+            "source": {
+              "ref": "func",
+              "from": 18,
+              "to": 20
+            }
+          },
+          {
+            "id": "duplicate-guard",
+            "label": "Kiểm tra Policy cùng báo giá",
+            "status": "passed",
+            "source": {
+              "ref": "func",
+              "from": 20,
+              "to": 22
+            }
+          },
+          {
+            "id": "command",
+            "label": "Dựng Command",
+            "status": "passed",
+            "source": {
+              "ref": "func",
+              "from": 25,
+              "to": 27
+            }
+          },
+          {
+            "id": "save",
+            "label": "Gọi ghi Policy",
+            "status": "passed",
+            "source": {
+              "ref": "func",
+              "from": 39,
+              "to": 41
+            }
+          },
+          {
+            "id": "process",
+            "label": "Xử lý Command",
+            "status": "passed",
+            "source": {
+              "ref": "aggregate",
+              "from": 16,
+              "to": 18
+            }
+          },
+          {
+            "id": "event",
+            "label": "Tạo CreatePolicyEvent",
+            "status": "passed",
+            "source": {
+              "ref": "aggregate",
+              "from": 17,
+              "to": 19
+            }
+          },
+          {
+            "id": "apply",
+            "label": "Cập nhật Aggregate từ Event",
+            "status": "passed",
+            "source": {
+              "ref": "aggregate",
+              "from": 20,
+              "to": 22
+            }
+          },
+          {
+            "id": "store",
+            "label": "Lưu bản ghi Policy",
+            "status": "passed",
+            "source": {
+              "ref": "jdbcWrite",
+              "from": 126,
+              "to": 128
+            }
+          },
+          {
+            "id": "result",
+            "label": "Trả Policy ID",
+            "status": "passed",
+            "source": {
+              "ref": "func",
+              "from": 40,
+              "to": 42
+            }
+          }
+        ]
+      }
+    ],
+    "commands": 1,
+    "events": 1,
+    "writes": 1,
+    "furthest": "result",
+    "quoteId": "QUOTE-BEGINNER-101",
+    "policyId": "POL-BEGINNER-101",
+    "record": {
+      "customerName": "Nguyễn An",
+      "productCode": "AUTO",
+      "effectiveDate": "2026-11-01",
+      "expirationDate": "2027-11-01",
+      "quoteId": "QUOTE-BEGINNER-101",
+      "quoteCode": "Q-DEMO-101",
+      "policyType": 1,
+      "policyCode": "S-AUTO-DEMO-001",
+      "status": "RUNNING",
+      "syncStatus": "NOT_SYNC",
+      "paymentInfo": [],
+      "createdEventTime": "2026-11-13T03:00:00Z",
+      "id": "POL-BEGINNER-101",
+      "version": 1
+    }
+  },
+  "stops": [
+    {
+      "id": "quote-missing",
+      "at": "quote-trial",
+      "input": "QUOTE-BEGINNER-404",
+      "through": 24,
+      "output": "QUOTE_NOT_EXIST · không sinh Policy ID; 0 Command, 0 Event, 0 lần ghi.",
+      "trace": [
+        "URL mang quoteId",
+        "Controller nhận Quote ID",
+        "CreatePolicyFunc.exec",
+        "QuoteRepository.findById",
+        "Optional.empty",
+        "Dừng trong exec"
+      ],
+      "lanes": [
+        {
+          "id": "entry",
+          "label": "Nhận yêu cầu và đọc Quote",
+          "points": [
+            {
+              "id": "url",
+              "label": "URL mang quoteId",
+              "detail": "POST /policy/create/QUOTE-BEGINNER-404",
+              "status": "passed"
+            },
+            {
+              "id": "controller",
+              "label": "Controller nhận Quote ID",
+              "status": "passed",
+              "source": {
+                "ref": "controller",
+                "from": 7,
+                "to": 9
+              }
+            },
+            {
+              "id": "exec",
+              "label": "CreatePolicyFunc.exec",
+              "status": "passed",
+              "source": {
+                "ref": "func",
+                "from": 8,
+                "to": 10
+              }
+            },
+            {
+              "id": "read",
+              "label": "QuoteRepository.findById",
+              "status": "passed",
+              "source": {
+                "ref": "func",
+                "from": 9,
+                "to": 11
+              }
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "label": "Nhánh không tìm thấy Quote",
+          "points": [
+            {
+              "id": "empty",
+              "label": "Optional.empty",
+              "status": "passed",
+              "source": {
+                "ref": "func",
+                "from": 10,
+                "to": 12
+              }
+            },
+            {
+              "id": "missing-error",
+              "label": "Dừng trong exec",
+              "detail": "QUOTE_NOT_EXIST",
+              "status": "stopped",
+              "source": {
+                "ref": "func",
+                "from": 11,
+                "to": 13
+              }
+            }
+          ]
+        },
+        {
+          "id": "found",
+          "label": "Nhánh Quote tồn tại → xử lý và ghi",
+          "points": [
+            {
+              "id": "found",
+              "label": "Quote tồn tại",
+              "status": "skipped",
+              "source": {
+                "ref": "func",
+                "from": 14,
+                "to": 16
+              }
+            },
+            {
+              "id": "lock",
+              "label": "Qua cơ chế khóa Quote",
+              "detail": "execInTransactionAndLock → transaction → callback",
+              "status": "skipped",
+              "source": {
+                "ref": "base",
+                "from": 64,
+                "to": 66
+              }
+            },
+            {
+              "id": "internal",
+              "label": "runInternal",
+              "status": "skipped",
+              "source": {
+                "ref": "func",
+                "from": 18,
+                "to": 20
+              }
+            },
+            {
+              "id": "duplicate-guard",
+              "label": "Kiểm tra Policy cùng báo giá",
+              "status": "skipped",
+              "source": {
+                "ref": "func",
+                "from": 20,
+                "to": 22
+              }
+            },
+            {
+              "id": "command",
+              "label": "Dựng Command",
+              "status": "skipped",
+              "source": {
+                "ref": "func",
+                "from": 25,
+                "to": 27
+              }
+            },
+            {
+              "id": "save",
+              "label": "Gọi ghi Policy",
+              "status": "skipped",
+              "source": {
+                "ref": "func",
+                "from": 39,
+                "to": 41
+              }
+            },
+            {
+              "id": "process",
+              "label": "Xử lý Command",
+              "status": "skipped",
+              "source": {
+                "ref": "aggregate",
+                "from": 16,
+                "to": 18
+              }
+            },
+            {
+              "id": "event",
+              "label": "Tạo CreatePolicyEvent",
+              "status": "skipped",
+              "source": {
+                "ref": "aggregate",
+                "from": 17,
+                "to": 19
+              }
+            },
+            {
+              "id": "apply",
+              "label": "Cập nhật Aggregate từ Event",
+              "status": "skipped",
+              "source": {
+                "ref": "aggregate",
+                "from": 20,
+                "to": 22
+              }
+            },
+            {
+              "id": "store",
+              "label": "Lưu bản ghi Policy",
+              "status": "skipped",
+              "source": {
+                "ref": "jdbcWrite",
+                "from": 126,
+                "to": 128
+              }
+            },
+            {
+              "id": "result",
+              "label": "Trả Policy ID",
+              "status": "skipped",
+              "source": {
+                "ref": "func",
+                "from": 40,
+                "to": 42
+              }
+            }
+          ]
+        }
+      ],
+      "commands": 0,
+      "events": 0,
+      "writes": 0,
+      "furthest": "missing-error",
+      "error": "QUOTE_NOT_EXIST"
+    },
+    {
+      "id": "duplicate",
+      "at": "duplicate-trial",
+      "input": "QUOTE-BEGINNER-103",
+      "through": 24,
+      "output": "QUOTE_CAN_NOT_RELEASE_POLICY · giữ POL-EXISTING-103; 0 bản ghi mới, không sinh ID.",
+      "trace": [
+        "URL mang quoteId",
+        "Controller nhận Quote ID",
+        "CreatePolicyFunc.exec",
+        "QuoteRepository.findById",
+        "Quote tồn tại",
+        "Qua cơ chế khóa Quote",
+        "runInternal",
+        "Kiểm tra Policy cùng báo giá"
+      ],
+      "lanes": [
+        {
+          "id": "entry",
+          "label": "Nhận yêu cầu và đọc Quote",
+          "points": [
+            {
+              "id": "url",
+              "label": "URL mang quoteId",
+              "detail": "POST /policy/create/QUOTE-BEGINNER-103",
+              "status": "passed"
+            },
+            {
+              "id": "controller",
+              "label": "Controller nhận Quote ID",
+              "status": "passed",
+              "source": {
+                "ref": "controller",
+                "from": 7,
+                "to": 9
+              }
+            },
+            {
+              "id": "exec",
+              "label": "CreatePolicyFunc.exec",
+              "status": "passed",
+              "source": {
+                "ref": "func",
+                "from": 8,
+                "to": 10
+              }
+            },
+            {
+              "id": "read",
+              "label": "QuoteRepository.findById",
+              "status": "passed",
+              "source": {
+                "ref": "func",
+                "from": 9,
+                "to": 11
+              }
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "label": "Nhánh không tìm thấy Quote",
+          "points": [
+            {
+              "id": "empty",
+              "label": "Optional.empty",
+              "status": "skipped",
+              "source": {
+                "ref": "func",
+                "from": 10,
+                "to": 12
+              }
+            },
+            {
+              "id": "missing-error",
+              "label": "Dừng trong exec",
+              "detail": "QUOTE_NOT_EXIST",
+              "status": "skipped",
+              "source": {
+                "ref": "func",
+                "from": 11,
+                "to": 13
+              }
+            }
+          ]
+        },
+        {
+          "id": "found",
+          "label": "Nhánh Quote tồn tại → xử lý và ghi",
+          "points": [
+            {
+              "id": "found",
+              "label": "Quote tồn tại",
+              "status": "passed",
+              "source": {
+                "ref": "func",
+                "from": 14,
+                "to": 16
+              }
+            },
+            {
+              "id": "lock",
+              "label": "Qua cơ chế khóa Quote",
+              "detail": "execInTransactionAndLock → transaction → callback",
+              "status": "passed",
+              "source": {
+                "ref": "base",
+                "from": 64,
+                "to": 66
+              }
+            },
+            {
+              "id": "internal",
+              "label": "runInternal",
+              "status": "passed",
+              "source": {
+                "ref": "func",
+                "from": 18,
+                "to": 20
+              }
+            },
+            {
+              "id": "duplicate-guard",
+              "label": "Kiểm tra Policy cùng báo giá",
+              "detail": "QUOTE_CAN_NOT_RELEASE_POLICY",
+              "status": "stopped",
+              "source": {
+                "ref": "func",
+                "from": 20,
+                "to": 22
+              }
+            },
+            {
+              "id": "command",
+              "label": "Dựng Command",
+              "status": "skipped",
+              "source": {
+                "ref": "func",
+                "from": 25,
+                "to": 27
+              }
+            },
+            {
+              "id": "save",
+              "label": "Gọi ghi Policy",
+              "status": "skipped",
+              "source": {
+                "ref": "func",
+                "from": 39,
+                "to": 41
+              }
+            },
+            {
+              "id": "process",
+              "label": "Xử lý Command",
+              "status": "skipped",
+              "source": {
+                "ref": "aggregate",
+                "from": 16,
+                "to": 18
+              }
+            },
+            {
+              "id": "event",
+              "label": "Tạo CreatePolicyEvent",
+              "status": "skipped",
+              "source": {
+                "ref": "aggregate",
+                "from": 17,
+                "to": 19
+              }
+            },
+            {
+              "id": "apply",
+              "label": "Cập nhật Aggregate từ Event",
+              "status": "skipped",
+              "source": {
+                "ref": "aggregate",
+                "from": 20,
+                "to": 22
+              }
+            },
+            {
+              "id": "store",
+              "label": "Lưu bản ghi Policy",
+              "status": "skipped",
+              "source": {
+                "ref": "jdbcWrite",
+                "from": 126,
+                "to": 128
+              }
+            },
+            {
+              "id": "result",
+              "label": "Trả Policy ID",
+              "status": "skipped",
+              "source": {
+                "ref": "func",
+                "from": 40,
+                "to": 42
+              }
+            }
+          ]
+        }
+      ],
+      "commands": 0,
+      "events": 0,
+      "writes": 0,
+      "furthest": "duplicate-guard",
+      "quoteId": "QUOTE-BEGINNER-103",
+      "error": "QUOTE_CAN_NOT_RELEASE_POLICY"
+    }
+  ],
+  "milestones": [
+    {
+      "round": 1,
+      "id": "brief",
+      "title": "Giao việc bằng ngôn ngữ nghiệp vụ",
+      "changes": [],
+      "checked": [],
+      "scope": "Chưa gửi HTTP hoặc thay đổi file. Prompt có thể sao chép để giao agent.",
+      "source": []
+    },
+    {
+      "round": 2,
+      "id": "survey",
+      "title": "Tìm đường đi của Quote đã lưu",
+      "changes": [],
+      "checked": [],
+      "scope": "Danh sách thay đổi phải trống. Quote ID có sẵn từ lượt lưu Quote trước bài này.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/QuoteController.java",
+          "from": 29,
+          "to": 32,
+          "finding": "Controller tạo Quote chuyển request cho CreateQuoteFunc."
+        },
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/quote/CreateQuoteFunc.java",
+          "from": 74,
+          "to": 85,
+          "finding": "Func map request sang Command."
+        },
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/quote/CreateQuoteFunc.java",
+          "from": 149,
+          "to": 153,
+          "finding": "Điểm ghi Quote: quoteAggregateRepository.save(command) tại L151."
+        },
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/QuoteController.java",
+          "from": 49,
+          "to": 52,
+          "finding": "GET theo ID gọi FindQuoteByIdFunc."
+        },
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/quote/FindQuoteByIdFunc.java",
+          "from": 30,
+          "to": 36,
+          "finding": "Func đọc gọi quoteRepository.findById(quoteId) tại L36."
+        },
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/repository/QuoteRepository.java",
+          "from": 18,
+          "to": 19,
+          "finding": "JpaRepository<QuoteAggregate, String> cung cấp findById."
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "id": "data",
+      "title": "Phân loại dữ liệu trước khi mở Java",
+      "changes": [],
+      "checked": [],
+      "scope": "Chưa thêm Java. Đây là dữ liệu fixture được chọn cho bài, không phải dữ liệu khách hàng thật.",
+      "source": []
+    },
+    {
+      "round": 4,
+      "id": "marker",
+      "title": "Khai báo họ lệnh của Policy",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/command/IPolicyCommand.java",
+          "status": "A",
+          "from": 1,
+          "to": 6
+        }
+      ],
+      "checked": [],
+      "scope": "Chỉ có file đánh dấu mới; chưa có API hoặc thao tác ghi.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/command/IPolicyCommand.java",
+          "from": 1,
+          "to": 6,
+          "finding": "Marker thật kế thừa io.eventuate.Command."
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "id": "aggregate-model",
+      "title": "Tạo chỗ giữ trạng thái hợp đồng",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/domain/PolicyAggregate.java",
+          "status": "A",
+          "from": 1,
+          "to": 16
+        }
+      ],
+      "checked": [],
+      "scope": "File xuất hiện trong cây sau khi áp dụng. Snapshot là trích đoạn cấu trúc, chưa chạy Java.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/domain/PolicyAggregate.java",
+          "from": 55,
+          "to": 69,
+          "finding": "Entity Policy dùng LibraAggregate và bảng policy_aggregate."
+        },
+        {
+          "file": "workspaces/1-shared/shared-eventuate/src/main/java/com/eventuate/domain/LibraAggregate.java",
+          "from": 1,
+          "to": 10,
+          "finding": "Lớp nền có sẵn trong hạ tầng dùng chung."
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "id": "controller-pattern",
+      "title": "Tìm mẫu điểm nhận yêu cầu",
+      "changes": [],
+      "checked": [],
+      "scope": "Chỉ tìm mẫu Controller; danh sách thay đổi không tăng.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/QuoteController.java",
+          "from": 48,
+          "to": 51,
+          "finding": "Mẫu lấy ID từ URL."
+        },
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/PolicyController.java",
+          "from": 43,
+          "to": 46,
+          "finding": "Endpoint thật chuyển quoteId sang Func."
+        }
+      ]
+    },
+    {
+      "round": 7,
+      "id": "controller",
+      "title": "Tạo vùng nhận yêu cầu Policy",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/PolicyController.java",
+          "status": "A",
+          "from": 1,
+          "to": 6
+        }
+      ],
+      "checked": [],
+      "scope": "Chỉ kiểm tra cấu trúc annotation. Chưa chạy thử endpoint.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/PolicyController.java",
+          "from": 24,
+          "to": 46,
+          "finding": "Mẫu Controller thật và method tạo."
+        },
+        {
+          "file": "workspaces/1-shared/shared-base/src/main/java/com/alpaca/base/controller/BaseController.java",
+          "from": 1,
+          "to": 15,
+          "finding": "Lớp nền dùng chung, không thuộc module Policy."
+        }
+      ]
+    },
+    {
+      "round": 8,
+      "id": "func",
+      "title": "Tạo nơi xử lý nghiệp vụ",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "status": "A",
+          "from": 1,
+          "to": 8
+        }
+      ],
+      "checked": [],
+      "scope": "Chỉ kiểm tra chữ ký và lớp nền; fixture chưa được phép báo thành công.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "from": 46,
+          "to": 60,
+          "finding": "Func thật là Component kế thừa BaseFunc."
+        }
+      ]
+    },
+    {
+      "round": 9,
+      "id": "wire",
+      "title": "Chuyển Quote ID từ URL sang Func",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/PolicyController.java",
+          "status": "A",
+          "from": 6,
+          "to": 9
+        }
+      ],
+      "checked": [],
+      "scope": "Đã nối đường truyền tham số. Chưa nối đọc Quote nên chưa thể tạo.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/PolicyController.java",
+          "from": 43,
+          "to": 46,
+          "finding": "Đúng chuỗi URL → exec từ source."
+        }
+      ]
+    },
+    {
+      "round": 10,
+      "id": "quote-guard",
+      "title": "Đọc Quote và dừng nếu thiếu",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "status": "A",
+          "from": 5,
+          "to": 18
+        }
+      ],
+      "checked": [],
+      "scope": "Áp dụng xong mới mở lượt thử guard. Chưa có điều kiện tạo trùng.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "from": 60,
+          "to": 68,
+          "finding": "Đọc Quote, lỗi khi thiếu và khóa theo Quote ID."
+        },
+        {
+          "file": "workspaces/1-shared/shared-webmvc/src/main/java/com/alpaca/base/BaseFunc.java",
+          "from": 1,
+          "to": 45,
+          "finding": "BaseFunc cung cấp cơ chế transaction/lock, xem thêm source."
+        }
+      ]
+    },
+    {
+      "round": 11,
+      "id": "quote-trial",
+      "title": "Thử báo giá có và không có",
+      "changes": [],
+      "checked": [
+        "quote-valid",
+        "quote-missing"
+      ],
+      "scope": "Fixture xác nhận đường URL → Func → findById; 0 Command, 0 Event, 0 lần ghi.",
+      "source": []
+    },
+    {
+      "round": 12,
+      "id": "repository",
+      "title": "Tìm Policy để kiểm tra tạo trùng",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/repository/PolicyRepository.java",
+          "status": "A",
+          "from": 1,
+          "to": 4
+        }
+      ],
+      "checked": [],
+      "scope": "Mới thêm hợp đồng truy vấn; Func chưa gọi nên chưa khẳng định chặn trùng.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/repository/PolicyRepository.java",
+          "from": 22,
+          "to": 24,
+          "finding": "Method guard tồn tại trong source."
+        }
+      ]
+    },
+    {
+      "round": 13,
+      "id": "duplicate-guard",
+      "title": "Nối điều kiện chặn tạo trùng",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/constant/PolicyStatus.java",
+          "status": "A",
+          "from": 1,
+          "to": 28
+        },
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "status": "A",
+          "from": 6,
+          "to": 23
+        }
+      ],
+      "checked": [],
+      "scope": "Guard được nối; lượt tiếp kiểm tra nhánh trùng bằng fixture riêng.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "from": 71,
+          "to": 78,
+          "finding": "Truy vấn và điều kiện chặn trước mapping."
+        },
+        {
+          "file": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/constant/PolicyStatus.java",
+          "from": 6,
+          "to": 12,
+          "finding": "Mã NOT_RUNNING=0, RUNNING=100."
+        }
+      ]
+    },
+    {
+      "round": 14,
+      "id": "duplicate-trial",
+      "title": "Thử nhánh đã có Policy",
+      "changes": [],
+      "checked": [
+        "duplicate"
+      ],
+      "scope": "Dừng trước mapping, không sinh ID và không tăng số bản ghi.",
+      "source": []
+    },
+    {
+      "round": 15,
+      "id": "command-type",
+      "title": "Tạo gói dữ liệu yêu cầu ghi",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/command/policy/CreatePolicyCommand.java",
+          "status": "A",
+          "from": 1,
+          "to": 13
+        }
+      ],
+      "checked": [],
+      "scope": "Chỉ thêm kiểu dữ liệu; chưa có instance Command hoặc lần ghi.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/command/policy/CreatePolicyCommand.java",
+          "from": 26,
+          "to": 45,
+          "finding": "CreatePolicyCommand thật implements IPolicyCommand."
+        }
+      ]
+    },
+    {
+      "round": 16,
+      "id": "mapping",
+      "title": "Chép thông tin và liên kết về Quote",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "status": "A",
+          "from": 24,
+          "to": 28
+        }
+      ],
+      "checked": [],
+      "scope": "Command đã có dữ liệu từ Quote; chưa có mã/trạng thái quyết định lúc tạo.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "from": 80,
+          "to": 88,
+          "finding": "Map và gán ba trường có ý nghĩa riêng."
+        }
+      ]
+    },
+    {
+      "round": 17,
+      "id": "creation-values",
+      "title": "Quyết định giá trị lúc tạo",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/constant/SyncPolicyStatus.java",
+          "status": "A",
+          "from": 1,
+          "to": 8
+        },
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "status": "A",
+          "from": 28,
+          "to": 36
+        }
+      ],
+      "checked": [],
+      "scope": "Mã nghiệp vụ xuất hiện, Policy ID vẫn chưa được cấp. Helper/metadata là phần được lược trong snapshot cấu trúc.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "from": 88,
+          "to": 104,
+          "finding": "Gán giá trị lúc tạo."
+        },
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "from": 162,
+          "to": 216,
+          "finding": "Vị trí helper sinh mã và tính trạng thái trong source."
+        },
+        {
+          "file": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/constant/SyncPolicyStatus.java",
+          "from": 1,
+          "to": 8,
+          "finding": "Kiểu trạng thái đồng bộ chỉ thêm khi cần gán NOT_SYNC."
+        }
+      ]
+    },
+    {
+      "round": 18,
+      "id": "payment",
+      "title": "Chốt phạm vi dữ liệu thanh toán",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "status": "A",
+          "from": 36,
+          "to": 38
+        }
+      ],
+      "checked": [],
+      "scope": "Đã đánh dấu phạm vi trước save. Thuật toán thanh toán đầy đủ là chặng cần triển khai thêm.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "from": 105,
+          "to": 114,
+          "finding": "Vòng thanh toán ngay trước save."
+        }
+      ]
+    },
+    {
+      "round": 19,
+      "id": "event-base",
+      "title": "Khai báo Event thuộc Policy",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/event/base/BasePolicyEvent.java",
+          "status": "A",
+          "from": 1,
+          "to": 9
+        }
+      ],
+      "checked": [],
+      "scope": "Đã có metadata Event; chưa có sự kiện tạo cụ thể.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/event/base/BasePolicyEvent.java",
+          "from": 1,
+          "to": 9,
+          "finding": "Điểm khai báo kiểu Aggregate của Event."
+        }
+      ]
+    },
+    {
+      "round": 20,
+      "id": "event-type",
+      "title": "Mô tả dữ liệu sự kiện tạo",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/event/policy/CreatePolicyEvent.java",
+          "status": "A",
+          "from": 1,
+          "to": 13
+        }
+      ],
+      "checked": [],
+      "scope": "Mới có kiểu Event, process chưa được nối.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/event/policy/CreatePolicyEvent.java",
+          "from": 21,
+          "to": 45,
+          "finding": "CreatePolicyEvent thật kế thừa BasePolicyEvent."
+        }
+      ]
+    },
+    {
+      "round": 21,
+      "id": "process",
+      "title": "Xử lý Command thành Event",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/domain/PolicyAggregate.java",
+          "status": "A",
+          "from": 16,
+          "to": 19
+        }
+      ],
+      "checked": [],
+      "scope": "Một method mới trong Aggregate đã có; chưa apply Event.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/domain/PolicyAggregate.java",
+          "from": 328,
+          "to": 331,
+          "finding": "Method process thật."
+        },
+        {
+          "file": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/ReflectiveMutableCommandProcessingAggregate.java",
+          "from": 81,
+          "to": 91,
+          "finding": "Vị trí khung tìm method xử lý Command."
+        }
+      ]
+    },
+    {
+      "round": 22,
+      "id": "apply",
+      "title": "Cập nhật trạng thái từ Event",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/domain/PolicyAggregate.java",
+          "status": "A",
+          "from": 20,
+          "to": 27
+        }
+      ],
+      "checked": [],
+      "scope": "Đã có hai đầu xử lý Command/Event. Các field metadata/path được lược trong snapshot cấu trúc, xem source đầy đủ.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/domain/PolicyAggregate.java",
+          "from": 333,
+          "to": 340,
+          "finding": "apply và metadata từ Event."
+        },
+        {
+          "file": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/Aggregates.java",
+          "from": 11,
+          "to": 30,
+          "finding": "Vị trí lớp nền gọi apply."
+        }
+      ]
+    },
+    {
+      "round": 23,
+      "id": "registration",
+      "title": "Đăng ký chỗ ghi Policy",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/PlatformConfig.java",
+          "status": "M",
+          "from": 4,
+          "to": 19
+        }
+      ],
+      "checked": [],
+      "scope": "Cấu hình chuyển từ Quote-only sang Quote + Policy. Chưa có lời save trong Func.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/PlatformConfig.java",
+          "from": 28,
+          "to": 32,
+          "finding": "Điểm đăng ký bean Policy."
+        },
+        {
+          "file": "workspaces/1-shared/shared-eventuate/src/main/java/com/alpaca/eventuate/sync/AggregateExtRepository.java",
+          "from": 1,
+          "to": 20,
+          "finding": "Lớp mở rộng dùng lại cơ chế ghi."
+        }
+      ]
+    },
+    {
+      "round": 24,
+      "id": "persist",
+      "title": "Nối ghi và trả kết quả tạo",
+      "changes": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "status": "A",
+          "from": 7,
+          "to": 40
+        }
+      ],
+      "checked": [],
+      "scope": "Đường ghi trong phạm vi bài đã nối. Snapshot là trích đoạn học, chạy thử bằng fixture TypeScript, không chạy Java.",
+      "source": [
+        {
+          "file": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+          "from": 115,
+          "to": 115,
+          "finding": "Vị trí gọi save trong source."
+        },
+        {
+          "file": "workspaces/1-shared/shared-event-sourcing/src/main/java/io/eventuate/sync/AggregateRepository.java",
+          "from": 66,
+          "to": 87,
+          "finding": "Khung xử lý Command/Event trước store."
+        },
+        {
+          "file": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/common/jdbc/impl/EventuateJdbcAccessImpl.java",
+          "from": 87,
+          "to": 119,
+          "finding": "Điểm JDBC ghi Aggregate/Event."
+        }
+      ]
+    },
+    {
+      "round": 25,
+      "id": "verify",
+      "title": "Kiểm tra kết quả từ góc nhìn người dùng",
+      "changes": [],
+      "checked": [
+        "success",
+        "read-id"
+      ],
+      "scope": "Đối chiếu chính Policy ID trả về; nhập Quote ID sẽ không đạt. Đây là ghi trong bộ nhớ fixture của Workshop.",
+      "source": []
+    },
+    {
+      "round": 26,
+      "id": "review",
+      "title": "Review toàn phiên",
+      "changes": [],
+      "checked": [],
+      "scope": "Các fixture xác nhận luồng tạo tinh gọn. Chưa kiểm tra Java/HTTP/Kafka, payment đầy đủ, đối tượng bảo hiểm, PublishedQuote, email hoặc SMS của luồng production.",
+      "source": []
+    }
+  ]
+}

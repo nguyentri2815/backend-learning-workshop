@@ -1,0 +1,74 @@
+{
+  "reviewedOn": "2026-11-14",
+  "build": {
+    "passed": true,
+    "warning": "Existing large chunks (>500 kB)"
+  },
+  "fixtures": {
+    "integrity": true,
+    "files": 49
+  },
+  "sourceAudit": {
+    "passed": true,
+    "files": 31
+  },
+  "productionPreview": {
+    "passed": true,
+    "tests": 34,
+    "baseURL": "http://localhost:3183",
+    "specs": [
+      "policy-fixture-flow",
+      "policy-beginner-session",
+      "policy-session-experience",
+      "policy-session",
+      "policy-pattern-workspace"
+    ],
+    "widths": [
+      390,
+      1512
+    ]
+  },
+  "quoteTrial": {
+    "appliedSnapshot": 10,
+    "valid": {
+      "furthest": "runInternal",
+      "commands": 0,
+      "events": 0,
+      "writes": 0,
+      "policyId": null,
+      "unwired": [
+        "command",
+        "save"
+      ]
+    },
+    "missing": {
+      "furthest": "exec",
+      "error": "QUOTE_NOT_EXIST",
+      "notRun": [
+        "lock",
+        "runInternal"
+      ],
+      "commands": 0,
+      "events": 0,
+      "writes": 0,
+      "policyId": null
+    },
+    "sourceNavigationPreservesRound": true,
+    "savedRunSnapshotPreservedInReview": true
+  },
+  "explorer": {
+    "creationRounds": {
+      "IPolicyCommand": 4,
+      "PolicyAggregate": 5,
+      "PolicyController": 7
+    },
+    "controllerModifiedAt": 9,
+    "creationLabelPreserved": true,
+    "groupsSameRound": true,
+    "sameRoundGroupingVerifiedWith": "model fixture",
+    "oldMilestonesHideFutureFiles": true,
+    "milestoneLabelsSelectCorrectFile": true,
+    "existingFilesUseModificationRounds": true
+  },
+  "review": "http://localhost:3182/journey/policy?group=create&mode=session&sessionId=quote-beginner&sessionAt=quote-trial&sessionDone=9&sessionDecision.quote-trial=0"
+}

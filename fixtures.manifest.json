@@ -14,9 +14,59 @@
       "sha256": "767d991fe25a86b38a0b8a5ed76ba0c634593d1fadf629865a266c0527b64c8b"
     },
     {
+      "path": "src/content/policy/assembly-implementation.ts",
+      "bytes": 19990,
+      "sha256": "1fbb2740644178612ab547dfa7fdc92eda15d3351d933f451d5a888c91f490ec"
+    },
+    {
+      "path": "src/content/policy/assembly-learning.ts",
+      "bytes": 45033,
+      "sha256": "5a5cd0afea1f8dd128227d4244f84cef1abab7dc307fabddc6e4dc103d658977"
+    },
+    {
+      "path": "src/content/policy/assembly-source-guide.ts",
+      "bytes": 13274,
+      "sha256": "01f62c652e10bd51c10734509af6681d1aaaafc911c65d0db45ea3e1eda6a27a"
+    },
+    {
+      "path": "src/content/policy/assembly-source.json",
+      "bytes": 975243,
+      "sha256": "dcb0479cc6d4f62fb399e8322b842734b19b3decc5592c8e168c0f5332fef408"
+    },
+    {
+      "path": "src/content/policy/assembly.ts",
+      "bytes": 33829,
+      "sha256": "3fb81dd495bda40e882a613754a0b548828f19916690fcdf24dfb471afb32224"
+    },
+    {
+      "path": "src/content/policy/beginner-session.ts",
+      "bytes": 45479,
+      "sha256": "1ef9c4c71beab1c62fefdc74ce31183e33d833a1425b411e25cc041c3b66e1fa"
+    },
+    {
+      "path": "src/content/policy/beginner-source.json",
+      "bytes": 424782,
+      "sha256": "85de590a7ce4356b671abbaa255207f7f075fa4881d5f51d23c1da599670e599"
+    },
+    {
+      "path": "src/content/policy/detail-source.json",
+      "bytes": 261578,
+      "sha256": "9dec87aae70a1d9ad18687cae8c324a6a0046253f28f482a64d1e641ce6bb2a9"
+    },
+    {
+      "path": "src/content/policy/detail.ts",
+      "bytes": 5842,
+      "sha256": "93830198251be9f38ddfa85bc374150d96964d3506742091458752e6257b03f8"
+    },
+    {
       "path": "src/content/policy/flows.ts",
       "bytes": 15386,
       "sha256": "51fa395355d1de4aad6de96cb7a252270e9033ea3f601288b2f244ef0954c30f"
+    },
+    {
+      "path": "src/content/policy/implementation-session.ts",
+      "bytes": 16266,
+      "sha256": "3ec350ce43a49a0e20a2971620dec3abe210da4cf0b949372b30d17be7835f64"
     },
     {
       "path": "src/content/policy/issuance.ts",
@@ -29,9 +79,54 @@
       "sha256": "c73ee3578218ec9c27440f30267244f9d34368617d896c975c0bb3e404efec47"
     },
     {
+      "path": "src/content/policy/list-journey.ts",
+      "bytes": 7790,
+      "sha256": "667057465e8e648a77250591ecd19b0403f62c1b2d863592c9765b7aa9496d52"
+    },
+    {
+      "path": "src/content/policy/list-source.json",
+      "bytes": 198125,
+      "sha256": "bb97d00a4311d0f1b7fcf181fb7e155a3bcda493490d497c882c69ac0663fe46"
+    },
+    {
+      "path": "src/content/policy/list.ts",
+      "bytes": 15006,
+      "sha256": "26b1a813f2872e3d1951cf89db1730fe7cfa521b9ad4a48fbd08c37f396a758f"
+    },
+    {
+      "path": "src/content/policy/session-source.json",
+      "bytes": 13347,
+      "sha256": "0b9ec32311b770a6a69057b4f59390d2d3415123b9dfe89bb1c070fdc6b671b5"
+    },
+    {
       "path": "src/content/policy/source.json",
       "bytes": 361332,
       "sha256": "b0aeb906b94d483d7c3634c8b026057b391bdce89209991a841b0bec733d7ee9"
+    },
+    {
+      "path": "src/content/policy/status-initial.ts",
+      "bytes": 37141,
+      "sha256": "d55b4ec75f872e5647bb679fb7af893f3b66da5d01df0d437013e4ea9134ff4b"
+    },
+    {
+      "path": "src/content/policy/status-source.json",
+      "bytes": 992707,
+      "sha256": "871712013de8284e4ccaf0a5f94f04027df4a855591933c0c401e67aab382ca2"
+    },
+    {
+      "path": "src/content/policy/status.ts",
+      "bytes": 30459,
+      "sha256": "14fd0dfafb224aa8cd45e75391c3578e3ec8ebb8294a708598e50a7acdbaeb46"
+    },
+    {
+      "path": "src/content/policy/update-source.json",
+      "bytes": 788301,
+      "sha256": "8b4481229d67f1c0403cbb2578d5572d00687079e87d230e2c1814c60bbc117d"
+    },
+    {
+      "path": "src/content/policy/update.ts",
+      "bytes": 62919,
+      "sha256": "da35210e4ba4d6bd7a2a5075ea98a0bc9481a01457a441bb7eece7b141d7c914"
     },
     {
       "path": "src/content/setup/action-guide.ts",

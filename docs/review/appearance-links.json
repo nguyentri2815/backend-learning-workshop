@@ -1,0 +1,4 @@
+{
+  "profile": "http://localhost:3182/journey/environment?experience=project&step=config&task=profile&pfile=dev&pline=33&check=config-scope&psim=%7B%7D&pmodule=30&pstate=after&pfolder=&popen=workspaces%2Cworkspaces%2Fagent-service%2Cworkspaces%2Fagent-service%2F1-agent-command-service%2Cworkspaces%2Fagent-service%2F1-agent-command-service%2Fsrc%2Cworkspaces%2Fagent-service%2F1-agent-command-service%2Fsrc%2Fmain%2Cworkspaces%2Fagent-service%2F1-agent-command-service%2Fsrc%2Fmain%2Fresources&pprofile=dev",
+  "policy": "http://localhost:3182/journey/policy?group=create&mode=steps&node=save&sim=command&stop=save-return&at=save-return&reader=context&backend=1&sentQuote=QUOTE-LEARN-101"
+}

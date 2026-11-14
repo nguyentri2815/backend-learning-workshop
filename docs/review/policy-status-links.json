@@ -1,0 +1,1085 @@
+{
+  "observations": [
+    {
+      "flow": "date",
+      "name": "overview",
+      "path": "docs/review/status-date-overview.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "overview-map",
+      "path": "docs/review/status-date-overview-map.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "checkpoint",
+      "path": "docs/review/status-date-checkpoint.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=steps&opened=schedule&node=date-apply&point=date-apply&s.date.view=date-apply&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draftScenario=success&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=10&s.date.cursor=date-apply&s.date.prior=date-command",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "reason",
+      "path": "docs/review/status-date-reason.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=assembly&opened=schedule&node=date-apply&point=date-apply&s.date.view=date-apply&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draftScenario=success&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=10&s.date.cursor=date-apply&s.date.prior=date-command&s.date.position.steps=date-apply&s.date.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "cooperate",
+      "path": "docs/review/status-date-cooperate.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=assembly&opened=schedule&node=date-apply&point=date-apply&s.date.view=date-apply&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draftScenario=success&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=10&s.date.cursor=date-apply&s.date.prior=date-command&s.date.position.steps=date-apply&s.date.mode=assembly&assemblyDecision.status-date-write=decision-2&assemblyView.status-date-write=cooperate&assemblyAnswers.status-date-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "pattern",
+      "path": "docs/review/status-date-pattern.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=assembly&opened=schedule&node=date-apply&point=date-apply&s.date.view=date-apply&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draftScenario=success&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=10&s.date.cursor=date-apply&s.date.prior=date-command&s.date.position.steps=date-apply&s.date.mode=assembly&assemblyDecision.status-date-write=decision-2&assemblyView.status-date-write=pattern&assemblyAnswers.status-date-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "pattern-code",
+      "path": "docs/review/status-date-pattern-code.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=assembly&opened=schedule&node=date-apply&point=date-apply&s.date.view=date-apply&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draftScenario=success&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=10&s.date.cursor=date-apply&s.date.prior=date-command&s.date.position.steps=date-apply&s.date.mode=assembly&assemblyDecision.status-date-write=decision-2&assemblyView.status-date-write=pattern&assemblyAnswers.status-date-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "diagram",
+      "path": "docs/review/status-date-diagram.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=assembly&opened=schedule&node=date-apply&point=date-apply&s.date.view=date-apply&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draftScenario=success&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=10&s.date.cursor=date-apply&s.date.prior=date-command&s.date.position.steps=date-apply&s.date.mode=assembly&assemblyDecision.status-date-write=decision-2&assemblyView.status-date-write=pattern&assemblyAnswers.status-date-write=0%2C0&assemblyDiagram.status-date-write=1&assemblyDiagramRelation.status-date-write=date-event",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "full-source-A",
+      "path": "docs/review/status-date-full-source-A.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=assembly&opened=schedule&node=date-apply&point=date-apply&s.date.view=date-apply&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draftScenario=success&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=10&s.date.cursor=date-apply&s.date.prior=date-command&s.date.position.steps=date-apply&s.date.mode=assembly&assemblyDecision.status-date-write=decision-2&assemblyView.status-date-write=pattern&assemblyAnswers.status-date-write=0%2C0&assemblyDiagram.status-date-write=1&assemblyDiagramRelation.status-date-write=date-event&assemblyDiagramRef.status-date-write=auto&assemblyDiagramSide.status-date-write=A",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "full-source-B",
+      "path": "docs/review/status-date-full-source-B.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=assembly&opened=schedule&node=date-apply&point=date-apply&s.date.view=date-apply&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draftScenario=success&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=10&s.date.cursor=date-apply&s.date.prior=date-command&s.date.position.steps=date-apply&s.date.mode=assembly&assemblyDecision.status-date-write=decision-2&assemblyView.status-date-write=pattern&assemblyAnswers.status-date-write=0%2C0&assemblyDiagram.status-date-write=1&assemblyDiagramRelation.status-date-write=date-event&assemblyComponent.status-date-write=date-command&assemblyEdge.status-date-write=date-event&assemblyFrame.status-date-write=cooperation&assemblyInspect.status-date-write=edge%3Adate-event&assemblyDiagramRef.status-date-write=policy&assemblyDiagramSide.status-date-write=B",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "implementation",
+      "path": "docs/review/status-date-implementation.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=assembly&opened=schedule&node=date-apply&point=date-apply&s.date.view=date-apply&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draftScenario=success&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=10&s.date.cursor=date-apply&s.date.prior=date-command&s.date.position.steps=date-apply&s.date.mode=assembly&assemblyDecision.status-date-write=decision-2&assemblyView.status-date-write=pattern&assemblyAnswers.status-date-write=0%2C0&assemblyDiagram.status-date-write=1&assemblyDiagramRelation.status-date-write=date-event&assemblyComponent.status-date-write=date-command&assemblyEdge.status-date-write=date-event&assemblyFrame.status-date-write=cooperation&assemblyInspect.status-date-write=edge%3Adate-event&assemblyDiagramRef.status-date-write=policy&assemblyDiagramSide.status-date-write=B&assemblyDiagramMode.status-date-write=practice&s.date.build.write.file=auto&s.date.build.write.done=write-locate%2Cwrite-connect&s.date.build.write.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "trial",
+      "path": "docs/review/status-date-trial.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=assembly&opened=schedule&node=date-apply&point=date-apply&s.date.view=date-apply&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draftScenario=success&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=10&s.date.cursor=date-apply&s.date.prior=date-command&s.date.position.steps=date-apply&s.date.mode=assembly&assemblyDecision.status-date-write=decision-2&assemblyView.status-date-write=pattern&assemblyAnswers.status-date-write=0%2C0&assemblyDiagram.status-date-write=1&assemblyDiagramRelation.status-date-write=date-event&assemblyComponent.status-date-write=date-command&assemblyEdge.status-date-write=date-event&assemblyFrame.status-date-write=cooperation&assemblyInspect.status-date-write=edge%3Adate-event&assemblyDiagramRef.status-date-write=policy&assemblyDiagramSide.status-date-write=B&assemblyDiagramMode.status-date-write=practice&s.date.build.write.file=auto&s.date.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.date.build.write.task=write-trial&s.date.build.write.tested=success%2Ceffective-boundary",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "result",
+      "path": "docs/review/status-date-result.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=steps&opened=schedule&node=date-view&point=date-view&s.date.view=date-view&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draftScenario=success&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=14&s.date.cursor=date-view&s.date.prior=date-flow&s.date.position.steps=date-apply&s.date.mode=steps&assemblyDecision.status-date-write=decision-2&assemblyView.status-date-write=pattern&assemblyAnswers.status-date-write=0%2C0&assemblyDiagramRelation.status-date-write=date-event&assemblyComponent.status-date-write=date-command&assemblyEdge.status-date-write=date-event&assemblyFrame.status-date-write=cooperation&assemblyInspect.status-date-write=edge%3Adate-event&assemblyDiagramRef.status-date-write=policy&assemblyDiagramSide.status-date-write=B&assemblyDiagramMode.status-date-write=practice&s.date.build.write.file=auto&s.date.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.date.build.write.task=write-trial&s.date.build.write.tested=success%2Ceffective-boundary&s.date.position.assembly=date-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "core-status",
+      "name": "overview",
+      "path": "docs/review/status-core-status-overview.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=core-status&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "core-status",
+      "name": "overview-map",
+      "path": "docs/review/status-core-status-overview-map.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=core-status&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "core-status",
+      "name": "checkpoint",
+      "path": "docs/review/status-core-status-checkpoint.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=core-status&mode=steps&opened=endorsement-api&node=core-apply&point=core-apply&s.core-status.view=core-apply&s.core-status.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.draftScenario=success&s.core-status.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.scenario=success&s.core-status.started=1&s.core-status.stop=7&s.core-status.cursor=core-apply&s.core-status.prior=core-command",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "core-status",
+      "name": "reason",
+      "path": "docs/review/status-core-status-reason.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=core-status&mode=assembly&opened=endorsement-api&node=core-apply&point=core-apply&s.core-status.view=core-apply&s.core-status.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.draftScenario=success&s.core-status.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.scenario=success&s.core-status.started=1&s.core-status.stop=7&s.core-status.cursor=core-apply&s.core-status.prior=core-command&s.core-status.position.steps=core-apply&s.core-status.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "core-status",
+      "name": "cooperate",
+      "path": "docs/review/status-core-status-cooperate.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=core-status&mode=assembly&opened=endorsement-api&node=core-apply&point=core-apply&s.core-status.view=core-apply&s.core-status.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.draftScenario=success&s.core-status.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.scenario=success&s.core-status.started=1&s.core-status.stop=7&s.core-status.cursor=core-apply&s.core-status.prior=core-command&s.core-status.position.steps=core-apply&s.core-status.mode=assembly&assemblyDecision.status-core-status-write=decision-2&assemblyView.status-core-status-write=cooperate&assemblyAnswers.status-core-status-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "core-status",
+      "name": "pattern",
+      "path": "docs/review/status-core-status-pattern.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=core-status&mode=assembly&opened=endorsement-api&node=core-apply&point=core-apply&s.core-status.view=core-apply&s.core-status.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.draftScenario=success&s.core-status.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.scenario=success&s.core-status.started=1&s.core-status.stop=7&s.core-status.cursor=core-apply&s.core-status.prior=core-command&s.core-status.position.steps=core-apply&s.core-status.mode=assembly&assemblyDecision.status-core-status-write=decision-2&assemblyView.status-core-status-write=pattern&assemblyAnswers.status-core-status-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "core-status",
+      "name": "implementation",
+      "path": "docs/review/status-core-status-implementation.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=core-status&mode=assembly&opened=endorsement-api&node=core-apply&point=core-apply&s.core-status.view=core-apply&s.core-status.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.draftScenario=success&s.core-status.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.scenario=success&s.core-status.started=1&s.core-status.stop=7&s.core-status.cursor=core-apply&s.core-status.prior=core-command&s.core-status.position.steps=core-apply&s.core-status.mode=assembly&assemblyDecision.status-core-status-write=decision-2&assemblyView.status-core-status-write=pattern&assemblyAnswers.status-core-status-write=0%2C0&assemblyDiagram.status-core-status-write=1&assemblyDiagramRelation.status-core-status-write=core-update&assemblyDiagramMode.status-core-status-write=practice&s.core-status.build.write.file=endorsement&s.core-status.build.write.done=write-locate%2Cwrite-connect&s.core-status.build.write.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "core-status",
+      "name": "trial",
+      "path": "docs/review/status-core-status-trial.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=core-status&mode=assembly&opened=endorsement-api&node=core-apply&point=core-apply&s.core-status.view=core-apply&s.core-status.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.draftScenario=success&s.core-status.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.scenario=success&s.core-status.started=1&s.core-status.stop=7&s.core-status.cursor=core-apply&s.core-status.prior=core-command&s.core-status.position.steps=core-apply&s.core-status.mode=assembly&assemblyDecision.status-core-status-write=decision-2&assemblyView.status-core-status-write=pattern&assemblyAnswers.status-core-status-write=0%2C0&assemblyDiagram.status-core-status-write=1&assemblyDiagramRelation.status-core-status-write=core-update&assemblyDiagramMode.status-core-status-write=practice&s.core-status.build.write.file=endorsement&s.core-status.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.core-status.build.write.task=write-trial&s.core-status.build.write.tested=success%2Ccore-fail",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "core-status",
+      "name": "result",
+      "path": "docs/review/status-core-status-result.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=core-status&mode=steps&opened=endorsement-api&node=core-view&point=core-view&s.core-status.view=core-view&s.core-status.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.draftScenario=success&s.core-status.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.core-status.scenario=success&s.core-status.started=1&s.core-status.stop=11&s.core-status.cursor=core-view&s.core-status.prior=core-flow&s.core-status.position.steps=core-apply&s.core-status.mode=steps&assemblyDecision.status-core-status-write=decision-2&assemblyView.status-core-status-write=pattern&assemblyAnswers.status-core-status-write=0%2C0&assemblyDiagramRelation.status-core-status-write=core-update&assemblyDiagramMode.status-core-status-write=practice&s.core-status.build.write.file=endorsement&s.core-status.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.core-status.build.write.task=write-trial&s.core-status.build.write.tested=success%2Ccore-fail&s.core-status.position.assembly=core-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "initial",
+      "name": "overview",
+      "path": "docs/review/status-initial-overview.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=initial&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "initial",
+      "name": "overview-map",
+      "path": "docs/review/status-initial-overview-map.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=initial&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "initial",
+      "name": "checkpoint",
+      "path": "docs/review/status-initial-checkpoint.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=initial&mode=steps&opened=create-api&node=initial-apply&point=initial-apply&s.initial.view=initial-apply&s.initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.draftScenario=success&s.initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.scenario=success&s.initial.started=1&s.initial.stop=8&s.initial.cursor=initial-apply&s.initial.prior=initial-save",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "initial",
+      "name": "reason",
+      "path": "docs/review/status-initial-reason.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=initial&mode=assembly&opened=create-api&node=initial-apply&point=initial-apply&s.initial.view=initial-apply&s.initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.draftScenario=success&s.initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.scenario=success&s.initial.started=1&s.initial.stop=8&s.initial.cursor=initial-apply&s.initial.prior=initial-save&s.initial.position.steps=initial-apply&s.initial.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "initial",
+      "name": "cooperate",
+      "path": "docs/review/status-initial-cooperate.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=initial&mode=assembly&opened=create-api&node=initial-apply&point=initial-apply&s.initial.view=initial-apply&s.initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.draftScenario=success&s.initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.scenario=success&s.initial.started=1&s.initial.stop=8&s.initial.cursor=initial-apply&s.initial.prior=initial-save&s.initial.position.steps=initial-apply&s.initial.mode=assembly&assemblyDecision.status-initial-write=decision-2&assemblyView.status-initial-write=cooperate&assemblyAnswers.status-initial-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "initial",
+      "name": "pattern",
+      "path": "docs/review/status-initial-pattern.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=initial&mode=assembly&opened=create-api&node=initial-apply&point=initial-apply&s.initial.view=initial-apply&s.initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.draftScenario=success&s.initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.scenario=success&s.initial.started=1&s.initial.stop=8&s.initial.cursor=initial-apply&s.initial.prior=initial-save&s.initial.position.steps=initial-apply&s.initial.mode=assembly&assemblyDecision.status-initial-write=decision-2&assemblyView.status-initial-write=pattern&assemblyAnswers.status-initial-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "initial",
+      "name": "implementation",
+      "path": "docs/review/status-initial-implementation.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=initial&mode=assembly&opened=create-api&node=initial-apply&point=initial-apply&s.initial.view=initial-apply&s.initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.draftScenario=success&s.initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.scenario=success&s.initial.started=1&s.initial.stop=8&s.initial.cursor=initial-apply&s.initial.prior=initial-save&s.initial.position.steps=initial-apply&s.initial.mode=assembly&assemblyDecision.status-initial-write=decision-2&assemblyView.status-initial-write=pattern&assemblyAnswers.status-initial-write=0%2C0&assemblyDiagram.status-initial-write=1&assemblyDiagramRelation.status-initial-write=initial-event&assemblyDiagramMode.status-initial-write=practice&s.initial.build.write.file=create&s.initial.build.write.done=write-locate%2Cwrite-connect&s.initial.build.write.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "initial",
+      "name": "trial",
+      "path": "docs/review/status-initial-trial.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=initial&mode=assembly&opened=create-api&node=initial-apply&point=initial-apply&s.initial.view=initial-apply&s.initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.draftScenario=success&s.initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.scenario=success&s.initial.started=1&s.initial.stop=8&s.initial.cursor=initial-apply&s.initial.prior=initial-save&s.initial.position.steps=initial-apply&s.initial.mode=assembly&assemblyDecision.status-initial-write=decision-2&assemblyView.status-initial-write=pattern&assemblyAnswers.status-initial-write=0%2C0&assemblyDiagram.status-initial-write=1&assemblyDiagramRelation.status-initial-write=initial-event&assemblyDiagramMode.status-initial-write=practice&s.initial.build.write.file=create&s.initial.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.initial.build.write.task=write-trial&s.initial.build.write.tested=success%2Cduplicate",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "initial",
+      "name": "result",
+      "path": "docs/review/status-initial-result.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=initial&mode=steps&opened=create-api&node=initial-view&point=initial-view&s.initial.view=initial-view&s.initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.draftScenario=success&s.initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.initial.scenario=success&s.initial.started=1&s.initial.stop=13&s.initial.cursor=initial-view&s.initial.prior=initial-flow&s.initial.position.steps=initial-apply&s.initial.mode=steps&assemblyDecision.status-initial-write=decision-2&assemblyView.status-initial-write=pattern&assemblyAnswers.status-initial-write=0%2C0&assemblyDiagramRelation.status-initial-write=initial-event&assemblyDiagramMode.status-initial-write=practice&s.initial.build.write.file=create&s.initial.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.initial.build.write.task=write-trial&s.initial.build.write.tested=success%2Cduplicate&s.initial.position.assembly=initial-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-initial",
+      "name": "overview",
+      "path": "docs/review/status-approve-initial-overview.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-initial&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-initial",
+      "name": "overview-map",
+      "path": "docs/review/status-approve-initial-overview-map.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-initial&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-initial",
+      "name": "checkpoint",
+      "path": "docs/review/status-approve-initial-checkpoint.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-initial&mode=steps&opened=approve-api&node=approve-initial-apply&point=approve-initial-apply&s.approve-initial.view=approve-initial-apply&s.approve-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.draftScenario=success&s.approve-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.scenario=success&s.approve-initial.started=1&s.approve-initial.stop=9&s.approve-initial.cursor=approve-initial-apply&s.approve-initial.prior=approve-initial-save",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-initial",
+      "name": "reason",
+      "path": "docs/review/status-approve-initial-reason.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-initial&mode=assembly&opened=approve-api&node=approve-initial-apply&point=approve-initial-apply&s.approve-initial.view=approve-initial-apply&s.approve-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.draftScenario=success&s.approve-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.scenario=success&s.approve-initial.started=1&s.approve-initial.stop=9&s.approve-initial.cursor=approve-initial-apply&s.approve-initial.prior=approve-initial-save&s.approve-initial.position.steps=approve-initial-apply&s.approve-initial.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-initial",
+      "name": "cooperate",
+      "path": "docs/review/status-approve-initial-cooperate.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-initial&mode=assembly&opened=approve-api&node=approve-initial-apply&point=approve-initial-apply&s.approve-initial.view=approve-initial-apply&s.approve-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.draftScenario=success&s.approve-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.scenario=success&s.approve-initial.started=1&s.approve-initial.stop=9&s.approve-initial.cursor=approve-initial-apply&s.approve-initial.prior=approve-initial-save&s.approve-initial.position.steps=approve-initial-apply&s.approve-initial.mode=assembly&assemblyDecision.status-approve-initial-write=decision-2&assemblyView.status-approve-initial-write=cooperate&assemblyAnswers.status-approve-initial-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-initial",
+      "name": "pattern",
+      "path": "docs/review/status-approve-initial-pattern.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-initial&mode=assembly&opened=approve-api&node=approve-initial-apply&point=approve-initial-apply&s.approve-initial.view=approve-initial-apply&s.approve-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.draftScenario=success&s.approve-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.scenario=success&s.approve-initial.started=1&s.approve-initial.stop=9&s.approve-initial.cursor=approve-initial-apply&s.approve-initial.prior=approve-initial-save&s.approve-initial.position.steps=approve-initial-apply&s.approve-initial.mode=assembly&assemblyDecision.status-approve-initial-write=decision-2&assemblyView.status-approve-initial-write=pattern&assemblyAnswers.status-approve-initial-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-initial",
+      "name": "implementation",
+      "path": "docs/review/status-approve-initial-implementation.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-initial&mode=assembly&opened=approve-api&node=approve-initial-apply&point=approve-initial-apply&s.approve-initial.view=approve-initial-apply&s.approve-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.draftScenario=success&s.approve-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.scenario=success&s.approve-initial.started=1&s.approve-initial.stop=9&s.approve-initial.cursor=approve-initial-apply&s.approve-initial.prior=approve-initial-save&s.approve-initial.position.steps=approve-initial-apply&s.approve-initial.mode=assembly&assemblyDecision.status-approve-initial-write=decision-2&assemblyView.status-approve-initial-write=pattern&assemblyAnswers.status-approve-initial-write=0%2C0&assemblyDiagram.status-approve-initial-write=1&assemblyDiagramRelation.status-approve-initial-write=approve-initial-event&assemblyDiagramMode.status-approve-initial-write=practice&s.approve-initial.build.write.file=approve&s.approve-initial.build.write.done=write-locate%2Cwrite-connect&s.approve-initial.build.write.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-initial",
+      "name": "trial",
+      "path": "docs/review/status-approve-initial-trial.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-initial&mode=assembly&opened=approve-api&node=approve-initial-apply&point=approve-initial-apply&s.approve-initial.view=approve-initial-apply&s.approve-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.draftScenario=success&s.approve-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.scenario=success&s.approve-initial.started=1&s.approve-initial.stop=9&s.approve-initial.cursor=approve-initial-apply&s.approve-initial.prior=approve-initial-save&s.approve-initial.position.steps=approve-initial-apply&s.approve-initial.mode=assembly&assemblyDecision.status-approve-initial-write=decision-2&assemblyView.status-approve-initial-write=pattern&assemblyAnswers.status-approve-initial-write=0%2C0&assemblyDiagram.status-approve-initial-write=1&assemblyDiagramRelation.status-approve-initial-write=approve-initial-event&assemblyDiagramMode.status-approve-initial-write=practice&s.approve-initial.build.write.file=approve&s.approve-initial.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.approve-initial.build.write.task=write-trial&s.approve-initial.build.write.tested=success%2Cduplicate",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-initial",
+      "name": "result",
+      "path": "docs/review/status-approve-initial-result.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-initial&mode=steps&opened=approve-api&node=approve-initial-view&point=approve-initial-view&s.approve-initial.view=approve-initial-view&s.approve-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.draftScenario=success&s.approve-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-initial.scenario=success&s.approve-initial.started=1&s.approve-initial.stop=14&s.approve-initial.cursor=approve-initial-view&s.approve-initial.prior=approve-initial-flow&s.approve-initial.position.steps=approve-initial-apply&s.approve-initial.mode=steps&assemblyDecision.status-approve-initial-write=decision-2&assemblyView.status-approve-initial-write=pattern&assemblyAnswers.status-approve-initial-write=0%2C0&assemblyDiagramRelation.status-approve-initial-write=approve-initial-event&assemblyDiagramMode.status-approve-initial-write=practice&s.approve-initial.build.write.file=approve&s.approve-initial.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.approve-initial.build.write.task=write-trial&s.approve-initial.build.write.tested=success%2Cduplicate&s.approve-initial.position.assembly=approve-initial-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-now",
+      "name": "overview",
+      "path": "docs/review/status-approve-now-overview.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-now&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-now",
+      "name": "overview-map",
+      "path": "docs/review/status-approve-now-overview-map.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-now&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-now",
+      "name": "checkpoint",
+      "path": "docs/review/status-approve-now-checkpoint.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-now&mode=steps&opened=approve-api%2Capprove-now-save&node=approve-now-apply&point=approve-now-apply&s.approve-now.view=approve-now-apply&s.approve-now.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.draftScenario=success&s.approve-now.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.scenario=success&s.approve-now.started=1&s.approve-now.stop=9&s.approve-now.cursor=approve-now-apply&s.approve-now.prior=approve-now-save",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-now",
+      "name": "reason",
+      "path": "docs/review/status-approve-now-reason.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-now&mode=assembly&opened=approve-api%2Capprove-now-save&node=approve-now-apply&point=approve-now-apply&s.approve-now.view=approve-now-apply&s.approve-now.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.draftScenario=success&s.approve-now.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.scenario=success&s.approve-now.started=1&s.approve-now.stop=9&s.approve-now.cursor=approve-now-apply&s.approve-now.prior=approve-now-save&s.approve-now.position.steps=approve-now-apply&s.approve-now.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-now",
+      "name": "cooperate",
+      "path": "docs/review/status-approve-now-cooperate.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-now&mode=assembly&opened=approve-api%2Capprove-now-save&node=approve-now-apply&point=approve-now-apply&s.approve-now.view=approve-now-apply&s.approve-now.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.draftScenario=success&s.approve-now.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.scenario=success&s.approve-now.started=1&s.approve-now.stop=9&s.approve-now.cursor=approve-now-apply&s.approve-now.prior=approve-now-save&s.approve-now.position.steps=approve-now-apply&s.approve-now.mode=assembly&assemblyDecision.status-approve-now-write=decision-2&assemblyView.status-approve-now-write=cooperate&assemblyAnswers.status-approve-now-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-now",
+      "name": "pattern",
+      "path": "docs/review/status-approve-now-pattern.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-now&mode=assembly&opened=approve-api%2Capprove-now-save&node=approve-now-apply&point=approve-now-apply&s.approve-now.view=approve-now-apply&s.approve-now.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.draftScenario=success&s.approve-now.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.scenario=success&s.approve-now.started=1&s.approve-now.stop=9&s.approve-now.cursor=approve-now-apply&s.approve-now.prior=approve-now-save&s.approve-now.position.steps=approve-now-apply&s.approve-now.mode=assembly&assemblyDecision.status-approve-now-write=decision-2&assemblyView.status-approve-now-write=pattern&assemblyAnswers.status-approve-now-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-now",
+      "name": "implementation",
+      "path": "docs/review/status-approve-now-implementation.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-now&mode=assembly&opened=approve-api%2Capprove-now-save&node=approve-now-apply&point=approve-now-apply&s.approve-now.view=approve-now-apply&s.approve-now.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.draftScenario=success&s.approve-now.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.scenario=success&s.approve-now.started=1&s.approve-now.stop=9&s.approve-now.cursor=approve-now-apply&s.approve-now.prior=approve-now-save&s.approve-now.position.steps=approve-now-apply&s.approve-now.mode=assembly&assemblyDecision.status-approve-now-write=decision-2&assemblyView.status-approve-now-write=pattern&assemblyAnswers.status-approve-now-write=0%2C0&assemblyDiagram.status-approve-now-write=1&assemblyDiagramRelation.status-approve-now-write=approve-now-event&assemblyDiagramMode.status-approve-now-write=practice&s.approve-now.build.write.file=approveNow&s.approve-now.build.write.done=write-locate%2Cwrite-connect&s.approve-now.build.write.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-now",
+      "name": "trial",
+      "path": "docs/review/status-approve-now-trial.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-now&mode=assembly&opened=approve-api%2Capprove-now-save&node=approve-now-apply&point=approve-now-apply&s.approve-now.view=approve-now-apply&s.approve-now.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.draftScenario=success&s.approve-now.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.scenario=success&s.approve-now.started=1&s.approve-now.stop=9&s.approve-now.cursor=approve-now-apply&s.approve-now.prior=approve-now-save&s.approve-now.position.steps=approve-now-apply&s.approve-now.mode=assembly&assemblyDecision.status-approve-now-write=decision-2&assemblyView.status-approve-now-write=pattern&assemblyAnswers.status-approve-now-write=0%2C0&assemblyDiagram.status-approve-now-write=1&assemblyDiagramRelation.status-approve-now-write=approve-now-event&assemblyDiagramMode.status-approve-now-write=practice&s.approve-now.build.write.file=approveNow&s.approve-now.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.approve-now.build.write.task=write-trial&s.approve-now.build.write.tested=success%2Cduplicate",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "approve-now",
+      "name": "result",
+      "path": "docs/review/status-approve-now-result.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=approve-now&mode=steps&opened=approve-api%2Capprove-now-save&node=approve-now-view&point=approve-now-view&s.approve-now.view=approve-now-view&s.approve-now.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.draftScenario=success&s.approve-now.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.approve-now.scenario=success&s.approve-now.started=1&s.approve-now.stop=14&s.approve-now.cursor=approve-now-view&s.approve-now.prior=approve-now-flow&s.approve-now.position.steps=approve-now-apply&s.approve-now.mode=steps&assemblyDecision.status-approve-now-write=decision-2&assemblyView.status-approve-now-write=pattern&assemblyAnswers.status-approve-now-write=0%2C0&assemblyDiagramRelation.status-approve-now-write=approve-now-event&assemblyDiagramMode.status-approve-now-write=practice&s.approve-now.build.write.file=approveNow&s.approve-now.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.approve-now.build.write.task=write-trial&s.approve-now.build.write.tested=success%2Cduplicate&s.approve-now.position.assembly=approve-now-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "overview",
+      "path": "docs/review/status-online-initial-overview.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "overview-map",
+      "path": "docs/review/status-online-initial-overview-map.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "checkpoint",
+      "path": "docs/review/status-online-initial-checkpoint.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=steps&opened=payment-quote-api&node=online-initial-apply&point=online-initial-apply&s.online-initial.view=online-initial-apply&s.online-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.draftScenario=success&s.online-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.scenario=success&s.online-initial.started=1&s.online-initial.stop=13&s.online-initial.cursor=online-initial-apply&s.online-initial.prior=online-initial-save",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "reason",
+      "path": "docs/review/status-online-initial-reason.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=assembly&opened=payment-quote-api&node=online-initial-apply&point=online-initial-apply&s.online-initial.view=online-initial-apply&s.online-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.draftScenario=success&s.online-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.scenario=success&s.online-initial.started=1&s.online-initial.stop=13&s.online-initial.cursor=online-initial-apply&s.online-initial.prior=online-initial-save&s.online-initial.position.steps=online-initial-apply&s.online-initial.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "cooperate",
+      "path": "docs/review/status-online-initial-cooperate.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=assembly&opened=payment-quote-api&node=online-initial-apply&point=online-initial-apply&s.online-initial.view=online-initial-apply&s.online-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.draftScenario=success&s.online-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.scenario=success&s.online-initial.started=1&s.online-initial.stop=13&s.online-initial.cursor=online-initial-apply&s.online-initial.prior=online-initial-save&s.online-initial.position.steps=online-initial-apply&s.online-initial.mode=assembly&assemblyDecision.status-online-initial-write=decision-2&assemblyView.status-online-initial-write=cooperate&assemblyAnswers.status-online-initial-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "pattern",
+      "path": "docs/review/status-online-initial-pattern.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=assembly&opened=payment-quote-api&node=online-initial-apply&point=online-initial-apply&s.online-initial.view=online-initial-apply&s.online-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.draftScenario=success&s.online-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.scenario=success&s.online-initial.started=1&s.online-initial.stop=13&s.online-initial.cursor=online-initial-apply&s.online-initial.prior=online-initial-save&s.online-initial.position.steps=online-initial-apply&s.online-initial.mode=assembly&assemblyDecision.status-online-initial-write=decision-2&assemblyView.status-online-initial-write=pattern&assemblyAnswers.status-online-initial-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "implementation",
+      "path": "docs/review/status-online-initial-implementation.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=assembly&opened=payment-quote-api&node=online-initial-apply&point=online-initial-apply&s.online-initial.view=online-initial-apply&s.online-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.draftScenario=success&s.online-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.scenario=success&s.online-initial.started=1&s.online-initial.stop=13&s.online-initial.cursor=online-initial-apply&s.online-initial.prior=online-initial-save&s.online-initial.position.steps=online-initial-apply&s.online-initial.mode=assembly&assemblyDecision.status-online-initial-write=decision-2&assemblyView.status-online-initial-write=pattern&assemblyAnswers.status-online-initial-write=0%2C0&assemblyDiagram.status-online-initial-write=1&assemblyDiagramRelation.status-online-initial-write=online-initial-event&assemblyDiagramMode.status-online-initial-write=practice&s.online-initial.build.write.file=onlineCreate&s.online-initial.build.write.done=write-locate%2Cwrite-connect&s.online-initial.build.write.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "trial",
+      "path": "docs/review/status-online-initial-trial.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=assembly&opened=payment-quote-api&node=online-initial-apply&point=online-initial-apply&s.online-initial.view=online-initial-apply&s.online-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.draftScenario=success&s.online-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.scenario=success&s.online-initial.started=1&s.online-initial.stop=13&s.online-initial.cursor=online-initial-apply&s.online-initial.prior=online-initial-save&s.online-initial.position.steps=online-initial-apply&s.online-initial.mode=assembly&assemblyDecision.status-online-initial-write=decision-2&assemblyView.status-online-initial-write=pattern&assemblyAnswers.status-online-initial-write=0%2C0&assemblyDiagram.status-online-initial-write=1&assemblyDiagramRelation.status-online-initial-write=online-initial-event&assemblyDiagramMode.status-online-initial-write=practice&s.online-initial.build.write.file=onlineCreate&s.online-initial.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.online-initial.build.write.task=write-trial&s.online-initial.build.write.tested=success%2Cduplicate",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "result",
+      "path": "docs/review/status-online-initial-result.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=steps&opened=payment-quote-api&node=online-initial-view&point=online-initial-view&s.online-initial.view=online-initial-view&s.online-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.draftScenario=success&s.online-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.scenario=success&s.online-initial.started=1&s.online-initial.stop=18&s.online-initial.cursor=online-initial-view&s.online-initial.prior=online-initial-flow&s.online-initial.position.steps=online-initial-apply&s.online-initial.mode=steps&assemblyDecision.status-online-initial-write=decision-2&assemblyView.status-online-initial-write=pattern&assemblyAnswers.status-online-initial-write=0%2C0&assemblyDiagramRelation.status-online-initial-write=online-initial-event&assemblyDiagramMode.status-online-initial-write=practice&s.online-initial.build.write.file=onlineCreate&s.online-initial.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.online-initial.build.write.task=write-trial&s.online-initial.build.write.tested=success%2Cduplicate&s.online-initial.position.assembly=online-initial-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "cash-initial",
+      "name": "overview",
+      "path": "docs/review/status-cash-initial-overview.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=cash-initial&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "cash-initial",
+      "name": "overview-map",
+      "path": "docs/review/status-cash-initial-overview-map.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=cash-initial&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "cash-initial",
+      "name": "checkpoint",
+      "path": "docs/review/status-cash-initial-checkpoint.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=cash-initial&mode=steps&opened=payment-quote-api&node=cash-initial-apply&point=cash-initial-apply&s.cash-initial.view=cash-initial-apply&s.cash-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.draftScenario=success&s.cash-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.scenario=success&s.cash-initial.started=1&s.cash-initial.stop=12&s.cash-initial.cursor=cash-initial-apply&s.cash-initial.prior=cash-initial-save",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "cash-initial",
+      "name": "reason",
+      "path": "docs/review/status-cash-initial-reason.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=cash-initial&mode=assembly&opened=payment-quote-api&node=cash-initial-apply&point=cash-initial-apply&s.cash-initial.view=cash-initial-apply&s.cash-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.draftScenario=success&s.cash-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.scenario=success&s.cash-initial.started=1&s.cash-initial.stop=12&s.cash-initial.cursor=cash-initial-apply&s.cash-initial.prior=cash-initial-save&s.cash-initial.position.steps=cash-initial-apply&s.cash-initial.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "cash-initial",
+      "name": "cooperate",
+      "path": "docs/review/status-cash-initial-cooperate.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=cash-initial&mode=assembly&opened=payment-quote-api&node=cash-initial-apply&point=cash-initial-apply&s.cash-initial.view=cash-initial-apply&s.cash-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.draftScenario=success&s.cash-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.scenario=success&s.cash-initial.started=1&s.cash-initial.stop=12&s.cash-initial.cursor=cash-initial-apply&s.cash-initial.prior=cash-initial-save&s.cash-initial.position.steps=cash-initial-apply&s.cash-initial.mode=assembly&assemblyDecision.status-cash-initial-write=decision-2&assemblyView.status-cash-initial-write=cooperate&assemblyAnswers.status-cash-initial-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "cash-initial",
+      "name": "pattern",
+      "path": "docs/review/status-cash-initial-pattern.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=cash-initial&mode=assembly&opened=payment-quote-api&node=cash-initial-apply&point=cash-initial-apply&s.cash-initial.view=cash-initial-apply&s.cash-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.draftScenario=success&s.cash-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.scenario=success&s.cash-initial.started=1&s.cash-initial.stop=12&s.cash-initial.cursor=cash-initial-apply&s.cash-initial.prior=cash-initial-save&s.cash-initial.position.steps=cash-initial-apply&s.cash-initial.mode=assembly&assemblyDecision.status-cash-initial-write=decision-2&assemblyView.status-cash-initial-write=pattern&assemblyAnswers.status-cash-initial-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "cash-initial",
+      "name": "implementation",
+      "path": "docs/review/status-cash-initial-implementation.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=cash-initial&mode=assembly&opened=payment-quote-api&node=cash-initial-apply&point=cash-initial-apply&s.cash-initial.view=cash-initial-apply&s.cash-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.draftScenario=success&s.cash-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.scenario=success&s.cash-initial.started=1&s.cash-initial.stop=12&s.cash-initial.cursor=cash-initial-apply&s.cash-initial.prior=cash-initial-save&s.cash-initial.position.steps=cash-initial-apply&s.cash-initial.mode=assembly&assemblyDecision.status-cash-initial-write=decision-2&assemblyView.status-cash-initial-write=pattern&assemblyAnswers.status-cash-initial-write=0%2C0&assemblyDiagram.status-cash-initial-write=1&assemblyDiagramRelation.status-cash-initial-write=cash-initial-event&assemblyDiagramMode.status-cash-initial-write=practice&s.cash-initial.build.write.file=cashCreate&s.cash-initial.build.write.done=write-locate%2Cwrite-connect&s.cash-initial.build.write.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "cash-initial",
+      "name": "trial",
+      "path": "docs/review/status-cash-initial-trial.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=cash-initial&mode=assembly&opened=payment-quote-api&node=cash-initial-apply&point=cash-initial-apply&s.cash-initial.view=cash-initial-apply&s.cash-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.draftScenario=success&s.cash-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.scenario=success&s.cash-initial.started=1&s.cash-initial.stop=12&s.cash-initial.cursor=cash-initial-apply&s.cash-initial.prior=cash-initial-save&s.cash-initial.position.steps=cash-initial-apply&s.cash-initial.mode=assembly&assemblyDecision.status-cash-initial-write=decision-2&assemblyView.status-cash-initial-write=pattern&assemblyAnswers.status-cash-initial-write=0%2C0&assemblyDiagram.status-cash-initial-write=1&assemblyDiagramRelation.status-cash-initial-write=cash-initial-event&assemblyDiagramMode.status-cash-initial-write=practice&s.cash-initial.build.write.file=cashCreate&s.cash-initial.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.cash-initial.build.write.task=write-trial&s.cash-initial.build.write.tested=success%2Cduplicate",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "cash-initial",
+      "name": "result",
+      "path": "docs/review/status-cash-initial-result.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=cash-initial&mode=steps&opened=payment-quote-api&node=cash-initial-view&point=cash-initial-view&s.cash-initial.view=cash-initial-view&s.cash-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.draftScenario=success&s.cash-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.cash-initial.scenario=success&s.cash-initial.started=1&s.cash-initial.stop=17&s.cash-initial.cursor=cash-initial-view&s.cash-initial.prior=cash-initial-flow&s.cash-initial.position.steps=cash-initial-apply&s.cash-initial.mode=steps&assemblyDecision.status-cash-initial-write=decision-2&assemblyView.status-cash-initial-write=pattern&assemblyAnswers.status-cash-initial-write=0%2C0&assemblyDiagramRelation.status-cash-initial-write=cash-initial-event&assemblyDiagramMode.status-cash-initial-write=practice&s.cash-initial.build.write.file=cashCreate&s.cash-initial.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.cash-initial.build.write.task=write-trial&s.cash-initial.build.write.tested=success%2Cduplicate&s.cash-initial.position.assembly=cash-initial-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "untraced",
+      "name": "overview",
+      "path": "docs/review/status-untraced-overview.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=untraced&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "untraced",
+      "name": "overview-map",
+      "path": "docs/review/status-untraced-overview-map.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=untraced&mode=overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "untraced",
+      "name": "checkpoint",
+      "path": "docs/review/status-untraced-checkpoint.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=untraced&mode=steps&opened=orphan-create&node=untraced-apply&point=untraced-apply&s.untraced.view=untraced-apply&s.untraced.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.draftScenario=success&s.untraced.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.scenario=success&s.untraced.started=1&s.untraced.stop=8&s.untraced.cursor=untraced-apply&s.untraced.prior=untraced-save",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "untraced",
+      "name": "reason",
+      "path": "docs/review/status-untraced-reason.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=untraced&mode=assembly&opened=orphan-create&node=untraced-apply&point=untraced-apply&s.untraced.view=untraced-apply&s.untraced.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.draftScenario=success&s.untraced.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.scenario=success&s.untraced.started=1&s.untraced.stop=8&s.untraced.cursor=untraced-apply&s.untraced.prior=untraced-save&s.untraced.position.steps=untraced-apply&s.untraced.mode=assembly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "untraced",
+      "name": "cooperate",
+      "path": "docs/review/status-untraced-cooperate.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=untraced&mode=assembly&opened=orphan-create&node=untraced-apply&point=untraced-apply&s.untraced.view=untraced-apply&s.untraced.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.draftScenario=success&s.untraced.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.scenario=success&s.untraced.started=1&s.untraced.stop=8&s.untraced.cursor=untraced-apply&s.untraced.prior=untraced-save&s.untraced.position.steps=untraced-apply&s.untraced.mode=assembly&assemblyDecision.status-untraced-write=decision-2&assemblyView.status-untraced-write=cooperate&assemblyAnswers.status-untraced-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "untraced",
+      "name": "pattern",
+      "path": "docs/review/status-untraced-pattern.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=untraced&mode=assembly&opened=orphan-create&node=untraced-apply&point=untraced-apply&s.untraced.view=untraced-apply&s.untraced.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.draftScenario=success&s.untraced.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.scenario=success&s.untraced.started=1&s.untraced.stop=8&s.untraced.cursor=untraced-apply&s.untraced.prior=untraced-save&s.untraced.position.steps=untraced-apply&s.untraced.mode=assembly&assemblyDecision.status-untraced-write=decision-2&assemblyView.status-untraced-write=pattern&assemblyAnswers.status-untraced-write=0%2C0",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "untraced",
+      "name": "implementation",
+      "path": "docs/review/status-untraced-implementation.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=untraced&mode=assembly&opened=orphan-create&node=untraced-apply&point=untraced-apply&s.untraced.view=untraced-apply&s.untraced.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.draftScenario=success&s.untraced.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.scenario=success&s.untraced.started=1&s.untraced.stop=8&s.untraced.cursor=untraced-apply&s.untraced.prior=untraced-save&s.untraced.position.steps=untraced-apply&s.untraced.mode=assembly&assemblyDecision.status-untraced-write=decision-2&assemblyView.status-untraced-write=pattern&assemblyAnswers.status-untraced-write=0%2C0&assemblyDiagram.status-untraced-write=1&assemblyDiagramRelation.status-untraced-write=untraced-event&assemblyDiagramMode.status-untraced-write=practice&s.untraced.build.write.file=untraced&s.untraced.build.write.done=write-locate%2Cwrite-connect&s.untraced.build.write.task=write-connect",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "untraced",
+      "name": "trial",
+      "path": "docs/review/status-untraced-trial.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=untraced&mode=assembly&opened=orphan-create&node=untraced-apply&point=untraced-apply&s.untraced.view=untraced-apply&s.untraced.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.draftScenario=success&s.untraced.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.scenario=success&s.untraced.started=1&s.untraced.stop=8&s.untraced.cursor=untraced-apply&s.untraced.prior=untraced-save&s.untraced.position.steps=untraced-apply&s.untraced.mode=assembly&assemblyDecision.status-untraced-write=decision-2&assemblyView.status-untraced-write=pattern&assemblyAnswers.status-untraced-write=0%2C0&assemblyDiagram.status-untraced-write=1&assemblyDiagramRelation.status-untraced-write=untraced-event&assemblyDiagramMode.status-untraced-write=practice&s.untraced.build.write.file=untraced&s.untraced.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.untraced.build.write.task=write-trial&s.untraced.build.write.tested=success%2Cduplicate",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "untraced",
+      "name": "result",
+      "path": "docs/review/status-untraced-result.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=untraced&mode=steps&opened=orphan-create&node=untraced-view&point=untraced-view&s.untraced.view=untraced-view&s.untraced.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.draftScenario=success&s.untraced.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.untraced.scenario=success&s.untraced.started=1&s.untraced.stop=13&s.untraced.cursor=untraced-view&s.untraced.prior=untraced-flow&s.untraced.position.steps=untraced-apply&s.untraced.mode=steps&assemblyDecision.status-untraced-write=decision-2&assemblyView.status-untraced-write=pattern&assemblyAnswers.status-untraced-write=0%2C0&assemblyDiagramRelation.status-untraced-write=untraced-event&assemblyDiagramMode.status-untraced-write=practice&s.untraced.build.write.file=untraced&s.untraced.build.write.done=write-locate%2Cwrite-connect%2Cwrite-trial&s.untraced.build.write.task=write-trial&s.untraced.build.write.tested=success%2Cduplicate&s.untraced.position.assembly=untraced-apply",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "case-before",
+      "path": "docs/review/status-date-case-before.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=steps&s.date.draftScenario=before&opened=schedule&node=date-view&point=date-view&s.date.view=date-view&s.date.input=%7B%22now%22%3A%222026-11-10T23%3A59%3A59%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A100%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draft=%7B%22now%22%3A%222026-11-10T23%3A59%3A59%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A100%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=before&s.date.started=1&s.date.stop=14&s.date.cursor=date-view&s.date.prior=date-flow",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "case-success",
+      "path": "docs/review/status-date-case-success.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=steps&s.date.draftScenario=success&opened=schedule&node=date-view&point=date-view&s.date.view=date-view&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=14&s.date.cursor=date-view&s.date.prior=date-flow",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "case-after",
+      "path": "docs/review/status-date-case-after.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=steps&s.date.draftScenario=after&opened=schedule&node=date-view&point=date-view&s.date.view=date-view&s.date.input=%7B%22now%22%3A%222026-11-15T00%3A00%3A01%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A100%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draft=%7B%22now%22%3A%222026-11-15T00%3A00%3A01%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A100%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=after&s.date.started=1&s.date.stop=14&s.date.cursor=date-view&s.date.prior=date-flow",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "case-effective-boundary",
+      "path": "docs/review/status-date-case-effective-boundary.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=steps&s.date.draftScenario=effective-boundary&opened=schedule&node=date-select&point=date-select&s.date.view=date-select&s.date.input=%7B%22now%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draft=%7B%22now%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=effective-boundary&s.date.started=1&s.date.stop=3&s.date.cursor=date-select&s.date.prior=date-select",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "case-expiration-boundary",
+      "path": "docs/review/status-date-case-expiration-boundary.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=steps&s.date.draftScenario=expiration-boundary&opened=schedule&node=date-select&point=date-select&s.date.view=date-select&s.date.input=%7B%22now%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A100%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draft=%7B%22now%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A100%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=expiration-boundary&s.date.started=1&s.date.stop=3&s.date.cursor=date-select&s.date.prior=date-select",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "case-boundary-selected",
+      "path": "docs/review/status-date-case-boundary-selected.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=steps&s.date.draftScenario=boundary-selected&opened=schedule&node=date-view&point=date-view&s.date.view=date-view&s.date.input=%7B%22now%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draft=%7B%22now%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=boundary-selected&s.date.started=1&s.date.stop=14&s.date.cursor=date-view&s.date.prior=date-flow",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "case-unchanged",
+      "path": "docs/review/status-date-case-unchanged.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=steps&s.date.draftScenario=unchanged&opened=schedule&node=date-compare&point=date-compare&s.date.view=date-compare&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=unchanged&s.date.started=1&s.date.stop=8&s.date.cursor=date-compare&s.date.prior=date-calculate",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "case-terminated-after-select",
+      "path": "docs/review/status-date-case-terminated-after-select.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=date&mode=steps&s.date.draftScenario=terminated-after-select&opened=schedule&node=date-guard&point=date-guard&s.date.view=date-guard&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=terminated-after-select&s.date.started=1&s.date.stop=6&s.date.cursor=date-guard&s.date.prior=date-load",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "entry-queue",
+      "path": "docs/review/status-online-initial-entry-queue.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=steps&s.online-initial.draftScenario=queue&opened=payment-quote-api&node=online-initial-view&point=online-initial-view&s.online-initial.view=online-initial-view&s.online-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22queue%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22queue%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.scenario=queue&s.online-initial.started=1&s.online-initial.stop=18&s.online-initial.cursor=online-initial-view&s.online-initial.prior=online-initial-flow",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "entry-scan",
+      "path": "docs/review/status-online-initial-entry-scan.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=steps&s.online-initial.draftScenario=scan&opened=payment-quote-api&node=online-initial-view&point=online-initial-view&s.online-initial.view=online-initial-view&s.online-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22scan%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22scan%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.scenario=scan&s.online-initial.started=1&s.online-initial.stop=14&s.online-initial.cursor=online-initial-view&s.online-initial.prior=online-initial-flow",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "entry-published",
+      "path": "docs/review/status-online-initial-entry-published.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=steps&s.online-initial.draftScenario=published&opened=payment-quote-api&node=online-entry&point=online-entry&s.online-initial.view=online-entry&s.online-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%2C%22quoteStatus%22%3A9%7D&s.online-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%2C%22quoteStatus%22%3A9%7D&s.online-initial.scenario=published&s.online-initial.started=1&s.online-initial.stop=1&s.online-initial.cursor=online-entry&s.online-initial.prior=online-api",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "online-initial",
+      "name": "entry-queue-empty",
+      "path": "docs/review/status-online-initial-entry-queue-empty.png",
+      "url": "http://localhost:3182/journey/policy?group=status&flow=online-initial&mode=steps&s.online-initial.draftScenario=queue-empty&opened=payment-quote-api&node=online-queue-entry&point=online-queue-entry&s.online-initial.view=online-queue-entry&s.online-initial.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22queue%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22queue%22%2C%22dateRule%22%3A%22general%22%7D&s.online-initial.scenario=queue-empty&s.online-initial.started=1&s.online-initial.stop=0&s.online-initial.cursor=online-queue-entry",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "mobile-overview",
+      "path": "docs/review/status-date-mobile-overview.png",
+      "url": "http://localhost:3182/journey/policy?group=status&mode=overview",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    },
+    {
+      "flow": "date",
+      "name": "mobile-checkpoint",
+      "path": "docs/review/status-date-mobile-checkpoint.png",
+      "url": "http://localhost:3182/journey/policy?group=status&mode=steps&opened=schedule&flow=date&node=date-apply&point=date-apply&s.date.view=date-apply&s.date.draft=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.draftScenario=success&s.date.input=%7B%22now%22%3A%222026-11-13T00%3A00%3A00%2B07%3A00%22%2C%22effectiveDate%22%3A%222026-11-11T00%3A00%3A00%2B07%3A00%22%2C%22expirationDate%22%3A%222026-11-15T00%3A00%3A00%2B07%3A00%22%2C%22storedStatus%22%3A0%2C%22coreStatus%22%3A100%2C%22quoteId%22%3A%22QUOTE-LEARN-101%22%2C%22releaseDate%22%3A%22%22%2C%22entry%22%3A%22http%22%2C%22dateRule%22%3A%22general%22%7D&s.date.scenario=success&s.date.started=1&s.date.stop=10&s.date.cursor=date-apply&s.date.prior=date-command",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "zoom": 1,
+      "deviceScaleFactor": 1
+    }
+  ],
+  "errors": []
+}

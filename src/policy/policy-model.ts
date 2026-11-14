@@ -50,7 +50,7 @@ export function readPolicyContext(params: URLSearchParams) {
   const selected = params.get('selected') ?? '';
   const created = creationContext(params);
   const available = [...samplePolicies, ...(created.commandReady ? [created.policy] : [])];
-  const validSelected = available.some(item => item.id === selected && item.unit === 'DV-A') ? selected : '';
+  const validSelected = available.some(item => item.id === selected && (item.unit === 'DV-A' || params.get('listHandoff') === selected)) ? selected : '';
   const status = params.get('status') ?? '100';
   const size = params.get('size') === '3' ? 3 : 2;
   const pageText = params.get('page') ?? '0';

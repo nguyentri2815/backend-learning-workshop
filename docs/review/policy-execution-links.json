@@ -1,0 +1,4 @@
+{
+  "step2": "http://localhost:3182/journey/policy?group=create&mode=steps&node=validate&walk=quote-ui%2Cquote-request%2Ccontroller-call%2Cquote-read%2Cquote-guard%2Cquote-get%2Cinternal-call&stop=internal-call&at=internal-call&sim=idle&sentQuote=QUOTE-LEARN-101&debug=4&debugMax=4&debugVersion=2&backend=1",
+  "fillCall": "http://localhost:3182/journey/policy?group=create&mode=steps&node=map&walk=quote-ui%2Cquote-request%2Ccontroller-call%2Cquote-read%2Cquote-guard%2Cquote-get%2Cinternal-call%2Cinternal-enter%2Cduplicate-read%2Cobjects-read%2Cduplicate-guard%2Cmap-dates%2Cmap-command%2Cstatus-call%2Cstatus-enter%2Cstatus-choice%2Cstatus-return%2Cmap-effective%2Cfill-call&stop=fill-call&at=fill-call&sim=checked&sentQuote=QUOTE-LEARN-101&debug=0&debugMax=8&debugVersion=2&backend=1"
+}

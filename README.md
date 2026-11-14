@@ -21,9 +21,23 @@ npm.cmd run dev
 
 Mở [workshop](http://localhost:3182/journey/environment) hoặc đi thẳng [Chạy Command và đọc kết quả](http://localhost:3182/journey/environment?experience=project&task=startup&step=run&prun=run).
 
-[Khám phá Policy — Quote → Policy](http://localhost:3182/journey/policy): năm tab chính và hai cách học cho mỗi flow. Bài Tạo mới có chọn Quote, nhánh chặn tạo, ghi Command, mô phỏng Flow ghi view và theo cùng Policy ID sang Danh sách/Chi tiết. Workspace tái sử dụng cây thư mục, Shiki và panel chỉnh độ rộng; sơ đồ dùng React Flow. Xem [đường review và bảng rà Cập nhật/Đổi trạng thái](docs/POLICY-EXPLORATION-HANDOFF.md).
+[Khám phá Policy — Quote → Policy](http://localhost:3182/journey/policy): năm tab chính; Tạo mới có ba cách học **Nhìn toàn cảnh**, **Làm lại từng bước** và **Tư duy lắp ráp**. Tab lắp ráp giải thích cách chọn thành phần qua sáu bước, có source thật, đối chiếu mẫu và liên kết checkpoint ở chế độ xem. Xem [bàn giao Tư duy lắp ráp](docs/review/policy-assembly.md). Bài Tạo mới có chọn Quote, nhánh chặn tạo, ghi Command, mô phỏng Flow ghi view và theo cùng Policy ID sang Danh sách/Chi tiết. Workspace tái sử dụng cây thư mục, Shiki và panel chỉnh độ rộng; sơ đồ dùng React Flow. Xem [đường review và bảng rà Cập nhật/Đổi trạng thái](docs/POLICY-EXPLORATION-HANDOFF.md).
+
+**Tư duy lắp ráp** có ba chế độ **Suy luận / Phối hợp / Chọn mẫu** trong cùng vùng làm việc cho cả sáu bước. Mỗi lần mở một quyết định; desktop đặt dữ liệu nguồn bên cạnh, mobile đặt ngay trong câu hỏi. Phần cũ nằm trong “Tra cứu kỹ thuật” thu gọn. Lựa chọn khám phá tách khỏi tiến độ mô phỏng. Xem [review bố cục bước 3 tại 1440 × 900](docs/review/policy-assembly-discovery.md) và [bảng mẫu/source](docs/review/policy-assembly-learning-evidence.md).
+
+Trong Chọn mẫu, **Khung thành phần / Khung phối hợp** giữ node và cạnh riêng. Source A/B đồng bộ màu, tô đúng biểu thức và vị trí trong toàn file. Mẫu có nút sao chép code; cây workspace và sơ đồ liên kết chọn file/node, phân biệt lời gọi với kế thừa. Xem [link review, source đã đối chiếu và nghiệm thu](docs/review/policy-pattern-workspace.md).
+
+[Mô phỏng cả phiên triển khai](http://localhost:3182/journey/policy?group=create&mode=session) tại Tạo mới tổ chức 12 lượt từ giao yêu cầu, khảo sát, xem/áp dụng patch đến chạy fixture và review cả phiên. Cây workspace đánh dấu A/M theo baseline; code có diff theo lượt, tích lũy và snapshot tại mốc đang xem. Tiến độ đã áp dụng tách khỏi vị trí xem lại. Bài Từng bước triển khai mở được ở mốc tương ứng và quay về phiên. Xem [bảng file, căn cứ source, ảnh IDE/Review và nghiệm thu](docs/review/policy-session.md).
+
+Nút “Mô phỏng cả phiên triển khai” mở menu hai phiên, có mô tả mốc đầu và tiến độ riêng. Phiên [Xây Policy từ Quote · Dành cho người mới](http://localhost:3182/journey/policy?group=create&mode=session&sessionId=quote-beginner) có 25 lượt và Review, bắt đầu bằng 21 file Quote/hạ tầng, không có tham chiếu hoặc đăng ký Policy. File Policy xuất hiện sau từng lượt áp dụng; kết thúc với 10 A / 1 M và Policy ID khớp bản ghi fixture. Hai phiên lưu URL và localStorage riêng, reset riêng; deep link cũ vẫn hoạt động. Snapshot Java là trích đoạn cấu trúc, chạy thử bằng fixture TypeScript; API đọc/Workflow/view và tác động phát hành đầy đủ là chặng tiếp nối. Xem [bảng mốc của hai phiên](docs/review/policy-beginner-session.md) và [review trải nghiệm mới: suy luận tại chỗ, radio, flow Quote và Explorer theo snapshot](docs/review/policy-session-experience.md). Kiểm tra source bằng `node scripts/extract-policy-beginner-source.mjs --root D:\ALPACA\agent-system --verify`; kiểm thử phiên mới tại `tests/browser/policy-beginner-session.spec.ts` và `tests/browser/policy-session-experience.spec.ts`.
+
+Thanh quyết định và nút chuyển chế độ nằm ngay trên câu hỏi. Sau lựa chọn, nhãn xanh/hổ phách giải thích mức phù hợp với cách Policy đang triển khai; radio giữ lựa chọn riêng. Nút ⓘ ở khung code và từng source giải thích vai trò, mở độc lập với code.
 
 Bài [Phát hành trực tiếp từ Quote · sáu bước](docs/POLICY-DIRECT-PRACTICE-HANDOFF.md) bắt đầu bằng màn Chi tiết báo giá, Network Đang xử lý, debug từng lần đọc và điều kiện chặn; sau đó dựng/ghi Policy, ghi view và mở cùng Policy ID bằng hai đường đọc. Cả sáu bước có điều hướng trước/sau, sơ đồ thực thi, nơi gọi/quay lại và thanh hành động riêng trên vùng cuộn code; ngữ cảnh snapshot giữ số dòng gốc và chỉ rõ phần file chưa có.
+
+[Cập nhật Policy](http://localhost:3182/journey/policy?group=update) mở mặc định flow Checkout. Cả bảy flow có Nhìn toàn cảnh / Làm lại từng bước / Tư duy lắp ráp, mỗi flow bốn bước với source, biến trước/sau, nhánh dừng và bài Từng bước triển khai riêng. URL giữ vị trí đọc theo flow và chế độ, tách khỏi điểm dừng mô phỏng. Flow quyền bắt đầu từ event/queue; migration bắt đầu từ tác vụ phát queue. `createdDate` đã xác minh caller nội bộ nhưng source vẫn truyền lại `null`, được đánh dấu ngay trên sơ đồ. Xem [bảng nghiệm thu và source từng flow](docs/review/policy-update.md), [bảy cặp ảnh Checkout với Tạo mới](docs/review/policy-update.html).
+
+[Đổi trạng thái Policy](http://localhost:3182/journey/policy?group=status) mở mặc định Tính lại trạng thái theo ngày. Tám flow được nhóm thành đổi Policy đã có và khởi tạo Policy mới, đủ ba chế độ học và 40 bài triển khai theo bước. Mốc chọn ID, tính status, apply, lưu và ghi view được tách rõ; ngày so sánh có thể sửa và thử đúng ngày biên. Online giữ riêng đường HTTP, queue và API quét; nhánh chưa rõ caller bắt đầu tại method đã xác minh và đánh dấu ngay trên sơ đồ. Xem [bảng tác nhân, checkpoint và source](docs/review/policy-status.md), [ảnh đối chiếu với Tạo mới](docs/review/policy-status.html), [kết quả nghiệm thu](docs/review/policy-status-validation.json).
 
 Server chỉ lắng nghe `localhost:3182`, dùng strictPort. Nếu cổng đang được dùng, xác định đúng server/process trước khi tái dùng hoặc dừng; script không tự dừng process khác.
 
@@ -80,6 +94,8 @@ npm.cmd run verify:fixtures
 Các tài liệu bàn giao cũ có thể dẫn tới `.verification/`: đó là artifact máy tác giả, không phải dependency runtime. Những ảnh được chọn và rà để bàn giao sẽ nằm trong `docs/review/`; không đưa toàn bộ backup, trace hoặc ảnh kiểm tra cũ vào repo.
 
 Các vùng code chính:
+
+- [Danh sách Policy: link review, ba chế độ học, bài triển khai và đối chiếu source](docs/review/policy-list.md).
 
 - `src/setup/`: hành trình mô phỏng, điều hướng và trạng thái.
 - `src/policy/`, `src/content/policy/`: bài đọc Policy, dữ liệu mẫu và snapshot Java. Tiến độ đọc dùng namespace riêng, không chuyển dấu demo cũ thành hoàn thành bài mới.

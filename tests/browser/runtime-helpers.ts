@@ -1,5 +1,18 @@
 import {expect} from "@playwright/test";
 import type {Page} from "@playwright/test";
+import {visiblePracticeTasks} from '../../src/setup/project-practice-model';
+import {practiceStep} from '../../src/setup/practice-runtime-model';
+const stepNames=['source','tools','config','dependencies','build','run','ready'];
+export async function chooseTaskInStep(page:Page,letterOrId:string){
+ const target=visiblePracticeTasks.find(task=>task.letter===letterOrId||task.id===letterOrId);
+ if(!target)throw Error(`Unknown task: ${letterOrId}`);
+ const select=page.getByRole('combobox',{name:'Nhiệm vụ trong bước',exact:true});
+ if(!await select.locator(`option[value="${target.id}"]`).count()){
+  const step=practiceStep(target.id),index=stepNames.indexOf(step);
+  await page.getByRole('navigation',{name:'Điều hướng 7 bước'}).getByRole('button').nth(index).click();
+ }
+ await select.selectOption(target.id);await expect.poll(()=>new URL(page.url()).searchParams.get('task')).toBe(target.id);await expect(select).toHaveValue(target.id);
+}
 export const practice=(page:Page)=>page.getByRole("region",{name:"Thực hành trên project tái dựng",exact:true});
 export async function runCommandInLesson(page:Page){const mode=JSON.parse(new URL(page.url()).searchParams.get("psim")??"{}").runMode;if(mode==="powershell"){await practice(page).getByRole("button",{name:"Terminal",exact:true}).click();await practice(page).getByLabel("Lệnh Run trong Terminal").press("Enter");}else await practice(page).getByRole("button",{name:"Run Command",exact:true}).click();await expect(practice(page).locator(".command-process-status")).toContainText("Command đang chạy trong bài học");}
 export async function readCommandLogInLesson(page:Page){for(const id of ["profile","port","started"])await practice(page).locator(`[data-command-log="${id}"]`).click();}

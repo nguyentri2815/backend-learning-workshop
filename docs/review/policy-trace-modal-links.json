@@ -1,0 +1,4 @@
+{
+  "step3-L87": "http://localhost:3182/journey/policy?group=create&mode=steps&node=map&walk=quote-ui%2Cquote-request%2Ccontroller-call%2Cquote-read&stop=quote-read&at=status-return",
+  "step6": "http://localhost:3182/journey/policy?group=create&mode=steps&node=result&walk=quote-ui%2Cquote-request%2Ccontroller-call%2Cquote-read&stop=quote-read&at=detail-read"
+}

@@ -1,0 +1,7 @@
+import {expect} from '@playwright/test';
+import type {Page} from '@playwright/test';
+export async function detailPoint(page:Page,id:string){await page.getByRole('button',{name:'Điểm sau',exact:true}).click();await expect(page.getByTestId('detail-checkpoint')).toHaveAttribute('data-viewing',id);await expect(page.getByTestId('detail-checkpoint')).toHaveAttribute('data-executed','true');}
+export async function detailStage(page:Page,id:string){await page.getByRole('button',{name:'Bước sau',exact:true}).click();await expect(page.getByTestId('detail-checkpoint')).toHaveAttribute('data-viewing',id);}
+export async function detailToRelated(page:Page){await detailStage(page,'detail-find');await detailPoint(page,'detail-find');await detailPoint(page,'detail-record');await detailStage(page,'detail-objects');}
+export async function finishDetail(page:Page){await detailToRelated(page);for(const p of ['detail-objects','detail-objects-query','detail-map','detail-payment'])await detailPoint(page,p);await detailStage(page,'detail-return');await detailPoint(page,'detail-return');await detailPoint(page,'detail-response');await expect(page.getByTestId('policy-detail')).toBeVisible();}
+export async function answerDetail(page:Page,step='detail-related'){for(let i=0;i<2;i++){await page.getByRole('navigation',{name:'Tiến trình quyết định'}).getByRole('button').nth(i).click();await page.locator('.assembly-choice-options input').first().click();await expect.poll(()=>new URL(page.url()).searchParams.get(`assemblyAnswers.${step}`)?.split(',')[i]).toBe('0');}}

@@ -1,0 +1,14 @@
+import {test,expect} from '@playwright/test';
+import {coreStatusFlow,statusSource} from '../../src/content/policy/status';
+import {defaultStatusInput,simulateStatus} from '../../src/policy/status-model';
+import {walkStatus} from './policy-status-helpers';
+import updateSource from '../../src/content/policy/update-source.json' with {type:'json'};
+test('Core status is copied without a date remap or unchanged-status guard; payment has its own rule',()=>{
+ for(const value of [0,100,-1,-100,42]){const input={...defaultStatusInput(coreStatusFlow),storedStatus:value,coreStatus:value},r=simulateStatus(coreStatusFlow,input);expect(r.calculated).toBe(value);expect(r.command?.status).toBe(value);expect(r.stored.status).toBe(value);expect(r.writes).toBe(1);expect(r.returned).toBe('POL-LEARN-001');expect(r.stored.syncStatus).toBe(r.original.syncStatus);expect(r.stored.viaUploaderStatus).toBe(r.original.viaUploaderStatus);}
+ const paid=simulateStatus(coreStatusFlow,defaultStatusInput(coreStatusFlow,'all-paid'),'all-paid');expect(paid.stored.status).toBe(-100);expect(paid.stored.paymentStatus).toBe(100);
+ for(const id of ['missing','core-fail']){const r=simulateStatus(coreStatusFlow,defaultStatusInput(coreStatusFlow,id),id);expect(r.writes).toBe(0);expect(r.calculated).toBeNull();expect(r.stored).toEqual(r.original);expect(r.view).toBeNull();}
+ for(const ref of ['endorsement','endorsementEvent','endorsementCommand','policy','workflow'] as const)expect(statusSource.sources[ref].sha256).toBe(updateSource.sources[ref].sha256);
+});
+test('Core replay receives -100 at its setter and writes later; related Update lesson keeps its own cursor',async({page})=>{
+ await page.goto('/journey/policy?group=status&flow=core-status&mode=steps&s.core-status.draftScenario=all-paid');await page.getByRole('button',{name:coreStatusFlow.startLabel,exact:true}).click();await walkStatus(page,'core-status','core-value');await expect(page.getByTestId('status-calculated')).toContainText('-100');await expect(page.getByTestId('status-after')).toHaveCount(0);await walkStatus(page,'core-status');await expect(page.getByTestId('status-diff').locator('[data-field=status]')).toContainText('-100');await expect(page.getByTestId('status-diff').locator('[data-field=paymentStatus]')).toContainText('100');await page.getByRole('button',{name:'Mở Cập nhật · Đồng bộ điều chỉnh từ Core',exact:true}).click();await expect(page.getByTestId('update-lesson')).toHaveAttribute('data-flow','endorsement');await expect(page.getByTestId('update-checkpoint')).toHaveAttribute('data-viewing','endorsement-command');await expect(page.getByTestId('update-checkpoint')).toHaveAttribute('data-stop','none');await page.getByRole('tab',{name:'05 Đổi trạng thái',exact:true}).click();await expect(page.getByTestId('status-checkpoint')).toHaveAttribute('data-stop','core-view');
+});

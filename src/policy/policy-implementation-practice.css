@@ -1,0 +1,79 @@
+.implementation-practice { padding: 16px 20px; min-width: 0; }
+.implementation-toolbar { position: sticky; top: -16px; z-index: 3; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px; padding: 10px 0; background: var(--canvas); }
+.implementation-toolbar button, .implementation-location button, .implementation-trials button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.implementation-toolbar > span { font-size: 12px; color: var(--muted); }
+.implementation-toolbar .implementation-reset { margin-left: auto; }
+.implementation-baseline { border-left: 3px solid var(--accent); padding: 10px 14px; background: var(--selected); margin-bottom: 16px; }
+.implementation-baseline strong { font-size: 13px; }
+.implementation-baseline p { font-size: 13px; line-height: 1.65; margin: 5px 0 8px; }
+.implementation-baseline small { color: var(--muted); font-size: 11px; line-height: 1.6; }
+.implementation-layout { display: grid; grid-template-columns: minmax(240px,290px) minmax(0,1fr); gap: 18px; align-items: start; }
+.implementation-tree { max-height: min(650px,calc(100dvh - 200px)); }
+.implementation-main { min-width: 0; }
+.implementation-task-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.implementation-task-list button { display: inline-flex; gap: 6px; align-items: center; font-size: 11px; text-align: left; }
+.implementation-task-list button[aria-current=step] { border-color: var(--accent); background: var(--selected); color: var(--accent); }
+.implementation-task-list [data-future=true], .implementation-future { opacity: .6; }
+.implementation-task { border: 1px solid var(--line); border-radius: 6px; padding: 16px; background: var(--surface); }
+.implementation-task > header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.implementation-task small { font-size: 10px; letter-spacing: .04em; color: var(--muted); }
+.implementation-task h4 { margin: 9px 0; font-size: 17px; line-height: 1.5; }
+.implementation-task p { font-size: 13px; line-height: 1.65; margin: 7px 0; }
+.implementation-status { font-size: 11px; color: var(--accent); background: var(--selected); border: 1px solid var(--accent-border); border-radius: 4px; padding: 4px 8px; }
+.implementation-status[data-done=true] { color: var(--success); }
+.implementation-location { display: flex; align-items: start; justify-content: space-between; gap: 12px; border-block: 1px solid var(--line); margin: 14px 0; padding: 12px 0; }
+.implementation-location > div { min-width: 0; }
+.implementation-location code { display: block; font-size: 10px; color: var(--muted); overflow-wrap: anywhere; line-height: 1.7; }
+.implementation-location button { flex-shrink: 0; font-size: 12px; }
+.implementation-action { display: grid; justify-items: start; gap: 10px; }
+.implementation-action label { display: grid; gap: 8px; width: 100%; font-size: 12px; }
+.implementation-action select, .implementation-action input { min-width: 0; max-width: 100%; width: 100%; padding: 9px; border: 1px solid var(--line); border-radius: 4px; color: var(--text); background: var(--canvas); font-size: 12px; }
+.implementation-action > button { background: var(--selected); color: var(--accent); border-color: var(--accent-border); }
+.implementation-action code { overflow-wrap: anywhere; }
+.implementation-trials { display: flex; flex-wrap: wrap; gap: 8px; }
+.implementation-result { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 14px; }
+.implementation-trial-results { display: grid; gap: 8px; padding-left: 18px; font-size: 12px; line-height: 1.7; }
+.implementation-values { display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; font-size: 12px; margin-top: 12px; }
+.implementation-values dd { margin: 0; overflow-wrap: anywhere; }
+.implementation-result table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 11px; margin-top: 12px; overflow-wrap: anywhere; }
+.implementation-result :is(td,th) { border: 1px solid var(--line); padding: 8px; text-align: left; line-height: 1.65; }
+.implementation-result caption { text-align: left; color: var(--muted); padding-bottom: 8px; }
+.implementation-feedback { border-left: 3px solid var(--accent-border); padding-left: 10px; }
+.implementation-empty { border: 1px dashed var(--line); padding: 24px; color: var(--muted); font-size: 13px; line-height: 1.7; margin-top: 14px; }
+.implementation-code { border: 1px solid var(--line); border-radius: 6px; padding: 12px; background: var(--surface); margin-top: 14px; min-width: 0; }
+.implementation-code > header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+.implementation-code > header > div { display: grid; gap: 5px; }
+.implementation-code > header strong { font-size: 13px; }
+.implementation-code > header span { font-size: 11px; color: var(--accent); }
+.implementation-code > header button { font-size: 12px; }
+.implementation-diff { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.implementation-diff > section { min-width: 0; }
+.implementation-diff h5 { margin: 4px 0 8px; font-size: 12px; color: var(--muted); }
+.implementation-code-scroll { height: 300px; min-width: 0; border: 1px solid var(--line); }
+.implementation-code[data-full-file=true] .implementation-code-scroll { height: 400px; }
+.implementation-focus-label { font-size: 12px; line-height: 1.6; color: var(--accent); }
+.implementation-location-hint { font-size: 11px; padding: 8px; background: var(--selected); overflow-wrap: anywhere; }
+.implementation-reuse { margin: 14px 0; }
+.implementation-reuse summary, .implementation-future summary { font-size: 11px; cursor: pointer; line-height: 1.6; }
+.implementation-reuse button { display: grid; width: 100%; text-align: left; gap: 4px; margin-top: 8px; font-size: 11px; }
+.implementation-reuse small { font-size: 10px; color: var(--muted); }
+.implementation-future p { font-size: 10px; overflow-wrap: anywhere; }
+.assembly .assembly-business-next { display: flex; align-items: center; gap: 8px; font-size: 12px; text-align: left; }
+.assembly-decision-toolbar nav { margin-right: auto; }
+@media(max-width:1100px) {
+  .assembly-decision-toolbar { flex-wrap: wrap; }
+  .assembly-decision-toolbar nav { flex-basis: 100%; }
+}
+@media(max-width:760px) {
+  .implementation-practice { padding: 10px; }
+  .implementation-toolbar { gap: 8px; }
+  .implementation-toolbar > span { font-size: 11px; }
+  .implementation-toolbar .implementation-reset { margin-left: 0; }
+  .implementation-layout { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .implementation-tree { position: static; max-height: 250px; }
+  .implementation-task { padding: 12px; }
+  .implementation-location { flex-direction: column; }
+  .implementation-diff { grid-template-columns: minmax(0,1fr); }
+  .implementation-values { grid-template-columns: minmax(0,1fr); }
+  .implementation-code-scroll { height: 260px; }
+}

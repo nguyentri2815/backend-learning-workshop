@@ -1,3 +1,4 @@
+import {chooseTaskInStep} from "./runtime-helpers";
 import {test,expect} from "@playwright/test";
 import type {Page} from "@playwright/test";
 import {readFile,stat} from "node:fs/promises";
@@ -11,7 +12,7 @@ const board=(page:Page)=>practice(page).locator(".execution-state");
 const snapshot=(page:Page)=>JSON.parse(new URL(page.url()).searchParams.get("psim")??"{}");
 async function task(page:Page,id="build-task",sim:object={jdk:21}){await page.goto(`/journey/environment?${new URLSearchParams({experience:"project",task:id,pprofile:"dev",psim:JSON.stringify(sim)})}`);await expect(practice(page)).toBeVisible();}
 async function goRun(page:Page,mode:"intellij"|"powershell"="intellij"){
- await practice(page).getByRole("button",{name:/^I1 /}).click();await runConfigurationWalk(page,mode);
+ await chooseTaskInStep(page,"I1");await runConfigurationWalk(page,mode);
  await button(page,"Tiếp theo: Chạy và dừng").click();await expect(page).toHaveURL(/task=startup/);
 }
 
@@ -94,11 +95,11 @@ test("bootRun without bootJar creates a host process and compile output, keeps c
 
 test("package then Compose then Run: Engine alone creates nothing, Docker creation has provenance, Stop retains artifact and container",async({page})=>{
  await task(page);await prepareBuild(page);await executeBuild(page);expect(snapshot(page).execution.jar).toBe(true);
- await practice(page).getByRole("button",{name:/^G2 /}).click();await button(page,"Mở Docker Desktop trong mô phỏng").click();expect(snapshot(page).containers??{}).toEqual({});
+ await chooseTaskInStep(page,"G2");await button(page,"Mở Docker Desktop trong mô phỏng").click();expect(snapshot(page).containers??{}).toEqual({});
  await button(page,"Chờ Engine và kiểm tra lại docker version").click();await expect(practice(page).getByTestId("docker-empty")).toBeVisible();expect(snapshot(page).execution.jar).toBe(true);
  await createContainer(page);await button(page,"Tại sao container này có mặt?").click();await expect(practice(page).getByTestId("container-origin")).toContainText("Bạn tạo trong bài");expect(snapshot(page).containerOrigins["postgres-write"]).toBe("compose-user");
  expect(snapshot(page).process??"idle").toBe("idle");await button(page,"database system is ready to accept connections").click();
- await practice(page).getByRole("button",{name:/^H /}).click();expect(snapshot(page).containers).toEqual({"postgres-write":"running"});await expect(practice(page).locator(".build-result")).toContainText("Build thành công");
+ await chooseTaskInStep(page,"H");expect(snapshot(page).containers).toEqual({"postgres-write":"running"});await expect(practice(page).locator(".build-result")).toContainText("Build thành công");
  await goRun(page);await runCommandInLesson(page);await expect(board(page).locator('[data-state="process"]')).toContainText("Đang chạy");
  await expect(practice(page).locator(".command-context-note")).toContainText("không tự trở thành container Docker");expect(snapshot(page).containers).toEqual({"postgres-write":"running"});expect(snapshot(page).execution.jar).toBe(true);
  await button(page,"Stop Command").click();expect(snapshot(page).execution.jar).toBe(true);expect(snapshot(page).containers).toEqual({"postgres-write":"running"});
@@ -119,7 +120,7 @@ test("H restores intermediate steps, output and method with deep links, Back/For
  await expect(practice(page).locator(".build-result")).toContainText("Build thành công");
  const linked=await browser.newPage();await linked.goto(built);await expect(practice(linked).locator(".build-result")).toContainText("Build thành công");await linked.close();
  await button(page,"Tiếp theo: chạy Command").click();await expect(page).toHaveURL(/task=run-config/);
- await practice(page).getByRole("button",{name:/^H /}).click();await expect(practice(page).locator(".build-result")).toContainText("Build thành công");
+ await chooseTaskInStep(page,"H");await expect(practice(page).locator(".build-result")).toContainText("Build thành công");
  await page.goto('/journey/environment?experience=project&task=build-task');await expect(practice(page).locator(".build-result")).toContainText("Build thành công");
  await prepareBuild(page,"terminal");const terminal=page.url();await page.reload();await expect(practice(page).getByLabel("Lệnh hướng dẫn",{exact:true})).toBeVisible();
  expect(new URL(terminal).searchParams.get("psim")).toContain('"launcher":"terminal"');

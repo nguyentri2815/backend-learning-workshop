@@ -1,0 +1,58 @@
+{
+  "reviewedOn": "2026-11-14",
+  "build": {
+    "passed": true,
+    "warning": "Existing large chunks (>500 kB)"
+  },
+  "fixtureIntegrity": {
+    "passed": true,
+    "files": 49
+  },
+  "browserRegression": {
+    "passed": true,
+    "tests": 43
+  },
+  "productionPreview": {
+    "passed": true,
+    "tests": 20,
+    "baseURL": "http://localhost:3183",
+    "viewportWidths": [
+      390,
+      1512
+    ]
+  },
+  "sourceAudit": {
+    "beginner": {
+      "passed": true,
+      "files": 31
+    },
+    "direct": {
+      "passed": false,
+      "reason": "Upstream PlatformConfig.java differs from the existing direct-session snapshot hash; no legacy snapshot refresh performed."
+    }
+  },
+  "milestones": {
+    "controllerPattern": {
+      "round": 0,
+      "cumulative": 2
+    },
+    "controllerPlanned": {
+      "roundApplied": 0,
+      "plannedAdded": 1,
+      "cumulative": 2
+    },
+    "controllerApplied": {
+      "round": 1,
+      "cumulative": 3
+    },
+    "controllerWire": {
+      "roundStatus": "M",
+      "cumulativeStatus": "A"
+    },
+    "historicalControllerPattern": {
+      "round": 0,
+      "cumulative": 2
+    }
+  },
+  "review": "http://localhost:3182/journey/policy?group=create&mode=session&sessionId=quote-beginner&sessionAt=survey&sessionDone=0&sessionDecision.brief=0"
+}

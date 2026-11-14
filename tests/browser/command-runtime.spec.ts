@@ -1,3 +1,4 @@
+import {chooseTaskInStep} from "./runtime-helpers";
 import {test,expect} from "@playwright/test";
 import type {Page} from "@playwright/test";
 import {practice,runConfigurationWalk} from "./runtime-helpers";
@@ -49,13 +50,13 @@ test("restarting each lesson resets only its own work and J2 supports the short 
  await practice(page).locator('[data-command-log="started"]').click();await button(page,"Stop Command").click();await button(page,"Tiếp theo: chuẩn bị bắt đầu task").click();await button(page,"Đã thực hành").click();
  expect(snapshot(page).taskPractice.practiced).toBe(true);await button(page,"Làm lại phần này").click();expect(snapshot(page).taskPractice?.practiced??false).toBe(false);expect(snapshot(page).process).toBe("stopped");expect(snapshot(page).execution.jar).toBe(true);
  const completed=await page.evaluate(()=>JSON.parse(localStorage.getItem('backend-learning-workshop.project-practice.v1')!).completed);expect(completed).toEqual(expect.arrayContaining(["run-config","startup"]));
- await practice(page).getByRole("button",{name:/^I2 /}).click();await button(page,"Làm lại phần này").click();await expect(practice(page).locator(".command-run-empty")).toBeVisible();expect(snapshot(page).execution.jar).toBe(true);expect(snapshot(page).containers).toEqual(ready.containers);expect(snapshot(page).runSetup.saved).toBe(true);
+ await chooseTaskInStep(page,"I2");await button(page,"Làm lại phần này").click();await expect(practice(page).locator(".command-run-empty")).toBeVisible();expect(snapshot(page).execution.jar).toBe(true);expect(snapshot(page).containers).toEqual(ready.containers);expect(snapshot(page).runSetup.saved).toBe(true);
 });
 
 test("J2 asks for Stop before rehearsal when Command is still running and never stops it implicitly",async({page})=>{
  await open(page);await run(page);await button(page,"Đọc kết quả của lần Run này").click();await inspect(page);await button(page,"Tiếp theo: chuẩn bị bắt đầu task").click();
  await expect(button(page,"Thực hành lại: cấu hình → Run → log → Stop")).toBeDisabled();await expect(practice(page).locator(".task-start-card")).toContainText("Dừng lần chạy tại Run/Stop");expect(snapshot(page).process).toBe("running");
- await button(page,"Mở Run / Stop").click();await button(page,"Stop Command").click();await practice(page).getByRole("button",{name:/^J2 /}).click();await expect(button(page,"Thực hành lại: cấu hình → Run → log → Stop")).toBeEnabled();
+ await button(page,"Mở Run / Stop").click();await button(page,"Stop Command").click();await chooseTaskInStep(page,"J2");await expect(button(page,"Thực hành lại: cấu hình → Run → log → Stop")).toBeEnabled();
  await button(page,"Xem giới hạn kiểm tra API").click();await expect(practice(page).locator(".command-results")).toBeFocused();expect(snapshot(page).commandReview.focus).toBe("api");
 });
 

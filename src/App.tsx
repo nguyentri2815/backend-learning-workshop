@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   ChevronRight,
   Code2,
-  Compass,
   Database,
   Eye,
   FileCode2,
@@ -18,16 +17,14 @@ import {
   Layers3,
   ListChecks,
   Map,
-  PanelLeftClose,
-  PanelLeftOpen,
   Play,
-  RotateCcw,
   Server,
   ShieldCheck,
   SquareTerminal,
 } from "lucide-react";
 import { journeys, totalSteps, findJourney } from "./content/journeys";
 import { Badge } from "./components/Badge";
+import { NotebookNavigation } from "./NotebookNavigation";
 import { JourneyWorkspace } from "./JourneyWorkspace";
 import { useDemoPolicy, useProgress } from "./state";
 import { SetupWorkspace } from "./setup/SetupWorkspace";
@@ -56,23 +53,14 @@ export function App() {
   const countFor = (id: string) => id === "environment" ? setupCount : id === "policy" ? policyProgress.completed.length : progress.completed.filter(key => key.startsWith(`${id}:`)).length;
   const demo = useDemoPolicy();
   const memory = useRef<Record<string, string>>({});
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [mobile, setMobile] = useState(
-    () => window.matchMedia("(max-width: 720px)").matches,
-  );
   const [resetOpen, setResetOpen] = useState(false);
   const resetDialog = useRef<HTMLDialogElement>(null);
   const [copied, setCopied] = useState("");
-  useEffect(() => {
-    const media = window.matchMedia("(max-width: 720px)");
-    const change = () => setMobile(media.matches);
-    media.addEventListener("change", change);
-    return () => media.removeEventListener("change", change);
-  }, []);
+
   useEffect(() => {
     if (journey)
       memory.current[journey.id] = location.pathname + location.search;
-    setSidebarOpen(false);
+
   }, [location.pathname, location.search, journey]);
   useEffect(() => {
     document.title = `${journey?.title ?? (location.pathname === "/sources" ? "Nguồn & phạm vi" : "Tổng quan hành trình")} · Backend Learning`;
@@ -102,135 +90,12 @@ export function App() {
       (s) => nextJourney.id === "environment" ? !setupProgress.completed.some(id => id === s.id) : nextJourney.id === "policy" ? !policyProgress.completed.some(id => id === s.id) : !progress.completed.includes(`${nextJourney.id}:${s.id}`),
     ) ?? nextJourney.steps[0];
   return (
-    <div className="app-shell">
+    <div className="app-shell notebook">
       <a className="skip-link" href="#main">
         Đến nội dung chính
       </a>
-      <aside
-        className={`sidebar ${sidebarOpen ? "is-open" : ""}`}
-        aria-label="Điều hướng chính"
-        inert={mobile && !sidebarOpen}
-      >
-        <button
-          className="icon-button sidebar-close"
-          aria-label="Đóng điều hướng"
-          onClick={() => setSidebarOpen(false)}
-        >
-          <PanelLeftClose size={17} />
-        </button>
-        <Link className="brand" to="/">
-          <span className="brand-mark">
-            <Code2 size={25} />
-          </span>
-          <span>
-            Backend<span className="brand-sub">LEARNING WORKSHOP</span>
-          </span>
-        </Link>
-        <div className="sidebar-label">KHÔNG GIAN HỌC</div>
-        <Link
-          className={`nav-item ${location.pathname === "/" ? "active" : ""}`}
-          to="/"
-          aria-current={location.pathname === "/" ? "page" : undefined}
-        >
-          <Compass size={19} />
-          Tổng quan hành trình
-        </Link>
-        <div className="sidebar-label journey-label">HÀNH TRÌNH CỦA BẠN</div>
-        <nav>
-          {journeys.map((j) => {
-            const Icon = journeyIcons[j.id];
-            const count = countFor(j.id);
-            return (
-              <Link
-                key={j.id}
-                className={`nav-item journey-nav ${journey?.id === j.id ? "active" : ""}`}
-                aria-current={journey?.id === j.id ? "page" : undefined}
-                to={journeyUrl(j.id)}
-              >
-                <Icon size={19} />
-                <span>
-                  {j.id === "claims" ? "Yêu cầu bồi thường" : j.title}
-                  <small>
-                    {j.number} · {count}/{j.steps.length} {j.id === "environment" ? "bước setup" : j.id === "policy" ? "bước đọc" : "bước mẫu"}
-                  </small>
-                </span>
-                {journey?.id === j.id && <span className="nav-dot" />}
-              </Link>
-            );
-          })}
-        </nav>
-        <div className="sidebar-label resource-label">THAM CHIẾU</div>
-        <Link
-          className={`nav-item ${location.pathname === "/sources" ? "active" : ""}`}
-          to="/sources"
-        >
-          <Layers3 size={18} />
-          Nguồn & phạm vi
-        </Link>
-        <div className="repo-context">
-          <div>
-            <span className="status-dot" />
-            REPO JAVA MỤC TIÊU
-          </div>
-          <strong>agent-service-workspaces</strong>
-          <span>Setup đã khảo sát · 04/11/2026</span>
-        </div>
-        <div className="sidebar-bottom">
-          <div className="progress-label">
-            <span>Tiến độ học tự đánh dấu</span>
-            <strong>
-              {completedCount}/{totalSteps}
-            </strong>
-          </div>
-          <div className="progress-track">
-            <i
-              style={{
-                width: `${(completedCount / totalSteps) * 100}%`,
-              }}
-            />
-          </div>
-          <button
-            className="text-button reset-button"
-            onClick={() => setResetOpen(true)}
-          >
-            <RotateCcw size={13} />
-            Đặt lại tiến độ
-          </button>
-          <div className="local-note">
-            <span className="status-dot blue" />
-            Workspace local · v0.1
-          </div>
-        </div>
-      </aside>
+      <NotebookNavigation journeyUrl={journeyUrl} completed={completedCount} total={totalSteps} onReset={()=>setResetOpen(true)}/>
       <div className="workspace-shell">
-        <header className="topbar">
-          <div className="breadcrumb">
-            <button
-              className="icon-button mobile-menu"
-              aria-label={sidebarOpen ? "Thu điều hướng" : "Mở điều hướng"}
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-            >
-              {sidebarOpen ? (
-                <PanelLeftClose size={20} />
-              ) : (
-                <PanelLeftOpen size={20} />
-              )}
-            </button>
-            <Link to="/">Không gian học Backend</Link>
-            <ChevronRight size={14} />
-            <strong>
-              {journey
-                ? `Hành trình ${journey.number}`
-                : location.pathname === "/sources"
-                  ? "Nguồn & phạm vi"
-                  : "Tổng quan"}
-            </strong>
-          </div>
-          <div className="topbar-right">
-            <Badge state="demo">Setup / Policy có nguồn · thao tác mô phỏng</Badge>
-            <span className="avatar">NT</span>
-          </div>
-        </header>
         <main
           id="main"
           className={`main-content ${journey ? "journey-main" : ""}`}

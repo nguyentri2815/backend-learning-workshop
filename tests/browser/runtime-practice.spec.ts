@@ -122,7 +122,7 @@ test("runtime URL, source position, shared choices and old progress survive navi
   await expect(button(page,"Tiếp tục")).toBeDisabled();
   await lab(page).locator(".runtime-view-tabs").getByRole("button",{name:/Source đang mở/}).click();
   await file(page,"build.gradle").click();await line(page,37).click();const source=page.url();
-  await page.getByRole("link",{name:/Policy.*02/}).click();await page.getByRole("link",{name:/Hiểu và chạy dự án.*01/}).click();
+  await page.getByRole("link",{name:'Khám phá Policy',exact:true}).click();await page.getByRole("link",{name:'Hiểu và chạy dự án',exact:true}).click();
   await expect(page).toHaveURL(source);await expect(lab(page).locator('[data-line="37"]')).toHaveAttribute("data-focus-line","true");
   await button(page,"Mở hướng dẫn trên máy thật").click();await expect(page).toHaveURL(/experience=guide/);
   await expect(page.locator(".guide-check-select[aria-expanded=true]")).toBeVisible();

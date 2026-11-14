@@ -1,0 +1,119 @@
+[
+  {
+    "name": "overview",
+    "url": "http://localhost:3182/journey/policy?group=create&mode=overview",
+    "headings": [
+      "Bốn đường phát hành, một điểm hội tụ",
+      "Đặt lại bài đọc Policy?"
+    ]
+  },
+  {
+    "name": "checkpoint",
+    "url": "http://localhost:3182/journey/policy?group=create&mode=steps&node=validate&quote=QUOTE-LEARN-101&sentQuote=QUOTE-LEARN-101&backend=1&debugVersion=2&tree=1",
+    "headings": [
+      "Bước 2/6 · Kiểm tra Quote",
+      "Đọc Quote bằng ID",
+      "Biến trước",
+      "Biến sau",
+      "Request",
+      "Kết quả nhánh Command",
+      "Đặt lại bài đọc Policy?"
+    ]
+  },
+  {
+    "name": "reason",
+    "url": "http://localhost:3182/journey/policy?group=create&mode=assembly&assemblyStep=validate",
+    "headings": [
+      "2/6 · Kiểm tra Quote",
+      "Để suy luận quyết định 1",
+      "Vì sao cần thiết kế này?",
+      "Bản đồ thành phần",
+      "Func · tổ chức tính năng",
+      "Gặp tính năng tương tự, bắt đầu từ đâu?",
+      "Đặt lại bài đọc Policy?"
+    ]
+  },
+  {
+    "name": "cooperate",
+    "url": "http://localhost:3182/journey/policy?group=create&mode=assembly&assemblyStep=validate&opened=create-api&assemblyDecision.validate=decide&assemblyView.validate=cooperate&assemblyAnswers.validate=0%2C0",
+    "headings": [
+      "2/6 · Kiểm tra Quote",
+      "Đọc Quote",
+      "Sơ đồ phối hợp · Đọc dữ liệu → kiểm tra → đi tiếp",
+      "Đọc Quote",
+      "Vì sao cần thiết kế này?",
+      "Bản đồ thành phần",
+      "Func · tổ chức tính năng",
+      "Gặp tính năng tương tự, bắt đầu từ đâu?",
+      "Đặt lại bài đọc Policy?"
+    ]
+  },
+  {
+    "name": "pattern",
+    "url": "http://localhost:3182/journey/policy?group=create&mode=assembly&assemblyStep=validate&opened=create-api&assemblyDecision.validate=decide&assemblyView.validate=pattern&assemblyAnswers.validate=0%2C0",
+    "headings": [
+      "2/6 · Kiểm tra Quote",
+      "Đọc Quote",
+      "Sơ đồ phối hợp · Đọc dữ liệu → kiểm tra → đi tiếp",
+      "Đọc Quote",
+      "Vì sao cần thiết kế này?",
+      "Bản đồ thành phần",
+      "Func · tổ chức tính năng",
+      "Gặp tính năng tương tự, bắt đầu từ đâu?",
+      "Đặt lại bài đọc Policy?"
+    ]
+  },
+  {
+    "name": "pattern-code",
+    "url": "http://localhost:3182/journey/policy?group=create&mode=assembly&assemblyStep=validate&opened=create-api&assemblyDecision.validate=decide&assemblyView.validate=pattern&assemblyAnswers.validate=0%2C0",
+    "headings": [
+      "2/6 · Kiểm tra Quote",
+      "Đọc Quote",
+      "Sơ đồ phối hợp · Đọc dữ liệu → kiểm tra → đi tiếp",
+      "Đọc Quote",
+      "Vì sao cần thiết kế này?",
+      "Bản đồ thành phần",
+      "Func · tổ chức tính năng",
+      "Gặp tính năng tương tự, bắt đầu từ đâu?",
+      "Đặt lại bài đọc Policy?"
+    ]
+  },
+  {
+    "name": "diagram",
+    "url": "http://localhost:3182/journey/policy?group=create&mode=assembly&assemblyStep=validate&opened=create-api&assemblyDecision.validate=decide&assemblyView.validate=pattern&assemblyAnswers.validate=0%2C0&assemblyDiagram.validate=1&assemblyDiagramRelation.validate=read-quote",
+    "headings": [
+      "2/6 · Kiểm tra Quote",
+      "Đọc Quote",
+      "Sơ đồ phối hợp · Đọc dữ liệu → kiểm tra → đi tiếp",
+      "Workspace rút gọn",
+      "Đọc Quote",
+      "Workspace · agent-system",
+      "Tự tìm nơi đọc Quote",
+      "Đọc Quote",
+      "Vì sao cần thiết kế này?",
+      "Bản đồ thành phần",
+      "Func · tổ chức tính năng",
+      "Gặp tính năng tương tự, bắt đầu từ đâu?",
+      "Đặt lại bài đọc Policy?"
+    ]
+  },
+  {
+    "name": "implementation",
+    "url": "http://localhost:3182/journey/policy?group=create&mode=assembly&assemblyStep=validate&opened=create-api&assemblyDecision.validate=decide&assemblyView.validate=pattern&assemblyAnswers.validate=0%2C0&assemblyDiagram.validate=1&assemblyDiagramRelation.validate=read-quote&assemblyDiagramMode.validate=practice&assemblyPractice.validate.file=func&assemblyPractice.validate.done=repository%2Cread&assemblyPractice.validate.task=read&assemblyPractice.validate.quote=QUOTE-LEARN-101",
+    "headings": [
+      "2/6 · Kiểm tra Quote",
+      "Đọc Quote",
+      "Từng bước triển khai · Tạo Policy từ Quote",
+      "Workspace rút gọn",
+      "Đọc Quote",
+      "Workspace · agent-system",
+      "Nối lời gọi đọc trong Func",
+      "Đọc Quote",
+      "Vì sao cần thiết kế này?",
+      "Bản đồ thành phần",
+      "Func · tổ chức tính năng",
+      "Gặp tính năng tương tự, bắt đầu từ đâu?",
+      "Đặt lại bài đọc Policy?"
+    ]
+  }
+]

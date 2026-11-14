@@ -9,7 +9,7 @@ export type SampleQuote = typeof quotes[number];
 export const phases = ['idle','checked','mapped','command','view'] as const;
 export type CreatePhase = typeof phases[number];
 export function newQuoteAttempt(id:string):Record<string,string|null> {
- return {quote:id,node:'quote',sim:null,attempt:null,selected:null,ref:null,opened:null,sentQuote:null,backend:null,debug:null,debugMax:null,debugVersion:null,field:null,writePoint:null,flowPoint:null,flowSearched:null,resultSearch:null,resultDetail:null,resultViewed:null,readSource:null,reader:null,viewLine:null,traceFrom:null,traceLine:null,traceVia:null,caller:null,follow:null,traceMode:null,pane:null};
+ return {quote:id,node:'quote',sim:null,attempt:null,selected:null,ref:null,opened:null,sentQuote:null,backend:null,debug:null,debugMax:null,debugVersion:null,field:null,writePoint:null,flowPoint:null,flowSearched:null,resultSearch:null,resultDetail:null,resultViewed:null,readSource:null,reader:null,viewLine:null,readAnchor:null,traceFrom:null,traceLine:null,traceVia:null,tracePoint:null,caller:null,follow:null,traceMode:null,pane:null,walk:null,stop:null,at:null};
 }
 export function creationContext(params:URLSearchParams) {
  const quote = quotes.find(q=>q.id===params.get('quote')) ?? quotes[0];

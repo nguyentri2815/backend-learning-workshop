@@ -130,8 +130,8 @@ function InteractiveFlow({ selected, next, statuses, counts, onSelect, fitSignal
     pathOptions: { borderRadius: 16, offset: 20 },
     focusable: false,
     selectable: false,
-    markerEnd: { type: MarkerType.ArrowClosed, color: connection.from === selected ? "#14869c" : "#8cabb9", width: 18, height: 18 },
-    style: { stroke: connection.from === selected ? "#14869c" : "#8cabb9", strokeWidth: connection.from === selected ? 2.1 : 1.7 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: connection.from === selected ? "var(--accent)" : "var(--accent-border)", width: 18, height: 18 },
+    style: { stroke: connection.from === selected ? "var(--accent)" : "var(--accent-border)", strokeWidth: connection.from === selected ? 2.1 : 1.7 },
     ariaLabel: `Thứ tự đề xuất: ${actionSteps.find(step => step.id === connection.from)?.shortTitle} đến ${actionSteps.find(step => step.id === connection.to)?.shortTitle}`,
   })), [selected]);
 
@@ -166,7 +166,7 @@ function InteractiveFlow({ selected, next, statuses, counts, onSelect, fitSignal
       panOnDrag panOnScroll={false} zoomOnScroll zoomOnDoubleClick={false} preventScrolling
       deleteKeyCode={null} onMove={(_, value) => setViewport(value)} onMoveEnd={(_, value) => rememberViewport(value)}
       aria-label="Lộ trình đề xuất từ kiểm tra source đến sẵn sàng làm task">
-      <Background variant={BackgroundVariant.Dots} color="#cbdde6" gap={20} size={1} />
+      <Background variant={BackgroundVariant.Dots} color="var(--line)" gap={20} size={1} />
       <Panel position="bottom-left" className="guide-graph-tools"><div><button type="button" aria-label="Phóng to flow" title="Phóng to" disabled={!ready} onClick={() => void flow.zoomIn({ duration: 0 })}><Plus size={16} /></button><span aria-label="Tỷ lệ zoom">{Math.round(viewport.zoom*100)}%</span><button type="button" aria-label="Thu nhỏ flow" title="Thu nhỏ" disabled={!ready} onClick={() => void flow.zoomOut({ duration: 0 })}><Minus size={16} /></button></div><small>Kéo nền để di chuyển · cuộn để zoom</small></Panel>
     </ReactFlow>
   </div>;

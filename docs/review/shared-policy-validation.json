@@ -1,0 +1,13 @@
+{
+  "build": "passed: TypeScript and Vite",
+  "buildWarning": "Existing large-chunk warning remains",
+  "fixtureIntegrity": {"files": 38, "result": "passed"},
+  "upstreamSourceAudit": {"javaFiles": 23, "result": "passed", "mode": "read-only"},
+  "distinctRelatedCases": 66,
+  "broadRegression": {"cases": 53, "unaffectedCasesPassed": 46, "implementationCases": 7, "note": "Initial implementation navigation race was reproduced and fixed; all seven implementation cases passed in the final affected suite."},
+  "finalAffectedSuite": {"cases": 20, "passed": 20, "seconds": 186, "includes": ["11 List/model cases", "7 Create implementation cases", "2 rapid navigation cases for Create and List"]},
+  "finalTraceDeepLinkCheck": {"cases": 1, "passed": 1},
+  "comparisonImages": {"pairs": 7, "viewport": {"width": 1440, "height": 1000}, "zoom": 1, "deviceScaleFactor": 1, "allFourteenNativeSizesVerified": true},
+  "additionalEvidence": ["A/B frames in both lessons", "List full source highlight", "List page-change request"],
+  "diffWhitespaceCheck": "passed"
+}

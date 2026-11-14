@@ -1,3 +1,4 @@
+import {chooseTaskInStep} from "./runtime-helpers";
 import {expect,test} from "@playwright/test";
 import type {Page} from "@playwright/test";
 import {readFile} from "node:fs/promises";
@@ -94,10 +95,10 @@ test("Kafka links to its own Compose service, Zookeeper remains indirect and usa
 test("build/run/summary integrate without changing run profile or losing old progress",async({page})=>{
  await task(page,{jdk:21,sdk:21,language:21,gradleJvm:21,synced:true});
  await practice(page).getByLabel("Mục tiêu chạy",{exact:true}).selectOption("build");await button(page,"Mở bài build module Command").click();await expect(page).toHaveURL(/task=build-task/);
- await practice(page).getByRole("button",{name:/^G1 /}).click();await select(page,"platform-command");await practice(page).getByLabel("Mục tiêu chạy",{exact:true}).selectOption("auth");await conclude(page);
+ await chooseTaskInStep(page,"G1");await select(page,"platform-command");await practice(page).getByLabel("Mục tiêu chạy",{exact:true}).selectOption("auth");await conclude(page);
  await detail(page).getByLabel("Nơi cung cấp dịch vụ",{exact:true}).selectOption("java");await button(page,"Xem Run Configuration Command hiện có").click();await expect(page).toHaveURL(/task=run-config/);
  await button(page,"Quay lại khảo sát dependency").click();await expect(detail(page)).toContainText("Base có thể gọi lại chính Command");
- await practice(page).getByRole("button",{name:/^J2 /}).click();await expect(practice(page).locator(".survey-summary")).toContainText("Gọi API có xác thực");
+ await chooseTaskInStep(page,"J2");await expect(practice(page).locator(".survey-summary")).toContainText("Gọi API có xác thực");
 });
 test("mobile evidence is readable, original lines remain visible and unsupported module scope does not show Command data",async({page})=>{
  await page.setViewportSize({width:390,height:844});await task(page,{dependency:"redis"});await button(page,"Ai sử dụng cấu hình này?").click();
@@ -113,10 +114,10 @@ test("business proof links open the requested symbol; Docker reset preserves sur
  await practice(page).locator(".survey-business-links").getByRole("button",{name:"SaleUnitController · class request mapping",exact:true}).click();
  await expect(detail(page).locator(".survey-file")).toContainText("SaleUnitController.java:33");
  await expect(detail(page).locator('[data-line="33"]')).toBeInViewport();
- await practice(page).getByRole("button",{name:/^G2 /}).click();await button(page,"Làm lại phần này").click();
+ await chooseTaskInStep(page,"G2");await button(page,"Làm lại phần này").click();
  let sim=JSON.parse(new URL(page.url()).searchParams.get("psim")!);expect(sim.surveyGoal).toBe("document");expect(sim.surveyRead).toEqual(["redis"]);expect(sim.build).toBe("module-success");expect(sim.containers).toBeUndefined();
- await practice(page).getByRole("button",{name:/^G1 /}).click();await button(page,"Làm lại phần này").click();
+ await chooseTaskInStep(page,"G1");await button(page,"Làm lại phần này").click();
  sim=JSON.parse(new URL(page.url()).searchParams.get("psim")!);expect(sim.surveyGoal).toBeUndefined();expect(sim.surveyRead).toBeUndefined();expect(sim.jdk).toBe(21);expect(sim.build).toBe("module-success");
- await practice(page).getByLabel("Module khảo sát",{exact:true}).selectOption("query");await expect(practice(page).locator(".connection-unverified")).toContainText("Query");await practice(page).getByRole("button",{name:/^J2 /}).click();
+ await practice(page).getByLabel("Module khảo sát",{exact:true}).selectOption("query");await expect(practice(page).locator(".connection-unverified")).toContainText("Query");await chooseTaskInStep(page,"J2");
  await expect(practice(page).locator(".survey-summary")).toContainText("Query • profile dev");await expect(practice(page).locator(".survey-summary")).toContainText("Chưa có bài khảo sát cho phạm vi này");
 });

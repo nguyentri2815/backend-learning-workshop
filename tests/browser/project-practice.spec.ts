@@ -1,3 +1,4 @@
+import {chooseTaskInStep} from "./runtime-helpers";
 import { expect, test } from "@playwright/test";
 import type { Page } from "@playwright/test";
 import { readFile, stat } from "node:fs/promises";
@@ -134,16 +135,16 @@ test("file, line, tree and profile survive Back/Forward, reload, task/journey ch
   await page.goBack();await expect(page).toHaveURL(selected);
   await expect(lab(page).getByRole("radio",{name:"Chọn dev trong bài thực hành",exact:true})).toBeChecked();
   await page.goForward(); await expect(lab(page).getByRole("radio",{name:"Không chỉ định profile",exact:true})).toBeChecked();
-  await lab(page).getByRole("button",{name:"E1 Module Command",exact:true}).click();
+  await chooseTaskInStep(page,"E1");
   for(const path of ["workspaces/agent-service",commandPath,`${commandPath}/src`,`${commandPath}/src/main`,resourcePath]) await openFolder(page,path);
   await file(page,`${resourcePath}/application-dev.yml`).click();
   await lab(page).getByRole("button",{name:"Chọn dòng 45",exact:true}).click();
   const command=page.url();
-  await lab(page).getByRole("button",{name:"E2 Đối chiếu profile",exact:true}).click();
+  await chooseTaskInStep(page,"E2");
   await page.goBack();await expect(page).toHaveURL(command);
   await expect(folder(page,resourcePath)).toHaveAttribute("aria-expanded","true");
   await expect(lab(page).locator('[data-line="45"]')).toHaveAttribute("data-focus-line","true");
-  await page.getByRole("link",{name:/Policy.*02/}).click();await page.getByRole("link",{name:/Hiểu và chạy dự án.*01/}).click();
+  await page.getByRole("link",{name:'Khám phá Policy',exact:true}).click();await page.getByRole("link",{name:'Hiểu và chạy dự án',exact:true}).click();
   await expect(file(page,`${resourcePath}/application-dev.yml`)).toHaveAttribute("aria-pressed","true");
   await lab(page).getByRole("button",{name:"Làm lại bước",exact:true}).click();
   await expect(lab(page).getByTestId("highlighted-code")).toHaveCount(0);
@@ -162,7 +163,7 @@ test("mobile tree, source, hint and before/after remain usable without page over
   await lab(page).getByRole("button",{name:"Xem trạng thái sau khi lấy source",exact:true}).click();
   await expect(lab(page).locator(".practice-tree-row.is-fresh")).toHaveCount(10);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
-  await lab(page).getByRole("button",{name:"E2 Đối chiếu profile",exact:true}).click();
+  await chooseTaskInStep(page,"E2");
   await chooseProfile(page,"Chọn dev trong bài thực hành");
   await expect(lab(page).getByTestId("highlighted-code")).toHaveCount(2);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
@@ -213,7 +214,7 @@ test("another module maps to its own clone target; keyboard line selection and n
   const task=await lab(page).getByRole("complementary",{name:"Nhiệm vụ hiện tại",exact:true}).boundingBox();
   expect(Math.abs(tree!.y-task!.y)).toBeLessThan(2);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(1280);
-  await lab(page).getByRole("button",{name:"E1 Module Command",exact:true}).click();
+  await chooseTaskInStep(page,"E1");
   await expect(folder(page,commandPath)).toBeVisible();
   await expect(page).toHaveURL(/pmodule=30/);
 });

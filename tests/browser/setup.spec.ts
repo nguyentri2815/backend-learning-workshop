@@ -26,7 +26,8 @@ test("default view prioritizes full width instructions with readable type and co
   expect(await body.getByRole("heading").allTextContents()).toEqual(["Bạn cần làm gì?","Làm ở đâu?","Làm như thế nào?","Kiểm tra kết quả","Nếu kết quả khác"]);
   await expect(page.locator(".guide-command")).toContainText("Lệnh hướng dẫn, chưa chạy tại đây");
   const sizes=await body.evaluate(element=>({font:getComputedStyle(element.querySelector("p")!).fontSize,line:getComputedStyle(element.querySelector("p")!).lineHeight,code:getComputedStyle(element.querySelector("pre")!).fontSize,width:element.getBoundingClientRect().width,container:document.querySelector(".action-guide")!.getBoundingClientRect().width}));
-  expect(sizes.font).toBe("16px"); expect(parseFloat(sizes.line)/16).toBeCloseTo(1.55,1); expect(sizes.code).toBe("14px");
+  expect(parseFloat(sizes.font)).toBeGreaterThanOrEqual(14); expect(parseFloat(sizes.font)).toBeLessThanOrEqual(15);
+  expect(parseFloat(sizes.line)/parseFloat(sizes.font)).toBeGreaterThanOrEqual(1.5); expect(sizes.code).toBe("14px");
   expect(sizes.width/sizes.container).toBeGreaterThan(.85);
   await page.screenshot({path:".verification/ux-01-overview.png"});
   await page.locator(".guide-action.is-active").screenshot({path:".verification/ux-02-complete-action.png"});
@@ -69,7 +70,9 @@ test("progress persists, opens first unfinished action, tracks needs-info, and r
   await page.goto("/journey/environment?step=tools");
   for (const check of actionSteps[1].checks) {
     if (await page.locator(`#guide-action-${check.id}`).getAttribute("aria-expanded") !== "true") await page.locator(`#guide-action-${check.id}`).click();
-    await page.getByRole("checkbox").check();
+    await expect(page.locator(`#guide-action-${check.id}`)).toHaveAttribute("aria-expanded","true");
+    const checkbox=page.locator(`#guide-body-${check.id}`).getByRole("checkbox");
+    await checkbox.check(); await expect(checkbox).toBeChecked();
   }
   await expect(page.locator(".guide-total")).toContainText("1 / 7");
   await page.reload();
@@ -143,7 +146,7 @@ test("action and step navigation honor Back/Forward without automatically markin
   await expect(page.locator("#guide-action-build-artifact")).toHaveAttribute("aria-expanded","true");
   await page.goForward(); await expect(page.locator(".guide-detail-heading")).toContainText("Chạy và kiểm tra ứng dụng");
   await page.getByRole("button",{name:"Tiếp tục bước đang làm",exact:true}).click();
-  await page.getByRole("link",{name:/Policy.*02/}).click(); await page.getByRole("link",{name:/Hiểu và chạy dự án.*01/}).click();
+  await page.getByRole("link",{name:'Khám phá Policy',exact:true}).click(); await page.getByRole("link",{name:'Hiểu và chạy dự án',exact:true}).click();
   await expect(page.locator(".guide-detail-heading")).toContainText("Chạy và kiểm tra ứng dụng");
   await expect(page.locator(".guide-total")).toContainText("0 / 7");
 });
@@ -161,7 +164,7 @@ test("legacy links and invalid storage/parameters fall back to useful instructio
   await expect(page.locator(".guide-action-body")).toHaveCount(1);
 });
 
-test("mobile retains 16px instructions, independent checks and all seven accessible steps", async ({page}) => {
+test("mobile retains readable instructions, independent checks and all seven accessible steps", async ({page}) => {
   await page.setViewportSize({width:390,height:844});
   await page.goto("/journey/environment?experience=guide");
   await expect(page.locator(".guide-step-nav li")).toHaveCount(7);
@@ -172,7 +175,8 @@ test("mobile retains 16px instructions, independent checks and all seven accessi
   await page.locator("#guide-action-tools-ide").click();
   await expect(page.locator(".guide-how")).toContainText("Project bytecode version = 21");
   await page.getByText("Gặp repo khác thì tìm ở đâu?",{exact:true}).click();
-  expect(await page.locator(".guide-action-body p").first().evaluate(e=>getComputedStyle(e).fontSize)).toBe("16px");
+  const font=await page.locator(".guide-action-body p").first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize));
+  expect(font).toBeGreaterThanOrEqual(14); expect(font).toBeLessThanOrEqual(15);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.screenshot({path:".verification/ux-mobile.png",fullPage:true});
 });

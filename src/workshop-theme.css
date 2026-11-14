@@ -1,0 +1,304 @@
+/* Shared IDE palette. Component states consume the tokens in styles.css. */
+body { font-family:var(--font-ui); font-size:var(--text-body); background:var(--canvas); }
+.app-shell :is(h1,h2,h3,h4) { color:var(--text); }
+.app-shell :is(.page-description,.section-title p,.journey-card > p,.card-outcome,.hero p,.scope-row > span:last-child,.next-card p,.lesson-description,.source-origin-grid p) { color:var(--muted); font-size:var(--text-guide); }
+.app-shell :is(.card,.journey-card,.source-browser,.policy-explorer,.policy-main-tabs,.setup-modes > button,.setup-stage-card) { border-color:var(--line); }
+.app-shell .button { font-size:var(--text-guide); border-radius:6px; }
+.app-shell .button.primary { background:var(--accent); border-color:var(--accent); color:light-dark(white, var(--muted)); box-shadow:none; }
+.app-shell .button.primary:hover:not(:disabled) { background:var(--accent-hover); }
+.app-shell .button.secondary { color:var(--text); border-color:var(--line); background:var(--surface); }
+.app-shell .button.secondary:hover:not(:disabled) { border-color:var(--accent); background:var(--selected); }
+.app-shell .button:disabled { background:var(--canvas); border-color:var(--line); color:var(--muted); box-shadow:none; }
+:root .app-shell :is(button,a,input,select,textarea,summary,[tabindex]):focus-visible,
+:root .practice-side-panel :is(button,[tabindex]):focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+.app-shell .sidebar { background:var(--navy); color:var(--on-navy); border-color:var(--navy); }
+.sidebar .brand { color:var(--on-navy); }
+.sidebar .brand-mark { background:var(--accent); box-shadow:none; }
+.sidebar :is(.brand-sub,.sidebar-label,.journey-nav small,.progress-label,.repo-context > div,.repo-context > span,.local-note,.reset-button) { color:var(--nav-muted); }
+.sidebar .brand-sub { font-size:9px; }
+.sidebar .sidebar-label { font-size:10px; }
+.sidebar .nav-item { color:light-dark(#DCE6F4, var(--accent)); font-size:14px; border-radius:6px; }
+.sidebar .nav-item:hover { background:var(--navy-selected); }
+.sidebar .nav-item.active { color:light-dark(white, var(--muted)); background:var(--navy-selected); border-color:light-dark(#2C486C, var(--accent-border)); box-shadow:inset 3px 0 light-dark(#60A5FA, #00000040); font-weight:700; }
+.sidebar .nav-item.active svg { color:light-dark(#93C5FD, var(--accent)); }
+.sidebar .nav-item.active small { color:light-dark(#D1E1F7, var(--accent)); }
+.sidebar .nav-dot { background:light-dark(#60A5FA, var(--selected)); }
+.sidebar .repo-context { background:light-dark(#15243B, var(--selected)); border-color:light-dark(#30435E, var(--accent-border)); }
+.sidebar .repo-context strong { color:light-dark(#DCE6F4, var(--accent)); font-size:11px; }
+.sidebar .progress-label strong { color:var(--on-navy); }
+.sidebar .progress-track { background:light-dark(#30435E, var(--selected)); }
+.sidebar .progress-track i { background:light-dark(#60A5FA, var(--selected)); }
+.sidebar .local-note { border-color:light-dark(#30435E, var(--accent-border)); }
+.sidebar .sidebar-close { color:light-dark(white, var(--muted)); border-color:light-dark(#526781, var(--line)); }
+.topbar { background:var(--surface); border-color:var(--line); }
+.breadcrumb, .breadcrumb a, .breadcrumb strong { color:var(--muted); }
+.hero { background:var(--selected); border-color:var(--line); }
+.hero h1 > span, .hero-secondary, .journey-card-footer a { color:var(--accent); }
+.hero-label, .section-title p, .source-navigation > span:first-child { color:var(--muted); }
+.setup-workspace { --setup-accent:var(--accent); }
+.action-guide { --guide-accent:var(--accent); font-size:var(--text-body); }
+.action-guide :is(.guide-page-heading p,.guide-detail p,.guide-instructions,.guide-action-purpose,.practice-intro p) { font-size:var(--text-guide); color:var(--muted); }
+.action-guide :is(.guide-step-nav button,.guide-detail,.practice-experience-switch,.practice-task-nav button,.guide-map) { border-color:var(--line); }
+.action-guide .guide-step-nav button { color:var(--text); }
+.action-guide .guide-step-nav button:hover { background:var(--selected); border-color:var(--accent-border); }
+.action-guide .guide-step-nav button[aria-current] { color:var(--accent); background:var(--selected); border-color:var(--accent); box-shadow:0 0 0 1px var(--accent); }
+.action-guide [aria-current] .guide-nav-number { background:var(--accent); color:light-dark(white, var(--muted)); }
+.action-guide :is(.guide-total strong,.practice-task-heading > span,.practice-task-nav button > span,.guide-instructions > li::marker) { color:var(--accent); }
+.action-guide .practice-experience-switch { background:light-dark(#E2E8F0, var(--surface-raised)); }
+.action-guide .practice-experience-switch button { color:var(--muted); }
+.action-guide .practice-experience-switch button[aria-pressed=true] { color:var(--accent); background:var(--surface); }
+.action-guide .practice-task-nav button[aria-current] { color:var(--accent); background:var(--selected); border-color:var(--accent); }
+.action-guide .guide-state.doing { color:var(--accent); background:var(--selected); }
+.action-guide .guide-node-card.is-selected { color:var(--accent); border-color:var(--accent); background:var(--selected); }
+.action-guide .guide-node-card.is-selected .guide-node-number { color:light-dark(white, var(--muted)); background:var(--accent); }
+.action-guide .guide-nav-progress { background:var(--success); }
+.action-guide .practice-project { background:light-dark(#F8FAFC, var(--surface)); border-color:var(--line); }
+.action-guide :is(.practice-pane-title,.practice-tree-note,.practice-file-path,.practice-task-heading p) { color:var(--muted); border-color:var(--line); }
+.action-guide .practice-file-heading { background:var(--navy); color:var(--on-navy); border-color:var(--line); }
+.action-guide .practice-file-heading > span { color:var(--nav-muted); }
+.action-guide .practice-tree-row.is-selected { color:var(--accent); background:var(--selected); border-color:var(--accent-border); box-shadow:inset 3px 0 var(--accent); }
+.action-guide .practice-tree-row.is-hint { color:var(--review); background:var(--review-bg); outline-color:var(--review-border); }
+.action-guide .practice-line-button[aria-pressed=true] { color:var(--accent); background:var(--selected); }
+.action-guide .practice-scope { background:var(--canvas); color:var(--muted); border-color:var(--line); }
+.app-shell .setup-workspace :is(p,li,dd):not(.caption):not(.eyebrow) { font-size:var(--text-guide); }
+.app-shell :is(.setup-workspace,.journey-workspace) :is(.setup-stage-card p,.setup-dependencies article p,.setup-concept,.setup-provenance,.notice,.lesson-heading p) { font-size:var(--text-guide); color:var(--muted); }
+.app-shell :is(.view-tabs,.setup-modes,.setup-nav,.segmented) button[aria-selected=true],
+.app-shell .setup-modes > button[aria-pressed=true] { color:var(--accent); border-color:var(--accent); background:var(--selected); }
+.app-shell :is(.source-browser-heading,.source-header,.source-toolbar) { border-color:var(--line); }
+.app-shell .source-browser-heading { background:var(--navy); color:var(--on-navy); }
+.app-shell .source-browser-heading :is(strong,span,button) { color:inherit; }
+.app-shell :is(.tree-folder,.tree-file) { color:var(--muted); }
+.app-shell .tree-file.selected { color:var(--accent); border-color:var(--accent-border); background:var(--selected); box-shadow:inset 3px 0 var(--accent); font-weight:700; }
+.app-shell :is(.tree-file,.tree-folder):hover { background:var(--selected); }
+.app-shell :is(.resize-handle,.policy-resize) { background:var(--line); }
+.app-shell :is(.resize-handle,.policy-resize):hover { background:var(--accent-border); }
+
+/* Policy navigation and source share the same visual language as the shell. */
+.policy-workspace { --policy-accent:var(--accent); color:var(--text); }
+.policy-workspace :is(.policy-scenario-grid p,.policy-command-query p,.policy-status-note,.policy-guide p) { font-size:var(--text-guide); color:var(--muted); }
+.policy-workspace :is(.policy-flow-picker button,.policy-reading-points button) { color:var(--muted); border-color:var(--line); }
+.policy-workspace :is(.policy-flow-picker button,.policy-reading-points button)[aria-pressed=true] { color:var(--accent); background:var(--selected); border-color:var(--accent); }
+.policy-workspace .policy-map-node { color:var(--muted); border-color:var(--line); }
+.policy-workspace .policy-map-node strong { color:var(--text); font-size:14px; }
+.policy-workspace .policy-map-node small { color:var(--muted); font-size:11px; }
+.policy-workspace .policy-map-node.is-active { background:var(--selected); border-color:var(--accent-border); }
+.policy-workspace .policy-map-node.is-inspected { outline-color:var(--accent-border); }
+.policy-workspace .react-flow__node:is([data-id=direct],[data-id=cash],[data-id=online],[data-id=approval]) .policy-map-node.is-active { background:var(--accent); border-color:var(--accent); box-shadow:none; }
+.policy-workspace .react-flow__node:is([data-id=direct],[data-id=cash],[data-id=online],[data-id=approval]) .is-active :is(strong,small,.policy-map-number) { color:light-dark(white, var(--muted)); }
+.policy-workspace .policy-main-tabs button { color:var(--muted); font-size:var(--text-guide); }
+.policy-workspace .policy-main-tabs button[aria-selected=true] { color:light-dark(white, var(--muted)); background:var(--accent); box-shadow:none; }
+.policy-workspace .policy-subtab-row button { color:var(--muted); font-size:var(--text-guide); }
+.policy-workspace .policy-subtab-row button[aria-selected=true] { color:var(--accent); border-color:var(--accent); }
+.policy-workspace :is(.policy-caption,.policy-heading > p,.policy-observation p,.policy-source-intro,.policy-guide p,.policy-practice-title p,.policy-practice-guide dl,.policy-create-lab > p) { font-size:var(--text-guide); color:var(--muted); }
+.policy-explorer .policy-explorer-bar { background:var(--navy); color:var(--on-navy); border-bottom:1px solid var(--line); font-size:var(--text-meta); }
+.policy-explorer .policy-explorer-bar label { font-size:12px; }
+.policy-explorer .policy-file-panel { background:light-dark(#F8FAFC, var(--surface)); }
+.policy-explorer .policy-file-panel > p { color:var(--muted); font-size:var(--text-meta); }
+.policy-explorer .policy-file-panel .file-tree { font-size:12px; }
+.policy-explorer .policy-file-panel .file-tree button { font-size:12px; min-height:32px; }
+.policy-explorer .file-tree ul { padding-left:12px; }
+.policy-explorer .file-tree > ul { padding-left:0; }
+.policy-explorer .tree-file { overflow-wrap:anywhere; }
+.policy-explorer .policy-source-location { background:light-dark(#F8FAFC, var(--surface)); border-bottom:1px solid var(--line); }
+.policy-explorer .policy-source-location strong { font:600 13px/1.65 var(--font-code); color:var(--text); }
+.policy-explorer .policy-source-location code { font:11px/1.65 var(--font-code); color:var(--muted); }
+.policy-explorer .policy-source-location > span { font-size:var(--text-meta); color:var(--muted); }
+.policy-explorer .policy-code-frame { background:var(--surface); }
+.policy-explorer .source-symbol-link { color:var(--accent); background:transparent; }
+.policy-explorer .source-symbol-link:hover { background:var(--selected); }
+.policy-explorer .policy-call-links { border-color:var(--line); background:light-dark(#F8FAFC, var(--surface)); }
+.policy-explorer .policy-call-links button { color:var(--accent); border-color:var(--line); background:var(--surface); font-size:12px; }
+
+/* Stepper: number, label and status stay legible for every step. */
+.policy-practice .practice-stepper-shell { background:var(--canvas); backdrop-filter:none; }
+.policy-practice .policy-practice-steps ol { gap:8px; }
+.policy-practice .policy-practice-steps button { color:var(--text); background:var(--surface); border-color:var(--line); padding:11px 9px; gap:8px; border-radius:6px; }
+.policy-practice .policy-practice-steps button strong { font-size:12px; font-weight:600; }
+.policy-practice .policy-practice-steps button small { font-size:var(--text-meta); color:var(--muted); }
+.policy-practice .practice-step-number { display:flex; width:26px; height:26px; font:600 12px var(--font-code); background:var(--canvas); color:var(--muted); }
+.policy-practice .policy-practice-steps button[aria-current=step] { background:var(--selected); border:2px solid var(--accent); padding:10px 8px; color:var(--accent); box-shadow:none; }
+.policy-practice .policy-practice-steps button[aria-current=step] strong { font-weight:750; }
+.policy-practice .policy-practice-steps button[aria-current=step] small { color:var(--accent); font-weight:600; }
+.policy-practice .policy-practice-steps button[aria-current=step] .practice-step-number { color:light-dark(white, var(--muted)); background:var(--accent); }
+.policy-practice .policy-practice-steps button[data-state=complete] { color:var(--success); background:var(--success-bg); border-color:var(--success-border); }
+.policy-practice .policy-practice-steps button[data-state=complete] .practice-step-number { color:var(--success); background:light-dark(#DCFCE7, var(--success-bg)); }
+.policy-practice .policy-practice-steps button:disabled { color:var(--muted); background:light-dark(#F8FAFC, var(--surface)); }
+.policy-practice .practice-previous-step { border-color:var(--line); }
+.policy-practice .practice-previous-step button { color:var(--accent); font-size:12px; min-height:30px; }
+.policy-practice .policy-practice-context :is(label,p span,small) { color:var(--muted); font-size:var(--text-meta); }
+.policy-practice .policy-practice-context select { color:var(--text); border-color:var(--line); font-size:var(--text-guide); }
+.policy-practice .policy-practice-context p { font-size:var(--text-guide); }
+
+/* Debug: checkpoint title → blue stop marker → next action. */
+.policy-practice .policy-practice-station { border-color:var(--line); border-radius:var(--radius); --practice-toolbar-top:185px; scroll-margin-top:205px; }
+.policy-practice .practice-workbench-toolbar { background:var(--surface); padding:14px 16px 10px; border-color:var(--line); }
+.policy-practice .practice-action-dock { gap:16px; }
+.policy-practice .checkpoint-kicker { color:var(--muted); font-size:var(--text-meta); }
+.policy-practice .checkpoint-kicker > span { background:var(--canvas); color:var(--muted); font-size:var(--text-meta); }
+.policy-practice .practice-action-dock h3 { color:var(--text); font-size:18px; margin:6px 0; }
+.policy-practice .practice-action-dock p { font-size:var(--text-guide); color:var(--muted); line-height:1.65; }
+.checkpoint-purpose-mobile { display:none; }
+.policy-practice .practice-dock-buttons { grid-template-columns:repeat(4,102px); gap:6px; }
+.policy-practice .practice-dock-buttons .button { font-size:12px; padding:10px 7px; min-height:44px; }
+.policy-practice .practice-dock-buttons .button:disabled { color:var(--muted); background:var(--canvas); border-color:var(--line); }
+.policy-practice .checkpoint-progress { gap:8px 16px; margin:12px 0 6px; color:var(--muted); font-size:var(--text-meta); }
+.policy-practice .checkpoint-progress .checkpoint-stop { display:flex; align-items:center; flex-wrap:wrap; gap:6px; padding:7px 10px; border:1px solid var(--accent-border); border-left:3px solid var(--accent); border-radius:4px; color:var(--accent); background:var(--selected); font-size:13px; }
+.checkpoint-stop code { font:600 13px/1.6 var(--font-code); }
+.policy-practice .checkpoint-progress label { font-size:12px; flex-wrap:wrap; }
+.policy-practice .checkpoint-progress select { width:300px; padding:7px; font-size:12px; border-color:var(--line); color:var(--text); }
+.policy-practice .practice-source-handoff { border-color:var(--line); padding:8px 0; }
+.policy-practice .practice-source-handoff p { font-size:12px; color:var(--muted); }
+.policy-practice .practice-source-handoff strong { color:var(--text); }
+.policy-practice .practice-source-handoff small { color:var(--muted); font-size:var(--text-meta); }
+.policy-practice .practice-source-return button { background:var(--surface); color:var(--accent); border-color:var(--line); font-size:12px; min-height:36px; }
+.policy-practice .checkpoint-branch { color:var(--text); background:var(--selected); border-left:3px solid var(--accent); border-radius:3px; padding:8px 10px; margin-top:8px; font-size:var(--text-guide); }
+.policy-practice .checkpoint-branch strong { display:inline; color:var(--accent); font-size:var(--text-guide); }
+.policy-practice .practice-disabled-reasons { color:var(--muted); font-size:var(--text-meta); margin-top:3px; }
+.policy-practice .checkpoint-branch.is-blocked { color:var(--error); background:var(--error-bg); border-color:var(--error); }
+.policy-practice-station[data-reviewing=true] .practice-source-handoff { border-left:3px solid var(--review-border); background:var(--review-bg); padding:8px; }
+.policy-practice-station[data-reviewing=true] .practice-source-handoff small { color:var(--review); font-weight:600; }
+.policy-practice .practice-tools { background:var(--canvas); border-color:var(--line); }
+.policy-practice .practice-tools button { color:var(--muted); }
+.policy-practice .practice-tools button:hover { background:var(--surface); border-color:var(--accent-border); }
+.policy-practice .practice-tools button[aria-expanded=true] { color:var(--accent); background:var(--selected); border-color:var(--accent); }
+.policy-practice .practice-tool-tooltip { background:var(--navy); font-size:12px; }
+.policy-practice .practice-code-and-data { grid-template-columns:minmax(0,1fr) 285px; height:clamp(510px,calc(100dvh - 400px),760px); }
+.policy-practice .practice-code-and-data.variables-collapsed { grid-template-columns:minmax(0,1fr) 40px; }
+.policy-practice .practice-reader-pane .policy-explorer-bar { padding:10px 12px; }
+.policy-practice .practice-reading-modes button,
+.policy-practice .practice-reader-tree-toggle { color:var(--on-navy); background:light-dark(#1C304E, var(--selected)); border:1px solid light-dark(#59708F, var(--line)); font-size:12px; padding:6px 8px; min-height:32px; }
+.policy-practice .practice-reading-modes button[aria-pressed=true] { background:var(--surface); color:var(--accent); border-color:var(--surface); }
+.policy-practice .practice-code-legend { color:var(--muted); border-color:var(--line); background:light-dark(#F8FAFC, var(--surface)); font-size:var(--text-meta); padding:5px 12px; gap:12px; }
+.policy-practice .practice-code-legend span:first-child { color:var(--success); }
+.policy-practice .practice-code-legend span:nth-child(2),.policy-practice .practice-code-legend span:nth-child(3) { color:var(--accent); }
+.policy-practice .practice-code-legend span:nth-child(4) { color:var(--review); }
+.policy-practice .practice-code-legend small { color:var(--muted); font-size:var(--text-meta); }
+.policy-practice .practice-reader-pane .policy-source-location { padding:8px 12px; }
+.policy-practice .practice-reader-pane .policy-source-location strong { font-size:13px; }
+.policy-practice .practice-reader-pane .policy-source-location :is(code,span) { font-size:var(--text-meta); }
+.policy-practice .practice-reader-pane .practice-line-button { color:var(--muted); font:11px/25px var(--font-code); }
+.policy-practice .practice-reader-pane .practice-line-button[aria-pressed=true] { color:var(--accent); font-weight:700; }
+.policy-practice .practice-reader-pane [data-current=true] { background:var(--selected); border-left-color:var(--accent); box-shadow:inset 3px 0 var(--accent); }
+.policy-practice .practice-tree-handoff { background:var(--canvas); padding:7px; }
+.policy-practice .practice-tree-handoff button { color:var(--text); background:var(--surface); border-color:var(--line); padding:8px; font-size:11px; line-height:1.6; }
+.policy-practice .practice-tree-handoff strong { font-size:12px; color:var(--accent); }
+.policy-practice .practice-tree-handoff button:hover { border-color:var(--accent); background:var(--selected); }
+.policy-practice .policy-file-panel .file-tree { padding-top:4px; }
+.policy-practice .policy-file-panel .tree-folder { white-space:nowrap; width:max-content; min-width:100%; }
+
+/* Variables: emphasize names and the specific value that changed. */
+.policy-practice .checkpoint-variables { background:light-dark(#F8FAFC, var(--surface)); border-color:var(--line); }
+.policy-practice .checkpoint-variables > header { border-color:var(--line); min-height:65px; }
+.policy-practice .checkpoint-variables > header strong { font-size:13px; color:var(--text); }
+.policy-practice .checkpoint-variables > header small { font-size:var(--text-meta); color:var(--muted); }
+.policy-practice .checkpoint-variables > header button { color:var(--accent); border-color:var(--line); }
+.policy-practice .checkpoint-values { background:var(--surface); border-color:var(--line); padding:12px; }
+.policy-practice .checkpoint-values.is-after { background:var(--surface); border-color:var(--line); }
+.policy-practice .checkpoint-values h4 { font-size:13px; color:var(--text); }
+.policy-practice .checkpoint-value { border-color:var(--line); }
+.policy-practice .checkpoint-value code { color:var(--text); font:13px/1.8 var(--font-code); }
+.policy-practice .checkpoint-value summary > code,.policy-practice .checkpoint-scalar > code:first-child { font-weight:700; }
+.policy-practice .checkpoint-value summary { color:var(--muted); font-size:12px; }
+.policy-practice .checkpoint-scalar { font-size:13px; color:var(--muted); }
+.policy-practice .checkpoint-value.is-changed { background:var(--success-bg); border-left-color:var(--success); }
+.policy-practice .checkpoint-value em { color:var(--success); font-size:var(--text-meta); font-weight:600; }
+.policy-practice :is(.checkpoint-empty,.checkpoint-value-note) { font-size:12px; color:var(--muted); }
+.policy-practice .checkpoint-observed { background:var(--canvas); }
+.policy-practice .checkpoint-observed h5 { color:var(--muted); font-size:var(--text-meta); }
+.policy-practice .practice-context-pane { border-color:var(--line); background:light-dark(#F8FAFC, var(--surface)); }
+.policy-practice .policy-practice-guide { border-color:var(--line); background:var(--surface); }
+.policy-practice .policy-practice-guide :is(summary,dt) { color:var(--text); font-size:var(--text-guide); }
+
+/* Trace and Network keep the same states and readable controls. */
+.practice-side-panel { background:var(--surface); color:var(--text); border-color:var(--line); }
+.practice-side-panel > header { background:var(--navy); color:var(--on-navy); border-color:var(--line); padding:14px 18px; }
+.practice-side-panel > header strong { font-size:17px; }
+.practice-side-panel > header button { color:var(--text); border-color:var(--line); font-size:var(--text-guide); }
+.practice-side-panel::backdrop { background:light-dark(#101B2D66, var(--selected)); }
+.practice-execution-map > header { font-size:var(--text-guide); padding:14px 16px 6px; }
+.practice-execution-map header button { color:var(--accent); font-size:13px; min-height:36px; }
+.practice-side-panel .practice-trace-help { color:var(--muted); font-size:12px; padding:6px 16px; }
+.practice-side-panel .practice-trace-legend { font-size:12px; color:var(--success); padding:8px 16px; }
+.practice-side-panel .practice-trace-legend span:nth-child(2) { color:var(--accent); }
+.practice-side-panel .practice-trace-legend span:nth-child(3) { color:var(--review); }
+.practice-side-panel .practice-trace-legend span:last-child { color:var(--muted); }
+.practice-trace-scroll { background-color:var(--canvas); }
+.practice-side-panel .trace-step-group { border-color:var(--line); }
+.practice-side-panel .trace-group-toggle { background:light-dark(#E2E8F0, var(--surface-raised)); color:var(--text); font-size:14px; font-weight:600; }
+.practice-side-panel .trace-group-toggle small { color:var(--muted); font-size:var(--text-meta); }
+.practice-side-panel .trace-group-boundary { color:var(--muted); font-size:12px; }
+.practice-side-panel .practice-trace-node { border-color:var(--line); background:var(--surface); color:var(--text); }
+.practice-side-panel .trace-node-main b { font-size:14px; }
+.practice-side-panel .trace-node-main span { font:12px/1.6 var(--font-code); }
+.practice-side-panel .trace-node-main em { font-size:12px; }
+.practice-side-panel .trace-node-checkpoints button { color:var(--muted); background:var(--canvas); font-size:12px; padding:5px 6px; }
+.practice-side-panel .practice-trace-node.is-done { border-color:var(--success-border); background:var(--success-bg); }
+.practice-side-panel .practice-trace-node.is-skipped { opacity:1; background:var(--canvas); border-style:dashed; color:var(--muted); }
+.practice-side-panel .practice-trace-node.is-current { outline:2px solid var(--accent); background:var(--selected); color:var(--accent); }
+.practice-side-panel .grouped-trace-node.is-reviewing { border:2px solid var(--review-border); background:var(--review-bg); color:var(--review); }
+.practice-side-panel .grouped-trace-node[data-viewing=true] { box-shadow:0 0 0 2px var(--review-border); }
+.practice-side-panel .grouped-trace-node.is-current[data-viewing=true] { box-shadow:none; }
+.practice-side-panel .trace-node-checkpoints button[data-reviewing=true] { color:var(--review); background:var(--review-bg); border-left:3px solid var(--review-border); }
+.practice-side-panel .trace-node-checkpoints button[data-current=true] { color:var(--accent); background:var(--selected); border-left:3px solid var(--accent); font-weight:700; }
+.practice-side-panel .trace-edge.is-chosen > path { stroke:var(--success); }
+.practice-side-panel .trace-edge.is-chosen text { fill:var(--success); }
+.practice-side-panel .trace-edge text { fill:var(--muted); font:11px var(--font-ui); stroke:var(--canvas); }
+.practice-side-panel .policy-simulated-network > summary { background:var(--canvas); border-bottom:1px solid var(--line); padding:12px; border-radius:6px; }
+.practice-side-panel .policy-simulated-network > summary :is(span,code,strong) { font-size:13px; color:var(--text); margin-left:0; }
+.practice-side-panel .policy-simulated-network[data-state=pending] > summary strong { color:var(--accent); }
+.practice-side-panel .policy-simulated-network[data-state=pending] > summary strong::before { content:'◆ '; }
+.practice-side-panel .policy-simulated-network[data-state=complete] > summary strong { color:var(--success); }
+.practice-side-panel .policy-simulated-network[data-state=complete] > summary strong::before { content:'✓ '; }
+.practice-side-panel .policy-simulated-network[data-state=blocked] > summary strong { color:var(--error); }
+.practice-side-panel .policy-network-body { color:var(--muted); font-size:var(--text-guide); }
+.practice-side-panel .policy-network-body :is(h4,strong) { color:var(--text); }
+.practice-side-panel .policy-network-body h4 { font-size:15px; }
+.practice-side-panel .policy-network-body code { font:13px/1.8 var(--font-code); }
+
+@media(max-width:1280px) {
+  .policy-practice .practice-action-dock { flex-direction:column; }
+  .policy-practice .practice-dock-buttons { align-self:flex-end; }
+  .policy-practice .policy-practice-steps button { gap:6px; padding-inline:7px; }
+}
+@media(max-width:1000px) {
+  .policy-practice .policy-practice-station { --practice-toolbar-top:220px; scroll-margin-top:240px; }
+  .policy-practice .practice-code-and-data,.policy-practice .practice-code-and-data.variables-collapsed { display:block; height:auto; }
+}
+@media(max-width:720px) {
+  .app-shell .button { font-size:13px; }
+  .policy-practice .policy-practice-steps ol { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .policy-practice .policy-practice-steps button { padding:9px 7px; }
+  .policy-practice .policy-practice-steps button[aria-current=step] { padding:8px 6px; }
+  .policy-practice .policy-practice-steps button strong { font-size:12px; }
+  .policy-practice .practice-step-number { width:23px; height:23px; }
+  .policy-practice .policy-practice-station { --practice-toolbar-top:64px; scroll-margin-top:78px; grid-template-columns:minmax(0,1fr) 40px; }
+  .policy-practice .practice-workbench-toolbar { position:relative; padding:12px 10px; }
+  .policy-practice .practice-action-dock h3 { font-size:17px; }
+  .policy-practice .practice-action-dock p { font-size:14px; }
+  .policy-practice .checkpoint-purpose { display:none; }
+  .policy-practice .checkpoint-purpose-mobile { display:block; }
+  .checkpoint-purpose-mobile summary { color:var(--accent); font-size:13px; }
+  .policy-practice .checkpoint-kicker { gap:5px; }
+  .policy-practice .checkpoint-progress { display:flex; }
+  .policy-practice .checkpoint-progress .checkpoint-stop { width:100%; font-size:12px; }
+  .policy-practice .checkpoint-stop code { font-size:12px; overflow-wrap:anywhere; }
+  .policy-practice .checkpoint-progress select { width:100%; flex:auto; }
+  .policy-practice .checkpoint-progress label { width:100%; }
+  .policy-practice .checkpoint-progress > span { display:none; }
+  .policy-practice .practice-source-handoff { gap:7px; }
+  .policy-practice .practice-source-handoff p + p { display:none; }
+  .policy-practice .practice-dock-buttons { grid-template-columns:repeat(2,minmax(0,1fr)); background:var(--surface); border-color:var(--line); padding:8px; bottom:10px; left:12px; right:52px; }
+  .policy-practice .practice-dock-buttons .button { font-size:12px; min-height:44px; }
+  .policy-practice .practice-reader-pane { height:590px; }
+  .policy-practice .practice-reader-pane { scroll-margin-top:12px; }
+  .policy-practice .practice-reader-pane .policy-explorer-bar { padding:8px; gap:8px; }
+  .policy-practice .practice-code-controls { justify-content:flex-start; gap:8px; }
+  .policy-practice .practice-code-legend { gap:6px 10px; font-size:10px; padding:6px 8px; }
+  .policy-practice .practice-reader-pane .policy-source-location strong { font-size:12px; }
+  .policy-practice .practice-reader-pane .policy-source-location code { font-size:11px; }
+  .policy-practice .practice-reader-pane .policy-call-links button { font-size:12px; padding:7px; }
+  .policy-practice .policy-practice-boundary { font-size:11px; }
+  .practice-side-panel .practice-execution-map > header { font-size:14px; }
+  .practice-side-panel .trace-group-toggle { align-items:flex-start; }
+  .practice-side-panel .trace-group-toggle small { max-width:100px; }
+}

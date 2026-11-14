@@ -1,0 +1,223 @@
+{
+  "reviewedOn": "2026-11-13",
+  "root": "D:/ALPACA/agent-system",
+  "files": [
+    {
+      "ref": "controller",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/PolicyController.java",
+      "sha256": "4413347e8d1eeba8f5172bbaf4b0ef20cb0d0f61381366c72423f024b5b8a0d6",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "quoteFunc",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/quote/CreateQuoteFunc.java",
+      "sha256": "30f0eecfd9a03fe0635e2caa9af8f0853813b7393db55680cd1fe6331d15258f",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "func",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java",
+      "sha256": "3342695de8a59aa331a4c78a2b9f9ef21a9feb5e8b3092384e21402c95bcdcef",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "quoteRepo",
+      "path": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/repository/QuoteRepository.java",
+      "sha256": "73a21a3947a4ef2a0936d9c7059b8eb6c99f56dc5cbcc6530ef70dc3939f80a4",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "repo",
+      "path": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/repository/PolicyRepository.java",
+      "sha256": "0658993da21afd6077518059a06c0b7ffd4e608f1989c52aea793e23e96d1f4e",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "command",
+      "path": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/command/policy/CreatePolicyCommand.java",
+      "sha256": "a0557226bee025560839f91b8690ff6f26ad7c14a50cc7a6f96e7bb6548e1835",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "event",
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/event/policy/CreatePolicyEvent.java",
+      "sha256": "eed7c5ce1aa805dbe1c6245672fb3a6a73cfa058cbe92b1d409121451a277a91",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "base",
+      "path": "workspaces/1-shared/shared-webmvc/src/main/java/com/alpaca/base/BaseFunc.java",
+      "sha256": "0f87938d5debffa63981bd1071e9db98265d4668744cc0ce8a34d5355d7aca58",
+      "commit": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "modified": false
+    },
+    {
+      "ref": "baseController",
+      "path": "workspaces/1-shared/shared-base/src/main/java/com/alpaca/base/controller/BaseController.java",
+      "sha256": "4b9bb0f9f2b1cbcbcfd5fdf9094c8019ff410b078b7c7f0d8e46fdcf4d3cd0ca",
+      "commit": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "modified": false
+    },
+    {
+      "ref": "repositoryBean",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/PlatformConfig.java",
+      "sha256": "a0ed34a985d9b1a901b98052ae685fadbaaa56787e99d1dfdb5240d4ed1041e5",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "repositoryExtension",
+      "path": "workspaces/1-shared/shared-eventuate/src/main/java/com/alpaca/eventuate/sync/AggregateExtRepository.java",
+      "sha256": "1dea9473d3743cfdb0072e304a3c94707442eb37792fae19afb672c721a1b7b6",
+      "commit": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "modified": false
+    },
+    {
+      "ref": "save",
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/io/eventuate/sync/AggregateRepository.java",
+      "sha256": "a9d9d05f1e416135e8e149314f9f7c9e7d6189b099143b45d22b750e5cc087c7",
+      "commit": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "modified": false
+    },
+    {
+      "ref": "dispatch",
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/ReflectiveMutableCommandProcessingAggregate.java",
+      "sha256": "ef99bd27f74a27fcdde8cb94d4e43295e7c9068ed7676a85bf00fd245d770205",
+      "commit": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "modified": false
+    },
+    {
+      "ref": "applyLoop",
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/Aggregates.java",
+      "sha256": "fe4b408bcd1e843deddd8f8a6d796538174f316000a1145f4aefc0eb3eee45c6",
+      "commit": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "modified": false
+    },
+    {
+      "ref": "jdbcWrite",
+      "path": "workspaces/1-shared/shared-event-sourcing/src/main/java/com/eventsourcing/common/jdbc/impl/EventuateJdbcAccessImpl.java",
+      "sha256": "32ebd157f72884263d1816c7445426f2e35f0fc483ed185dfdca5a5685b394cc",
+      "commit": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "modified": false
+    },
+    {
+      "ref": "aggregate",
+      "path": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/domain/PolicyAggregate.java",
+      "sha256": "382308e0f29c3f16252bd3ccae818a7852d6ed00112a069560af92ebfd362d1c",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "quoteAggregate",
+      "path": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/domain/QuoteAggregate.java",
+      "sha256": "ca62bcdb1b00f9fe65ab1fc4fdee31936a278d746fd485091e9fdb8e751bd590",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "quoteController",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/controller/QuoteController.java",
+      "sha256": "697cce6c3636a6d01146d7bc0d64d8beaf4053e95060b60a2d439955f61602a9",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "quoteRequest",
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/request/quote/CreateQuoteRequest.java",
+      "sha256": "deeb88eb55d121a20f034f9621662eb5797e91d3ce8da7c2b3fed1ebdacba40f",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "quoteCommand",
+      "path": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/command/quote/CreateQuoteCommand.java",
+      "sha256": "32dca4769af9ad7f4e2eadbe274f99d0490f1f1f10e0926ab844d00f3c714bcf",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "quoteEvent",
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/event/quote/CreateQuoteEvent.java",
+      "sha256": "6039a3a97a771ed7805cc70b6bfb26cc5b1bcd4476655eec5cab48aa03635149",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "quoteRead",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/function/quote/FindQuoteByIdFunc.java",
+      "sha256": "b0178e66bab89457a85d6d8c5197aa3fc2932c30e3dee436ea0a18b4caad45ba",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "quoteMarker",
+      "path": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/command/IQuoteCommand.java",
+      "sha256": "192700c99efbc3abdb45eec199dca0a4f980bff201228390b2d6175e4d24fb73",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "quoteEventBase",
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/event/base/BaseQuoteEvent.java",
+      "sha256": "30f8b38da4514295166934653726639356609aa3e567926834346f7ed71d836d",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "baseEvent",
+      "path": "workspaces/1-shared/shared-base/src/main/java/com/alpaca/base/BaseEvent.java",
+      "sha256": "06ba523e0071c3c9253e585b94e2ab7bf89ea13f8cf3d7b557a2ab138cf4631f",
+      "commit": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "modified": false
+    },
+    {
+      "ref": "status",
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/constant/PolicyStatus.java",
+      "sha256": "3cc9a3531767d99cdee17317c9955a5b8e147df92f299fca53edbce17bee98ed",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "syncStatus",
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/constant/SyncPolicyStatus.java",
+      "sha256": "5a1ca11d22873bf8a62d88f15826b32e55ccc791f979510aa2486a0a05e1bf14",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "marker",
+      "path": "workspaces/agent-service/4-agent-shared-domain/src/main/java/com/alpaca/agent/command/IPolicyCommand.java",
+      "sha256": "3ec74faab330919b1dc6edfc5217c53aec87f6bf092c6c97013693fa056df6dc",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "eventBase",
+      "path": "workspaces/agent-service/agent-shared/src/main/java/com/alpaca/agent/event/base/BasePolicyEvent.java",
+      "sha256": "4b6adcb90f408893a9c5483e96e1ca60296617b89580564da1482c4d30b77107",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    },
+    {
+      "ref": "libra",
+      "path": "workspaces/1-shared/shared-eventuate/src/main/java/com/eventuate/domain/LibraAggregate.java",
+      "sha256": "33c69f4a6b4d6ac7cc201f95bcce75f14c726188cd38924b0c7ad791daffbc81",
+      "commit": "4f500160a4935cb6e6575a436fb005306dd9fee0",
+      "modified": false
+    },
+    {
+      "ref": "rabbit",
+      "path": "workspaces/agent-service/1-agent-command-service/src/main/java/com/alpaca/agent/config/RabbitTemplateConfig.java",
+      "sha256": "907b43e05698be4394ed641b9ba7b97af57bf9b452e6e6428068d93fbb6a83a7",
+      "commit": "4fa8356f94b7a2fb8de95c43070fe7c5e1dd1fbc",
+      "modified": false
+    }
+  ]
+}

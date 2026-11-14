@@ -1,0 +1,111 @@
+/* Only the six-step Policy reader consumes this persisted theme. */
+.practice-theme-toggle { display:inline-flex; gap:2px; padding:2px; border:1px solid light-dark(#59708F, var(--line)); border-radius:5px; }
+.practice-source-scope,.practice-appearance-controls { display:flex; align-items:center; gap:8px; }
+.practice-theme-toggle button { display:inline-flex; align-items:center; justify-content:center; gap:5px; min-height:30px; padding:4px 7px; border:1px solid transparent; border-radius:3px; background:transparent; color:light-dark(#E2E8F0, var(--muted)); font-size:12px; }
+.practice-theme-toggle button[aria-pressed=true] { color:var(--accent); background:light-dark(white, var(--surface)); }
+.practice-theme-toggle button:hover:not([aria-pressed=true]) { background:light-dark(#3A4D69, var(--selected)); }
+
+/* Keep a single sticky checkpoint bar above the reading area. */
+body:has(.policy-practice) { overflow-anchor:none; }
+.policy-practice .practice-stepper-shell { position:relative; top:auto; z-index:auto; }
+.policy-practice .policy-practice-station { position:relative; --practice-toolbar-top:8px; --checkpoint-toolbar-height:88px; scroll-margin-top:24px; overflow-anchor:none; }
+.policy-practice .practice-workbench-toolbar { position:sticky; top:var(--practice-toolbar-top); padding:10px 12px; z-index:10; border-radius:8px 0 0 0; box-shadow:0 2px 5px light-dark(#0F172A0A, #00000040); }
+.policy-practice .checkpoint-summary { display:grid; grid-template-columns:minmax(0,1fr) auto auto; align-items:center; gap:10px; }
+.checkpoint-summary-copy { min-width:0; }
+.policy-practice .checkpoint-summary h3 { margin:0 0 4px; font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.checkpoint-positions { display:flex; flex-wrap:wrap; gap:3px 12px; font-size:11px; line-height:1.7; color:var(--accent); }
+.checkpoint-positions > span { display:inline-flex; align-items:baseline; gap:4px; min-width:0; }
+.checkpoint-positions code { font:11px/1.7 var(--font-code); overflow-wrap:anywhere; }
+.checkpoint-positions .is-reviewing { color:var(--review); }
+.checkpoint-positions .is-stopped { color:var(--accent); }
+.policy-practice .practice-dock-buttons { grid-template-columns:repeat(4,98px); align-self:center; }
+.policy-practice .practice-dock-buttons .button { min-height:40px; padding:8px 5px; }
+.checkpoint-details-toggle { display:flex; align-items:center; justify-content:center; gap:5px; min-height:40px; padding:7px 9px; border:1px solid var(--line); border-radius:5px; color:var(--muted); background:var(--surface); font-size:12px; white-space:nowrap; }
+.checkpoint-details-toggle[aria-expanded=true] svg { transform:rotate(180deg); }
+.checkpoint-details-toggle:hover { background:var(--selected); color:var(--accent); border-color:var(--accent-border); }
+.checkpoint-details { margin-top:10px; padding-top:10px; border-top:1px solid var(--line); max-height:min(330px,38dvh); overflow:auto; overscroll-behavior:contain; scrollbar-gutter:stable; }
+.checkpoint-details[hidden] { display:none; }
+.checkpoint-description { color:var(--muted); font-size:14px; margin:6px 0 10px; line-height:1.65; }
+.policy-practice .checkpoint-details .checkpoint-progress { margin-top:8px; }
+.policy-practice .practice-reader-pane { scroll-margin-top:calc(var(--practice-toolbar-top) + var(--checkpoint-toolbar-height) + 12px); }
+.policy-practice .practice-tools-sticky { top:calc(var(--practice-toolbar-top) + var(--checkpoint-toolbar-height) + 12px); }
+.policy-practice .practice-code-and-data { height:clamp(380px,calc(100dvh - var(--checkpoint-toolbar-height) - 32px),900px); }
+.practice-reader-pane [data-viewing=true]:not([data-current=true]) .practice-line-button { color:var(--review); }
+
+.policy-practice-station[data-code-theme=dark] .practice-code-and-data {
+  color-scheme:dark;
+  --surface:#1E1F22;
+  --canvas:#2B2D30;
+  --text:#E0E2E7;
+  --muted:#A9AFB9;
+  --line:#4B4E55;
+  --accent:#82B1FF;
+  --accent-border:#568BDE;
+  --selected:#243C59;
+  --success:#98D2A1;
+  --success-bg:#20392A;
+  --success-border:#4C865B;
+  --review:#F2C775;
+  --review-bg:#443823;
+  --review-border:#DCA545;
+  --focus:#88B5FF;
+  background:var(--surface); color:var(--text);
+}
+.policy-practice-station[data-code-theme=dark] :is(.policy-file-panel,.checkpoint-variables,.practice-tree-handoff,.policy-source-location,.practice-code-legend,.policy-call-links) { background:var(--canvas); color:var(--muted); border-color:var(--line); }
+.policy-practice-station[data-code-theme=dark] .policy-explorer-bar { background:#2B2D30; border-color:var(--line); }
+.policy-practice-station[data-code-theme=dark] .checkpoint-values,
+.policy-practice-station[data-code-theme=dark] .checkpoint-values.is-after { background:var(--surface); border-color:var(--line); }
+.policy-practice-station[data-code-theme=dark] :is(.practice-tree-handoff button,.checkpoint-variables > header button,.policy-call-links button) { background:#35373C; color:var(--text); border-color:var(--line); }
+.policy-practice-station[data-code-theme=dark] :is(.practice-tree-handoff strong,.source-symbol-link,.practice-line-button[aria-pressed=true]) { color:var(--accent); }
+.policy-practice-station[data-code-theme=dark] .practice-reading-modes button,
+.policy-practice-station[data-code-theme=dark] .practice-reader-tree-toggle { background:#35373C; border-color:#687180; color:#E0E2E7; }
+.policy-practice-station[data-code-theme=dark] .practice-reading-modes button[aria-pressed=true] { background:#E0E2E7; color:#152C4B; border-color:#E0E2E7; }
+.policy-practice-station[data-code-theme=dark] .practice-theme-toggle { border-color:#687180; }
+.policy-practice-station[data-code-theme=dark] .practice-theme-toggle button[aria-pressed=true] { background:#E0E2E7; color:#152C4B; }
+.policy-practice-station[data-code-theme=dark] .tree-file.selected { background:var(--selected); border-color:var(--accent-border); color:#C3D9FF; }
+.policy-practice-station[data-code-theme=dark] .checkpoint-object { border-color:var(--line); }
+.policy-practice-station[data-code-theme=dark] .checkpoint-value.is-changed { background:var(--success-bg); border-left-color:var(--success); }
+.policy-practice-station[data-code-theme=dark] [data-testid=code-scroll] { background:#1E1F22; color:#BCBEC4; }
+.policy-practice-station[data-code-theme=dark] .practice-code-legend span:nth-child(4) { color:var(--review); }
+.policy-practice-station[data-code-theme=dark] .practice-line-button { color:#A9AFB9; }
+.policy-practice-station[data-code-theme=dark] :is(.tree-folder,.tree-file):hover { background:#353E4D; }
+.policy-practice-station[data-code-theme=dark] .practice-tree-handoff button:hover { background:var(--selected); border-color:var(--accent); }
+
+@media(max-width:1180px) {
+  .policy-practice .checkpoint-summary { grid-template-columns:minmax(0,1fr) auto; gap:8px; }
+  .policy-practice .practice-dock-buttons { grid-column:1/-1; grid-row:2; grid-template-columns:repeat(4,minmax(0,1fr)); width:100%; }
+  .checkpoint-positions .checkpoint-method { display:none; }
+}
+@media(max-width:1000px) {
+  .policy-practice .practice-code-and-data { display:block; height:auto; }
+}
+@media(max-width:720px) {
+  .policy-practice .policy-practice-station { --practice-toolbar-top:0px; scroll-margin-top:12px; }
+  .policy-practice .practice-workbench-toolbar { padding:8px; position:sticky; }
+  .policy-practice .checkpoint-summary { gap:7px; }
+  .policy-practice .checkpoint-summary h3 { font-size:13px; margin:0 0 3px; }
+  .checkpoint-positions { flex-wrap:nowrap; gap:8px; font-size:11px; }
+  .checkpoint-positions .checkpoint-position-label { font-size:0; }
+  .checkpoint-positions .checkpoint-position-label::before { content:'Xem'; font-size:11px; }
+  .checkpoint-positions .is-stopped .checkpoint-position-label::before { content:'Dừng'; }
+  .checkpoint-positions code { font-size:11px; }
+  .checkpoint-details-toggle { gap:3px; padding:5px; min-height:40px; font-size:11px; }
+  .policy-practice .practice-dock-buttons { position:static; margin:0; padding:0; border:0; box-shadow:none; background:transparent; grid-template-columns:repeat(4,minmax(0,1fr)); gap:4px; }
+  .policy-practice .practice-dock-buttons .button { min-height:44px; font-size:11px; padding:6px 2px; gap:2px; }
+  .practice-dock-buttons .button > span[aria-hidden] { display:none; }
+  .checkpoint-details { max-height:28dvh; padding-top:8px; margin-top:8px; }
+  .policy-practice .checkpoint-details .practice-source-handoff p + p { display:block; }
+  .policy-practice .checkpoint-details .checkpoint-progress > span { display:block; }
+  .policy-practice .checkpoint-details .checkpoint-progress label { font-size:12px; }
+  .policy-practice .practice-reader-pane { height:clamp(330px,calc(100dvh - var(--checkpoint-toolbar-height) - 24px),720px); }
+  .policy-practice .practice-code-controls { gap:8px; }
+  .practice-source-scope { gap:6px; }
+  .policy-practice .practice-source-scope .practice-reader-tree-toggle { padding:6px; font-size:11px; white-space:nowrap; }
+  .policy-practice .practice-reading-modes { flex-wrap:nowrap; }
+  .policy-practice .practice-reading-modes button { font-size:11px; padding:6px; }
+  .policy-practice .practice-reader-pane .policy-call-links { flex-wrap:nowrap; overflow-x:auto; padding:6px; }
+  .policy-practice .practice-reader-pane .policy-call-links button { flex-shrink:0; max-width:none; white-space:nowrap; }
+  .policy-practice .practice-code-controls label { font-size:12px; }
+  .policy-practice .practice-code-and-data .practice-theme-toggle button { min-height:32px; padding:5px 7px; }
+  .policy-practice { padding-bottom:24px; }
+}

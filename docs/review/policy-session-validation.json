@@ -1,0 +1,39 @@
+{
+  "reviewedOn": "2026-11-12",
+  "scope": "Workshop simulation: direct issuance from a saved Quote",
+  "backendSourceModified": false,
+  "businessBackendExecuted": false,
+  "build": {"command": "npm.cmd run build", "exitCode": 0, "typecheck": "passed"},
+  "fixtureIntegrity": {"command": "npm.cmd run verify:fixtures", "files": 47, "exitCode": 0},
+  "sourceAudit": {"command": "node scripts/verify-policy-session-source.mjs --root D:\\ALPACA\\agent-system", "references": 28, "refreshedSnapshots": ["SearchPolicyFunc.java"], "exitCode": 0},
+  "browser": {
+    "uniqueRelatedScenariosValidated": 63,
+    "initialRegression": {"passed": 62, "failed": 1, "issue": "New session entry row displaced overview nodes at 1366x768", "resolution": "Placed session entry on the existing learning-mode row"},
+    "affectedRerun": {"specs": ["policy-assembly-layout.spec.ts", "policy-issuance-overview.spec.ts", "policy-session.spec.ts"], "passed": 19, "failed": 0},
+    "finalSessionRun": {"command": "npx.cmd playwright test tests/browser/policy-session.spec.ts", "passed": 8, "failed": 0},
+    "regressionSpecs": ["policy-session.spec.ts", "policy-implementation-practice.spec.ts", "policy-implementation-navigation.spec.ts", "policy-pattern-workspace.spec.ts", "policy-assembly.spec.ts", "policy-assembly-learning.spec.ts", "policy-assembly-layout.spec.ts", "policy-assembly-affordances.spec.ts", "policy-issuance-overview.spec.ts", "policy-list.spec.ts", "policy-detail.spec.ts"]
+  },
+  "acceptance": {
+    "surveyLeavesChangedFilesEmpty": "passed",
+    "firstApplyCreatesOneFileAndModifiesOneFile": "passed",
+    "everyPatchMustBeViewedBeforeApply": "passed",
+    "repeatApplyDoesNotDuplicateChanges": "passed",
+    "aggregateTwoRoundsCountAsOneModifiedFile": "passed",
+    "funcFourRoundsCountAsOneAddedFile": "passed",
+    "historicalSnapshotBeforeSaveRetainsAppliedProgress": "passed",
+    "reviewFileShowsAllRoundsReasonsSourceAndTrials": "passed",
+    "singleStepDrilldownAndReturnPreserveSession": "passed",
+    "validMissingAndBlockedQuoteFixtures": "passed",
+    "pendingViewAndSuccessfulReadIdFixtures": "passed",
+    "reloadResetAndUnappliedDeepLinks": "passed",
+    "desktopMobileLightDarkLayout": "passed"
+  },
+  "simulatedFiles": [
+    {"status": "A", "file": "1-agent-command-service/src/main/java/com/alpaca/agent/function/policy/CreatePolicyFunc.java", "rounds": [3, 5, 6, 9]},
+    {"status": "M", "file": "1-agent-command-service/src/main/java/com/alpaca/agent/controller/PolicyController.java", "rounds": [3]},
+    {"status": "M", "file": "4-agent-shared-domain/src/main/java/com/alpaca/agent/domain/PolicyAggregate.java", "rounds": [7, 8]},
+    {"status": "M", "file": "2-agent-flow-service/src/main/java/com/alpaca/agent/workflow/PolicyWorkflow.java", "rounds": [10]}
+  ],
+  "simulatedResults": ["entry-valid", "entry-missing", "entry-blocked", "pending", "success", "read-id"],
+  "artifacts": {"ide": "policy-session-ide.png", "review": "policy-session-review.png", "links": "policy-session-links.json", "sourceAudit": "policy-session-source-audit.json", "additionalImages": "policy-session-{ide,review}-{desktop,mobile}-{light,dark}.png"}
+}

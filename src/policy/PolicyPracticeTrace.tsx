@@ -1,70 +1,75 @@
-import { Background, MarkerType, Position, ReactFlow } from '@xyflow/react';
-import type { Edge } from '@xyflow/react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { practiceSteps } from './create-practice';
-import type { practiceContext } from './create-practice';
-import type { SourceLocation } from './source-reading';
-import '@xyflow/react/dist/style.css';
+import type { ExecutionSession } from './policy-execution';
+import { arrowLabel, branchSelected, mainTraceNodes, traceNodeState } from './practice-trace-model';
 
-type Point={id:string;label:string;note:string;location?:SourceLocation;done?:boolean;blocked?:boolean;next?:boolean;via?:string};
-export function PolicyPracticeTrace({node,context,mode,onMode,onStep,onInspect,expected}:{
- node:string;context:ReturnType<typeof practiceContext>;mode:'compact'|'deep'|'hidden';onMode:(mode:'compact'|'deep'|'hidden')=>void;
- onStep:(id:string)=>void;onInspect:(location:SourceLocation,available:boolean)=>void;expected:SourceLocation;
-}) {
- const ctx=context;const index=practiceSteps.findIndex(s=>s.id===node);
- let points:Point[]=[];
- if(node==='quote')points=[
-  {id:'screen',label:'Chi tiết Quote',note:ctx.quote.id,done:true},
-  {id:'request',label:'POST /policy/create/{quoteId}',note:'Network mô phỏng · body trống',done:ctx.hasRequest},
-  {id:'controller',label:'Controller nhận quoteId',note:'PolicyController.createPolicy · L45',location:{ref:'create-api',line:45},done:ctx.backendOpen},
-  {id:'exec',label:'Gọi CreatePolicyFunc.exec',note:'Chuyển từ controller sang function',location:{ref:'create-check',line:61},done:ctx.reached>0||ctx.level>0},
- ];
- if(node==='validate'){
-  points=ctx.quote.missing&&ctx.reached>0?[
-   {id:'read',label:'findById · L61',note:'Đọc Quote theo ID',location:{ref:'create-check',line:61},done:true},
-   {id:'empty',label:'Quote rỗng',note:'optional.isEmpty() · L62',location:{ref:'create-check',line:62},done:ctx.reached>=2},
-   {id:'stop',label:'Dừng · L63',note:'Không tới runInternal',location:{ref:'create-check',line:63},blocked:ctx.failed,done:ctx.failed},
-  ]:[
-   {id:'read',label:'findById · L61',note:'Đọc Quote theo ID',location:{ref:'create-check',line:61},done:ctx.reached>=1},
-   {id:'optional',label:ctx.reached>=1?'Có Quote':'optional chưa gán',note:'Kiểm tra rỗng · L62',location:{ref:'create-check',line:62},done:ctx.reached>=2},
-   {id:'get',label:'optional.get() · L66',note:'Lấy quoteAggregate',location:{ref:'create-check',line:66},done:ctx.reached>=3},
-   {id:'call',label:'Lời gọi · L67',note:'() → runInternal(quoteAggregate)',location:{ref:'create-check',line:67},done:ctx.reached>=4},
-   {id:'enter',label:'Vào runInternal · L70',note:'Truyền Quote trong cùng file',location:{ref:'create-check',line:70},done:ctx.reached>=5,via:'Gọi hàm trong cùng file'},
-   {id:'duplicate',label:'Tìm Policy trùng · L74',note:'Cùng quoteCode, status 0/100',location:{ref:'create-check',line:74},done:ctx.reached>=6},
-   {id:'objects',label:'Đọc đối tượng · L75',note:'QUOTE · deleted=false',location:{ref:'create-check',line:75},done:ctx.reached>=7},
-   {id:'guard',label:ctx.failed?'Dừng · L77':'Kiểm tra trùng · L76',note:ctx.failed?'Đã có Policy 0/100':ctx.level>=1?'Đủ điều kiện → dựng command':'Rẽ nhánh tiếp tục / dừng',location:{ref:'create-check',line:ctx.failed?77:76},done:ctx.reached>=8,blocked:ctx.failed},
-  ];
+const labels:Record<string,string>={pending:'Chưa đi qua',done:'Đã đi qua',current:'Đang dừng',reviewing:'Đang xem lại',blocked:'Dừng do lỗi',skipped:'Nhánh chưa chọn',unknown:'Chưa xác định'};
+export function PolicyPracticeTrace({session:s,onInspect,onStop}:{session:ExecutionSession;onInspect:(id:string,line?:number)=>void;onStop:()=>void}){
+ const [opened,setOpened]=useState(()=>new Set([s.stop.stage,s.view.stage]));
+ const [focusStage,setFocusStage]=useState(s.view.stage);
+ const [viewedNode,setViewedNode]=useState(()=>mainTraceNodes.find(n=>!n.branch&&n.ids.includes(s.view.id))!.id);
+ const [revealTarget,setRevealTarget]=useState({id:s.view.id,request:0});
+ const scroll=useRef<HTMLDivElement>(null),marker=useId().replaceAll(':','');
+ // Keep neighbouring previews stable while inspecting: replacing them on every
+ // selection would move nodes above the reader and change the diagram scroll.
+ const active=practiceSteps.findIndex(x=>x.id===focusStage);
+ useEffect(()=>{
+   let frame=0,attempts=0;
+   const reveal=()=>{
+     const container=scroll.current;
+     const node=mainTraceNodes.find(n=>!n.branch&&n.ids.includes(revealTarget.id))!;
+     const target=container?.querySelector<HTMLElement>(`[data-testid="trace-node-${node.id}"]`);
+     const checkpoint=target?.querySelector<HTMLElement>(`button[data-checkpoint-id="${revealTarget.id}"]`);
+     // The child mounts before showModal() runs; wait for both the dialog and
+     // expanded group to have a layout. Never scroll any ancestor of the diagram.
+     if(!container?.clientHeight||!target?.offsetHeight||!checkpoint?.offsetHeight){if(attempts++<60)frame=requestAnimationFrame(reveal);return;}
+     const bounds=container.getBoundingClientRect(),nodeBounds=target.getBoundingClientRect(),pointBounds=checkpoint.getBoundingClientRect();
+     const area=nodeBounds.height<=container.clientHeight-32?nodeBounds:pointBounds;
+     container.scrollTo({top:container.scrollTop+area.top-bounds.top-(container.clientHeight-area.height)/2,
+       left:Math.max(0,container.scrollLeft+area.left-bounds.left-16),behavior:'instant'});
+   };
+   frame=requestAnimationFrame(reveal);
+   return ()=>cancelAnimationFrame(frame);
+ },[revealTarget]);
+ function inspect(node:string,id:string,line?:number){setViewedNode(node);onInspect(id,line);}
+ function returnToStop(){
+   setOpened(old=>new Set([...old,s.stop.stage]));setFocusStage(s.stop.stage);
+   setViewedNode(mainTraceNodes.find(n=>!n.branch&&n.ids.includes(s.stop.id))!.id);
+   setRevealTarget(old=>({id:s.stop.id,request:old.request+1}));onStop();
  }
- if(node==='map')points=[
-  {id:'quote',label:'Giá trị trên Quote',note:ctx.quote.quoteCode,done:ctx.level>=1},
-  {id:'mapping',label:'Ánh xạ / tính / sinh',note:`${expected.ref} · L${expected.line}`,location:expected,done:ctx.level>=2},
-  {id:'command',label:'CreatePolicyCommand',note:'Giá trị sắp ghi · chưa có Policy ID',done:ctx.level>=2},
- ];
- if(node==='save')points=[
-  {id:'call',label:'save(command) · L115',note:'CreatePolicyFunc',location:{ref:'create-data',line:115},done:ctx.commandReady},
-  {id:'apply',label:'process → event → apply',note:'PolicyAggregate · L328–339',location:{ref:'create-apply',line:329},done:ctx.commandReady},
-  {id:'jpa',label:'Gắn ID, JPA save',note:'EventuateJdbcAccessImpl · L126',location:{ref:'store-save',line:126},done:ctx.commandReady},
-  {id:'objects',label:'Tạo đối tượng POLICY',note:'createContractCode · L256',location:{ref:'create-quote',line:256},done:ctx.commandReady},
-  {id:'quote',label:'Liên kết Policy trên Quote',note:'PublishedQuoteCommand · L233',location:{ref:'create-quote',line:233},done:ctx.commandReady},
-  {id:'result',label:'Policy ID vừa tạo',note:ctx.commandReady?ctx.policy.id:'Chưa ghi mô phỏng',done:ctx.commandReady},
- ];
- if(node==='flow')points=[
-  {id:'event',label:'CreatePolicyEvent',note:'Đã tạo ở Command',location:{ref:'create-apply',line:329},done:ctx.commandReady},
-  {id:'handler',label:'Flow nhận event',note:'PolicyWorkflow · L27',location:{ref:'flow-create',line:27},done:ctx.viewReady,via:'Qua event'},
-  {id:'read',label:'Executor đọc Command',note:'PolicySyncViewFunc · L41',location:{ref:'flow-view',line:41},done:ctx.viewReady},
-  {id:'write',label:'Ghi Policy View',note:'policyViewRepository.save · L56',location:{ref:'flow-view',line:56},done:ctx.viewReady},
-  {id:'realtime',label:'Queue thông báo realtime',note:'/topic/sync-policy-view/{id}',location:{ref:'flow-view',line:58},done:ctx.viewReady},
-  {id:'query',label:'Query đọc view',note:'Danh sách trước / sau checkpoint',location:{ref:'q-source',line:114},done:ctx.viewReady},
- ];
- if(node==='result')points=[
-  {id:'ui',label:'Tìm / mở theo ID',note:'Hai đường đọc độc lập',done:true},
-  {id:'query',label:'POST /policy/search',note:'Query → Policy View',location:{ref:'q-source',line:114},done:ctx.viewReady},
-  {id:'detail',label:'GET /policy/{id}',note:'Command → aggregate / đối tượng',location:{ref:'c-find',line:32},done:ctx.commandReady},
-  {id:'id',label:'Đối chiếu cùng policyId',note:ctx.commandReady?ctx.policy.id:'Chưa tạo',done:ctx.commandReady},
- ];
- const compact=mode!=='deep';
- const graph=compact?practiceSteps.map((s,i)=>({id:s.id,position:{x:i*188,y:0},sourcePosition:Position.Right,targetPosition:Position.Left,className:`practice-trace-node ${node===s.id?'is-current':''} ${ctx.complete[i]?'is-done':''}`,style:{width:170},data:{label:<><b>{i+1}. {s.title}</b><small>{ctx.complete[i]?'Đã qua':node===s.id?'Đang xem':'Chưa tới'}</small></>}})):
- points.map((p,i)=>({id:p.id,position:node==='result'?{x:i===0?0:i===3?680:340,y:i===1?0:i===2?110:55}:{x:(i<4?i:7-i)*260,y:i<4?0:118},sourcePosition:node==='result'?Position.Right:i===3?Position.Bottom:i<3?Position.Right:Position.Left,targetPosition:node==='result'?Position.Left:i===4?Position.Top:i<4?Position.Left:Position.Right,className:`practice-trace-node ${p.done?'is-done':''} ${p.blocked?'is-blocked':''} ${p.location?.ref===expected.ref&&p.location.line===expected.line?'is-current':''}`,style:{width:196},data:{label:<><b>{p.label}</b><small>{p.note}</small></>}}));
- const pairs=compact?practiceSteps.slice(1).map((s,i)=>({source:practiceSteps[i].id,target:s.id,label:undefined as string|undefined,done:ctx.complete[i],blocked:false})):node==='result'?[{source:'ui',target:'query',label:'Danh sách',done:ctx.viewReady},{source:'ui',target:'detail',label:'Trực tiếp theo ID',done:ctx.commandReady},{source:'query',target:'id',done:ctx.viewReady},{source:'detail',target:'id',done:ctx.commandReady}]:points.slice(1).map((p,i)=>({source:points[i].id,target:p.id,label:p.via??(p.blocked?'Bị chặn':p.done?'Đang đi':undefined),done:p.done,blocked:p.blocked}));
- const edges:Edge[]=pairs.map((p,i)=>({id:String(i),...p,type:'smoothstep',markerEnd:{type:MarkerType.ArrowClosed},style:{stroke:'blocked'in p&&p.blocked?'#bd7864':p.done?'#318b81':'#afc6d0',strokeDasharray:p.done?undefined:'5 4'},labelStyle:{fontSize:10},labelBgPadding:[4,3]}));
- return <section className={`practice-execution-map is-${mode}`} aria-label="Sơ đồ theo dõi thực thi"><header><span>{mode==='hidden'?'Sơ đồ đang thu':mode==='deep'?`Đường đi trong bước ${index+1}`:'Theo dõi sáu chặng'}</span><div><button type="button" onClick={()=>onMode(mode==='deep'?'compact':'deep')}>{mode==='deep'?'Thu về sáu chặng':`Mở chi tiết chặng ${index+1}`}</button><button type="button" onClick={()=>onMode(mode==='hidden'?'compact':'hidden')}>{mode==='hidden'?'Hiện sơ đồ':'Thu sơ đồ để đọc code'}</button></div></header>{mode!=='hidden'&&<div className="practice-trace-canvas"><ReactFlow key={`${mode}:${node}:${ctx.quote.missing&&ctx.reached>0}`} nodes={graph} edges={edges} onNodeClick={(_,n)=>{if(compact)onStep(n.id);else{const p=points.find(p=>p.id===n.id)!;if(p.location)onInspect(p.location,Boolean(p.done));}}} fitView fitViewOptions={{padding:.06}} minZoom={.3} maxZoom={1.4} nodesDraggable={false} nodesConnectable={false} zoomOnScroll={false} panOnDrag proOptions={{hideAttribution:true}}><Background gap={20} size={1}/></ReactFlow></div>}</section>;
+ return <section className="practice-execution-map" aria-label="Sơ đồ theo dõi thực thi"><header><strong>Đoạn đang xem · sáu nhóm checkpoint</strong><div><button type="button" onClick={()=>setOpened(opened.size===6?new Set([s.view.stage]):new Set(practiceSteps.map(x=>x.id)))}>{opened.size===6?'Thu gọn về bước đang xem':'Xem toàn tuyến'}</button><button type="button" onClick={returnToStop}>Điểm đang dừng</button></div></header>
+ <p className="practice-trace-help">Mở nhóm để xem các node chính. Bấm node/checkpoint chỉ đổi điểm đang xem. Điểm đang dừng đưa sơ đồ, code và biến về cùng mốc.</p><div className="practice-trace-legend"><span>✓ Đã đi qua</span><span>◆ Đang dừng</span><span>● Đang xem lại</span><span>Nhánh chưa chọn / chưa xác định</span></div>
+ <div className="practice-trace-scroll" ref={scroll} tabIndex={0} aria-label="Cuộn luồng thực thi">{practiceSteps.map((step,i)=>{
+   const expanded=opened.has(step.id),group=mainTraceNodes.filter(n=>n.stage===step.id);
+   const preview=group.filter(n=>!n.branch&&(i===active-1?n===group.filter(x=>!x.branch).at(-1):i===active+1?n===group[0]:false));
+   const nodes=expanded?group:preview;
+   let y=18;const positions=new Map<string,{x:number;y:number;w:number;h:number}>();
+   // Reserve room for readable labels and wrapped checkpoint buttons.
+   nodes.forEach(n=>{if(n.branch)return;const h=128+n.ids.length*50;positions.set(n.id,{x:14,y,w:278,h});y+=h+42;});
+   nodes.filter(n=>n.branch).forEach(n=>{const parent=positions.get(n.parent!);if(parent){const offset=n.branch==='organization'||n.branch==='status-1'?186:n.branch==='status100'?330:42;positions.set(n.id,{x:334,y:parent.y+offset,w:222,h:132});}});
+   const height=Math.max(0,...[...positions.values()].map(p=>p.y+p.h+30));
+   const main=nodes.filter(n=>!n.branch);
+   const pairs=[...main.slice(1).map((n,j)=>({from:main[j],to:n})),...nodes.filter(n=>n.branch).map(n=>({from:group.find(x=>x.id===n.parent)!,to:n}))];
+   return <section key={step.id} className="trace-step-group" data-testid={`trace-group-${step.id}`}>
+    <button type="button" className="trace-group-toggle" aria-expanded={expanded} onClick={()=>setOpened(old=>{const next=new Set(old);next.has(step.id)?next.delete(step.id):next.add(step.id);return next;})}><span>{expanded?'▾':'▸'} Bước {i+1} · {step.title}</span><small>{s.stop.stage===step.id?'Đang dừng tại đây':s.context.complete[i]?'Đã qua':'Mở để theo dõi'}</small></button>
+    {i>0&&nodes.length>0&&<p className={`trace-group-boundary ${step.id==='flow'?'via-event':''}`}>{step.id==='validate'?'↓ Gọi method · Controller L45 → CreatePolicyFunc.exec L61':step.id==='map'?(s.done.has('duplicate-guard')?(s.context.quote.blocked?'Có Policy trùng · dừng L77':'↓ Không có Policy trùng · runInternal L76 → L80'):'↓ Chưa xác định · chỉ tới L80 nếu qua điều kiện L76'):step.id==='save'?'↓ Từ command → Gọi ghi ở L115':step.id==='flow'?'↓ Qua event · CreatePolicyEvent L329 → PolicyWorkflow L24 (không phải lời gọi sau HTTP response)':'↓ Người dùng thực hiện tra cứu · cùng Policy ID'}</p>}
+    {nodes.length>0&&<div className="trace-group-canvas" style={{height}}><svg className="practice-trace-edges" width="580" height={height} aria-label={`Mũi tên trong bước ${i+1}`}><defs><marker id={`${marker}-${i}`} markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="var(--accent-border)"/></marker></defs>{pairs.map(({from,to})=>{
+      const a=positions.get(from.id),b=positions.get(to.id);if(!a||!b)return null;
+      const branch=Boolean(to.branch),selected=branch?branchSelected(to,s):s.done.has(to.ids[0])?true:undefined;
+      const state=selected===undefined?'pending':selected?'chosen':'skipped';
+      const path=branch?`M${a.x+a.w},${a.y+28} H318 V${b.y+28} H${b.x}`:`M${a.x+18},${a.y+a.h} V${b.y}`;
+      return <g key={`${from.id}:${to.id}`} className={`trace-edge is-${state}`} data-testid={`trace-edge-${from.id}-${to.id}`} data-state={state}><path d={path} fill="none" markerEnd={`url(#${marker}-${i})`}/><text x={branch?338:a.x+28} y={branch?b.y-8:a.y+a.h+26}>{arrowLabel(from,to)}</text></g>;
+    })}</svg>{nodes.map(n=>{
+     const p=positions.get(n.id)!;const state=traceNodeState(n,s);
+     const chosen=n.ids.find(id=>id===s.view.id)??n.ids.find(id=>id===s.stop.id)??n.ids.find(id=>s.done.has(id))??n.ids[0];
+     const viewing=viewedNode===n.id;
+     const c=s.byId.get(chosen)!;
+     const sourceLine=n.branch==='missing'?63:n.branch==='duplicate'?77:n.branch==='view-null'?43:n.branch==='status0'?197:n.branch==='status-1'?199:n.branch==='status100'?201:c.line;
+     return <article key={n.id} className={`practice-trace-node grouped-trace-node is-${state}`} style={{left:p.x,top:p.y,width:p.w,minHeight:p.h}} data-testid={`trace-node-${n.id}`} data-state={state} data-checkpoint-id={chosen} data-viewing={viewing}>
+      <button type="button" className="trace-node-main" onClick={()=>inspect(n.id,chosen,c.sourceKind?undefined:sourceLine)}><b>{n.title}</b><span>{c.sourceKind==='ui'?'UI học tập · mô phỏng':c.sourceKind==='request'?'POST /policy/create/{quoteId}':`${c.method} · L${sourceLine}`}</span><em>{labels[state]}{viewing&&state!=='reviewing'?' · Đang xem':''}</em></button>
+      {!n.branch&&<div className="trace-node-checkpoints">{n.ids.map(id=>{const cp=s.byId.get(id)!;return <button type="button" key={id} onClick={()=>inspect(n.id,id)} aria-label={`Xem ${cp.title}${cp.sourceKind?'':` L${cp.line}`}`} aria-current={viewing&&s.view.id===id?'location':undefined} data-checkpoint-id={id} data-current={s.stop.id===id} data-reviewing={viewing&&s.view.id===id&&s.view.id!==s.stop.id}>{s.stop.id===id?'◆ ':s.view.id===id?'● ':''}{cp.sourceKind?'':`L${cp.line} · `}{cp.title}</button>;})}</div>}
+     </article>;
+    })}</div>}
+   </section>;
+ })}</div><p className="practice-trace-help">Bước 4 → 5 qua event. Không suy diễn thứ tự HTTP response và xử lý event ở runtime. Mở rộng chỉ phục vụ xem, không chạy mô phỏng.</p></section>;
 }

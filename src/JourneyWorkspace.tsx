@@ -759,6 +759,10 @@ export function SourceTree({
   label = "Cây thư mục minh họa",
   memoryKey,
   compactFolders = false,
+  fileStatuses,
+  fileLabels,
+  onFileLabelSelect,
+  highlightedFiles,
 }: {
   files: Pick<SourceFile, "id" | "path">[];
   selected: string;
@@ -766,6 +770,10 @@ export function SourceTree({
   label?: string;
   memoryKey?: string;
   compactFolders?: boolean;
+  fileStatuses?: Record<string, 'A' | 'M'>;
+  fileLabels?: Record<string,string>;
+  onFileLabelSelect?: (id:string)=>void;
+  highlightedFiles?: string[];
 }) {
   const [collapsed, setCollapsed] = useState<string[]>(()=>memoryKey?sourceTreeMemory.get(memoryKey)??[]:[]);
   useEffect(()=>{if(memoryKey)sourceTreeMemory.set(memoryKey,collapsed);},[memoryKey,collapsed]);
@@ -804,19 +812,24 @@ export function SourceTree({
           const closed = collapsed.includes(path);
           return (
             <li key={path}>
-              {file ? (
+              {file ? <>
                 <button
                   className={`tree-file ${selected === file.id ? "selected" : ""}`}
                   aria-pressed={selected === file.id}
+                  data-current-round={highlightedFiles?.includes(file.id)||undefined}
+                  title={fileLabels?.[file.id]}
                   onClick={() => onSelect(file.id)}
                 >
                   <FileCode2 size={15} />
                   <span>{name}</span>
+                  {fileStatuses?.[file.id] && <span className="tree-change" data-file-status={fileStatuses[file.id]}>{fileStatuses[file.id]}</span>}
+                  {fileLabels?.[file.id] && !onFileLabelSelect && <small className="session-tree-file-label">{fileLabels[file.id]}</small>}
                   {selected === file.id && (
                     <span className="tree-selected">Đang xem</span>
                   )}
                 </button>
-              ) : (
+                {fileLabels?.[file.id]&&onFileLabelSelect&&<button className="session-tree-file-label session-file-milestone" onClick={()=>onFileLabelSelect(file.id)} aria-label={`${fileLabels[file.id]} · ${name}`}>{fileLabels[file.id]}</button>}
+              </> : (
                 <>
                   <button
                     className="tree-folder"

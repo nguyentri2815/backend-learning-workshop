@@ -2,14 +2,14 @@
   height: 100%;
   min-height: 240px;
   overflow: auto;
-  background: #fcfdff;
+  background: var(--surface);
   outline-offset: -3px;
 }
 .codeLines {
   padding: 18px 0 26px;
   min-width: fit-content;
   font:
-    13px/1.85 Consolas,
+    var(--text-code)/1.9 Consolas,
     "Cascadia Code",
     monospace;
   tab-size: 2;
@@ -25,13 +25,16 @@
   flex: 0 0 34px;
   text-align: right;
   padding-right: 12px;
-  color: #8794a6;
-  font-size: 11px;
+  color: var(--muted);
+  font-size: var(--text-meta);
 }
-.executionMark { flex:0 0 25px; font:10px/25px Consolas,monospace; color:#56819b; user-select:none; }
-.codeLine[data-executed=true] .executionMark { color:#248166; }
-.codeLine[data-upcoming=true] .executionMark { color:#b07d19; }
-.codeLine[data-viewing=true] { border-left-color:#268ac0; }
+.executionMark { flex:0 0 30px; font:11px/25px var(--font-code); color:var(--muted); user-select:none; }
+.codeLine[data-executed=true] .executionMark { color:var(--success); }
+.codeLine[data-upcoming=true] .executionMark { color:var(--accent); }
+.codeLine[data-viewing=true] { background:var(--review-bg); border-left-color:var(--review-border); }
+.codeLine[data-viewing=true] .executionMark { color:var(--review); }
+.codeLine[data-current=true] { background:var(--selected); border-left-color:var(--accent); box-shadow:inset 3px 0 var(--accent); }
+.codeLine[data-current=true] .executionMark { color:var(--accent); }
 .codeLine code {
   white-space: pre;
 }
@@ -46,30 +49,31 @@
   min-width: 0;
 }
 .explained {
-  background: #eaf5fd;
-  border-left-color: #1597cd;
+  background: var(--selected);
+  border-left-color: var(--accent);
 }
 .add {
-  background: #e7f6ed;
+  background: light-dark(#e7f6ed, var(--success-bg));
 }
 .remove {
-  background: #fff0ed;
+  background: light-dark(#fff0ed, var(--error-bg));
 }
 .hunk {
-  color: #697c91;
-  background: #f0f4f8;
+  color: light-dark(#697c91, var(--muted));
+  background: light-dark(#f0f4f8, var(--surface-raised));
 }
 .diffSign {
   width: 22px;
   flex-shrink: 0;
-  color: #607287;
+  color: light-dark(#607287, var(--muted));
 }
 .codeWarning {
   padding: 12px;
-  color: #986617;
+  color: light-dark(#986617, var(--review));
   font-size: 12px;
 }
 .diffLine .lineNumber {
   flex-basis: 25px;
   padding-right: 7px;
 }
+.expressionMark { color: inherit; background: transparent; border-radius: 2px; }

@@ -1,0 +1,36 @@
+import {updateSource} from '../content/policy/update';
+import type {UpdateFlow,UpdateStep,UpdatePoint} from '../content/policy/update';
+import type {LearningComponent,LearningLesson,LearningPattern,LearningHandoff} from './learning-contracts';
+import {readPatternModel} from './read-pattern-model';
+import {simulateUpdate,updateInput} from './update-model';
+import type {Values} from './update-model';
+const raw=(ref:string,from:number,to:number)=>updateSource.sources[ref as keyof typeof updateSource.sources].rows.slice(from-1,to).map(r=>r.text).join('\n');
+function component(point:UpdatePoint):LearningComponent{return {id:point.id,name:point.title,role:point.why,input:'Dữ liệu của lượt mô phỏng ở bảng nguồn',output:point.why,frame:raw(point.ref,point.from,point.to),change:'Giữ đúng ID, điều kiện và các trường thực sự đi qua command → event → apply.',evidence:[{ref:point.ref,from:point.from,to:point.to},...point.supports.map(ref=>({ref}))]};}
+export function updateLesson(flow:UpdateFlow,step:UpdateStep,scenario='success',input:Values=updateInput(flow)):LearningLesson{
+ const run=simulateUpdate(flow,scenario,input),points=flow.points.filter(p=>p.stage===step.id),nodes=points.map(component);
+ const payload=`Policy ID=${run.original.id}; ${['checkout','paid'].includes(flow.id)?`processId=${run.fixture.process.id}; `:''}đầu vào=${JSON.stringify(run.fixture.input)}`;
+ const edges:LearningHandoff[]=flow.pairs.filter(p=>p.stage===step.id).map(e=>({id:e.id,from:e.from,to:e.to,label:e.label,kind:e.kind,data:step.id==='write'?`Policy ID=${run.original.id}; ${e.id==='checkout-model'||e.id==='checkout-write'?JSON.stringify(run.fixture.checkout):JSON.stringify(run.command)}`:step.id==='result'&&e.kind==='event'?`${flow.eventName} · entityId=${run.original.id}; view nhận ID này để đọc Command.`:payload,result:step.output,frame:'',evidence:[e.a,e.b],limit:e.note}));
+ const primary:LearningPattern={id:`${flow.id}-${step.id}`,title:step.title,badge:'Mẫu đang dùng trong flow này',fit:step.situation,input:step.input,output:step.output,grouping:'Giữ riêng điểm kích hoạt, ID, điều kiện và dữ liệu cập nhật của flow.',difference:flow.limits[0]??'Chỉ cập nhật các trường đã xác minh trong event và apply.',nodes,edges,examples:[],limit:flow.limits.join(' ')};
+ const referenceNodes:LearningComponent[]=flow.id==='checkout'?[
+  {id:'ref-caller',name:'Ghi nhận đã trả tiền',role:'Đường khác: xác nhận thanh toán, không phải tạo checkout.',input:'orderNo',output:'processor.paid trước afterPaid',frame:raw('paid',67,70),change:'Không dùng afterPaid để thay checkout.',evidence:[{ref:'paid',from:67,to:70}]},
+  {id:'ref-receiver',name:'afterPaid',role:'Ghi paidTime và trạng thái SP.',input:'Policy ID của process',output:'FinishPolicyCommand',frame:raw('online',71,86),change:'Giữ đúng tác nhân xác nhận đã trả tiền.',evidence:[{ref:'online',from:71,to:86},{ref:'finishEvent'}]},
+ ]:[
+  {id:'ref-caller',name:'Yêu cầu checkout',role:'Tham khảo đường gọi processor đã xác minh.',input:'processId',output:'processor.pay()',frame:raw('pay',68,72),change:'Không thay tác nhân event/tác vụ của flow đang học bằng form checkout.',evidence:[{ref:'pay',from:68,to:72},{ref:'synchronized',from:37,to:40}]},
+  {id:'ref-receiver',name:'Gateway pay',role:'Checkout không phải điều chỉnh hay sửa metadata.',input:'CheckoutInfoModel',output:'URL và process OPEN',frame:raw('processor',209,221),change:'Không sao chép các trường thanh toán vào flow khác.',evidence:[{ref:'processor',from:209,to:221},{ref:'baseProcessor',from:90,to:108}]},
+ ];
+ const reference:LearningPattern={...primary,id:`reference-${flow.id}-${step.id}`,title:flow.id==='checkout'?'Tham khảo · xác nhận đã thanh toán SP':'Tham khảo · ghi checkout cho Policy',badge:'Mẫu tham khảo đã xác minh',fit:'Đối chiếu cách phân chia người gọi, processor/Func và command; giữ tác nhân cùng điều kiện của flow hiện tại.',difference:'Checkout, xác nhận đã trả tiền, quyền và điều chỉnh là các thao tác khác nhau. So sánh kiểu dữ liệu rồi chọn khung phù hợp.',nodes:referenceNodes,edges:[{id:'reference',from:'ref-caller',to:'ref-receiver',label:flow.id==='checkout'?'Sau processor.paid mới gọi afterPaid':'Gọi pay qua lớp khóa',data:flow.id==='checkout'?'orderNo → process.policyIds':'processId → process.policyIds',result:referenceNodes[1].output,kind:'call',frame:'',evidence:flow.id==='checkout'?[{ref:'paid',from:68,to:69},{ref:'online',from:71,to:86}]:[{ref:'synchronized',from:37,to:40},{ref:'processor',from:209,to:221}],limit:'Mẫu đối chiếu; bài triển khai vẫn dùng source và dữ liệu của flow đang chọn.'}]};
+ return {situation:step.situation,input:step.input,output:step.output,patterns:[primary,reference],decisions:step.questions.map((q,i)=>({id:`decision-${i+1}`,shortTitle:q.title,question:q.question,hint:'Đối chiếu các giá trị trong bảng nguồn và điều kiện ở file tương ứng. Mở Tra cứu kỹ thuật nếu cần.',options:[{label:q.correct,fit:'current',fitLabel:'Khớp source đã đọc',consequence:q.feedback},{label:q.wrong,fit:'alternative',fitLabel:'Đối chiếu lại',consequence:q.feedback}],reveal:i===0?nodes.slice(0,2).map(n=>n.id):nodes.map(n=>n.id)}))};
+}
+export function updateDecisionData(flow:UpdateFlow,step:UpdateStep,scenario:string,input:Values,index:number){
+ const run=simulateUpdate(flow,scenario,input),f=run.fixture,rows=[{label:'Tác nhân',value:flow.actor},{label:'Dữ liệu kích hoạt',value:JSON.stringify(input)},{label:'Policy ID',value:String(f.original.id)}];
+ if(step.id==='start')return [...rows,{label:'Cách xác định Policy',value:flow.identity}];
+ if(flow.id==='checkout'||flow.id==='paid')rows.push({label:'Payment process',value:JSON.stringify({id:f.process.id,policyIds:f.process.policyIds,paymentStatus:f.process.paymentStatus,processStatus:f.process.processStatus})},{label:'Policy trước lượt này',value:JSON.stringify({paymentType:f.original.paymentType,status:f.original.status,paymentStatus:f.original.paymentStatus,paymentStatusFromSP:f.original.paymentStatusFromSP,haveEndorsement:f.original.haveEndorsement})});
+ else if(flow.id==='permission'||flow.id==='migration')rows.push({label:'SaleUnit / Quote',value:JSON.stringify({saleUnit:f.source.saleUnit,quote:f.source.quote})},{label:'Đường dẫn trên Policy',value:String(f.original.saleUnitPath)});
+ else if(flow.id==='endorsement')rows.push({label:'Core response · fixture',value:JSON.stringify(f.source.core)});
+ else if(flow.id==='correct')rows.push({label:'Policy.createdDate',value:'null'},{label:'Điều kiện chọn',value:'createdDate IS NULL; order by updatedDate desc'});
+ else rows.push({label:'Policy trước lượt này',value:JSON.stringify({id:f.original.id,viaUploader:f.original.viaUploader,viaUploaderStatus:f.original.viaUploaderStatus})});
+ if(step.id==='write'&&flow.id==='checkout')rows.push({label:'Checkout · hai ID',value:`paymentId=${f.checkout.paymentId}; reqPaymentId=${f.checkout.reqPaymentId}`},{label:'UpdateCheckoutInfoEvent · khai báo',value:'requestId, requestDate, orderNo, type, isOnProcess, checkoutInfoForPolicy, paymentProcessId'});
+ if(step.id==='result'||index>0&&step.id==='write')rows.push({label:'Các nhóm cần đối chiếu',value:flow.changed.join(', ')});
+ return rows;
+}
+export const updatePatternModel=readPatternModel(updateSource.sources,'Cập nhật Policy',{supportNodes:false,columns:2});
